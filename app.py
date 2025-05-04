@@ -18,7 +18,7 @@ llm = LLMHandler()
 # First ensure required directories exist
 os.makedirs('logs', exist_ok=True)
 os.makedirs('database', exist_ok=True)
-
+#read the file 
 # Then configure logging
 logging.basicConfig(
     level=logging.INFO,
