@@ -1811,3 +1811,30 @@ The only number that is not a multiple of 7 is 21, so the correct answer is 1."
 2025-05-03 19:48:38,743 - werkzeug - INFO - 127.0.0.1 - - [03/May/2025 19:48:38] "[36mGET /static/css/style.css HTTP/1.1[0m" 304 -
 2025-05-03 19:48:38,748 - werkzeug - INFO - 127.0.0.1 - - [03/May/2025 19:48:38] "[36mGET /static/js/dashboard.js HTTP/1.1[0m" 304 -
 2025-05-03 19:48:38,790 - werkzeug - INFO - 127.0.0.1 - - [03/May/2025 19:48:38] "GET /api/get_analytics HTTP/1.1" 200 -
+2025-05-03 21:18:19,043 - app - INFO - Database initialized successfully
+2025-05-03 21:18:19,045 - app - INFO - Model configured: mistral:7b-instruct
+2025-05-03 21:18:19,045 - app - INFO - Model configured: dolphin-mistral:latest
+2025-05-03 21:18:19,045 - app - INFO - Model configured: wizard-math:7b
+2025-05-03 21:18:19,046 - app - INFO - Model configured: mistral-openorca:latest
+2025-05-03 21:18:19,107 - werkzeug - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5000
+2025-05-03 21:18:19,107 - werkzeug - INFO - [33mPress CTRL+C to quit[0m
+2025-05-03 21:18:29,027 - werkzeug - INFO - 127.0.0.1 - - [03/May/2025 21:18:29] "GET / HTTP/1.1" 200 -
+2025-05-03 21:18:29,370 - werkzeug - INFO - 127.0.0.1 - - [03/May/2025 21:18:29] "[36mGET /static/css/style.css HTTP/1.1[0m" 304 -
+2025-05-03 21:18:29,546 - werkzeug - INFO - 127.0.0.1 - - [03/May/2025 21:18:29] "[33mGET /favicon.ico HTTP/1.1[0m" 404 -
+2025-05-03 21:18:54,112 - werkzeug - INFO - 127.0.0.1 - - [03/May/2025 21:18:54] "GET /login HTTP/1.1" 200 -
+2025-05-03 21:18:54,159 - werkzeug - INFO - 127.0.0.1 - - [03/May/2025 21:18:54] "[36mGET /static/css/auth.css HTTP/1.1[0m" 304 -
+2025-05-03 21:18:54,180 - werkzeug - INFO - 127.0.0.1 - - [03/May/2025 21:18:54] "[36mGET /static/js/auth.js HTTP/1.1[0m" 304 -
+2025-05-03 21:18:58,099 - werkzeug - INFO - 127.0.0.1 - - [03/May/2025 21:18:58] "GET /signup HTTP/1.1" 200 -
+2025-05-03 21:18:58,148 - werkzeug - INFO - 127.0.0.1 - - [03/May/2025 21:18:58] "[36mGET /static/css/auth.css HTTP/1.1[0m" 304 -
+2025-05-03 21:18:58,159 - werkzeug - INFO - 127.0.0.1 - - [03/May/2025 21:18:58] "[36mGET /static/js/auth.js HTTP/1.1[0m" 304 -
+2025-05-03 21:20:00,776 - app - INFO - New user registered: Kunal
+2025-05-03 21:20:00,781 - werkzeug - INFO - 127.0.0.1 - - [03/May/2025 21:20:00] "POST /signup HTTP/1.1" 200 -
+2025-05-03 21:20:00,824 - werkzeug - INFO - 127.0.0.1 - - [03/May/2025 21:20:00] "GET /dashboard HTTP/1.1" 200 -
+2025-05-03 21:20:00,861 - werkzeug - INFO - 127.0.0.1 - - [03/May/2025 21:20:00] "[36mGET /static/css/style.css HTTP/1.1[0m" 304 -
+2025-05-03 21:20:00,910 - werkzeug - INFO - 127.0.0.1 - - [03/May/2025 21:20:00] "[36mGET /static/js/dashboard.js HTTP/1.1[0m" 304 -
+2025-05-03 21:20:00,953 - werkzeug - INFO - 127.0.0.1 - - [03/May/2025 21:20:00] "GET /api/get_analytics HTTP/1.1" 200 -
+2025-05-03 21:20:40,125 - werkzeug - INFO - 127.0.0.1 - - [03/May/2025 21:20:40] "GET /chatbot?topic=math HTTP/1.1" 200 -
+2025-05-03 21:20:40,160 - werkzeug - INFO - 127.0.0.1 - - [03/May/2025 21:20:40] "[36mGET /static/css/style.css HTTP/1.1[0m" 304 -
+2025-05-03 21:22:18,421 - werkzeug - INFO - 127.0.0.1 - - [03/May/2025 21:22:18] "POST /api/get_questions HTTP/1.1" 200 -
+2025-05-03 21:24:32,855 - modules.llm_handler - WARNING - Attempt 1 failed, retrying in 5 seconds...
