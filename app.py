@@ -11,6 +11,7 @@ from werkzeug.exceptions import HTTPException
 import random
 from modules.llm_handler import LLMHandler
 import json  
+from modules.summarize import Summarizer
 from markupsafe import escape
 import requests
 llm = LLMHandler()
@@ -181,6 +182,7 @@ def init_models():
 
 init_db()
 init_models()
+summarizer = Summarizer()
 
 # Helper Functions
 def validate_email(email):
@@ -583,13 +585,10 @@ def handle_chat():
 def get_analytics():
     if 'user_id' not in session:
         return jsonify({'error': 'Not authenticated'}), 401
-    
     try:
         with get_db_connection() as conn:
             conn.row_factory = sqlite3.Row
             cursor = conn.cursor()
-            
-            # Get progress data by subject
             cursor.execute('''
                 SELECT topic, 
                        SUM(correct_count) as correct_count,
@@ -600,8 +599,6 @@ def get_analytics():
                 GROUP BY topic
             ''', (session['user_id'],))
             progress_data = [dict(row) for row in cursor.fetchall()]
-            
-            # Get recent interactions
             cursor.execute('''
                 SELECT topic, question, answer, is_correct, response_time, timestamp
                 FROM interactions
@@ -610,14 +607,24 @@ def get_analytics():
                 LIMIT 10
             ''', (session['user_id'],))
             recent_interactions = [dict(row) for row in cursor.fetchall()]
-        
         return jsonify({
             'progress': progress_data,
             'recent_interactions': recent_interactions
         })
-        
     except Exception as e:
         logger.error(f"Analytics error: {str(e)}")
+        return jsonify({'error': str(e)}), 500
+
+@app.route('/api/summarize', methods=['POST'])
+def summarize_text():
+    try:
+        data = request.get_json()
+        text = data.get('text', '')
+        max_length = data.get('length', 50)
+        summary = summarizer.summarize(text, max_length)
+        return jsonify({'summary': summary})
+    except Exception as e:
+        logger.error(f"Summarization error: {str(e)}")
         return jsonify({'error': str(e)}), 500
       
 # Error Handlers

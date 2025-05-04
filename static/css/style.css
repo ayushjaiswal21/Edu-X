@@ -682,3 +682,74 @@ a:hover {
         max-width: 90%;
     }
 }
+
+/* Text Summarizer Section */
+.text-summarizer {
+    background-color: #ffffff; /* White background for contrast */
+    border: 1px solid #ddd; /* Subtle border */
+    border-radius: 8px; /* Rounded corners */
+    padding: 20px; /* Inner spacing */
+    margin-top: 20px; /* Spacing from other sections */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+}
+
+.text-summarizer h2 {
+    font-size: 1.5rem; /* Larger heading size */
+    font-weight: 600; /* Bold heading */
+    margin-bottom: 15px; /* Spacing below heading */
+    color: #333; /* Dark text color */
+}
+
+.text-summarizer textarea {
+    width: 100%; /* Full width */
+    height: 120px; /* Fixed height */
+    border: 1px solid #ccc; /* Border color */
+    border-radius: 4px; /* Rounded corners */
+    padding: 10px; /* Inner padding */
+    font-size: 14px; /* Font size */
+    font-family: 'Roboto', sans-serif; /* Font family */
+    resize: vertical; /* Allow vertical resizing */
+    margin-bottom: 15px; /* Spacing below textarea */
+}
+
+.text-summarizer label {
+    font-size: 14px; /* Label font size */
+    font-weight: 500; /* Slightly bold */
+    margin-right: 10px; /* Spacing between label and input */
+    color: #555; /* Subtle text color */
+}
+
+.text-summarizer select,
+.text-summarizer input[type="number"] {
+    padding: 8px; /* Inner padding */
+    border: 1px solid #ccc; /* Border color */
+    border-radius: 4px; /* Rounded corners */
+    font-size: 14px; /* Font size */
+    margin-bottom: 15px; /* Spacing below inputs */
+}
+
+.text-summarizer button {
+    background-color: #007bff; /* Primary button color */
+    color: #fff; /* White text */
+    border: none; /* Remove border */
+    border-radius: 4px; /* Rounded corners */
+    padding: 10px 20px; /* Button padding */
+    font-size: 14px; /* Font size */
+    cursor: pointer; /* Pointer cursor on hover */
+    transition: background-color 0.3s ease; /* Smooth hover effect */
+}
+
+.text-summarizer button:hover {
+    background-color: #0056b3; /* Darker shade on hover */
+}
+
+.text-summarizer #summaryOutput {
+    margin-top: 20px; /* Spacing above output */
+    padding: 15px; /* Inner padding */
+    background-color: #f8f9fa; /* Light gray background */
+    border: 1px solid #ddd; /* Border color */
+    border-radius: 4px; /* Rounded corners */
+    font-size: 14px; /* Font size */
+    font-family: 'Roboto', sans-serif; /* Font family */
+    color: #333; /* Text color */
+}

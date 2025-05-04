@@ -284,18 +284,12 @@
             function appendMessage(sender, content, extraClass = '') {
                 const messageDiv = document.createElement('div');
                 messageDiv.className = `message ${sender} ${extraClass}`;
-                
                 const contentDiv = document.createElement('div');
                 contentDiv.className = 'message-content';
                 contentDiv.innerHTML = content;
-                
                 messageDiv.appendChild(contentDiv);
                 chatbox.appendChild(messageDiv);
-                
-                // Scroll to bottom after a slight delay
-                setTimeout(() => {
-                    chatbox.scrollTop = chatbox.scrollHeight;
-                }, 100); // Delay ensures DOM is updated
+                chatbox.scrollTop = chatbox.scrollHeight; // Ensures the chatbox scrolls to the bottom
             }
         });
     </script>

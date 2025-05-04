@@ -65,10 +65,29 @@
                     </div>
                 </div>
             </section>
+
+            <section class="text-summarizer">
+                <h2>Text Summarizer</h2>
+                <textarea id="textInput" placeholder="Enter or paste your text here..."></textarea>
+                <div>
+                    <label for="difficulty">Difficulty:</label>
+                    <select id="difficulty">
+                        <option value="easy">Easy</option>
+                        <option value="medium">Medium</option>
+                        <option value="hard">Hard</option>
+                    </select>
+                </div>
+                <div>
+                    <label for="length">Length:</label>
+                    <input type="number" id="length" min="1" max="100">
+                </div>
+                <button id="summarizeBtn">Summarize</button>
+                <div id="summaryOutput"></div>
+            </section>
         </main>
         
         <footer>
-            <p>© 2025 Educational AI Chatbot Platform</p>
+            <p>EDUX Learning Platform</p>
         </footer>
     </div>
 

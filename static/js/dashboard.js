@@ -36,29 +36,6 @@ document.addEventListener('DOMContentLoaded', function () {
                 showError('Failed to load analytics data');
             });
     }
-    // Load analytics
-
-    function loadAnalytics() {
-        fetch('/api/get_analytics')
-            .then(response => {
-                if (!response.ok) {
-                    throw new Error('Network response was not ok');
-                }
-                return response.json();
-            })
-            .then(data => {
-                if (data.progress && data.recent_interactions) {
-                    renderCharts(data.progress);
-                    renderRecentActivity(data.recent_interactions);
-                } else {
-                    showError('No analytics data available');
-                }
-            })
-            .catch(error => {
-                console.error('Error loading analytics:', error);
-                showError('Failed to load analytics data');
-            });
-    }
 
     function showError(message) {
         document.querySelector('.charts-container').innerHTML = `
@@ -68,6 +45,7 @@ document.addEventListener('DOMContentLoaded', function () {
         </div>
     `;
     }
+
     // Render charts
     function renderCharts(progressData) {
         if (progressData.length === 0) {
@@ -231,4 +209,25 @@ document.addEventListener('DOMContentLoaded', function () {
         if (text.length <= maxLength) return text;
         return text.slice(0, maxLength) + '...';
     }
+
+    // Event listener for text summarizer
+    document.getElementById('summarizeBtn').addEventListener('click', function() {
+        const text = document.getElementById('textInput').value;
+        const length = document.getElementById('length').value;
+        fetch('/api/summarize', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify({ text, length })
+        })
+        .then(response => response.json())
+        .then(data => {
+            document.getElementById('summaryOutput').innerText = data.summary;
+        })
+        .catch(error => {
+            console.error('Error:', error);
+            document.getElementById('summaryOutput').innerText = 'Error processing the text.';
+        });
+    });
 });
