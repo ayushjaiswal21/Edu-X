@@ -2079,3 +2079,92 @@ The only number that is not a multiple of 7 is 21, so the correct answer is 1."
 2025-05-04 12:58:31,991 - werkzeug - INFO - 127.0.0.1 - - [04/May/2025 12:58:31] "[36mGET /static/css/style.css HTTP/1.1[0m" 304 -
 2025-05-04 12:58:32,002 - werkzeug - INFO - 127.0.0.1 - - [04/May/2025 12:58:32] "[36mGET /static/js/dashboard.js HTTP/1.1[0m" 304 -
 2025-05-04 12:58:32,110 - werkzeug - INFO - 127.0.0.1 - - [04/May/2025 12:58:32] "GET /api/get_analytics HTTP/1.1" 200 -
+2025-05-04 15:24:07,690 - app - INFO - Database initialized successfully
+2025-05-04 15:24:07,690 - app - INFO - Model configured: mistral:7b-instruct
+2025-05-04 15:24:07,691 - app - INFO - Model configured: dolphin-mistral:latest
+2025-05-04 15:24:07,691 - app - INFO - Model configured: wizard-math:7b
+2025-05-04 15:24:07,691 - app - INFO - Model configured: mistral-openorca:latest
+2025-05-04 15:24:07,722 - werkzeug - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5000
+2025-05-04 15:24:07,722 - werkzeug - INFO - [33mPress CTRL+C to quit[0m
+2025-05-04 15:24:18,375 - werkzeug - INFO - 127.0.0.1 - - [04/May/2025 15:24:18] "GET / HTTP/1.1" 200 -
+2025-05-04 15:24:18,741 - werkzeug - INFO - 127.0.0.1 - - [04/May/2025 15:24:18] "[36mGET /static/css/style.css HTTP/1.1[0m" 304 -
+2025-05-04 15:24:18,829 - werkzeug - INFO - 127.0.0.1 - - [04/May/2025 15:24:18] "[33mGET /favicon.ico HTTP/1.1[0m" 404 -
+2025-05-04 15:24:20,395 - werkzeug - INFO - 127.0.0.1 - - [04/May/2025 15:24:20] "GET /login HTTP/1.1" 200 -
+2025-05-04 15:24:20,423 - werkzeug - INFO - 127.0.0.1 - - [04/May/2025 15:24:20] "[36mGET /static/css/auth.css HTTP/1.1[0m" 304 -
+2025-05-04 15:24:20,423 - werkzeug - INFO - 127.0.0.1 - - [04/May/2025 15:24:20] "[36mGET /static/js/auth.js HTTP/1.1[0m" 304 -
+2025-05-04 15:24:23,494 - app - INFO - User logged in: ayush
+2025-05-04 15:24:23,495 - werkzeug - INFO - 127.0.0.1 - - [04/May/2025 15:24:23] "POST /login HTTP/1.1" 200 -
+2025-05-04 15:24:23,517 - werkzeug - INFO - 127.0.0.1 - - [04/May/2025 15:24:23] "GET /dashboard HTTP/1.1" 200 -
+2025-05-04 15:24:23,540 - werkzeug - INFO - 127.0.0.1 - - [04/May/2025 15:24:23] "[36mGET /static/css/style.css HTTP/1.1[0m" 304 -
+2025-05-04 15:24:23,544 - werkzeug - INFO - 127.0.0.1 - - [04/May/2025 15:24:23] "[36mGET /static/js/dashboard.js HTTP/1.1[0m" 304 -
+2025-05-04 15:24:23,613 - werkzeug - INFO - 127.0.0.1 - - [04/May/2025 15:24:23] "GET /api/get_analytics HTTP/1.1" 200 -
+2025-05-04 15:24:35,285 - werkzeug - INFO - 127.0.0.1 - - [04/May/2025 15:24:35] "GET /chatbot?topic=math HTTP/1.1" 200 -
+2025-05-04 15:24:35,305 - werkzeug - INFO - 127.0.0.1 - - [04/May/2025 15:24:35] "[36mGET /static/css/style.css HTTP/1.1[0m" 304 -
+2025-05-04 15:24:35,333 - modules.llm_handler - WARNING - Ollama server is not available. Cannot generate response.
+2025-05-04 15:24:35,334 - app - ERROR - LLM request failed: No JSON block found in the response
+2025-05-04 15:24:35,335 - werkzeug - INFO - 127.0.0.1 - - [04/May/2025 15:24:35] "[35m[1mPOST /api/get_questions HTTP/1.1[0m" 500 -
+2025-05-04 15:25:20,694 - werkzeug - INFO - 127.0.0.1 - - [04/May/2025 15:25:20] "GET /chatbot?topic=history HTTP/1.1" 200 -
+2025-05-04 15:25:20,720 - werkzeug - INFO - 127.0.0.1 - - [04/May/2025 15:25:20] "[36mGET /static/css/style.css HTTP/1.1[0m" 304 -
+2025-05-04 15:25:20,735 - modules.llm_handler - WARNING - Ollama server is not available. Cannot generate response.
+2025-05-04 15:25:20,736 - app - ERROR - LLM request failed: No JSON block found in the response
+2025-05-04 15:25:20,736 - werkzeug - INFO - 127.0.0.1 - - [04/May/2025 15:25:20] "[35m[1mPOST /api/get_questions HTTP/1.1[0m" 500 -
+2025-05-04 15:25:23,332 - werkzeug - INFO - 127.0.0.1 - - [04/May/2025 15:25:23] "GET /chatbot?topic=english HTTP/1.1" 200 -
+2025-05-04 15:25:23,358 - werkzeug - INFO - 127.0.0.1 - - [04/May/2025 15:25:23] "[36mGET /static/css/style.css HTTP/1.1[0m" 304 -
+2025-05-04 15:25:23,375 - modules.llm_handler - WARNING - Ollama server is not available. Cannot generate response.
+2025-05-04 15:25:23,375 - app - ERROR - LLM request failed: No JSON block found in the response
+2025-05-04 15:25:23,375 - werkzeug - INFO - 127.0.0.1 - - [04/May/2025 15:25:23] "[35m[1mPOST /api/get_questions HTTP/1.1[0m" 500 -
+2025-05-04 15:25:26,382 - werkzeug - INFO - 127.0.0.1 - - [04/May/2025 15:25:26] "GET /chatbot?topic=gk HTTP/1.1" 200 -
+2025-05-04 15:25:26,405 - werkzeug - INFO - 127.0.0.1 - - [04/May/2025 15:25:26] "[36mGET /static/css/style.css HTTP/1.1[0m" 304 -
+2025-05-04 15:25:26,417 - modules.llm_handler - WARNING - Ollama server is not available. Cannot generate response.
+2025-05-04 15:25:26,417 - app - ERROR - LLM request failed: No JSON block found in the response
+2025-05-04 15:25:26,417 - werkzeug - INFO - 127.0.0.1 - - [04/May/2025 15:25:26] "[35m[1mPOST /api/get_questions HTTP/1.1[0m" 500 -
+2025-05-04 15:26:01,152 - app - INFO - Database initialized successfully
+2025-05-04 15:26:01,152 - app - INFO - Model configured: mistral:7b-instruct
+2025-05-04 15:26:01,153 - app - INFO - Model configured: dolphin-mistral:latest
+2025-05-04 15:26:01,153 - app - INFO - Model configured: wizard-math:7b
+2025-05-04 15:26:01,153 - app - INFO - Model configured: mistral-openorca:latest
+2025-05-04 15:26:01,164 - werkzeug - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5000
+2025-05-04 15:26:01,165 - werkzeug - INFO - [33mPress CTRL+C to quit[0m
+2025-05-04 15:26:05,127 - werkzeug - INFO - 127.0.0.1 - - [04/May/2025 15:26:05] "GET / HTTP/1.1" 200 -
+2025-05-04 15:26:05,254 - werkzeug - INFO - 127.0.0.1 - - [04/May/2025 15:26:05] "[36mGET /static/css/style.css HTTP/1.1[0m" 304 -
+2025-05-04 15:26:06,273 - werkzeug - INFO - 127.0.0.1 - - [04/May/2025 15:26:06] "GET /login HTTP/1.1" 200 -
+2025-05-04 15:26:06,314 - werkzeug - INFO - 127.0.0.1 - - [04/May/2025 15:26:06] "[36mGET /static/css/auth.css HTTP/1.1[0m" 304 -
+2025-05-04 15:26:06,319 - werkzeug - INFO - 127.0.0.1 - - [04/May/2025 15:26:06] "[36mGET /static/js/auth.js HTTP/1.1[0m" 304 -
+2025-05-04 15:26:07,565 - app - INFO - User logged in: ayush
+2025-05-04 15:26:07,566 - werkzeug - INFO - 127.0.0.1 - - [04/May/2025 15:26:07] "POST /login HTTP/1.1" 200 -
+2025-05-04 15:26:07,587 - werkzeug - INFO - 127.0.0.1 - - [04/May/2025 15:26:07] "GET /dashboard HTTP/1.1" 200 -
+2025-05-04 15:26:07,608 - werkzeug - INFO - 127.0.0.1 - - [04/May/2025 15:26:07] "[36mGET /static/css/style.css HTTP/1.1[0m" 304 -
+2025-05-04 15:26:07,613 - werkzeug - INFO - 127.0.0.1 - - [04/May/2025 15:26:07] "[36mGET /static/js/dashboard.js HTTP/1.1[0m" 304 -
+2025-05-04 15:26:07,678 - werkzeug - INFO - 127.0.0.1 - - [04/May/2025 15:26:07] "GET /api/get_analytics HTTP/1.1" 200 -
+2025-05-04 15:26:08,572 - werkzeug - INFO - 127.0.0.1 - - [04/May/2025 15:26:08] "GET /chatbot?topic=science HTTP/1.1" 200 -
+2025-05-04 15:26:08,594 - werkzeug - INFO - 127.0.0.1 - - [04/May/2025 15:26:08] "[36mGET /static/css/style.css HTTP/1.1[0m" 304 -
+2025-05-04 15:28:02,034 - app - WARNING - Correct answer not in options. Adjusting response.
+2025-05-04 15:28:02,034 - werkzeug - INFO - 127.0.0.1 - - [04/May/2025 15:28:02] "POST /api/get_questions HTTP/1.1" 200 -
+2025-05-04 15:30:24,714 - modules.llm_handler - WARNING - Attempt 1 failed, retrying in 5 seconds...
+2025-05-04 15:31:21,843 - app - INFO - Database initialized successfully
+2025-05-04 15:31:21,843 - app - INFO - Model configured: wizard-math:7b
+2025-05-04 15:31:21,843 - app - INFO - Model configured: mistral-openorca:latest
+2025-05-04 15:31:21,844 - app - INFO - Model configured: mistral:7b-instruct
+2025-05-04 15:31:21,844 - app - INFO - Model configured: dolphin-mistral:latest
+2025-05-04 15:31:21,882 - werkzeug - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5000
+2025-05-04 15:31:21,883 - werkzeug - INFO - [33mPress CTRL+C to quit[0m
+2025-05-04 15:31:24,406 - werkzeug - INFO - 127.0.0.1 - - [04/May/2025 15:31:24] "GET / HTTP/1.1" 200 -
+2025-05-04 15:31:24,563 - werkzeug - INFO - 127.0.0.1 - - [04/May/2025 15:31:24] "[36mGET /static/css/style.css HTTP/1.1[0m" 304 -
+2025-05-04 15:31:25,494 - werkzeug - INFO - 127.0.0.1 - - [04/May/2025 15:31:25] "GET /login HTTP/1.1" 200 -
+2025-05-04 15:31:25,522 - werkzeug - INFO - 127.0.0.1 - - [04/May/2025 15:31:25] "[36mGET /static/css/auth.css HTTP/1.1[0m" 304 -
+2025-05-04 15:31:25,539 - werkzeug - INFO - 127.0.0.1 - - [04/May/2025 15:31:25] "[36mGET /static/js/auth.js HTTP/1.1[0m" 304 -
+2025-05-04 15:31:26,717 - app - INFO - User logged in: ayush
+2025-05-04 15:31:26,717 - werkzeug - INFO - 127.0.0.1 - - [04/May/2025 15:31:26] "POST /login HTTP/1.1" 200 -
+2025-05-04 15:31:26,743 - werkzeug - INFO - 127.0.0.1 - - [04/May/2025 15:31:26] "GET /dashboard HTTP/1.1" 200 -
+2025-05-04 15:31:26,786 - werkzeug - INFO - 127.0.0.1 - - [04/May/2025 15:31:26] "[36mGET /static/css/style.css HTTP/1.1[0m" 304 -
+2025-05-04 15:31:26,791 - werkzeug - INFO - 127.0.0.1 - - [04/May/2025 15:31:26] "[36mGET /static/js/dashboard.js HTTP/1.1[0m" 304 -
+2025-05-04 15:31:26,823 - werkzeug - INFO - 127.0.0.1 - - [04/May/2025 15:31:26] "GET /api/get_analytics HTTP/1.1" 200 -
+2025-05-04 15:31:28,093 - werkzeug - INFO - 127.0.0.1 - - [04/May/2025 15:31:28] "GET /chatbot?topic=science HTTP/1.1" 200 -
+2025-05-04 15:31:28,127 - werkzeug - INFO - 127.0.0.1 - - [04/May/2025 15:31:28] "[36mGET /static/css/style.css HTTP/1.1[0m" 304 -
+2025-05-04 15:32:41,413 - werkzeug - INFO - 127.0.0.1 - - [04/May/2025 15:32:41] "POST /api/get_questions HTTP/1.1" 200 -
+2025-05-04 15:34:53,484 - modules.llm_handler - WARNING - Attempt 1 failed, retrying in 5 seconds...
+2025-05-04 15:36:24,477 - modules.llm_handler - ERROR - Response formatting failed: No JSON block found in the response
+2025-05-04 15:36:24,495 - werkzeug - INFO - 127.0.0.1 - - [04/May/2025 15:36:24] "POST /api/chat HTTP/1.1" 200 -
