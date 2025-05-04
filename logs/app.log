@@ -1968,3 +1968,22 @@ The only number that is not a multiple of 7 is 21, so the correct answer is 1."
 2025-05-04 11:27:32,768 - werkzeug - INFO - 127.0.0.1 - - [04/May/2025 11:27:32] "[36mGET /static/css/style.css HTTP/1.1[0m" 304 -
 2025-05-04 11:27:32,782 - werkzeug - INFO - 127.0.0.1 - - [04/May/2025 11:27:32] "[36mGET /static/js/dashboard.js HTTP/1.1[0m" 304 -
 2025-05-04 11:27:32,848 - werkzeug - INFO - 127.0.0.1 - - [04/May/2025 11:27:32] "GET /api/get_analytics HTTP/1.1" 200 -
+2025-05-04 11:51:15,881 - app - INFO - Database initialized successfully
+2025-05-04 11:51:15,881 - app - INFO - Model configured: mistral-openorca:latest
+2025-05-04 11:51:15,881 - app - INFO - Model configured: dolphin-mistral:latest
+2025-05-04 11:51:15,881 - app - INFO - Model configured: wizard-math:7b
+2025-05-04 11:51:15,882 - app - INFO - Model configured: mistral:7b-instruct
+2025-05-04 11:51:15,948 - werkzeug - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5000
+2025-05-04 11:51:15,949 - werkzeug - INFO - [33mPress CTRL+C to quit[0m
+2025-05-04 11:51:19,128 - werkzeug - INFO - 127.0.0.1 - - [04/May/2025 11:51:19] "GET / HTTP/1.1" 200 -
+2025-05-04 11:51:19,410 - werkzeug - INFO - 127.0.0.1 - - [04/May/2025 11:51:19] "[36mGET /static/css/style.css HTTP/1.1[0m" 304 -
+2025-05-04 11:51:20,513 - werkzeug - INFO - 127.0.0.1 - - [04/May/2025 11:51:20] "GET /login HTTP/1.1" 200 -
+2025-05-04 11:51:20,550 - werkzeug - INFO - 127.0.0.1 - - [04/May/2025 11:51:20] "[36mGET /static/css/auth.css HTTP/1.1[0m" 304 -
+2025-05-04 11:51:20,555 - werkzeug - INFO - 127.0.0.1 - - [04/May/2025 11:51:20] "[36mGET /static/js/auth.js HTTP/1.1[0m" 304 -
+2025-05-04 11:51:22,045 - app - INFO - User logged in: ayush
+2025-05-04 11:51:22,046 - werkzeug - INFO - 127.0.0.1 - - [04/May/2025 11:51:22] "POST /login HTTP/1.1" 200 -
+2025-05-04 11:51:22,069 - werkzeug - INFO - 127.0.0.1 - - [04/May/2025 11:51:22] "GET /dashboard HTTP/1.1" 200 -
+2025-05-04 11:51:22,112 - werkzeug - INFO - 127.0.0.1 - - [04/May/2025 11:51:22] "[36mGET /static/css/style.css HTTP/1.1[0m" 304 -
+2025-05-04 11:51:22,116 - werkzeug - INFO - 127.0.0.1 - - [04/May/2025 11:51:22] "[36mGET /static/js/dashboard.js HTTP/1.1[0m" 304 -
+2025-05-04 11:51:22,217 - werkzeug - INFO - 127.0.0.1 - - [04/May/2025 11:51:22] "GET /api/get_analytics HTTP/1.1" 200 -

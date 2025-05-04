@@ -406,6 +406,8 @@ def chatbot():
 
 @app.route('/api/get_questions', methods=['POST'])
 def get_questions():
+    if not llm:
+        return jsonify({"error": "Ollama server is not available. Questions cannot be generated at this time."}), 503
     try:
         # Validate input
         if not request.is_json:
@@ -509,6 +511,10 @@ Format as JSON with these exact keys: question, options, correct_answer, explana
 
 @app.route('/api/chat', methods=['POST'])
 def handle_chat():
+    if not llm:
+        return jsonify({'error': 'Ollama server is not available. Chat functionality is disabled.'}), 503
+
+    # Existing logic for handling chat...
     if 'user_id' not in session:
         return jsonify({'error': 'Not authenticated'}), 401
     
