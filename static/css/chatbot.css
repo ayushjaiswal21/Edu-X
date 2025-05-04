@@ -49,6 +49,17 @@
     margin-bottom: 1rem;
 }
 
+.chatbox {
+    flex-grow: 1;
+    padding: 1rem;
+    overflow-y: auto;
+    background-color: #ffffff;
+    border-radius: 8px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    margin-bottom: 1rem;
+    scroll-behavior: smooth; /* Add this for smooth scrolling */
+}
+
 .user-input {
     display: flex;
     gap: 0.5rem;

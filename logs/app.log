@@ -1987,3 +1987,95 @@ The only number that is not a multiple of 7 is 21, so the correct answer is 1."
 2025-05-04 11:51:22,112 - werkzeug - INFO - 127.0.0.1 - - [04/May/2025 11:51:22] "[36mGET /static/css/style.css HTTP/1.1[0m" 304 -
 2025-05-04 11:51:22,116 - werkzeug - INFO - 127.0.0.1 - - [04/May/2025 11:51:22] "[36mGET /static/js/dashboard.js HTTP/1.1[0m" 304 -
 2025-05-04 11:51:22,217 - werkzeug - INFO - 127.0.0.1 - - [04/May/2025 11:51:22] "GET /api/get_analytics HTTP/1.1" 200 -
+2025-05-04 11:57:53,103 - app - INFO - Database initialized successfully
+2025-05-04 11:57:53,104 - app - INFO - Model configured: wizard-math:7b
+2025-05-04 11:57:53,104 - app - INFO - Model configured: dolphin-mistral:latest
+2025-05-04 11:57:53,105 - app - INFO - Model configured: mistral:7b-instruct
+2025-05-04 11:57:53,105 - app - INFO - Model configured: mistral-openorca:latest
+2025-05-04 11:57:53,121 - werkzeug - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5000
+2025-05-04 11:57:53,121 - werkzeug - INFO - [33mPress CTRL+C to quit[0m
+2025-05-04 11:58:10,939 - werkzeug - INFO - 127.0.0.1 - - [04/May/2025 11:58:10] "GET / HTTP/1.1" 200 -
+2025-05-04 11:58:11,074 - werkzeug - INFO - 127.0.0.1 - - [04/May/2025 11:58:11] "GET /static/css/style.css HTTP/1.1" 200 -
+2025-05-04 11:58:12,634 - werkzeug - INFO - 127.0.0.1 - - [04/May/2025 11:58:12] "GET /login HTTP/1.1" 200 -
+2025-05-04 11:58:12,668 - werkzeug - INFO - 127.0.0.1 - - [04/May/2025 11:58:12] "GET /static/css/auth.css HTTP/1.1" 200 -
+2025-05-04 11:58:12,680 - werkzeug - INFO - 127.0.0.1 - - [04/May/2025 11:58:12] "GET /static/js/auth.js HTTP/1.1" 200 -
+2025-05-04 11:58:14,745 - app - INFO - User logged in: ayush
+2025-05-04 11:58:14,746 - werkzeug - INFO - 127.0.0.1 - - [04/May/2025 11:58:14] "POST /login HTTP/1.1" 200 -
+2025-05-04 11:58:14,790 - werkzeug - INFO - 127.0.0.1 - - [04/May/2025 11:58:14] "GET /dashboard HTTP/1.1" 200 -
+2025-05-04 11:58:14,824 - werkzeug - INFO - 127.0.0.1 - - [04/May/2025 11:58:14] "[36mGET /static/css/style.css HTTP/1.1[0m" 304 -
+2025-05-04 11:58:14,905 - werkzeug - INFO - 127.0.0.1 - - [04/May/2025 11:58:14] "GET /static/js/dashboard.js HTTP/1.1" 200 -
+2025-05-04 11:58:14,914 - werkzeug - INFO - 127.0.0.1 - - [04/May/2025 11:58:14] "GET /api/get_analytics HTTP/1.1" 200 -
+2025-05-04 12:32:29,636 - app - INFO - Database initialized successfully
+2025-05-04 12:32:29,637 - app - INFO - Model configured: mistral-openorca:latest
+2025-05-04 12:32:29,638 - app - INFO - Model configured: wizard-math:7b
+2025-05-04 12:32:29,639 - app - INFO - Model configured: dolphin-mistral:latest
+2025-05-04 12:32:29,640 - app - INFO - Model configured: mistral:7b-instruct
+2025-05-04 12:32:29,683 - werkzeug - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5000
+2025-05-04 12:32:29,683 - werkzeug - INFO - [33mPress CTRL+C to quit[0m
+2025-05-04 12:32:33,571 - werkzeug - INFO - 127.0.0.1 - - [04/May/2025 12:32:33] "GET / HTTP/1.1" 200 -
+2025-05-04 12:32:33,706 - werkzeug - INFO - 127.0.0.1 - - [04/May/2025 12:32:33] "[36mGET /static/css/style.css HTTP/1.1[0m" 304 -
+2025-05-04 12:32:39,495 - werkzeug - INFO - 127.0.0.1 - - [04/May/2025 12:32:39] "GET /login HTTP/1.1" 200 -
+2025-05-04 12:32:39,536 - werkzeug - INFO - 127.0.0.1 - - [04/May/2025 12:32:39] "[36mGET /static/css/auth.css HTTP/1.1[0m" 304 -
+2025-05-04 12:32:39,541 - werkzeug - INFO - 127.0.0.1 - - [04/May/2025 12:32:39] "[36mGET /static/js/auth.js HTTP/1.1[0m" 304 -
+2025-05-04 12:32:42,146 - app - INFO - User logged in: ayush
+2025-05-04 12:32:42,147 - werkzeug - INFO - 127.0.0.1 - - [04/May/2025 12:32:42] "POST /login HTTP/1.1" 200 -
+2025-05-04 12:32:42,169 - werkzeug - INFO - 127.0.0.1 - - [04/May/2025 12:32:42] "GET /dashboard HTTP/1.1" 200 -
+2025-05-04 12:32:42,192 - werkzeug - INFO - 127.0.0.1 - - [04/May/2025 12:32:42] "[36mGET /static/css/style.css HTTP/1.1[0m" 304 -
+2025-05-04 12:32:42,197 - werkzeug - INFO - 127.0.0.1 - - [04/May/2025 12:32:42] "[36mGET /static/js/dashboard.js HTTP/1.1[0m" 304 -
+2025-05-04 12:32:42,216 - werkzeug - INFO - 127.0.0.1 - - [04/May/2025 12:32:42] "GET /api/get_analytics HTTP/1.1" 200 -
+2025-05-04 12:44:18,418 - app - INFO - Database initialized successfully
+2025-05-04 12:44:18,419 - app - INFO - Model configured: dolphin-mistral:latest
+2025-05-04 12:44:18,419 - app - INFO - Model configured: wizard-math:7b
+2025-05-04 12:44:18,420 - app - INFO - Model configured: mistral-openorca:latest
+2025-05-04 12:44:18,420 - app - INFO - Model configured: mistral:7b-instruct
+2025-05-04 12:44:18,439 - werkzeug - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5000
+2025-05-04 12:44:18,440 - werkzeug - INFO - [33mPress CTRL+C to quit[0m
+2025-05-04 12:44:20,983 - werkzeug - INFO - 127.0.0.1 - - [04/May/2025 12:44:20] "GET / HTTP/1.1" 200 -
+2025-05-04 12:44:21,140 - werkzeug - INFO - 127.0.0.1 - - [04/May/2025 12:44:21] "[36mGET /static/css/style.css HTTP/1.1[0m" 304 -
+2025-05-04 12:44:22,181 - werkzeug - INFO - 127.0.0.1 - - [04/May/2025 12:44:22] "GET /login HTTP/1.1" 200 -
+2025-05-04 12:44:22,224 - werkzeug - INFO - 127.0.0.1 - - [04/May/2025 12:44:22] "[36mGET /static/css/auth.css HTTP/1.1[0m" 304 -
+2025-05-04 12:44:22,231 - werkzeug - INFO - 127.0.0.1 - - [04/May/2025 12:44:22] "[36mGET /static/js/auth.js HTTP/1.1[0m" 304 -
+2025-05-04 12:44:23,668 - app - INFO - User logged in: ayush
+2025-05-04 12:44:23,669 - werkzeug - INFO - 127.0.0.1 - - [04/May/2025 12:44:23] "POST /login HTTP/1.1" 200 -
+2025-05-04 12:44:23,691 - werkzeug - INFO - 127.0.0.1 - - [04/May/2025 12:44:23] "GET /dashboard HTTP/1.1" 200 -
+2025-05-04 12:44:23,715 - werkzeug - INFO - 127.0.0.1 - - [04/May/2025 12:44:23] "[36mGET /static/css/style.css HTTP/1.1[0m" 304 -
+2025-05-04 12:44:23,719 - werkzeug - INFO - 127.0.0.1 - - [04/May/2025 12:44:23] "[36mGET /static/js/dashboard.js HTTP/1.1[0m" 304 -
+2025-05-04 12:44:23,812 - werkzeug - INFO - 127.0.0.1 - - [04/May/2025 12:44:23] "GET /api/get_analytics HTTP/1.1" 200 -
+2025-05-04 12:44:28,207 - werkzeug - INFO - 127.0.0.1 - - [04/May/2025 12:44:28] "GET /chatbot?topic=english HTTP/1.1" 200 -
+2025-05-04 12:44:28,230 - werkzeug - INFO - 127.0.0.1 - - [04/May/2025 12:44:28] "[36mGET /static/css/style.css HTTP/1.1[0m" 304 -
+2025-05-04 12:45:57,032 - werkzeug - INFO - 127.0.0.1 - - [04/May/2025 12:45:57] "POST /api/get_questions HTTP/1.1" 200 -
+2025-05-04 12:48:40,361 - modules.llm_handler - ERROR - Response formatting failed: No JSON block found in the response
+2025-05-04 12:48:40,380 - werkzeug - INFO - 127.0.0.1 - - [04/May/2025 12:48:40] "POST /api/chat HTTP/1.1" 200 -
+2025-05-04 12:49:59,249 - werkzeug - INFO - 127.0.0.1 - - [04/May/2025 12:49:59] "POST /api/get_questions HTTP/1.1" 200 -
+2025-05-04 12:52:28,665 - app - INFO - Database initialized successfully
+2025-05-04 12:52:28,666 - app - INFO - Model configured: wizard-math:7b
+2025-05-04 12:52:28,666 - app - INFO - Model configured: mistral:7b-instruct
+2025-05-04 12:52:28,666 - app - INFO - Model configured: mistral-openorca:latest
+2025-05-04 12:52:28,667 - app - INFO - Model configured: dolphin-mistral:latest
+2025-05-04 12:52:28,706 - werkzeug - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5000
+2025-05-04 12:52:28,706 - werkzeug - INFO - [33mPress CTRL+C to quit[0m
+2025-05-04 12:52:34,796 - werkzeug - INFO - 127.0.0.1 - - [04/May/2025 12:52:34] "GET / HTTP/1.1" 200 -
+2025-05-04 12:52:34,904 - werkzeug - INFO - 127.0.0.1 - - [04/May/2025 12:52:34] "[36mGET /static/css/style.css HTTP/1.1[0m" 304 -
+2025-05-04 12:52:36,311 - werkzeug - INFO - 127.0.0.1 - - [04/May/2025 12:52:36] "GET /login HTTP/1.1" 200 -
+2025-05-04 12:52:36,356 - werkzeug - INFO - 127.0.0.1 - - [04/May/2025 12:52:36] "[36mGET /static/css/auth.css HTTP/1.1[0m" 304 -
+2025-05-04 12:52:36,366 - werkzeug - INFO - 127.0.0.1 - - [04/May/2025 12:52:36] "[36mGET /static/js/auth.js HTTP/1.1[0m" 304 -
+2025-05-04 12:52:39,744 - app - INFO - User logged in: ayush
+2025-05-04 12:52:39,745 - werkzeug - INFO - 127.0.0.1 - - [04/May/2025 12:52:39] "POST /login HTTP/1.1" 200 -
+2025-05-04 12:52:39,767 - werkzeug - INFO - 127.0.0.1 - - [04/May/2025 12:52:39] "GET /dashboard HTTP/1.1" 200 -
+2025-05-04 12:52:39,796 - werkzeug - INFO - 127.0.0.1 - - [04/May/2025 12:52:39] "[36mGET /static/css/style.css HTTP/1.1[0m" 304 -
+2025-05-04 12:52:39,800 - werkzeug - INFO - 127.0.0.1 - - [04/May/2025 12:52:39] "[36mGET /static/js/dashboard.js HTTP/1.1[0m" 304 -
+2025-05-04 12:52:39,821 - werkzeug - INFO - 127.0.0.1 - - [04/May/2025 12:52:39] "GET /api/get_analytics HTTP/1.1" 200 -
+2025-05-04 12:52:42,135 - werkzeug - INFO - 127.0.0.1 - - [04/May/2025 12:52:42] "GET /chatbot?topic=history HTTP/1.1" 200 -
+2025-05-04 12:52:42,160 - werkzeug - INFO - 127.0.0.1 - - [04/May/2025 12:52:42] "[36mGET /static/css/style.css HTTP/1.1[0m" 304 -
+2025-05-04 12:54:25,837 - werkzeug - INFO - 127.0.0.1 - - [04/May/2025 12:54:25] "POST /api/get_questions HTTP/1.1" 200 -
+2025-05-04 12:56:52,033 - modules.llm_handler - WARNING - Attempt 1 failed, retrying in 5 seconds...
+2025-05-04 12:57:52,476 - modules.llm_handler - ERROR - Response formatting failed: No JSON block found in the response
+2025-05-04 12:57:52,495 - werkzeug - INFO - 127.0.0.1 - - [04/May/2025 12:57:52] "POST /api/chat HTTP/1.1" 200 -
+2025-05-04 12:58:31,913 - werkzeug - INFO - 127.0.0.1 - - [04/May/2025 12:58:31] "GET /dashboard HTTP/1.1" 200 -
+2025-05-04 12:58:31,991 - werkzeug - INFO - 127.0.0.1 - - [04/May/2025 12:58:31] "[36mGET /static/css/style.css HTTP/1.1[0m" 304 -
+2025-05-04 12:58:32,002 - werkzeug - INFO - 127.0.0.1 - - [04/May/2025 12:58:32] "[36mGET /static/js/dashboard.js HTTP/1.1[0m" 304 -
+2025-05-04 12:58:32,110 - werkzeug - INFO - 127.0.0.1 - - [04/May/2025 12:58:32] "GET /api/get_analytics HTTP/1.1" 200 -
