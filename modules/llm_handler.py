@@ -96,11 +96,12 @@ class LLMHandler:
     def _format_educational_response(self, text: str) -> str:
         """Extract and format the first JSON block from the response"""
         try:
-            # Extract the first JSON block
+            logger.debug(f"Raw response text: {text}")  # Log the raw response
+        # Extract the first JSON block
             json_match = re.search(r'\{.*?\}', text, re.DOTALL)
             if not json_match:
-                raise ValueError("No JSON block found in the response")
-        
+                logger.warning("No JSON block found. Returning raw response.")
+                return text
             clean_response = json_match.group()
             return clean_response
         except Exception as e:
