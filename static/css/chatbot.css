@@ -39,6 +39,7 @@
     height: 100%;
 }
 
+
 .chatbox {
     flex-grow: 1;
     padding: 1rem;
@@ -47,7 +48,12 @@
     border-radius: 8px;
     box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
     margin-bottom: 1rem;
+<<<<<<< HEAD
     scroll-behavior: smooth; /* Added for smooth scrolling */
+=======
+    scroll-behavior: smooth;
+    max-height: calc(100vh - 200px); /* Adjust based on header/footer height */
+>>>>>>> 6f06be615d710f8a244ac2a5746323ab37029cdb
 }
 
 .user-input {

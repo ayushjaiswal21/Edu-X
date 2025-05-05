@@ -295,9 +295,7 @@
                 contentDiv.innerHTML = content;
                 messageDiv.appendChild(contentDiv);
                 chatbox.appendChild(messageDiv);
-                
-                // Ensure chatbox scrolls to the bottom with each new message
-                chatbox.scrollTop = chatbox.scrollHeight;
+                chatbox.scrollTop = chatbox.scrollHeight; // Ensures the chatbox scrolls to the bottom
             }
         });
     </script>
