@@ -260,9 +260,15 @@
                     
                     appendMessage('feedback', feedbackMessage, feedbackClass);
                     
-                    // Fetch next question after a delay
+                    // Clear the previous chat messages when loading a new question
                     setTimeout(() => {
                         fetchNextQuestion();
+                        
+                        // This line will help with the bug by clearing previous chat history
+                        // before loading a new question, but keep the welcome message
+                        const welcomeMessage = chatbox.firstElementChild;
+                        chatbox.innerHTML = '';
+                        chatbox.appendChild(welcomeMessage);
                     }, 3000);
                 })
                 .catch(error => {
@@ -289,7 +295,9 @@
                 contentDiv.innerHTML = content;
                 messageDiv.appendChild(contentDiv);
                 chatbox.appendChild(messageDiv);
-                chatbox.scrollTop = chatbox.scrollHeight; // Ensures the chatbox scrolls to the bottom
+                
+                // Ensure chatbox scrolls to the bottom with each new message
+                chatbox.scrollTop = chatbox.scrollHeight;
             }
         });
     </script>

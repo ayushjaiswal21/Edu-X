@@ -47,6 +47,7 @@
     border-radius: 8px;
     box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
     margin-bottom: 1rem;
+    scroll-behavior: smooth; /* Added for smooth scrolling */
 }
 
 .user-input {
@@ -82,11 +83,12 @@
     padding: 1.5rem;
 }
 
-/* Message Styles */
+/* Fixed Message Styles - improved to handle floating elements */
 .message {
     margin-bottom: 1rem;
     display: flex;
     flex-direction: column;
+    clear: both; /* Added to ensure proper flow */
 }
 
 .message.user {
@@ -111,6 +113,8 @@
 .message.feedback .message-content {
     background-color: #e8f5e9;
     border-left: 4px solid #4caf50;
+    width: 100%; /* Ensure feedback takes full width */
+    box-sizing: border-box;
 }
 
 .message.feedback.incorrect .message-content {
@@ -120,6 +124,13 @@
 
 .message.feedback.fast .message-content {
     border-left: 4px solid #ff9800;
+}
+
+/* Added to fix floating issues */
+.chatbox::after {
+    content: "";
+    display: table;
+    clear: both;
 }
 
 .options {
