@@ -146,38 +146,32 @@ document.addEventListener('DOMContentLoaded', function() {
     }
 
     async function generateQuestions(subject, topic) {
-        // This would normally call your backend API
-        // For demo, we'll use a placeholder that generates mock questions
-        
         try {
-            // In a real implementation, this would be a fetch request to your backend
-            // const response = await fetch('/api/generate-test', {
-            //     method: 'POST',
-            //     headers: {
-            //         'Content-Type': 'application/json'
-            //     },
-            //     body: JSON.stringify({
-            //         subject: subject,
-            //         topic: topic,
-            //         numQuestions: 10
-            //     })
-            // });
-            // 
-            // if (!response.ok) {
-            //     throw new Error('Failed to generate questions');
-            // }
-            // 
-            // const data = await response.json();
-            // return data.questions;
-            
-            // For demo purposes, let's create mock questions
-            return createMockQuestions(subject, topic);
+            const response = await fetch('/api/generate_test', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify({
+                    subject: subject,
+                    topic: topic,
+                    count: 10,
+                }),
+            });
+    
+            if (!response.ok) {
+                const errorData = await response.json();
+                throw new Error(errorData.error || 'Failed to generate questions');
+            }
+    
+            const data = await response.json();
+            return data;
         } catch (error) {
             console.error('Error generating questions:', error);
+            alert(`Error: ${error.message}`);
             throw error;
         }
     }
-
     function createMockQuestions(subject, topic) {
         // Create mock questions based on subject and topic
         const mockQuestions = [];

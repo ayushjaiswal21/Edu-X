@@ -21,11 +21,11 @@ os.makedirs('database', exist_ok=True)
 #read the file 
 # Then configure logging
 logging.basicConfig(
-    level=logging.INFO,
+    level=logging.DEBUG,  # Change to DEBUG for detailed logs
     format='%(asctime)s - %(name)s - %(levelname)s - %(message)s',
     handlers=[
         logging.StreamHandler(),
-        logging.FileHandler('logs/app.log')
+        logging.FileHandler('logs/app.log', mode='a')
     ]
 )
 logger = logging.getLogger(__name__)
@@ -98,78 +98,29 @@ app.secret_key = os.environ.get('SECRET_KEY', os.urandom(24).hex())
 # Database Setup
 def init_db():
     """Initialize database tables"""
-    try:
-        os.makedirs('database', exist_ok=True)
-        os.makedirs('logs', exist_ok=True)
-        
-        with sqlite3.connect(CONFIG['DATABASE_PATH']) as conn:
-            cursor = conn.cursor()
-            
-            # Users Table
-            cursor.execute('''
-                CREATE TABLE IF NOT EXISTS users (
-                    id INTEGER PRIMARY KEY AUTOINCREMENT,
-                    username TEXT UNIQUE NOT NULL,
-                    email TEXT UNIQUE,
-                    password_hash TEXT NOT NULL,
-                    is_verified BOOLEAN DEFAULT 0,
-                    created_at DATETIME DEFAULT CURRENT_TIMESTAMP,
-                    last_login DATETIME,
-                    reset_token TEXT,
-                    reset_token_expiry DATETIME
-                )
-            ''')
-            
-            # Sessions Table
-            cursor.execute('''
-                CREATE TABLE IF NOT EXISTS sessions (
-                    id INTEGER PRIMARY KEY AUTOINCREMENT,
-                    user_id INTEGER NOT NULL,
-                    session_token TEXT NOT NULL,
-                    ip_address TEXT,
-                    user_agent TEXT,
-                    expires_at DATETIME NOT NULL,
-                    FOREIGN KEY (user_id) REFERENCES users(id)
-                )
-            ''')
-            
-            # Interactions Table (for chat history)
-            cursor.execute('''
-                CREATE TABLE IF NOT EXISTS interactions (
-                    id INTEGER PRIMARY KEY AUTOINCREMENT,
-                    user_id INTEGER NOT NULL,
-                    topic TEXT NOT NULL,
-                    question TEXT NOT NULL,
-                    answer TEXT NOT NULL,
-                    is_correct BOOLEAN NOT NULL,
-                    response_time REAL NOT NULL,
-                    model_used TEXT NOT NULL,
-                    timestamp DATETIME DEFAULT CURRENT_TIMESTAMP,
-                    FOREIGN KEY (user_id) REFERENCES users(id)
-                )
-            ''')
-            
-            # Progress Table
-            cursor.execute('''
-                CREATE TABLE IF NOT EXISTS user_progress (
-                    id INTEGER PRIMARY KEY AUTOINCREMENT,
-                    user_id INTEGER NOT NULL,
-                    topic TEXT NOT NULL,
-                    correct_count INTEGER DEFAULT 0,
-                    incorrect_count INTEGER DEFAULT 0,
-                    avg_response_time REAL DEFAULT 0,
-                    last_updated DATETIME DEFAULT CURRENT_TIMESTAMP,
-                    FOREIGN KEY (user_id) REFERENCES users(id),
-                    UNIQUE(user_id, topic)
-                )
-            ''')
-            
-            conn.commit()
-            logger.info("Database initialized successfully")
-            
-    except Exception as e:
-        logger.critical(f"Database initialization failed: {str(e)}")
-        raise
+    for db_name in ['edu_chat.db', 'user_data.db']:
+        try:
+            db_path = f"database/{db_name}"
+            os.makedirs('database', exist_ok=True)
+            with sqlite3.connect(db_path) as conn:
+                cursor = conn.cursor()
+                # Add table creation logic here
+                cursor.execute('''
+                    CREATE TABLE IF NOT EXISTS users (
+                        id INTEGER PRIMARY KEY AUTOINCREMENT,
+                        username TEXT UNIQUE NOT NULL,
+                        email TEXT UNIQUE,
+                        password_hash TEXT NOT NULL,
+                        is_verified BOOLEAN DEFAULT 0,
+                        created_at DATETIME DEFAULT CURRENT_TIMESTAMP,
+                        last_login DATETIME
+                    )
+                ''')
+                conn.commit()
+                logger.info(f"Database {db_name} initialized successfully")
+        except Exception as e:
+            logger.critical(f"Database initialization failed for {db_name}: {str(e)}")
+            raise
 
 def init_models():
     """Ensure all required Ollama models are available"""
@@ -203,9 +154,10 @@ def validate_password(password):
         return False, "Password must contain at least one special character"
     return True, ""
 
-def get_db_connection():
+def get_db_connection(db_name='edu_chat.db'):
     """Get database connection with row factory"""
-    conn = sqlite3.connect(CONFIG['DATABASE_PATH'])
+    db_path = f"database/{db_name}"
+    conn = sqlite3.connect(db_path)
     conn.row_factory = sqlite3.Row
     return conn
 
@@ -513,142 +465,105 @@ Format as JSON with these exact keys: question, options, correct_answer, explana
 def generate_test():
     """Generate multiple choice test questions using subject-specific LLM"""
     if not llm:
-        return jsonify({"error": "Ollama server is not available. Test cannot be generated at this time."}), 503
-    
+        return jsonify({"error": "Ollama server is not available. Test generation cannot proceed."}), 503
+
     try:
         # Validate input
         if not request.is_json:
             return jsonify({"error": "Request must be JSON"}), 400
-            
+
         data = request.get_json()
         if not data:
             return jsonify({"error": "No data provided"}), 400
-            
-        subject = data.get('subject', 'math').lower()
-        topic = data.get('topic', '').lower()
-        question_count = data.get('count', 10)
-        
-        # Validate question count
-        if not isinstance(question_count, int) or question_count < 1 or question_count > 20:
-            return jsonify({"error": "Question count must be between 1 and 20"}), 400
-        
-        # Validate topic exists
+
+        subject = data.get('subject', '').strip().lower()
+        topic = data.get('topic', '').strip()
+        question_count = data.get('count', 5)
+
+        # Validate subject
+        if not subject:
+            return jsonify({"error": "Subject is required"}), 400
         if subject not in CONFIG['SUBJECT_MODELS']:
-            return jsonify({"error": f"Invalid subject: {subject}"}), 400
-        
-        # Get the appropriate prompt template
+            valid_subjects = ', '.join(CONFIG['SUBJECT_MODELS'].keys())
+            return jsonify({"error": f"Invalid subject: '{subject}'. Valid subjects are: {valid_subjects}"}), 400
+
+        # Validate topic
+        if not topic:
+            return jsonify({"error": "Topic is required"}), 400
+
+        # Validate question count
+        if not isinstance(question_count, int) or question_count <= 0:
+            return jsonify({"error": "Count must be a positive integer"}), 400
+
+        # Get the appropriate model for the subject
+        model = CONFIG['SUBJECT_MODELS'].get(subject)
+
+        # Get the prompt template for the subject
         prompt_template = PROMPT_TEMPLATES.get(subject)
         if not prompt_template:
             logger.error(f"No prompt template found for subject: {subject}")
             return jsonify({"error": "Configuration error"}), 500
-        
-        # Questions to return
-        questions = []
-        
-        # Format the prompt for test generation
-        try:
-            test_prompt = LLMHandler.format_prompt(
-                prompt_template,
-                {
-                    "TOPIC": topic,
-                    "LEVEL": "intermediate",  # Default to intermediate
-                    "USER_QUERY": f"""Generate {question_count} multiple choice questions about {topic} for a test.
-Each question should have:
-- A clear, concise question
-- 4 options (only 1 is correct)
-- An explanation of the correct answer
 
-Format each question as JSON with these exact keys: question, options (array), correct_answer (one of the options), explanation
-Do not include question numbers or prefixes."""
-                }
-            )
-        except Exception as e:
-            logger.error(f"Prompt formatting failed: {str(e)}")
-            return jsonify({"error": "Prompt generation failed"}), 500
-        
-        # Get model for this subject
-        model = CONFIG['SUBJECT_MODELS'].get(subject)
-        
-        # Call LLM with timeout for all questions at once
-        try:
-            system_prompt = f"""You are an expert {subject} educator creating a test about {topic}. 
-Generate {question_count} multiple choice questions with 4 options each.
-Return ONLY a valid JSON array where each item has the structure:
-{{
-  "question": "Question text",
-  "options": ["Option 1", "Option 2", "Option 3", "Option 4"],
-  "correct_answer": "Option X", 
-  "explanation": "Explanation text"
-}}
-Ensure 'correct_answer' matches EXACTLY one of the options."""
+        # Format the prompt
+        formatted_prompt = LLMHandler.format_prompt(
+            prompt_template,
+            {
+                "TOPIC": topic,
+                "LEVEL": "intermediate",
+                "USER_QUERY": f"""
+Generate {question_count} multiple choice questions about {topic} in the context of {subject}.
+Each question should include:
+- A clear and concise question
+- Exactly 4 options (one correct)
+- An explanation for the correct answer
+Return the result as a JSON array with this structure:
+[
+  {{
+    "question": "Question text",
+    "options": ["Option 1", "Option 2", "Option 3", "Option 4"],
+    "correct_answer": "Option X",
+    "explanation": "Explanation text"
+  }},
+  ...
+]
+"""
+            }
+        )
 
-            response = llm.generate_response(
-                prompt=test_prompt,
-                system_prompt=system_prompt,
-                model=model
-            )
-            
-            # Extract JSON from response
-            try:
-                # Find everything between first [ and last ]
-                json_match = re.search(r'\[(.*)\]', response, re.DOTALL)
-                if json_match:
-                    json_str = f"[{json_match.group(1)}]"
-                else:
-                    # If no brackets, try to find JSON objects and wrap them
-                    json_objects = re.findall(r'(\{.*?\})', response, re.DOTALL)
-                    if json_objects:
-                        json_str = f"[{','.join(json_objects)}]"
-                    else:
-                        raise ValueError("No JSON found in response")
-                
-                # Parse JSON
-                questions_data = json.loads(json_str)
-                
-                # Validate and process each question
-                for q in questions_data:
-                    # Ensure required fields exist
-                    if not all(key in q for key in ['question', 'options', 'correct_answer', 'explanation']):
-                        missing = set(['question', 'options', 'correct_answer', 'explanation']) - set(q.keys())
-                        logger.warning(f"Missing fields in question: {missing}")
-                        continue
-                    
-                    # Ensure options is a list with 4 items
-                    if not isinstance(q['options'], list) or len(q['options']) != 4:
-                        logger.warning(f"Invalid options format: {q['options']}")
-                        continue
-                    
-                    # Ensure correct_answer is in options
-                    if q['correct_answer'] not in q['options']:
-                        logger.warning(f"Correct answer not in options: {q['correct_answer']}")
-                        # Set first option as correct
-                        q['correct_answer'] = q['options'][0]
-                    
-                    # Add valid question to result
-                    questions.append(q)
-                
-                # Ensure we have at least one valid question
-                if not questions:
-                    raise ValueError("No valid questions found")
-                
-                # Return only the requested number of questions
-                return jsonify(questions[:question_count])
-                
-            except json.JSONDecodeError as e:
-                logger.error(f"JSON parse error: {str(e)}. Response: {response}")
-                return jsonify({"error": "Failed to parse generated questions"}), 500
-            except ValueError as e:
-                logger.error(f"Value error: {str(e)}. Response: {response}")
-                return jsonify({"error": str(e)}), 500
-                
-        except Exception as e:
-            logger.error(f"LLM request failed: {str(e)}")
-            return jsonify({"error": "Failed to generate questions"}), 500
-            
+        # Call LLM with timeout
+        response = llm.generate_response(
+            prompt=formatted_prompt,
+            system_prompt="You are creating educational content. Provide only the JSON response.",
+            model=model
+        )
+
+        # Debug logging (remove in production)
+        logger.debug(f"Raw LLM response for subject '{subject}', topic '{topic}': {response}")
+
+        # Extract JSON array from response
+        json_match = re.search(r'\[.*\]', response, re.DOTALL)
+        if json_match:
+            json_str = json_match.group()
+        else:
+            raise ValueError("No JSON array found in the response")
+
+        questions_data = json.loads(json_str)
+
+        # Validate and process each question
+        for q in questions_data:
+            if not all(key in q for key in ['question', 'options', 'correct_answer', 'explanation']):
+                raise ValueError(f"Invalid question format: {q}")
+            if len(q['options']) != 4:
+                raise ValueError(f"Each question must have exactly 4 options: {q}")
+            if q['correct_answer'] not in q['options']:
+                raise ValueError(f"Correct answer must be one of the options: {q}")
+
+        return jsonify(questions_data)
+
     except Exception as e:
-        logger.error(f"Unexpected error in test generation: {str(e)}")
-        return jsonify({"error": "An unexpected error occurred"}), 500
-
+        logger.error(f"Error processing AI response: {str(e)}")
+        return jsonify({"error": "Failed to process AI response"}), 500
+       
 @app.route('/api/chat', methods=['POST'])
 def handle_chat():
     if not llm:

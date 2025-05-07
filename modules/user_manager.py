@@ -6,7 +6,7 @@ from typing import Optional, Dict, List
 logger = logging.getLogger(__name__)
 
 class UserManager:
-    def __init__(self, db_path: str = 'database/edu_chat.db'):
+    def __init__(self, db_path: str = 'database/user_data.db'):
         self.db_path = db_path
 
     def _get_connection(self) -> sqlite3.Connection:
