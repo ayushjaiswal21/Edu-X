@@ -509,6 +509,146 @@ Format as JSON with these exact keys: question, options, correct_answer, explana
         logger.error(f"Unexpected error in question generation: {str(e)}")
         return jsonify({"error": "An unexpected error occurred"}), 500
 
+@app.route('/api/generate_test', methods=['POST'])
+def generate_test():
+    """Generate multiple choice test questions using subject-specific LLM"""
+    if not llm:
+        return jsonify({"error": "Ollama server is not available. Test cannot be generated at this time."}), 503
+    
+    try:
+        # Validate input
+        if not request.is_json:
+            return jsonify({"error": "Request must be JSON"}), 400
+            
+        data = request.get_json()
+        if not data:
+            return jsonify({"error": "No data provided"}), 400
+            
+        subject = data.get('subject', 'math').lower()
+        topic = data.get('topic', '').lower()
+        question_count = data.get('count', 10)
+        
+        # Validate question count
+        if not isinstance(question_count, int) or question_count < 1 or question_count > 20:
+            return jsonify({"error": "Question count must be between 1 and 20"}), 400
+        
+        # Validate topic exists
+        if subject not in CONFIG['SUBJECT_MODELS']:
+            return jsonify({"error": f"Invalid subject: {subject}"}), 400
+        
+        # Get the appropriate prompt template
+        prompt_template = PROMPT_TEMPLATES.get(subject)
+        if not prompt_template:
+            logger.error(f"No prompt template found for subject: {subject}")
+            return jsonify({"error": "Configuration error"}), 500
+        
+        # Questions to return
+        questions = []
+        
+        # Format the prompt for test generation
+        try:
+            test_prompt = LLMHandler.format_prompt(
+                prompt_template,
+                {
+                    "TOPIC": topic,
+                    "LEVEL": "intermediate",  # Default to intermediate
+                    "USER_QUERY": f"""Generate {question_count} multiple choice questions about {topic} for a test.
+Each question should have:
+- A clear, concise question
+- 4 options (only 1 is correct)
+- An explanation of the correct answer
+
+Format each question as JSON with these exact keys: question, options (array), correct_answer (one of the options), explanation
+Do not include question numbers or prefixes."""
+                }
+            )
+        except Exception as e:
+            logger.error(f"Prompt formatting failed: {str(e)}")
+            return jsonify({"error": "Prompt generation failed"}), 500
+        
+        # Get model for this subject
+        model = CONFIG['SUBJECT_MODELS'].get(subject)
+        
+        # Call LLM with timeout for all questions at once
+        try:
+            system_prompt = f"""You are an expert {subject} educator creating a test about {topic}. 
+Generate {question_count} multiple choice questions with 4 options each.
+Return ONLY a valid JSON array where each item has the structure:
+{{
+  "question": "Question text",
+  "options": ["Option 1", "Option 2", "Option 3", "Option 4"],
+  "correct_answer": "Option X", 
+  "explanation": "Explanation text"
+}}
+Ensure 'correct_answer' matches EXACTLY one of the options."""
+
+            response = llm.generate_response(
+                prompt=test_prompt,
+                system_prompt=system_prompt,
+                model=model
+            )
+            
+            # Extract JSON from response
+            try:
+                # Find everything between first [ and last ]
+                json_match = re.search(r'\[(.*)\]', response, re.DOTALL)
+                if json_match:
+                    json_str = f"[{json_match.group(1)}]"
+                else:
+                    # If no brackets, try to find JSON objects and wrap them
+                    json_objects = re.findall(r'(\{.*?\})', response, re.DOTALL)
+                    if json_objects:
+                        json_str = f"[{','.join(json_objects)}]"
+                    else:
+                        raise ValueError("No JSON found in response")
+                
+                # Parse JSON
+                questions_data = json.loads(json_str)
+                
+                # Validate and process each question
+                for q in questions_data:
+                    # Ensure required fields exist
+                    if not all(key in q for key in ['question', 'options', 'correct_answer', 'explanation']):
+                        missing = set(['question', 'options', 'correct_answer', 'explanation']) - set(q.keys())
+                        logger.warning(f"Missing fields in question: {missing}")
+                        continue
+                    
+                    # Ensure options is a list with 4 items
+                    if not isinstance(q['options'], list) or len(q['options']) != 4:
+                        logger.warning(f"Invalid options format: {q['options']}")
+                        continue
+                    
+                    # Ensure correct_answer is in options
+                    if q['correct_answer'] not in q['options']:
+                        logger.warning(f"Correct answer not in options: {q['correct_answer']}")
+                        # Set first option as correct
+                        q['correct_answer'] = q['options'][0]
+                    
+                    # Add valid question to result
+                    questions.append(q)
+                
+                # Ensure we have at least one valid question
+                if not questions:
+                    raise ValueError("No valid questions found")
+                
+                # Return only the requested number of questions
+                return jsonify(questions[:question_count])
+                
+            except json.JSONDecodeError as e:
+                logger.error(f"JSON parse error: {str(e)}. Response: {response}")
+                return jsonify({"error": "Failed to parse generated questions"}), 500
+            except ValueError as e:
+                logger.error(f"Value error: {str(e)}. Response: {response}")
+                return jsonify({"error": str(e)}), 500
+                
+        except Exception as e:
+            logger.error(f"LLM request failed: {str(e)}")
+            return jsonify({"error": "Failed to generate questions"}), 500
+            
+    except Exception as e:
+        logger.error(f"Unexpected error in test generation: {str(e)}")
+        return jsonify({"error": "An unexpected error occurred"}), 500
+
 @app.route('/api/chat', methods=['POST'])
 def handle_chat():
     if not llm:
