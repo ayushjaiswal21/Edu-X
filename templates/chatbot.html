@@ -6,6 +6,32 @@
     <title>{{ topic.title() }} Chatbot - Educational AI</title>
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&family=Open+Sans:wght@400;600&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+    <style>
+        /* Additional styles for the next button */
+        #nextBtn {
+            margin-top: 15px;
+            margin-bottom: 20px; /* Added bottom margin */
+            display: none; /* Hidden by default */
+            animation: fadeIn 0.5s;
+            position: sticky; /* Make button sticky */
+            bottom: 10px; /* Position from bottom */
+            z-index: 100; /* Ensure it's above other content */
+        }
+        
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+        
+        .button-container {
+            display: flex;
+            justify-content: center;
+            width: 100%;
+            position: relative;
+            padding: 10px 0;
+            background: rgba(255, 255, 255, 0.9); /* Semi-transparent background */
+        }
+    </style>
 </head>
 <body>
     <div class="container chatbot-container">
@@ -33,6 +59,11 @@
                 <div class="user-input">
                     <textarea id="userMessage" placeholder="Type your answer here..." disabled></textarea>
                     <button id="sendBtn" class="btn primary-btn" disabled>Send</button>
+                </div>
+                
+                <!-- New Next Button -->
+                <div class="button-container">
+                    <button id="nextBtn" class="btn primary-btn">Next Question</button>
                 </div>
             </div>
             
@@ -81,6 +112,7 @@
             const chatbox = document.getElementById('chatbox');
             const userMessage = document.getElementById('userMessage');
             const sendBtn = document.getElementById('sendBtn');
+            const nextBtn = document.getElementById('nextBtn');
             const questionDisplay = document.getElementById('questionDisplay');
             const correctCount = document.getElementById('correctCount');
             const incorrectCount = document.getElementById('incorrectCount');
@@ -101,6 +133,20 @@
                     e.preventDefault();
                     sendMessage();
                 }
+            });
+            
+            // Next button event listener
+            nextBtn.addEventListener('click', function() {
+                // Hide the next button
+                nextBtn.style.display = 'none';
+                
+                // Clear previous chat messages except welcome message
+                const welcomeMessage = chatbox.firstElementChild;
+                chatbox.innerHTML = '';
+                chatbox.appendChild(welcomeMessage);
+                
+                // Fetch the next question
+                fetchNextQuestion();
             });
             
             // Start thinking timer
@@ -260,16 +306,13 @@
                     
                     appendMessage('feedback', feedbackMessage, feedbackClass);
                     
-                    // Clear the previous chat messages when loading a new question
+                    // Show the Next button after feedback is displayed
+                    nextBtn.style.display = 'block';
+                    
+                    // Ensure the Next button is visible by scrolling to it
                     setTimeout(() => {
-                        fetchNextQuestion();
-                        
-                        // This line will help with the bug by clearing previous chat history
-                        // before loading a new question, but keep the welcome message
-                        const welcomeMessage = chatbox.firstElementChild;
-                        chatbox.innerHTML = '';
-                        chatbox.appendChild(welcomeMessage);
-                    }, 3000);
+                        nextBtn.scrollIntoView({ behavior: 'smooth', block: 'center' });
+                    }, 100);
                 })
                 .catch(error => {
                     console.error('Error:', error);
@@ -278,12 +321,12 @@
                     const thinkingMsg = document.querySelector('.message.thinking');
                     if (thinkingMsg) thinkingMsg.remove();
                     
-                    appendMessage('system', 'Sorry, there was an error processing your answer. Let\'s try another question.');
+                    appendMessage('system', 'Sorry, there was an error processing your answer. Please try again.');
                     
-                    // Fetch next question
-                    setTimeout(() => {
-                        fetchNextQuestion();
-                    }, 2000);
+                    // Re-enable the input fields to let the user try again
+                    userMessage.disabled = false;
+                    sendBtn.disabled = false;
+                    userMessage.focus();
                 });
             }
             
