@@ -2214,3 +2214,32 @@ The only number that is not a multiple of 7 is 21, so the correct answer is 1."
 2025-05-06 17:43:11,259 - werkzeug - INFO - 127.0.0.1 - - [06/May/2025 17:43:11] "[36mGET /static/css/style.css HTTP/1.1[0m" 304 -
 2025-05-06 17:44:26,345 - werkzeug - INFO - 127.0.0.1 - - [06/May/2025 17:44:26] "POST /api/get_questions HTTP/1.1" 200 -
 2025-05-06 17:45:20,248 - modules.llm_handler - WARNING - Attempt 2 failed, retrying in 5 seconds...
+2025-05-07 13:22:30,317 - app - INFO - Database initialized successfully
+2025-05-07 13:22:30,319 - app - INFO - Model configured: wizard-math:7b
+2025-05-07 13:22:30,320 - app - INFO - Model configured: mistral-openorca:latest
+2025-05-07 13:22:30,321 - app - INFO - Model configured: dolphin-mistral:latest
+2025-05-07 13:22:30,321 - app - INFO - Model configured: mistral:7b-instruct
+2025-05-07 13:22:30,385 - werkzeug - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5000
+2025-05-07 13:22:30,385 - werkzeug - INFO - [33mPress CTRL+C to quit[0m
+2025-05-07 13:22:41,121 - werkzeug - INFO - 127.0.0.1 - - [07/May/2025 13:22:41] "GET / HTTP/1.1" 200 -
+2025-05-07 13:22:41,128 - werkzeug - INFO - 127.0.0.1 - - [07/May/2025 13:22:41] "GET / HTTP/1.1" 200 -
+2025-05-07 13:22:41,337 - werkzeug - INFO - 127.0.0.1 - - [07/May/2025 13:22:41] "[36mGET /static/css/style.css HTTP/1.1[0m" 304 -
+2025-05-07 13:22:41,344 - werkzeug - INFO - 127.0.0.1 - - [07/May/2025 13:22:41] "[36mGET /static/css/style.css HTTP/1.1[0m" 304 -
+2025-05-07 13:22:41,484 - werkzeug - INFO - 127.0.0.1 - - [07/May/2025 13:22:41] "[33mGET /favicon.ico HTTP/1.1[0m" 404 -
+2025-05-07 13:22:41,488 - werkzeug - INFO - 127.0.0.1 - - [07/May/2025 13:22:41] "[33mGET /favicon.ico HTTP/1.1[0m" 404 -
+2025-05-07 13:22:44,534 - werkzeug - INFO - 127.0.0.1 - - [07/May/2025 13:22:44] "GET /login HTTP/1.1" 200 -
+2025-05-07 13:22:44,581 - werkzeug - INFO - 127.0.0.1 - - [07/May/2025 13:22:44] "[36mGET /static/css/auth.css HTTP/1.1[0m" 304 -
+2025-05-07 13:22:44,592 - werkzeug - INFO - 127.0.0.1 - - [07/May/2025 13:22:44] "[36mGET /static/js/auth.js HTTP/1.1[0m" 304 -
+2025-05-07 13:22:53,668 - app - INFO - User logged in: Future
+2025-05-07 13:22:53,671 - werkzeug - INFO - 127.0.0.1 - - [07/May/2025 13:22:53] "POST /login HTTP/1.1" 200 -
+2025-05-07 13:22:53,759 - werkzeug - INFO - 127.0.0.1 - - [07/May/2025 13:22:53] "GET /dashboard HTTP/1.1" 200 -
+2025-05-07 13:22:53,804 - werkzeug - INFO - 127.0.0.1 - - [07/May/2025 13:22:53] "[36mGET /static/css/style.css HTTP/1.1[0m" 304 -
+2025-05-07 13:22:53,861 - werkzeug - INFO - 127.0.0.1 - - [07/May/2025 13:22:53] "[36mGET /static/js/dashboard.js HTTP/1.1[0m" 304 -
+2025-05-07 13:22:53,871 - werkzeug - INFO - 127.0.0.1 - - [07/May/2025 13:22:53] "GET /static/js/test.js HTTP/1.1" 200 -
+2025-05-07 13:22:53,960 - werkzeug - INFO - 127.0.0.1 - - [07/May/2025 13:22:53] "GET /api/get_analytics HTTP/1.1" 200 -
+2025-05-07 13:23:04,765 - werkzeug - INFO - 127.0.0.1 - - [07/May/2025 13:23:04] "GET /chatbot?topic=math HTTP/1.1" 200 -
+2025-05-07 13:23:04,813 - werkzeug - INFO - 127.0.0.1 - - [07/May/2025 13:23:04] "[36mGET /static/css/style.css HTTP/1.1[0m" 304 -
+2025-05-07 13:23:04,837 - modules.llm_handler - WARNING - Ollama server is not available. Cannot generate response.
+2025-05-07 13:23:04,838 - app - ERROR - LLM request failed: No JSON block found in the response
+2025-05-07 13:23:04,839 - werkzeug - INFO - 127.0.0.1 - - [07/May/2025 13:23:04] "[35m[1mPOST /api/get_questions HTTP/1.1[0m" 500 -
