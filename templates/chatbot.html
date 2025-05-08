@@ -3,344 +3,90 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>{{ topic.title() }} Chatbot - Educational AI</title>
-    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&family=Open+Sans:wght@400;600&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
-    <style>
-        /* Additional styles for the next button */
-        #nextBtn {
-            margin-top: 15px;
-            margin-bottom: 20px; /* Added bottom margin */
-            display: none; /* Hidden by default */
-            animation: fadeIn 0.5s;
-            position: sticky; /* Make button sticky */
-            bottom: 10px; /* Position from bottom */
-            z-index: 100; /* Ensure it's above other content */
-        }
-        
-        @keyframes fadeIn {
-            from { opacity: 0; }
-            to { opacity: 1; }
-        }
-        
-        .button-container {
-            display: flex;
-            justify-content: center;
-            width: 100%;
-            position: relative;
-            padding: 10px 0;
-            background: rgba(255, 255, 255, 0.9); /* Semi-transparent background */
-        }
-    </style>
+    <title>{{ subject.title() }} Chatbot - Educational AI</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/chatbot.css') }}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
 </head>
 <body>
     <div class="container chatbot-container">
         <header>
-            <h1>{{ topic.title() }} Learning Session</h1>
+            <h1><i class="fas fa-graduation-cap"></i> {{ subject.title() }} Learning Session</h1>
             <div class="actions">
-                <button id="backToDashboard" class="btn secondary-btn">Back to Dashboard</button>
-                <span class="user-info">{{ session.get('username', 'User') }}</span>
+                <button id="backToDashboard" class="btn secondary-btn"><i class="fas fa-arrow-left"></i> Back to Dashboard</button>
+                <span class="user-info"><i class="fas fa-user"></i> {{ username }}</span>
             </div>
         </header>
-        
         <main>
             <div class="chat-interface">
                 <div id="chatbox" class="chatbox">
                     <div class="message system">
                         <div class="message-content">
-                            <p>Welcome to your {{ topic.title() }} learning session! I'm your AI tutor, designed to help you develop deeper understanding.</p>
-                            <p>I'll ask you questions and evaluate not just your answers, but also how much time you take to think about them.</p>
-                            <p>Remember: It's better to be correct and thoughtful than quick but wrong!</p>
-                            <p>Let's start with your first question...</p>
+                            <p>{{ initial_message }}</p>
                         </div>
                     </div>
                 </div>
-                
-                <div class="user-input">
-                    <textarea id="userMessage" placeholder="Type your answer here..." disabled></textarea>
-                    <button id="sendBtn" class="btn primary-btn" disabled>Send</button>
+                <div class="topic-input">
+                    <label for="topicInput"><i class="fas fa-book"></i> Specify a Topic:</label>
+                    <input id="topicInput" type="text" placeholder="Enter a topic (e.g., Algebra, Chemistry, History)" />
+                    <button id="setTopicBtn" class="btn primary-btn"><i class="fas fa-play"></i> Start Learning</button>
                 </div>
-                
-                <!-- New Next Button -->
-                <div class="button-container">
-                    <button id="nextBtn" class="btn primary-btn">Next Question</button>
+                <div class="user-input">
+                    <textarea id="userMessage" placeholder="Type your answer or ask a question..." disabled></textarea>
+                    <button id="sendBtn" class="btn primary-btn" disabled><i class="fas fa-paper-plane"></i> Send</button>
+                </div>
+                <div class="learning-status">
+                    <div class="progress-indicator">
+                        <span id="difficultyLevel">Difficulty: Beginner</span>
+                        <div class="progress-bar">
+                            <div id="progressFill" class="progress-fill" style="width: 0%"></div>
+                        </div>
+                    </div>
+                    <div class="stats">
+                        <span id="correctAnswers"><i class="fas fa-check"></i> 0</span>
+                        <span id="incorrectAnswers"><i class="fas fa-times"></i> 0</span>
+                    </div>
                 </div>
             </div>
-            
-            <div class="session-info">
-                <div class="current-question">
-                    <h3>Current Question</h3>
-                    <div id="questionDisplay">
-                        <p class="loading">Loading your first question...</p>
-                    </div>
-                </div>
-                
-                <div class="session-stats">
-                    <h3>Session Stats</h3>
-                    <ul>
-                        <li>Correct answers: <span id="correctCount">0</span></li>
-                        <li>Incorrect answers: <span id="incorrectCount">0</span></li>
-                        <li>Average response time: <span id="avgTime">0</span>s</li>
-                    </ul>
-                    
-                    <div class="thinking-indicator">
-                        <div class="thinking-label">Thinking Speed:</div>
-                        <div class="thinking-meter">
-                            <div class="meter-section too-fast">Fast</div>
-                            <div class="meter-section optimal">Optimal</div>
-                            <div class="meter-section too-slow">Slow</div>
-                            <div id="thinkingIndicator" class="indicator"></div>
-                        </div>
-                    </div>
-                </div>
+            <div id="quizContainer" class="quiz-container" style="display: none;">
+                <h3 id="quizQuestion">Loading question...</h3>
+                <div id="quizOptions" class="quiz-options"></div>
+                <button id="submitQuizAnswer" class="btn primary-btn" style="display: none;"><i class="fas fa-check-circle"></i> Submit Answer</button>
             </div>
         </main>
+        <footer>
+            <div class="chat-tools">
+                <button id="viewProgress" class="tool-btn"><i class="fas fa-chart-line"></i> View Progress</button>
+                <button id="reviewWeakAreas" class="tool-btn"><i class="fas fa-exclamation-circle"></i> Review Weak Areas</button>
+                <button id="getHint" class="tool-btn"><i class="fas fa-lightbulb"></i> Get Hint</button>
+            </div>
+            <div class="branding">
+                <p>Educational AI Assistant - Helping you learn effectively</p>
+            </div>
+        </footer>
     </div>
-
-    <script>
-        document.addEventListener('DOMContentLoaded', function() {
-            const topic = "{{ topic }}";
-            let currentQuestion = null;
-            let questionStartTime = 0;
-            let sessionStats = {
-                correctCount: 0,
-                incorrectCount: 0,
-                totalTime: 0,
-                questionCount: 0
-            };
-            
-            const chatbox = document.getElementById('chatbox');
-            const userMessage = document.getElementById('userMessage');
-            const sendBtn = document.getElementById('sendBtn');
-            const nextBtn = document.getElementById('nextBtn');
-            const questionDisplay = document.getElementById('questionDisplay');
-            const correctCount = document.getElementById('correctCount');
-            const incorrectCount = document.getElementById('incorrectCount');
-            const avgTime = document.getElementById('avgTime');
-            const thinkingIndicator = document.getElementById('thinkingIndicator');
-            
-            // Initialize
-            fetchNextQuestion();
-            
-            // Event listeners
-            document.getElementById('backToDashboard').addEventListener('click', function() {
-                window.location.href = '/dashboard';
-            });
-            
-            sendBtn.addEventListener('click', sendMessage);
-            userMessage.addEventListener('keypress', function(e) {
-                if (e.key === 'Enter' && !e.shiftKey) {
-                    e.preventDefault();
-                    sendMessage();
-                }
-            });
-            
-            // Next button event listener
-            nextBtn.addEventListener('click', function() {
-                // Hide the next button
-                nextBtn.style.display = 'none';
-                
-                // Clear previous chat messages except welcome message
-                const welcomeMessage = chatbox.firstElementChild;
-                chatbox.innerHTML = '';
-                chatbox.appendChild(welcomeMessage);
-                
-                // Fetch the next question
-                fetchNextQuestion();
-            });
-            
-            // Start thinking timer
-            let thinkingTimer = setInterval(updateThinkingIndicator, 1000);
-            
-            function updateThinkingIndicator() {
-                if (!questionStartTime) return;
-                
-                const thinkingTime = (Date.now() - questionStartTime) / 1000; // seconds
-                let position;
-                
-                if (thinkingTime < 5) {
-                    // Too fast zone (0-5 seconds)
-                    position = (thinkingTime / 5) * 33;
-                } else if (thinkingTime < 20) {
-                    // Optimal zone (5-20 seconds)
-                    position = 33 + ((thinkingTime - 5) / 15) * 34;
-                } else {
-                    // Too slow zone (20+ seconds)
-                    const slowness = Math.min(thinkingTime - 20, 20); // Cap at 40 seconds total
-                    position = 67 + (slowness / 20) * 33;
-                }
-                
-                thinkingIndicator.style.left = `${Math.min(position, 100)}%`;
-                
-                // Change color based on zone
-                if (thinkingTime < 5) {
-                    thinkingIndicator.className = 'indicator fast';
-                } else if (thinkingTime < 20) {
-                    thinkingIndicator.className = 'indicator optimal';
-                } else {
-                    thinkingIndicator.className = 'indicator slow';
-                }
-            }
-            
-            function fetchNextQuestion() {
-                userMessage.disabled = true;
-                sendBtn.disabled = true;
-                questionDisplay.innerHTML = '<p class="loading">Loading next question...</p>';
-                
-                fetch('/api/get_questions', {
-                    method: 'POST',
-                    headers: {
-                        'Content-Type': 'application/json',
-                    },
-                    body: JSON.stringify({ topic: topic, level: 'beginner' })
-                })
-                .then(response => response.json())
-                .then(questions => {
-                    if (questions && questions.length > 0) {
-                        currentQuestion = questions[0]; // Just take the first question
-                        displayQuestion(currentQuestion);
-                        
-                        // Start timing
-                        questionStartTime = Date.now();
-                        userMessage.disabled = false;
-                        sendBtn.disabled = false;
-                        userMessage.focus();
-                    } else {
-                        questionDisplay.innerHTML = '<p class="error">Failed to load question. Please try again.</p>';
-                    }
-                })
-                .catch(error => {
-                    console.error('Error fetching questions:', error);
-                    questionDisplay.innerHTML = '<p class="error">Error loading question. Please refresh the page.</p>';
-                });
-            }
-            
-            function displayQuestion(question) {
-                let questionHTML = `
-                    <div class="question">
-                        <p>${question.question}</p>
-                `;
-                
-                // Add multiple choice options if available
-                if (question.options && question.options.length > 0) {
-                    questionHTML += '<div class="options">';
-                    question.options.forEach((option, index) => {
-                        questionHTML += `<div class="option">${option}</div>`;
-                    });
-                    questionHTML += '</div>';
-                }
-                
-                questionHTML += '</div>';
-                questionDisplay.innerHTML = questionHTML;
-            }
-            
-            function sendMessage() {
-                if (!userMessage.value.trim() || !currentQuestion) return;
-                
-                const userAnswer = userMessage.value.trim();
-                const responseTime = (Date.now() - questionStartTime) / 1000; // seconds
-                
-                // Add user message to chat
-                appendMessage('user', userAnswer);
-                
-                // Clear input
-                userMessage.value = '';
-                userMessage.disabled = true;
-                sendBtn.disabled = true;
-                
-                // Show thinking indicator
-                appendMessage('system', '<div class="typing-indicator"><span></span><span></span><span></span></div>', 'thinking');
-                
-                // Send to server
-                fetch('/api/chat', {
-                    method: 'POST',
-                    headers: {
-                        'Content-Type': 'application/json',
-                    },
-                    body: JSON.stringify({
-                        topic: topic,
-                        message: userAnswer,
-                        question: currentQuestion.question,
-                        expected_answer: currentQuestion.correct_answer,
-                        start_time: questionStartTime / 1000, // Convert to seconds
-                        level: 'beginner'
-                    })
-                })
-                .then(response => response.json())
-                .then(data => {
-                    // Remove thinking indicator
-                    const thinkingMsg = document.querySelector('.message.thinking');
-                    if (thinkingMsg) thinkingMsg.remove();
-                    
-                    // Update stats
-                    if (data.is_correct) {
-                        sessionStats.correctCount++;
-                    } else {
-                        sessionStats.incorrectCount++;
-                    }
-                    sessionStats.totalTime += responseTime;
-                    sessionStats.questionCount++;
-                    
-                    // Update UI
-                    correctCount.textContent = sessionStats.correctCount;
-                    incorrectCount.textContent = sessionStats.incorrectCount;
-                    avgTime.textContent = (sessionStats.totalTime / sessionStats.questionCount).toFixed(1);
-                    
-                    // Add AI response
-                    appendMessage('system', data.response);
-                    
-                    // Add feedback based on correctness and time
-                    let feedbackClass = data.is_correct ? 'correct' : 'incorrect';
-                    feedbackClass += data.is_fast ? ' fast' : ' slow';
-                    
-                    let feedbackMessage = '';
-                    if (data.is_correct && !data.is_fast) {
-                        feedbackMessage = 'Great job! Correct answer with thoughtful consideration.';
-                    } else if (data.is_correct && data.is_fast) {
-                        feedbackMessage = 'Correct, but try to think more deeply next time.';
-                    } else if (!data.is_correct && !data.is_fast) {
-                        feedbackMessage = 'Incorrect, but I appreciate your careful thinking.';
-                    } else {
-                        feedbackMessage = 'Incorrect. Try slowing down to think more carefully.';
-                    }
-                    
-                    appendMessage('feedback', feedbackMessage, feedbackClass);
-                    
-                    // Show the Next button after feedback is displayed
-                    nextBtn.style.display = 'block';
-                    
-                    // Ensure the Next button is visible by scrolling to it
-                    setTimeout(() => {
-                        nextBtn.scrollIntoView({ behavior: 'smooth', block: 'center' });
-                    }, 100);
-                })
-                .catch(error => {
-                    console.error('Error:', error);
-                    
-                    // Remove thinking indicator
-                    const thinkingMsg = document.querySelector('.message.thinking');
-                    if (thinkingMsg) thinkingMsg.remove();
-                    
-                    appendMessage('system', 'Sorry, there was an error processing your answer. Please try again.');
-                    
-                    // Re-enable the input fields to let the user try again
-                    userMessage.disabled = false;
-                    sendBtn.disabled = false;
-                    userMessage.focus();
-                });
-            }
-            
-            function appendMessage(sender, content, extraClass = '') {
-                const messageDiv = document.createElement('div');
-                messageDiv.className = `message ${sender} ${extraClass}`;
-                const contentDiv = document.createElement('div');
-                contentDiv.className = 'message-content';
-                contentDiv.innerHTML = content;
-                messageDiv.appendChild(contentDiv);
-                chatbox.appendChild(messageDiv);
-                chatbox.scrollTop = chatbox.scrollHeight; // Ensures the chatbox scrolls to the bottom
-            }
-        });
-    </script>
+    
+    <!-- Progress Modal -->
+    <div id="progressModal" class="modal" style="display: none;">
+        <div class="modal-content">
+            <span class="close-modal">&times;</span>
+            <h2>Your Learning Progress</h2>
+            <div id="progressStats" class="progress-stats">
+                <div class="stat-box">
+                    <h3>Topic Mastery</h3>
+                    <div id="topicMasteryDisplay"></div>
+                </div>
+                <div class="stat-box">
+                    <h3>Performance</h3>
+                    <div id="performanceChart"></div>
+                </div>
+            </div>
+            <div class="recommendations-section">
+                <h3>Learning Recommendations</h3>
+                <div id="learningRecommendations"></div>
+            </div>
+        </div>
+    </div>
+    
+    <script src="{{ url_for('static', filename='js/chatbot.js') }}"></script>
 </body>
 </html>

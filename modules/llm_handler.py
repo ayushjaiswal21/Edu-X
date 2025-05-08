@@ -1,8 +1,8 @@
 import requests
-import json  # Added missing json import
+import json
 import logging
-from typing import Dict, Optional
-import time  # For retry logic
+from typing import Dict
+import time
 import re
 
 logger = logging.getLogger(__name__)
@@ -12,7 +12,7 @@ class LLMHandler:
         self.base_url = base_url
         self.temperature = 0.7
         self.max_tokens = 500
-        self.timeout = 120  # Increased timeout to 2 minutes
+        self.timeout = 120  # 2 minutes
         self.max_retries = 2
         self.retry_delay = 5
         self.server_available = self._verify_connection()
@@ -53,13 +53,24 @@ class LLMHandler:
         for attempt in range(self.max_retries + 1):
             try:
                 # Verify model is available first
-                models = requests.get(
+                response = requests.get(
                     f"{self.base_url}/api/tags",
                     timeout=self.timeout
-                ).json()
+                )
+                response.raise_for_status()
+                tags_data = response.json()
                 
-                if not any(m['name'].startswith(model) for m in models.get('models', [])):
-                    raise ValueError(f"Model {model} not available")
+                # Extract model names from the response
+                available_models = []
+                if 'models' in tags_data:
+                    available_models = [m['name'] for m in tags_data['models']]
+                
+                # Accept both exact and tag/variant match
+                model_base_name = model.split(":")[0]
+                model_available = model in available_models or any(m.split(":")[0] == model_base_name for m in available_models)
+                
+                if not model_available:
+                    raise ValueError(f"Model {model} not available. Available: {available_models}")
 
                 response = requests.post(
                     f"{self.base_url}/api/generate",
@@ -74,30 +85,36 @@ class LLMHandler:
                         },
                         "stream": False
                     },
-                    timeout=self.timeout  # Using the increased timeout
+                    timeout=self.timeout
                 )
                 response.raise_for_status()
-                
                 result = response.json()
-                return self._format_educational_response(result.get('response', ''))
+                logger.debug(f"Ollama raw result: {result}")
+                
+                # Try all possible keys
+                if isinstance(result, dict):
+                    text = result.get('response') or result.get('message') or result.get('output') or str(result)
+                else:
+                    text = str(result)
+                    
+                return self._format_educational_response(text)
 
             except requests.exceptions.RequestException as e:
                 if attempt == self.max_retries:
                     logger.error(f"LLM API request failed after {self.max_retries} attempts: {str(e)}")
                     return "The AI service is taking longer than usual to respond. Please try again later."
-                
                 logger.warning(f"Attempt {attempt + 1} failed, retrying in {self.retry_delay} seconds...")
                 time.sleep(self.retry_delay)
-
             except Exception as e:
                 logger.error(f"LLM generation failed: {str(e)}")
                 return "An error occurred while generating the response. Please try again."
 
     def _format_educational_response(self, text: str) -> str:
-        """Extract and format the first JSON block from the response"""
+        """Extract and format the first JSON block from the response, or return full text if not found"""
         try:
-            logger.debug(f"Raw response text: {text}")  # Log the raw response
-        # Extract the first JSON block
+            logger.debug(f"Raw response text: {text}")
+            # Remove markdown code block if present
+            text = re.sub(r"^```json|```$", "", text, flags=re.MULTILINE).strip()
             json_match = re.search(r'\{.*?\}', text, re.DOTALL)
             if not json_match:
                 logger.warning("No JSON block found. Returning raw response.")

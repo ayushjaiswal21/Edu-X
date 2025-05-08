@@ -6,12 +6,40 @@ document.addEventListener('DOMContentLoaded', function () {
     document.querySelectorAll('.subject-card').forEach(card => {
         card.addEventListener('click', function () {
             const subject = this.dataset.subject;
-            window.location.href = `/chatbot?topic=${subject}`;
+            window.location.href = `/chatbot?subject=${subject}`;
         });
     });
 
     document.getElementById('logoutBtn').addEventListener('click', function () {
         window.location.href = '/logout';
+    });
+    
+    // Take Test Button Event Listener
+    document.getElementById('takeTestBtn').addEventListener('click', function() {
+        document.getElementById('testModal').style.display = 'block';
+    });
+    
+    // Close Modal Button
+    document.querySelectorAll('.close-modal').forEach(button => {
+        button.addEventListener('click', function() {
+            this.closest('.modal').style.display = 'none';
+        });
+    });
+    
+    // Test Form Submission
+    document.getElementById('testForm').addEventListener('submit', function(e) {
+        e.preventDefault();
+        const subject = document.getElementById('testSubject').value;
+        const topic = document.getElementById('testTopic').value;
+        
+        if (subject && topic) {
+            document.getElementById('testModal').style.display = 'none';
+            document.getElementById('testTitle').textContent = `${subject.charAt(0).toUpperCase() + subject.slice(1)} - ${topic}`;
+            document.getElementById('testInterface').style.display = 'block';
+            
+            // Start loading questions
+            loadTestQuestions(subject, topic);
+        }
     });
 
     // Load analytics
@@ -186,13 +214,18 @@ document.addEventListener('DOMContentLoaded', function () {
             const date = new Date(activity.timestamp).toLocaleString();
             const statusClass = activity.is_correct ? 'activity-correct' : 'activity-incorrect';
             const statusText = activity.is_correct ? 'Correct' : 'Incorrect';
-            const responseTime = activity.response_time.toFixed(1);
-
+            
+            // Format response time to 1 decimal place and add 's' for seconds
+            const responseTime = parseFloat(activity.response_time).toFixed(1);
+            
+            // Add a label for rapid fire questions
+            const activityType = activity.response_type === 'rapid_quiz' ? '<span class="rapid-quiz-badge">Rapid Quiz</span>' : '';
+            
             activityHTML += `
                 <div class="activity-item">
                     <div class="activity-info">
                         <strong>${activity.topic.charAt(0).toUpperCase() + activity.topic.slice(1)}:</strong> 
-                        ${truncateText(activity.question, 40)}
+                        ${truncateText(activity.question, 40)} ${activityType}
                     </div>
                     <div class="activity-status ${statusClass}">
                         ${statusText} (${responseTime}s)
@@ -206,28 +239,99 @@ document.addEventListener('DOMContentLoaded', function () {
 
     // Helper function to truncate text
     function truncateText(text, maxLength) {
+        if (!text) return "Unknown question";
         if (text.length <= maxLength) return text;
         return text.slice(0, maxLength) + '...';
     }
-
+    
+    // Load test questions
+    function loadTestQuestions(subject, topic) {
+        document.getElementById('loadingQuestions').style.display = 'block';
+        document.getElementById('questionContent').style.display = 'none';
+        
+        fetch('/api/generate_test', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify({ subject, topic })
+        })
+        .then(response => response.json())
+        .then(data => {
+            if (data.questions && data.questions.length > 0) {
+                // Store questions in session storage
+                sessionStorage.setItem('testQuestions', JSON.stringify(data.questions));
+                
+                // Display first question
+                displayQuestion(0);
+                
+                document.getElementById('loadingQuestions').style.display = 'none';
+                document.getElementById('questionContent').style.display = 'block';
+            } else {
+                throw new Error('No questions received');
+            }
+        })
+        .catch(error => {
+            console.error('Error loading test questions:', error);
+            document.getElementById('loadingQuestions').innerHTML = `
+                <p>Error loading questions. Please try again.</p>
+                <button class="btn secondary-btn" onclick="document.getElementById('testInterface').style.display = 'none'">
+                    Back to Dashboard
+                </button>
+            `;
+        });
+    }
+    
     // Event listener for text summarizer
     document.getElementById('summarizeBtn').addEventListener('click', function() {
         const text = document.getElementById('textInput').value;
-        const length = document.getElementById('length').value;
+        const difficulty = document.getElementById('difficulty').value;
+        const length = document.getElementById('length').value || 3; // Default to 3 if not specified
+        
+        if (!text) {
+            document.getElementById('summaryOutput').innerText = 'Please enter some text to summarize.';
+            return;
+        }
+        
+        document.getElementById('summaryOutput').innerText = 'Generating summary...';
+        
         fetch('/api/summarize', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',
             },
-            body: JSON.stringify({ text, length })
+            body: JSON.stringify({ 
+                text, 
+                difficulty,
+                length 
+            })
         })
         .then(response => response.json())
         .then(data => {
-            document.getElementById('summaryOutput').innerText = data.summary;
+            if (data.summary) {
+                document.getElementById('summaryOutput').innerText = data.summary;
+            } else {
+                document.getElementById('summaryOutput').innerText = 'Error: Could not generate summary.';
+            }
         })
         .catch(error => {
             console.error('Error:', error);
-            document.getElementById('summaryOutput').innerText = 'Error processing the text.';
+            document.getElementById('summaryOutput').innerText = 'Error processing the text. Please try again later.';
         });
     });
+    
+    // Add CSS for rapid quiz badge
+    const style = document.createElement('style');
+    style.textContent = `
+        .rapid-quiz-badge {
+            background-color: #ff5722;
+            color: white;
+            font-size: 0.75rem;
+            padding: 2px 6px;
+            border-radius: 10px;
+            margin-left: 5px;
+            font-weight: bold;
+        }
+    `;
+    document.head.appendChild(style);
 });
