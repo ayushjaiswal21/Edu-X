@@ -558,13 +558,18 @@ def rapid_quiz():
         # Get the appropriate model
         model = CONFIG['SUBJECT_MODELS'][topic]
         
+        # Modified prompt for more reliable JSON generation
         prompt = (
-            f"Generate a single rapid-fire multiple choice question in the topic '{topic}'. "
-            "The question should be very easy, clear and concise, with exactly 4 options (one correct). "
-            "It should be something a student can answer within 10 seconds if they know the basic concepts. "
-            "Return the result as JSON with these exact keys: question, options (as an array), correct_answer."
+            "Generate a single multiple choice question for rapid assessment.\n"
+            f"Topic: {topic}\n"
+            "Requirements:\n"
+            "- Very easy difficulty level\n"
+            "- Clear, concise question\n"
+            "- Exactly 4 options with one correct answer\n"
+            "Format: Return ONLY valid JSON with these exact keys: question, options (array), correct_answer"
         )
-        system_prompt = "You are an expert educational quiz generator. Only return valid JSON data."
+        
+        system_prompt = "You are an educational quiz generator. Return only valid JSON data."
         
         response = llm.generate_response(
             prompt=prompt,
@@ -572,85 +577,48 @@ def rapid_quiz():
             model=model
         )
         
-        # Improved JSON extraction with better error handling
         try:
-            # First try: direct JSON parsing
-            try:
-                question_data = json.loads(response)
-                logger.debug("Successfully parsed response as direct JSON")
-            except json.JSONDecodeError:
-                # Second try: Clean up markdown and find JSON block
-                cleaned_response = re.sub(r"```json|```", "", response, flags=re.MULTILINE).strip()
-                # More robust regex pattern for JSON object extraction
-                json_match = re.search(r'\{[\s\S]*\}', cleaned_response, re.DOTALL)
-                if json_match:
-                    try:
-                        question_data = json.loads(json_match.group())
-                        logger.debug("Successfully extracted JSON from markdown/text")
-                    except json.JSONDecodeError as je:
-                        logger.error(f"Extracted text is not valid JSON: {json_match.group()[:100]}...")
-                        raise ValueError(f"Extracted JSON is invalid: {str(je)}")
-                else:
-                    raise ValueError("Could not find valid JSON in response")
+            # Direct JSON parsing
+            question_data = json.loads(response)
             
-            # Validate required fields
-            required_keys = {'question', 'options', 'correct_answer'}
-            if not all(k in question_data for k in required_keys):
-                missing = required_keys - set(question_data.keys())
-                raise ValueError(f"Missing required fields: {missing}")
+            # Validate and fix question data
+            if not isinstance(question_data.get('options'), list):
+                question_data['options'] = [str(x) for x in range(1, 5)]
             
-            # Validate options is a list with 4 elements
-            if not isinstance(question_data['options'], list):
-                logger.warning("Options is not a list, converting to list")
-                # Try to convert to list if possible
-                if isinstance(question_data['options'], str):
-                    # This handles the case where options might be a comma-separated string
-                    question_data['options'] = [opt.strip() for opt in question_data['options'].split(',')]
-                else:
-                    # Fallback for non-list, non-string
-                    question_data['options'] = [str(question_data['options'])]
-            
-            # Ensure we have exactly 4 options
-            if len(question_data['options']) < 4:
-                logger.warning(f"Only {len(question_data['options'])} options provided, padding to 4")
+            if len(question_data['options']) != 4:
                 while len(question_data['options']) < 4:
                     question_data['options'].append(f"Option {len(question_data['options']) + 1}")
-            elif len(question_data['options']) > 4:
-                logger.warning(f"Too many options ({len(question_data['options'])}), trimming to 4")
                 question_data['options'] = question_data['options'][:4]
             
-            # Validate correct_answer is in options
-            if question_data['correct_answer'] not in question_data['options']:
-                logger.warning("Correct answer not in options, setting to first option")
+            if not question_data.get('correct_answer') in question_data['options']:
                 question_data['correct_answer'] = question_data['options'][0]
-                
+            
             return jsonify({
-                'question': question_data['question'],
+                'question': question_data.get('question', 'Default question'),
                 'options': question_data['options'],
                 'correct': question_data['correct_answer']
             })
-        except Exception as e:
-            logger.error(f"Rapid quiz JSON parse error: {str(e)} | LLM response: {response}")
-            # Fallback: return a static question
+            
+        except json.JSONDecodeError:
+            logger.error(f"Invalid JSON response: {response}")
             return jsonify({
-                'question': f"Quick! What's a key concept in {topic}?",
-                'options': ["Concept A", "Concept B", "Concept C", "Concept D"],
-                'correct': "Concept A"
+                'question': f"What is a key concept in {topic}?",
+                'options': ["Option A", "Option B", "Option C", "Option D"],
+                'correct': "Option A"
             })
+            
     except Exception as e:
         logger.error(f"Rapid quiz error: {str(e)}")
         return jsonify({'error': str(e)}), 500
 
 @app.route('/api/save_rapid_quiz', methods=['POST'])
 def save_rapid_quiz():
-    """Save the results of a rapid quiz to the database using SQLite directly."""
+    """Save the results of a rapid quiz to the database."""
     try:
-        # Check authentication
         user_id = session.get('user_id')
         if not user_id:
             return jsonify({'status': 'error', 'message': 'User not authenticated'}), 401
             
-        # Extract data from request
         data = request.get_json()
         if not data:
             return jsonify({'status': 'error', 'message': 'No data provided'}), 400
@@ -662,27 +630,54 @@ def save_rapid_quiz():
         is_correct = data.get('is_correct', False)
         response_time = data.get('response_time', 0)
         
-        # Validate required data
         if not all([topic, question, correct_answer]):
             return jsonify({'status': 'error', 'message': 'Missing required data'}), 400
             
-        # Save to database using SQLite
         try:
             with get_db_connection() as conn:
+                # Save to rapid quiz responses
                 cursor = conn.cursor()
                 cursor.execute('''
                     INSERT INTO rapid_quiz_responses
                     (user_id, topic, question, user_answer, correct_answer, is_correct, response_time, timestamp)
                     VALUES (?, ?, ?, ?, ?, ?, ?, CURRENT_TIMESTAMP)
                 ''', (
-                    user_id,
-                    topic,
-                    question,
-                    user_answer,
-                    correct_answer,
-                    is_correct,
-                    response_time
+                    user_id, topic, question, user_answer, correct_answer, is_correct, response_time
                 ))
+                
+                # Update user progress
+                cursor.execute('''
+                    SELECT id FROM user_progress 
+                    WHERE user_id = ? AND topic = ?
+                ''', (user_id, topic))
+                progress = cursor.fetchone()
+                
+                if progress:
+                    cursor.execute('''
+                        UPDATE user_progress
+                        SET correct_count = correct_count + ?,
+                            incorrect_count = incorrect_count + ?,
+                            avg_response_time = (avg_response_time + ?) / 2
+                        WHERE user_id = ? AND topic = ?
+                    ''', (
+                        1 if is_correct else 0,
+                        0 if is_correct else 1,
+                        response_time,
+                        user_id,
+                        topic
+                    ))
+                else:
+                    cursor.execute('''
+                        INSERT INTO user_progress
+                        (user_id, topic, correct_count, incorrect_count, avg_response_time)
+                        VALUES (?, ?, ?, ?, ?)
+                    ''', (
+                        user_id,
+                        topic,
+                        1 if is_correct else 0,
+                        0 if is_correct else 1,
+                        response_time
+                    ))
                 conn.commit()
                 
             return jsonify({
@@ -696,92 +691,6 @@ def save_rapid_quiz():
     except Exception as e:
         logger.error(f"Error saving rapid quiz result: {str(e)}")
         return jsonify({'status': 'error', 'message': str(e)}), 500
-
-@app.route('/api/get_questions', methods=['POST'])
-def get_questions():
-    if not llm.server_available:
-        return jsonify({"error": "Ollama server is not available. Questions cannot be generated at this time."}), 503
-    try:
-        if not request.is_json:
-            return jsonify({"error": "Request must be JSON"}), 400
-        data = request.get_json()
-        if not data:
-            return jsonify({"error": "No data provided"}), 400
-        topic = data.get('topic', 'math').lower()
-        level = data.get('level', 'beginner').lower()
-        if topic not in CONFIG['SUBJECT_MODELS']:
-            return jsonify({"error": f"Invalid topic: {topic}"}), 400
-        prompt_template = PROMPT_TEMPLATES.get(topic)
-        if not prompt_template:
-            logger.error(f"No prompt template found for topic: {topic}")
-            return jsonify({"error": "Configuration error"}), 500
-        try:
-            formatted_prompt = LLMHandler.format_prompt(
-                prompt_template,
-                {
-                    "TOPIC": topic,
-                    "LEVEL": level,
-                    "USER_QUERY": """Generate a multiple choice question with:
-- A clear question
-- 4 options (1 correct)
-- Explanation
-Format as JSON with these exact keys: question, options, correct_answer, explanation"""
-                }
-            )
-        except Exception as e:
-            logger.error(f"Prompt formatting failed: {str(e)}")
-            return jsonify({"error": "Prompt generation failed"}), 500
-        model = CONFIG['SUBJECT_MODELS'].get(topic)
-        try:
-            response = llm.generate_response(
-                prompt=formatted_prompt,
-                system_prompt="You are creating educational content. Provide only the JSON response.",
-                model=model
-            )
-            logger.debug(f"Raw LLM response for topic '{topic}': {response}")
-            try:
-                # First try direct JSON parsing
-                try:
-                    question = json.loads(response)
-                except json.JSONDecodeError:
-                    # Then try to extract JSON from text/markdown
-                    cleaned_response = re.sub(r"```json|```", "", response, flags=re.MULTILINE).strip()
-                    json_match = re.search(r'\{.*\}', cleaned_response, re.DOTALL)
-                    if not json_match:
-                        raise ValueError("No JSON block found in the response")
-                    clean_response = json_match.group()
-                    question = json.loads(clean_response)
-                
-                required_keys = {'question', 'options', 'correct_answer', 'explanation'}
-                if not all(key in question for key in required_keys):
-                    missing = required_keys - question.keys()
-                    raise ValueError(f"Missing required fields: {missing}")
-                if not isinstance(question['options'], list) or len(question['options']) != 4:
-                    raise ValueError("Options must be a list of 4 items")
-                if question['correct_answer'] not in question['options']:
-                    logger.warning("Correct answer not in options. Adjusting response.")
-                    question['correct_answer'] = question['options'][0]
-                return jsonify([question])
-            except json.JSONDecodeError as e:
-                logger.error(f"JSON parse error: {str(e)}. Response: {response}")
-                return jsonify({
-                    "error": "The AI returned an invalid format",
-                    "fallback_question": {
-                        'question': "Explain the key concepts of " + topic,
-                        'options': ['Concept 1', 'Concept 2', 'Concept 3', 'Concept 4'],
-                        'correct_answer': 'Concept 1',
-                        'explanation': 'The AI response could not be parsed'
-                    }
-                }), 502
-        except requests.exceptions.Timeout:
-            logger.error("LLM request timed out")
-            return jsonify({"error": "The AI is taking too long to respond"}), 504
-        except Exception as e:
-            logger.error(f"LLM request failed: {str(e)}")
-            return jsonify({"error": "Failed to generate question"}), 500
-    except Exception as e:
-        logger.error(f"Unexpected error in question generation: {str(e)}")
-        return jsonify({"error": "An unexpected error occurred"}), 500
 
 @app.route('/api/generate_test', methods=['POST'])
 def generate_test():
@@ -939,35 +848,47 @@ def get_analytics():
     if 'user_id' not in session:
         return jsonify({'error': 'Not authenticated'}), 401
     user_id = session['user_id']
-    logger.debug(f"Fetching analytics for user_id: {user_id}")
     try:
         with get_db_connection() as conn:
             cursor = conn.cursor()
-            cursor.execute(
-                "SELECT topic, correct_count, incorrect_count, avg_response_time FROM user_progress WHERE user_id = ?",
-                (user_id,)
-            )
-            progress_data = cursor.fetchall()
-            if not progress_data:
-                logger.info(f"No progress data found for user_id: {user_id}")
-                progress_data = []  # <-- Ensure progress_data is always defined
+            
+            # Get regular progress data
+            cursor.execute("""
+                SELECT topic, correct_count, incorrect_count, avg_response_time 
+                FROM user_progress 
+                WHERE user_id = ?
+            """, (user_id,))
+            progress_data = [dict(row) for row in cursor.fetchall()]
 
-            # ... your analytics/statistics code here ...
-            # For example:
-            summary = {}
-            quiz_stats = {}
-            # Make sure to use progress_data safely
-            for stat_dict in [summary, quiz_stats] + list(progress_data):
-                pass  # your logic here
+            # Get recent activities
+            cursor.execute("""
+                SELECT 
+                    'rapid_quiz' as activity_type,
+                    topic,
+                    question,
+                    user_answer,
+                    correct_answer,
+                    is_correct,
+                    response_time,
+                    timestamp
+                FROM rapid_quiz_responses 
+                WHERE user_id = ?
+                ORDER BY timestamp DESC
+                LIMIT 10
+            """, (user_id,))
+            recent_activities = [dict(row) for row in cursor.fetchall()]
 
             return jsonify({
-                'progress': [dict(row) for row in progress_data],
-                'summary': summary,
-                'quiz_stats': quiz_stats
+                'progress': progress_data or [],  # Return empty array if no progress
+                'recent_activities': recent_activities or []  # Return empty array if no activities
             })
     except Exception as e:
         logger.error(f"Analytics error: {str(e)}")
-        return jsonify({'error': str(e)}), 500
+        return jsonify({
+            'progress': [],
+            'recent_activities': [],
+            'message': 'Start a learning session to see your progress!'
+        })
 
 @app.route('/api/summarize', methods=['POST'])
 def summarize_text():
@@ -985,17 +906,9 @@ def summarize_text():
 def page_not_found(e):
     return render_template('errors/404.html'), 404
 
-@app.errorhandler(403)
-def forbidden(e):
-    return render_template('errors/403.html'), 403
-
 @app.errorhandler(500)
 def internal_error(e):
     return render_template('errors/500.html'), 500
-
-@app.errorhandler(HTTPException)
-def handle_exception(e):
-    return render_template('errors/generic.html', error=e), e.code
 
 if __name__ == '__main__':
     os.makedirs('templates/auth', exist_ok=True)

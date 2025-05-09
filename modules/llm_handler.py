@@ -60,18 +60,46 @@ class LLMHandler:
                 response.raise_for_status()
                 tags_data = response.json()
                 
-                # Extract model names from the response
+                # Improved model availability check
                 available_models = []
                 if 'models' in tags_data:
                     available_models = [m['name'] for m in tags_data['models']]
                 
-                # Accept both exact and tag/variant match
+                # More flexible model name matching
                 model_base_name = model.split(":")[0]
-                model_available = model in available_models or any(m.split(":")[0] == model_base_name for m in available_models)
+                
+                # Log model information for debugging
+                logger.debug(f"Requested model: {model}, base name: {model_base_name}")
+                logger.debug(f"Available models: {available_models}")
+                
+                # First try exact match
+                if model in available_models:
+                    model_available = True
+                    logger.debug(f"Exact model match found for {model}")
+                # Then try base name match
+                elif any(m.startswith(model_base_name) for m in available_models):
+                    matching_models = [m for m in available_models if m.startswith(model_base_name)]
+                    logger.debug(f"Base name matches found: {matching_models}")
+                    # If no exact match but base name matches, use the first matching model
+                    model = matching_models[0]
+                    model_available = True
+                    logger.info(f"Using model {model} as match for requested {model_base_name}")
+                else:
+                    model_available = False
                 
                 if not model_available:
-                    raise ValueError(f"Model {model} not available. Available: {available_models}")
+                    if available_models:
+                        # Fall back to first available model
+                        fallback_model = available_models[0]
+                        logger.warning(
+                            f"Model {model} not available. Falling back to: {fallback_model}"
+                        )
+                        model = fallback_model
+                    else:
+                        raise ValueError(f"No models available in Ollama")
 
+                # Generate the response with the selected model
+                logger.info(f"Generating response using model: {model}")
                 response = requests.post(
                     f"{self.base_url}/api/generate",
                     json={

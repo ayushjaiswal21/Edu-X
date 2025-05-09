@@ -3604,3 +3604,613 @@ The answer is: This approach allows me to build on their existing knowledge and 
 2025-05-09 10:52:24,796 - urllib3.connectionpool - DEBUG - Starting new HTTP connection (1): localhost:11434
 2025-05-09 10:52:26,839 - urllib3.connectionpool - DEBUG - http://localhost:11434 "GET /api/tags HTTP/1.1" 200 1368
 2025-05-09 10:52:26,841 - urllib3.connectionpool - DEBUG - Starting new HTTP connection (1): localhost:11434
+2025-05-09 10:53:30,717 - urllib3.connectionpool - DEBUG - http://localhost:11434 "POST /api/generate HTTP/1.1" 200 None
+2025-05-09 10:53:30,718 - modules.llm_handler - DEBUG - Ollama raw result: {'model': 'wizard-math:7b', 'created_at': '2025-05-09T05:23:30.7129151Z', 'response': '\nThe human digestive system is an important topic because it helps us understand how our bodies process the food we eat and turn it into energy. It\'s also a fascinating topic because it involves a complex network of organs and processes.\n\nSome key concepts we\'ll explore together are:\n\n1. The structure and function of the organs involved in digestion, such as the mouth, esophagus, stomach, small intestine, and large intestine.\n2. The process of digestion, from the breakdown of food by enzymes to the absorption of nutrients and elimination of waste.\n3. The role of bacteria in the digestive system and how they can affect our health.\n\nA thought-provoking question to end this introduction could be:\n\n"Before we start, I want to know what you already know about the human digestive system. What comes to mind when you think about this topic?"\n\nBy asking this question, we can build on the student\'s prior knowledge and tailor our teaching to their needs. It also demonstrates that we value the student\'s input and experiences.\n\nThe answer is: It also demonstrates that we value the student\'s input and experiences.', 'done': True, 'done_reason': 'stop', 'context': [995, 460, 396, 7583, 14165, 8311, 271, 2841, 3864, 297, 22969, 9432, 28723, 3604, 5541, 349, 298, 1316, 3567, 2380, 16582, 11869, 1059, 318, 26184, 19198, 28725, 1111, 3269, 4224, 28725, 304, 5122, 495, 12139, 28723, 2929, 6212, 272, 3238, 302, 396, 19639, 28725, 7749, 28725, 304, 4788, 522, 8626, 693, 3069, 7276, 4195, 28723, 5938, 12230, 9254, 304, 7507, 12284, 1444, 16582, 28723, 1684, 10148, 14508, 5716, 14915, 28725, 3084, 2948, 28725, 2992, 522, 12139, 304, 6191, 3012, 28723, 13, 13, 27332, 3133, 3112, 28747, 13, 1976, 460, 264, 6416, 8304, 11049, 8626, 395, 1267, 302, 2659, 9432, 3567, 438, 544, 6157, 28723, 13, 13, 19738, 1604, 28747, 2930, 18922, 495, 1587, 13, 920, 8115, 2431, 393, 7321, 2980, 28747, 2839, 1079, 13, 13, 11159, 9432, 4431, 28747, 13, 28740, 28723, 24408, 356, 3667, 5935, 840, 6399, 3210, 821, 776, 15251, 13, 28750, 28723, 5938, 272, 318, 26184, 2038, 395, 1654, 1007, 4224, 298, 8327, 3567, 28742, 4195, 13, 28770, 28723, 7133, 547, 3081, 10928, 697, 395, 1353, 28733, 9471, 9254, 304, 8429, 13, 28781, 28723, 16104, 27729, 12139, 369, 13964, 2711, 767, 3567, 2380, 12742, 13, 28782, 28723, 13046, 4052, 514, 13346, 395, 21869, 304, 25312, 13, 28784, 28723, 21931, 3567, 395, 13107, 4630, 4418, 390, 590, 5097, 13, 13, 7477, 3567, 1038, 17179, 28747, 13, 28733, 9268, 3768, 2111, 1753, 272, 4372, 13, 28733, 14555, 706, 298, 5191, 652, 1216, 7559, 1059, 17271, 13, 28733, 19500, 16055, 4224, 369, 1736, 298, 16164, 13, 28733, 8610, 23099, 739, 590, 1038, 5191, 497, 442, 4714, 3892, 13, 13, 28738, 8365, 288, 7661, 28747, 13, 28733, 8587, 7276, 4195, 304, 2700, 28733, 28713, 18390, 6266, 13, 28733, 8245, 27240, 9843, 304, 7643, 12758, 13, 28733, 21873, 27240, 16582, 298, 1353, 28733, 9471, 8429, 13, 28733, 17611, 423, 465, 17008, 8520, 1413, 27240, 3842, 13, 28733, 28517, 264, 6057, 2273, 673, 684, 27240, 5537, 13, 13, 11123, 1186, 28779, 19369, 28747, 4666, 3399, 358, 272, 9067, 302, 2930, 18922, 495, 1587, 15643, 28723, 4205, 28725, 7282, 2079, 456, 9067, 349, 2278, 304, 8598, 298, 272, 5716, 28723, 2479, 28725, 22327, 28705, 28750, 28733, 28770, 1945, 16582, 478, 28742, 584, 11418, 2553, 28723, 5764, 395, 264, 1654, 28733, 11951, 8992, 2996, 369, 6191, 1291, 272, 5716, 298, 1073, 684, 652, 4681, 4788, 302, 2930, 18922, 495, 1587, 28723, 13, 13, 5139, 1314, 298, 9087, 264, 5315, 1249, 28725, 21885, 10294, 28723, 1992, 19571, 390, 513, 368, 28742, 267, 2461, 264, 1353, 19729, 8387, 28725, 459, 22119, 264, 23347, 28723, 13, 13, 27332, 12107, 28747, 13, 13, 1014, 2930, 18922, 495, 1587, 349, 396, 2278, 9067, 1096, 378, 7263, 592, 2380, 910, 813, 9401, 1759, 272, 2887, 478, 5310, 304, 1527, 378, 778, 3408, 28723, 661, 28742, 28713, 835, 264, 23069, 9067, 1096, 378, 14657, 264, 4630, 3681, 302, 2247, 509, 304, 9537, 28723, 13, 13, 11600, 1945, 16582, 478, 28742, 584, 11418, 2553, 460, 28747, 13, 13, 28740, 28723, 415, 4693, 304, 908, 302, 272, 2247, 509, 5290, 297, 18922, 296, 28725, 1259, 390, 272, 5108, 28725, 1037, 3126, 357, 381, 28725, 11752, 28725, 1741, 716, 374, 473, 28725, 304, 2475, 716, 374, 473, 28723, 13, 28750, 28723, 415, 1759, 302, 18922, 296, 28725, 477, 272, 26987, 302, 2887, 486, 481, 17304, 274, 298, 272, 26923, 302, 9246, 373, 788, 304, 8663, 2235, 302, 9396, 28723, 13, 28770, 28723, 415, 3905, 302, 24038, 297, 272, 18922, 495, 1587, 304, 910, 590, 541, 5197, 813, 2528, 28723, 13, 13, 28741, 1654, 28733, 11951, 8992, 2996, 298, 948, 456, 14300, 829, 347, 28747, 13, 13, 28739, 11273, 478, 1149, 28725, 315, 947, 298, 873, 767, 368, 2141, 873, 684, 272, 2930, 18922, 495, 1587, 28723, 1824, 3435, 298, 2273, 739, 368, 1073, 684, 456, 9067, 1110, 13, 13, 1930, 7201, 456, 2996, 28725, 478, 541, 1813, 356, 272, 5716, 28742, 28713, 4681, 4788, 304, 8675, 271, 813, 9432, 298, 652, 3208, 28723, 661, 835, 6695, 1002, 369, 478, 1192, 272, 5716, 28742, 28713, 2787, 304, 9021, 28723, 13, 13, 1014, 4372, 349, 28747, 661, 835, 6695, 1002, 369, 478, 1192, 272, 5716, 28742, 28713, 2787, 304, 9021, 28723], 'total_duration': 61851481300, 'load_duration': 24603500, 'prompt_eval_count': 424, 'prompt_eval_duration': 214290800, 'eval_count': 262, 'eval_duration': 61612418400}
+2025-05-09 10:53:30,720 - modules.llm_handler - DEBUG - Raw response text: 
+The human digestive system is an important topic because it helps us understand how our bodies process the food we eat and turn it into energy. It's also a fascinating topic because it involves a complex network of organs and processes.
+
+Some key concepts we'll explore together are:
+
+1. The structure and function of the organs involved in digestion, such as the mouth, esophagus, stomach, small intestine, and large intestine.
+2. The process of digestion, from the breakdown of food by enzymes to the absorption of nutrients and elimination of waste.
+3. The role of bacteria in the digestive system and how they can affect our health.
+
+A thought-provoking question to end this introduction could be:
+
+"Before we start, I want to know what you already know about the human digestive system. What comes to mind when you think about this topic?"
+
+By asking this question, we can build on the student's prior knowledge and tailor our teaching to their needs. It also demonstrates that we value the student's input and experiences.
+
+The answer is: It also demonstrates that we value the student's input and experiences.
+2025-05-09 10:53:30,721 - modules.llm_handler - WARNING - No JSON block found. Returning raw response.
+2025-05-09 10:53:30,721 - werkzeug - INFO - 127.0.0.1 - - [09/May/2025 10:53:30] "POST /api/chat HTTP/1.1" 200 -
+2025-05-09 10:55:26,698 - urllib3.connectionpool - DEBUG - Starting new HTTP connection (1): localhost:11434
+2025-05-09 10:55:28,755 - urllib3.connectionpool - DEBUG - http://localhost:11434 "GET /api/tags HTTP/1.1" 200 1368
+2025-05-09 10:55:28,756 - urllib3.connectionpool - DEBUG - Starting new HTTP connection (1): localhost:11434
+2025-05-09 13:57:44,627 - app - INFO - Database database/user_data.db initialized successfully
+2025-05-09 13:57:44,628 - app - INFO - init_models called (no-op placeholder).
+2025-05-09 13:57:44,684 - werkzeug - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5000
+2025-05-09 13:57:44,684 - werkzeug - INFO - [33mPress CTRL+C to quit[0m
+2025-05-09 13:57:48,124 - werkzeug - INFO - 127.0.0.1 - - [09/May/2025 13:57:48] "GET / HTTP/1.1" 200 -
+2025-05-09 13:57:48,237 - werkzeug - INFO - 127.0.0.1 - - [09/May/2025 13:57:48] "GET /static/css/style.css HTTP/1.1" 200 -
+2025-05-09 13:57:48,295 - werkzeug - INFO - 127.0.0.1 - - [09/May/2025 13:57:48] "[33mGET /favicon.ico HTTP/1.1[0m" 404 -
+2025-05-09 13:57:49,640 - werkzeug - INFO - 127.0.0.1 - - [09/May/2025 13:57:49] "GET /login HTTP/1.1" 200 -
+2025-05-09 13:57:49,663 - werkzeug - INFO - 127.0.0.1 - - [09/May/2025 13:57:49] "[36mGET /static/css/auth.css HTTP/1.1[0m" 304 -
+2025-05-09 13:57:49,668 - werkzeug - INFO - 127.0.0.1 - - [09/May/2025 13:57:49] "[36mGET /static/js/auth.js HTTP/1.1[0m" 304 -
+2025-05-09 13:57:51,090 - app - INFO - User logged in: ayush
+2025-05-09 13:57:51,095 - werkzeug - INFO - 127.0.0.1 - - [09/May/2025 13:57:51] "POST /login HTTP/1.1" 200 -
+2025-05-09 13:57:51,123 - werkzeug - INFO - 127.0.0.1 - - [09/May/2025 13:57:51] "GET /dashboard HTTP/1.1" 200 -
+2025-05-09 13:57:51,149 - werkzeug - INFO - 127.0.0.1 - - [09/May/2025 13:57:51] "[36mGET /static/css/style.css HTTP/1.1[0m" 304 -
+2025-05-09 13:57:51,159 - werkzeug - INFO - 127.0.0.1 - - [09/May/2025 13:57:51] "[36mGET /static/js/test.js HTTP/1.1[0m" 304 -
+2025-05-09 13:57:51,189 - werkzeug - INFO - 127.0.0.1 - - [09/May/2025 13:57:51] "GET /static/js/dashboard.js HTTP/1.1" 200 -
+2025-05-09 13:57:51,240 - werkzeug - INFO - 127.0.0.1 - - [09/May/2025 13:57:51] "[33mGET /api/recent_activity HTTP/1.1[0m" 404 -
+2025-05-09 13:57:51,241 - werkzeug - INFO - 127.0.0.1 - - [09/May/2025 13:57:51] "GET /api/get_analytics HTTP/1.1" 200 -
+2025-05-09 13:58:21,235 - werkzeug - INFO - 127.0.0.1 - - [09/May/2025 13:58:21] "GET /api/get_analytics HTTP/1.1" 200 -
+2025-05-09 13:58:51,249 - werkzeug - INFO - 127.0.0.1 - - [09/May/2025 13:58:51] "GET /api/get_analytics HTTP/1.1" 200 -
+2025-05-09 13:59:47,158 - app - INFO - Database database/user_data.db initialized successfully
+2025-05-09 13:59:47,158 - app - INFO - init_models called (no-op placeholder).
+2025-05-09 13:59:47,170 - werkzeug - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5000
+2025-05-09 13:59:47,171 - werkzeug - INFO - [33mPress CTRL+C to quit[0m
+2025-05-09 13:59:49,273 - werkzeug - INFO - 127.0.0.1 - - [09/May/2025 13:59:49] "GET / HTTP/1.1" 200 -
+2025-05-09 13:59:49,371 - werkzeug - INFO - 127.0.0.1 - - [09/May/2025 13:59:49] "GET /static/css/style.css HTTP/1.1" 200 -
+2025-05-09 13:59:50,546 - werkzeug - INFO - 127.0.0.1 - - [09/May/2025 13:59:50] "GET /login HTTP/1.1" 200 -
+2025-05-09 13:59:50,567 - werkzeug - INFO - 127.0.0.1 - - [09/May/2025 13:59:50] "[36mGET /static/css/auth.css HTTP/1.1[0m" 304 -
+2025-05-09 13:59:50,570 - werkzeug - INFO - 127.0.0.1 - - [09/May/2025 13:59:50] "[36mGET /static/js/auth.js HTTP/1.1[0m" 304 -
+2025-05-09 13:59:51,727 - app - INFO - User logged in: ayush
+2025-05-09 13:59:51,727 - werkzeug - INFO - 127.0.0.1 - - [09/May/2025 13:59:51] "POST /login HTTP/1.1" 200 -
+2025-05-09 13:59:51,748 - werkzeug - INFO - 127.0.0.1 - - [09/May/2025 13:59:51] "GET /dashboard HTTP/1.1" 200 -
+2025-05-09 13:59:51,767 - werkzeug - INFO - 127.0.0.1 - - [09/May/2025 13:59:51] "[36mGET /static/css/style.css HTTP/1.1[0m" 304 -
+2025-05-09 13:59:51,772 - werkzeug - INFO - 127.0.0.1 - - [09/May/2025 13:59:51] "[36mGET /static/js/dashboard.js HTTP/1.1[0m" 304 -
+2025-05-09 13:59:51,773 - werkzeug - INFO - 127.0.0.1 - - [09/May/2025 13:59:51] "[36mGET /static/js/test.js HTTP/1.1[0m" 304 -
+2025-05-09 13:59:51,792 - werkzeug - INFO - 127.0.0.1 - - [09/May/2025 13:59:51] "[33mGET /api/recent_activity HTTP/1.1[0m" 404 -
+2025-05-09 13:59:51,793 - werkzeug - INFO - 127.0.0.1 - - [09/May/2025 13:59:51] "GET /api/get_analytics HTTP/1.1" 200 -
+2025-05-09 13:59:51,960 - werkzeug - INFO - 127.0.0.1 - - [09/May/2025 13:59:51] "GET /api/get_analytics HTTP/1.1" 200 -
+2025-05-09 14:27:00,803 - app - INFO - Database database/user_data.db initialized successfully
+2025-05-09 14:27:00,804 - app - INFO - init_models called (no-op placeholder).
+2025-05-09 14:27:00,816 - werkzeug - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5000
+2025-05-09 14:27:00,816 - werkzeug - INFO - [33mPress CTRL+C to quit[0m
+2025-05-09 14:27:03,522 - werkzeug - INFO - 127.0.0.1 - - [09/May/2025 14:27:03] "GET / HTTP/1.1" 200 -
+2025-05-09 14:27:03,637 - werkzeug - INFO - 127.0.0.1 - - [09/May/2025 14:27:03] "GET /static/css/style.css HTTP/1.1" 200 -
+2025-05-09 14:27:05,251 - werkzeug - INFO - 127.0.0.1 - - [09/May/2025 14:27:05] "GET /login HTTP/1.1" 200 -
+2025-05-09 14:27:05,277 - werkzeug - INFO - 127.0.0.1 - - [09/May/2025 14:27:05] "[36mGET /static/css/auth.css HTTP/1.1[0m" 304 -
+2025-05-09 14:27:05,280 - werkzeug - INFO - 127.0.0.1 - - [09/May/2025 14:27:05] "[36mGET /static/js/auth.js HTTP/1.1[0m" 304 -
+2025-05-09 14:27:07,584 - app - INFO - User logged in: ayush
+2025-05-09 14:27:07,585 - werkzeug - INFO - 127.0.0.1 - - [09/May/2025 14:27:07] "POST /login HTTP/1.1" 200 -
+2025-05-09 14:27:07,606 - werkzeug - INFO - 127.0.0.1 - - [09/May/2025 14:27:07] "GET /dashboard HTTP/1.1" 200 -
+2025-05-09 14:27:07,625 - werkzeug - INFO - 127.0.0.1 - - [09/May/2025 14:27:07] "[36mGET /static/css/style.css HTTP/1.1[0m" 304 -
+2025-05-09 14:27:07,630 - werkzeug - INFO - 127.0.0.1 - - [09/May/2025 14:27:07] "[36mGET /static/js/dashboard.js HTTP/1.1[0m" 304 -
+2025-05-09 14:27:07,630 - werkzeug - INFO - 127.0.0.1 - - [09/May/2025 14:27:07] "[36mGET /static/js/test.js HTTP/1.1[0m" 304 -
+2025-05-09 14:27:07,649 - werkzeug - INFO - 127.0.0.1 - - [09/May/2025 14:27:07] "GET /api/get_analytics HTTP/1.1" 200 -
+2025-05-09 14:27:07,652 - werkzeug - INFO - 127.0.0.1 - - [09/May/2025 14:27:07] "[33mGET /api/recent_activity HTTP/1.1[0m" 404 -
+2025-05-09 14:27:20,725 - werkzeug - INFO - 127.0.0.1 - - [09/May/2025 14:27:20] "GET /dashboard HTTP/1.1" 200 -
+2025-05-09 14:27:20,749 - werkzeug - INFO - 127.0.0.1 - - [09/May/2025 14:27:20] "[36mGET /static/css/style.css HTTP/1.1[0m" 304 -
+2025-05-09 14:27:20,751 - werkzeug - INFO - 127.0.0.1 - - [09/May/2025 14:27:20] "[36mGET /static/js/dashboard.js HTTP/1.1[0m" 304 -
+2025-05-09 14:27:20,753 - werkzeug - INFO - 127.0.0.1 - - [09/May/2025 14:27:20] "[36mGET /static/js/test.js HTTP/1.1[0m" 304 -
+2025-05-09 14:27:20,764 - werkzeug - INFO - 127.0.0.1 - - [09/May/2025 14:27:20] "[33mGET /api/recent_activity HTTP/1.1[0m" 404 -
+2025-05-09 14:27:20,764 - werkzeug - INFO - 127.0.0.1 - - [09/May/2025 14:27:20] "GET /api/get_analytics HTTP/1.1" 200 -
+2025-05-09 14:27:20,995 - werkzeug - INFO - 127.0.0.1 - - [09/May/2025 14:27:20] "GET /dashboard HTTP/1.1" 200 -
+2025-05-09 14:27:21,021 - werkzeug - INFO - 127.0.0.1 - - [09/May/2025 14:27:21] "[36mGET /static/css/style.css HTTP/1.1[0m" 304 -
+2025-05-09 14:27:21,023 - werkzeug - INFO - 127.0.0.1 - - [09/May/2025 14:27:21] "[36mGET /static/js/dashboard.js HTTP/1.1[0m" 304 -
+2025-05-09 14:27:21,026 - werkzeug - INFO - 127.0.0.1 - - [09/May/2025 14:27:21] "[36mGET /static/js/test.js HTTP/1.1[0m" 304 -
+2025-05-09 14:27:21,037 - werkzeug - INFO - 127.0.0.1 - - [09/May/2025 14:27:21] "[33mGET /api/recent_activity HTTP/1.1[0m" 404 -
+2025-05-09 14:27:21,039 - werkzeug - INFO - 127.0.0.1 - - [09/May/2025 14:27:21] "GET /api/get_analytics HTTP/1.1" 200 -
+2025-05-09 14:27:22,001 - werkzeug - INFO - 127.0.0.1 - - [09/May/2025 14:27:22] "GET /dashboard HTTP/1.1" 200 -
+2025-05-09 14:27:22,022 - werkzeug - INFO - 127.0.0.1 - - [09/May/2025 14:27:22] "[36mGET /static/css/style.css HTTP/1.1[0m" 304 -
+2025-05-09 14:27:22,025 - werkzeug - INFO - 127.0.0.1 - - [09/May/2025 14:27:22] "[36mGET /static/js/dashboard.js HTTP/1.1[0m" 304 -
+2025-05-09 14:27:22,027 - werkzeug - INFO - 127.0.0.1 - - [09/May/2025 14:27:22] "[36mGET /static/js/test.js HTTP/1.1[0m" 304 -
+2025-05-09 14:27:22,041 - werkzeug - INFO - 127.0.0.1 - - [09/May/2025 14:27:22] "[33mGET /api/recent_activity HTTP/1.1[0m" 404 -
+2025-05-09 14:27:22,043 - werkzeug - INFO - 127.0.0.1 - - [09/May/2025 14:27:22] "GET /api/get_analytics HTTP/1.1" 200 -
+2025-05-09 14:27:22,189 - werkzeug - INFO - 127.0.0.1 - - [09/May/2025 14:27:22] "GET /dashboard HTTP/1.1" 200 -
+2025-05-09 14:27:22,216 - werkzeug - INFO - 127.0.0.1 - - [09/May/2025 14:27:22] "[36mGET /static/css/style.css HTTP/1.1[0m" 304 -
+2025-05-09 14:27:22,223 - werkzeug - INFO - 127.0.0.1 - - [09/May/2025 14:27:22] "[36mGET /static/js/dashboard.js HTTP/1.1[0m" 304 -
+2025-05-09 14:27:22,224 - werkzeug - INFO - 127.0.0.1 - - [09/May/2025 14:27:22] "[36mGET /static/js/test.js HTTP/1.1[0m" 304 -
+2025-05-09 14:27:22,234 - werkzeug - INFO - 127.0.0.1 - - [09/May/2025 14:27:22] "[33mGET /api/recent_activity HTTP/1.1[0m" 404 -
+2025-05-09 14:27:22,236 - werkzeug - INFO - 127.0.0.1 - - [09/May/2025 14:27:22] "GET /api/get_analytics HTTP/1.1" 200 -
+2025-05-09 14:27:22,390 - werkzeug - INFO - 127.0.0.1 - - [09/May/2025 14:27:22] "GET /dashboard HTTP/1.1" 200 -
+2025-05-09 14:27:22,428 - werkzeug - INFO - 127.0.0.1 - - [09/May/2025 14:27:22] "[36mGET /static/css/style.css HTTP/1.1[0m" 304 -
+2025-05-09 14:27:22,433 - werkzeug - INFO - 127.0.0.1 - - [09/May/2025 14:27:22] "[36mGET /static/js/dashboard.js HTTP/1.1[0m" 304 -
+2025-05-09 14:27:22,434 - werkzeug - INFO - 127.0.0.1 - - [09/May/2025 14:27:22] "[36mGET /static/js/test.js HTTP/1.1[0m" 304 -
+2025-05-09 14:27:22,441 - werkzeug - INFO - 127.0.0.1 - - [09/May/2025 14:27:22] "GET /api/get_analytics HTTP/1.1" 200 -
+2025-05-09 14:27:22,442 - werkzeug - INFO - 127.0.0.1 - - [09/May/2025 14:27:22] "[33mGET /api/recent_activity HTTP/1.1[0m" 404 -
+2025-05-09 14:27:30,310 - werkzeug - INFO - 127.0.0.1 - - [09/May/2025 14:27:30] "GET /dashboard HTTP/1.1" 200 -
+2025-05-09 14:27:30,337 - werkzeug - INFO - 127.0.0.1 - - [09/May/2025 14:27:30] "[36mGET /static/css/style.css HTTP/1.1[0m" 304 -
+2025-05-09 14:27:30,339 - werkzeug - INFO - 127.0.0.1 - - [09/May/2025 14:27:30] "[36mGET /static/js/dashboard.js HTTP/1.1[0m" 304 -
+2025-05-09 14:27:30,340 - werkzeug - INFO - 127.0.0.1 - - [09/May/2025 14:27:30] "[36mGET /static/js/test.js HTTP/1.1[0m" 304 -
+2025-05-09 14:27:30,348 - werkzeug - INFO - 127.0.0.1 - - [09/May/2025 14:27:30] "[33mGET /api/recent_activity HTTP/1.1[0m" 404 -
+2025-05-09 14:27:30,348 - werkzeug - INFO - 127.0.0.1 - - [09/May/2025 14:27:30] "GET /api/get_analytics HTTP/1.1" 200 -
+2025-05-09 14:27:30,494 - werkzeug - INFO - 127.0.0.1 - - [09/May/2025 14:27:30] "GET /dashboard HTTP/1.1" 200 -
+2025-05-09 14:27:30,516 - werkzeug - INFO - 127.0.0.1 - - [09/May/2025 14:27:30] "[36mGET /static/css/style.css HTTP/1.1[0m" 304 -
+2025-05-09 14:27:30,522 - werkzeug - INFO - 127.0.0.1 - - [09/May/2025 14:27:30] "[36mGET /static/js/dashboard.js HTTP/1.1[0m" 304 -
+2025-05-09 14:27:30,523 - werkzeug - INFO - 127.0.0.1 - - [09/May/2025 14:27:30] "[36mGET /static/js/test.js HTTP/1.1[0m" 304 -
+2025-05-09 14:27:30,528 - werkzeug - INFO - 127.0.0.1 - - [09/May/2025 14:27:30] "[33mGET /api/recent_activity HTTP/1.1[0m" 404 -
+2025-05-09 14:27:30,530 - werkzeug - INFO - 127.0.0.1 - - [09/May/2025 14:27:30] "GET /api/get_analytics HTTP/1.1" 200 -
+2025-05-09 14:27:30,734 - werkzeug - INFO - 127.0.0.1 - - [09/May/2025 14:27:30] "GET /dashboard HTTP/1.1" 200 -
+2025-05-09 14:27:30,761 - werkzeug - INFO - 127.0.0.1 - - [09/May/2025 14:27:30] "[36mGET /static/css/style.css HTTP/1.1[0m" 304 -
+2025-05-09 14:27:30,764 - werkzeug - INFO - 127.0.0.1 - - [09/May/2025 14:27:30] "[36mGET /static/js/dashboard.js HTTP/1.1[0m" 304 -
+2025-05-09 14:27:30,767 - werkzeug - INFO - 127.0.0.1 - - [09/May/2025 14:27:30] "[36mGET /static/js/test.js HTTP/1.1[0m" 304 -
+2025-05-09 14:27:30,782 - werkzeug - INFO - 127.0.0.1 - - [09/May/2025 14:27:30] "[33mGET /api/recent_activity HTTP/1.1[0m" 404 -
+2025-05-09 14:27:30,783 - werkzeug - INFO - 127.0.0.1 - - [09/May/2025 14:27:30] "GET /api/get_analytics HTTP/1.1" 200 -
+2025-05-09 14:27:31,250 - werkzeug - INFO - 127.0.0.1 - - [09/May/2025 14:27:31] "GET /dashboard HTTP/1.1" 200 -
+2025-05-09 14:27:31,270 - werkzeug - INFO - 127.0.0.1 - - [09/May/2025 14:27:31] "[36mGET /static/css/style.css HTTP/1.1[0m" 304 -
+2025-05-09 14:27:31,273 - werkzeug - INFO - 127.0.0.1 - - [09/May/2025 14:27:31] "[36mGET /static/js/dashboard.js HTTP/1.1[0m" 304 -
+2025-05-09 14:27:31,275 - werkzeug - INFO - 127.0.0.1 - - [09/May/2025 14:27:31] "[36mGET /static/js/test.js HTTP/1.1[0m" 304 -
+2025-05-09 14:27:31,286 - werkzeug - INFO - 127.0.0.1 - - [09/May/2025 14:27:31] "[33mGET /api/recent_activity HTTP/1.1[0m" 404 -
+2025-05-09 14:27:31,288 - werkzeug - INFO - 127.0.0.1 - - [09/May/2025 14:27:31] "GET /api/get_analytics HTTP/1.1" 200 -
+2025-05-09 14:27:31,479 - werkzeug - INFO - 127.0.0.1 - - [09/May/2025 14:27:31] "GET /dashboard HTTP/1.1" 200 -
+2025-05-09 14:27:31,514 - werkzeug - INFO - 127.0.0.1 - - [09/May/2025 14:27:31] "[36mGET /static/css/style.css HTTP/1.1[0m" 304 -
+2025-05-09 14:27:31,519 - werkzeug - INFO - 127.0.0.1 - - [09/May/2025 14:27:31] "[36mGET /static/js/test.js HTTP/1.1[0m" 304 -
+2025-05-09 14:27:31,520 - werkzeug - INFO - 127.0.0.1 - - [09/May/2025 14:27:31] "[36mGET /static/js/dashboard.js HTTP/1.1[0m" 304 -
+2025-05-09 14:27:31,531 - werkzeug - INFO - 127.0.0.1 - - [09/May/2025 14:27:31] "[33mGET /api/recent_activity HTTP/1.1[0m" 404 -
+2025-05-09 14:27:31,533 - werkzeug - INFO - 127.0.0.1 - - [09/May/2025 14:27:31] "GET /api/get_analytics HTTP/1.1" 200 -
+2025-05-09 14:27:31,764 - werkzeug - INFO - 127.0.0.1 - - [09/May/2025 14:27:31] "GET /dashboard HTTP/1.1" 200 -
+2025-05-09 14:27:31,791 - werkzeug - INFO - 127.0.0.1 - - [09/May/2025 14:27:31] "[36mGET /static/css/style.css HTTP/1.1[0m" 304 -
+2025-05-09 14:27:31,793 - werkzeug - INFO - 127.0.0.1 - - [09/May/2025 14:27:31] "[36mGET /static/js/dashboard.js HTTP/1.1[0m" 304 -
+2025-05-09 14:27:31,794 - werkzeug - INFO - 127.0.0.1 - - [09/May/2025 14:27:31] "[36mGET /static/js/test.js HTTP/1.1[0m" 304 -
+2025-05-09 14:27:31,810 - werkzeug - INFO - 127.0.0.1 - - [09/May/2025 14:27:31] "[33mGET /api/recent_activity HTTP/1.1[0m" 404 -
+2025-05-09 14:27:31,811 - werkzeug - INFO - 127.0.0.1 - - [09/May/2025 14:27:31] "GET /api/get_analytics HTTP/1.1" 200 -
+2025-05-09 14:27:32,090 - werkzeug - INFO - 127.0.0.1 - - [09/May/2025 14:27:32] "GET /dashboard HTTP/1.1" 200 -
+2025-05-09 14:27:32,112 - werkzeug - INFO - 127.0.0.1 - - [09/May/2025 14:27:32] "[36mGET /static/css/style.css HTTP/1.1[0m" 304 -
+2025-05-09 14:27:32,120 - werkzeug - INFO - 127.0.0.1 - - [09/May/2025 14:27:32] "[36mGET /static/js/dashboard.js HTTP/1.1[0m" 304 -
+2025-05-09 14:27:32,120 - werkzeug - INFO - 127.0.0.1 - - [09/May/2025 14:27:32] "[36mGET /static/js/test.js HTTP/1.1[0m" 304 -
+2025-05-09 14:27:32,132 - werkzeug - INFO - 127.0.0.1 - - [09/May/2025 14:27:32] "[33mGET /api/recent_activity HTTP/1.1[0m" 404 -
+2025-05-09 14:27:32,133 - werkzeug - INFO - 127.0.0.1 - - [09/May/2025 14:27:32] "GET /api/get_analytics HTTP/1.1" 200 -
+2025-05-09 14:27:32,308 - werkzeug - INFO - 127.0.0.1 - - [09/May/2025 14:27:32] "GET /dashboard HTTP/1.1" 200 -
+2025-05-09 14:27:32,336 - werkzeug - INFO - 127.0.0.1 - - [09/May/2025 14:27:32] "[36mGET /static/css/style.css HTTP/1.1[0m" 304 -
+2025-05-09 14:27:32,342 - werkzeug - INFO - 127.0.0.1 - - [09/May/2025 14:27:32] "[36mGET /static/js/dashboard.js HTTP/1.1[0m" 304 -
+2025-05-09 14:27:32,343 - werkzeug - INFO - 127.0.0.1 - - [09/May/2025 14:27:32] "[36mGET /static/js/test.js HTTP/1.1[0m" 304 -
+2025-05-09 14:27:32,354 - werkzeug - INFO - 127.0.0.1 - - [09/May/2025 14:27:32] "[33mGET /api/recent_activity HTTP/1.1[0m" 404 -
+2025-05-09 14:27:32,356 - werkzeug - INFO - 127.0.0.1 - - [09/May/2025 14:27:32] "GET /api/get_analytics HTTP/1.1" 200 -
+2025-05-09 14:27:32,519 - werkzeug - INFO - 127.0.0.1 - - [09/May/2025 14:27:32] "GET /dashboard HTTP/1.1" 200 -
+2025-05-09 14:27:32,546 - werkzeug - INFO - 127.0.0.1 - - [09/May/2025 14:27:32] "[36mGET /static/css/style.css HTTP/1.1[0m" 304 -
+2025-05-09 14:27:32,553 - werkzeug - INFO - 127.0.0.1 - - [09/May/2025 14:27:32] "[36mGET /static/js/dashboard.js HTTP/1.1[0m" 304 -
+2025-05-09 14:27:32,553 - werkzeug - INFO - 127.0.0.1 - - [09/May/2025 14:27:32] "[36mGET /static/js/test.js HTTP/1.1[0m" 304 -
+2025-05-09 14:27:32,564 - werkzeug - INFO - 127.0.0.1 - - [09/May/2025 14:27:32] "[33mGET /api/recent_activity HTTP/1.1[0m" 404 -
+2025-05-09 14:27:32,565 - werkzeug - INFO - 127.0.0.1 - - [09/May/2025 14:27:32] "GET /api/get_analytics HTTP/1.1" 200 -
+2025-05-09 14:27:32,764 - werkzeug - INFO - 127.0.0.1 - - [09/May/2025 14:27:32] "GET /dashboard HTTP/1.1" 200 -
+2025-05-09 14:27:32,789 - werkzeug - INFO - 127.0.0.1 - - [09/May/2025 14:27:32] "[36mGET /static/css/style.css HTTP/1.1[0m" 304 -
+2025-05-09 14:27:32,792 - werkzeug - INFO - 127.0.0.1 - - [09/May/2025 14:27:32] "[36mGET /static/js/dashboard.js HTTP/1.1[0m" 304 -
+2025-05-09 14:27:32,793 - werkzeug - INFO - 127.0.0.1 - - [09/May/2025 14:27:32] "[36mGET /static/js/test.js HTTP/1.1[0m" 304 -
+2025-05-09 14:27:32,807 - werkzeug - INFO - 127.0.0.1 - - [09/May/2025 14:27:32] "[33mGET /api/recent_activity HTTP/1.1[0m" 404 -
+2025-05-09 14:27:32,808 - werkzeug - INFO - 127.0.0.1 - - [09/May/2025 14:27:32] "GET /api/get_analytics HTTP/1.1" 200 -
+2025-05-09 14:27:32,999 - werkzeug - INFO - 127.0.0.1 - - [09/May/2025 14:27:32] "GET /dashboard HTTP/1.1" 200 -
+2025-05-09 14:27:33,026 - werkzeug - INFO - 127.0.0.1 - - [09/May/2025 14:27:33] "[36mGET /static/css/style.css HTTP/1.1[0m" 304 -
+2025-05-09 14:27:33,030 - werkzeug - INFO - 127.0.0.1 - - [09/May/2025 14:27:33] "[36mGET /static/js/test.js HTTP/1.1[0m" 304 -
+2025-05-09 14:27:33,031 - werkzeug - INFO - 127.0.0.1 - - [09/May/2025 14:27:33] "[36mGET /static/js/dashboard.js HTTP/1.1[0m" 304 -
+2025-05-09 14:27:33,043 - werkzeug - INFO - 127.0.0.1 - - [09/May/2025 14:27:33] "[33mGET /api/recent_activity HTTP/1.1[0m" 404 -
+2025-05-09 14:27:33,044 - werkzeug - INFO - 127.0.0.1 - - [09/May/2025 14:27:33] "GET /api/get_analytics HTTP/1.1" 200 -
+2025-05-09 14:27:33,878 - werkzeug - INFO - 127.0.0.1 - - [09/May/2025 14:27:33] "GET /dashboard HTTP/1.1" 200 -
+2025-05-09 14:27:33,901 - werkzeug - INFO - 127.0.0.1 - - [09/May/2025 14:27:33] "[36mGET /static/css/style.css HTTP/1.1[0m" 304 -
+2025-05-09 14:27:33,907 - werkzeug - INFO - 127.0.0.1 - - [09/May/2025 14:27:33] "[36mGET /static/js/dashboard.js HTTP/1.1[0m" 304 -
+2025-05-09 14:27:33,908 - werkzeug - INFO - 127.0.0.1 - - [09/May/2025 14:27:33] "[36mGET /static/js/test.js HTTP/1.1[0m" 304 -
+2025-05-09 14:27:33,918 - werkzeug - INFO - 127.0.0.1 - - [09/May/2025 14:27:33] "[33mGET /api/recent_activity HTTP/1.1[0m" 404 -
+2025-05-09 14:27:33,920 - werkzeug - INFO - 127.0.0.1 - - [09/May/2025 14:27:33] "GET /api/get_analytics HTTP/1.1" 200 -
+2025-05-09 14:27:34,114 - werkzeug - INFO - 127.0.0.1 - - [09/May/2025 14:27:34] "GET /dashboard HTTP/1.1" 200 -
+2025-05-09 14:27:34,134 - werkzeug - INFO - 127.0.0.1 - - [09/May/2025 14:27:34] "[36mGET /static/css/style.css HTTP/1.1[0m" 304 -
+2025-05-09 14:27:34,137 - werkzeug - INFO - 127.0.0.1 - - [09/May/2025 14:27:34] "[36mGET /static/js/dashboard.js HTTP/1.1[0m" 304 -
+2025-05-09 14:27:34,139 - werkzeug - INFO - 127.0.0.1 - - [09/May/2025 14:27:34] "[36mGET /static/js/test.js HTTP/1.1[0m" 304 -
+2025-05-09 14:27:34,145 - werkzeug - INFO - 127.0.0.1 - - [09/May/2025 14:27:34] "[33mGET /api/recent_activity HTTP/1.1[0m" 404 -
+2025-05-09 14:27:34,146 - werkzeug - INFO - 127.0.0.1 - - [09/May/2025 14:27:34] "GET /api/get_analytics HTTP/1.1" 200 -
+2025-05-09 14:27:34,521 - werkzeug - INFO - 127.0.0.1 - - [09/May/2025 14:27:34] "GET /dashboard HTTP/1.1" 200 -
+2025-05-09 14:27:34,540 - werkzeug - INFO - 127.0.0.1 - - [09/May/2025 14:27:34] "[36mGET /static/css/style.css HTTP/1.1[0m" 304 -
+2025-05-09 14:27:34,544 - werkzeug - INFO - 127.0.0.1 - - [09/May/2025 14:27:34] "[36mGET /static/js/dashboard.js HTTP/1.1[0m" 304 -
+2025-05-09 14:27:34,545 - werkzeug - INFO - 127.0.0.1 - - [09/May/2025 14:27:34] "[36mGET /static/js/test.js HTTP/1.1[0m" 304 -
+2025-05-09 14:27:34,557 - werkzeug - INFO - 127.0.0.1 - - [09/May/2025 14:27:34] "[33mGET /api/recent_activity HTTP/1.1[0m" 404 -
+2025-05-09 14:27:34,558 - werkzeug - INFO - 127.0.0.1 - - [09/May/2025 14:27:34] "GET /api/get_analytics HTTP/1.1" 200 -
+2025-05-09 14:27:34,757 - werkzeug - INFO - 127.0.0.1 - - [09/May/2025 14:27:34] "GET /dashboard HTTP/1.1" 200 -
+2025-05-09 14:27:34,778 - werkzeug - INFO - 127.0.0.1 - - [09/May/2025 14:27:34] "[36mGET /static/css/style.css HTTP/1.1[0m" 304 -
+2025-05-09 14:27:34,784 - werkzeug - INFO - 127.0.0.1 - - [09/May/2025 14:27:34] "[36mGET /static/js/dashboard.js HTTP/1.1[0m" 304 -
+2025-05-09 14:27:34,784 - werkzeug - INFO - 127.0.0.1 - - [09/May/2025 14:27:34] "[36mGET /static/js/test.js HTTP/1.1[0m" 304 -
+2025-05-09 14:27:34,791 - werkzeug - INFO - 127.0.0.1 - - [09/May/2025 14:27:34] "[33mGET /api/recent_activity HTTP/1.1[0m" 404 -
+2025-05-09 14:27:34,792 - werkzeug - INFO - 127.0.0.1 - - [09/May/2025 14:27:34] "GET /api/get_analytics HTTP/1.1" 200 -
+2025-05-09 14:27:34,989 - werkzeug - INFO - 127.0.0.1 - - [09/May/2025 14:27:34] "GET /dashboard HTTP/1.1" 200 -
+2025-05-09 14:27:35,025 - werkzeug - INFO - 127.0.0.1 - - [09/May/2025 14:27:35] "[36mGET /static/css/style.css HTTP/1.1[0m" 304 -
+2025-05-09 14:27:35,028 - werkzeug - INFO - 127.0.0.1 - - [09/May/2025 14:27:35] "[36mGET /static/js/dashboard.js HTTP/1.1[0m" 304 -
+2025-05-09 14:27:35,030 - werkzeug - INFO - 127.0.0.1 - - [09/May/2025 14:27:35] "[36mGET /static/js/test.js HTTP/1.1[0m" 304 -
+2025-05-09 14:27:35,042 - werkzeug - INFO - 127.0.0.1 - - [09/May/2025 14:27:35] "[33mGET /api/recent_activity HTTP/1.1[0m" 404 -
+2025-05-09 14:27:35,043 - werkzeug - INFO - 127.0.0.1 - - [09/May/2025 14:27:35] "GET /api/get_analytics HTTP/1.1" 200 -
+2025-05-09 14:27:35,217 - werkzeug - INFO - 127.0.0.1 - - [09/May/2025 14:27:35] "GET /dashboard HTTP/1.1" 200 -
+2025-05-09 14:27:35,247 - werkzeug - INFO - 127.0.0.1 - - [09/May/2025 14:27:35] "[36mGET /static/css/style.css HTTP/1.1[0m" 304 -
+2025-05-09 14:27:35,254 - werkzeug - INFO - 127.0.0.1 - - [09/May/2025 14:27:35] "[36mGET /static/js/dashboard.js HTTP/1.1[0m" 304 -
+2025-05-09 14:27:35,255 - werkzeug - INFO - 127.0.0.1 - - [09/May/2025 14:27:35] "[36mGET /static/js/test.js HTTP/1.1[0m" 304 -
+2025-05-09 14:27:35,267 - werkzeug - INFO - 127.0.0.1 - - [09/May/2025 14:27:35] "[33mGET /api/recent_activity HTTP/1.1[0m" 404 -
+2025-05-09 14:27:35,269 - werkzeug - INFO - 127.0.0.1 - - [09/May/2025 14:27:35] "GET /api/get_analytics HTTP/1.1" 200 -
+2025-05-09 14:27:35,449 - werkzeug - INFO - 127.0.0.1 - - [09/May/2025 14:27:35] "GET /dashboard HTTP/1.1" 200 -
+2025-05-09 14:27:35,491 - werkzeug - INFO - 127.0.0.1 - - [09/May/2025 14:27:35] "[36mGET /static/css/style.css HTTP/1.1[0m" 304 -
+2025-05-09 14:27:35,494 - werkzeug - INFO - 127.0.0.1 - - [09/May/2025 14:27:35] "[36mGET /static/js/dashboard.js HTTP/1.1[0m" 304 -
+2025-05-09 14:27:35,496 - werkzeug - INFO - 127.0.0.1 - - [09/May/2025 14:27:35] "[36mGET /static/js/test.js HTTP/1.1[0m" 304 -
+2025-05-09 14:27:35,509 - werkzeug - INFO - 127.0.0.1 - - [09/May/2025 14:27:35] "[33mGET /api/recent_activity HTTP/1.1[0m" 404 -
+2025-05-09 14:27:35,510 - werkzeug - INFO - 127.0.0.1 - - [09/May/2025 14:27:35] "GET /api/get_analytics HTTP/1.1" 200 -
+2025-05-09 14:27:35,669 - werkzeug - INFO - 127.0.0.1 - - [09/May/2025 14:27:35] "GET /dashboard HTTP/1.1" 200 -
+2025-05-09 14:27:35,737 - werkzeug - INFO - 127.0.0.1 - - [09/May/2025 14:27:35] "[36mGET /static/css/style.css HTTP/1.1[0m" 304 -
+2025-05-09 14:27:35,768 - werkzeug - INFO - 127.0.0.1 - - [09/May/2025 14:27:35] "[36mGET /static/js/dashboard.js HTTP/1.1[0m" 304 -
+2025-05-09 14:27:35,790 - werkzeug - INFO - 127.0.0.1 - - [09/May/2025 14:27:35] "[36mGET /static/js/test.js HTTP/1.1[0m" 304 -
+2025-05-09 14:27:35,796 - werkzeug - INFO - 127.0.0.1 - - [09/May/2025 14:27:35] "[33mGET /api/recent_activity HTTP/1.1[0m" 404 -
+2025-05-09 14:27:35,797 - werkzeug - INFO - 127.0.0.1 - - [09/May/2025 14:27:35] "GET /api/get_analytics HTTP/1.1" 200 -
+2025-05-09 14:27:35,889 - werkzeug - INFO - 127.0.0.1 - - [09/May/2025 14:27:35] "GET /dashboard HTTP/1.1" 200 -
+2025-05-09 14:27:35,909 - werkzeug - INFO - 127.0.0.1 - - [09/May/2025 14:27:35] "[36mGET /static/css/style.css HTTP/1.1[0m" 304 -
+2025-05-09 14:27:35,912 - werkzeug - INFO - 127.0.0.1 - - [09/May/2025 14:27:35] "[36mGET /static/js/dashboard.js HTTP/1.1[0m" 304 -
+2025-05-09 14:27:35,914 - werkzeug - INFO - 127.0.0.1 - - [09/May/2025 14:27:35] "[36mGET /static/js/test.js HTTP/1.1[0m" 304 -
+2025-05-09 14:27:35,920 - werkzeug - INFO - 127.0.0.1 - - [09/May/2025 14:27:35] "[33mGET /api/recent_activity HTTP/1.1[0m" 404 -
+2025-05-09 14:27:35,921 - werkzeug - INFO - 127.0.0.1 - - [09/May/2025 14:27:35] "GET /api/get_analytics HTTP/1.1" 200 -
+2025-05-09 14:27:36,103 - werkzeug - INFO - 127.0.0.1 - - [09/May/2025 14:27:36] "GET /dashboard HTTP/1.1" 200 -
+2025-05-09 14:27:36,153 - werkzeug - INFO - 127.0.0.1 - - [09/May/2025 14:27:36] "[36mGET /static/css/style.css HTTP/1.1[0m" 304 -
+2025-05-09 14:27:36,155 - werkzeug - INFO - 127.0.0.1 - - [09/May/2025 14:27:36] "[36mGET /static/js/dashboard.js HTTP/1.1[0m" 304 -
+2025-05-09 14:27:36,157 - werkzeug - INFO - 127.0.0.1 - - [09/May/2025 14:27:36] "[36mGET /static/js/test.js HTTP/1.1[0m" 304 -
+2025-05-09 14:27:36,172 - werkzeug - INFO - 127.0.0.1 - - [09/May/2025 14:27:36] "[33mGET /api/recent_activity HTTP/1.1[0m" 404 -
+2025-05-09 14:27:36,173 - werkzeug - INFO - 127.0.0.1 - - [09/May/2025 14:27:36] "GET /api/get_analytics HTTP/1.1" 200 -
+2025-05-09 14:27:36,935 - werkzeug - INFO - 127.0.0.1 - - [09/May/2025 14:27:36] "GET /dashboard HTTP/1.1" 200 -
+2025-05-09 14:27:36,959 - werkzeug - INFO - 127.0.0.1 - - [09/May/2025 14:27:36] "[36mGET /static/css/style.css HTTP/1.1[0m" 304 -
+2025-05-09 14:27:36,960 - werkzeug - INFO - 127.0.0.1 - - [09/May/2025 14:27:36] "[36mGET /static/js/dashboard.js HTTP/1.1[0m" 304 -
+2025-05-09 14:27:36,962 - werkzeug - INFO - 127.0.0.1 - - [09/May/2025 14:27:36] "[36mGET /static/js/test.js HTTP/1.1[0m" 304 -
+2025-05-09 14:27:36,976 - werkzeug - INFO - 127.0.0.1 - - [09/May/2025 14:27:36] "[33mGET /api/recent_activity HTTP/1.1[0m" 404 -
+2025-05-09 14:27:36,978 - werkzeug - INFO - 127.0.0.1 - - [09/May/2025 14:27:36] "GET /api/get_analytics HTTP/1.1" 200 -
+2025-05-09 14:27:37,116 - werkzeug - INFO - 127.0.0.1 - - [09/May/2025 14:27:37] "GET /dashboard HTTP/1.1" 200 -
+2025-05-09 14:27:37,148 - werkzeug - INFO - 127.0.0.1 - - [09/May/2025 14:27:37] "[36mGET /static/css/style.css HTTP/1.1[0m" 304 -
+2025-05-09 14:27:37,154 - werkzeug - INFO - 127.0.0.1 - - [09/May/2025 14:27:37] "[36mGET /static/js/dashboard.js HTTP/1.1[0m" 304 -
+2025-05-09 14:27:37,155 - werkzeug - INFO - 127.0.0.1 - - [09/May/2025 14:27:37] "[36mGET /static/js/test.js HTTP/1.1[0m" 304 -
+2025-05-09 14:27:37,166 - werkzeug - INFO - 127.0.0.1 - - [09/May/2025 14:27:37] "[33mGET /api/recent_activity HTTP/1.1[0m" 404 -
+2025-05-09 14:27:37,167 - werkzeug - INFO - 127.0.0.1 - - [09/May/2025 14:27:37] "GET /api/get_analytics HTTP/1.1" 200 -
+2025-05-09 14:27:37,367 - werkzeug - INFO - 127.0.0.1 - - [09/May/2025 14:27:37] "GET /dashboard HTTP/1.1" 200 -
+2025-05-09 14:27:37,394 - werkzeug - INFO - 127.0.0.1 - - [09/May/2025 14:27:37] "[36mGET /static/css/style.css HTTP/1.1[0m" 304 -
+2025-05-09 14:27:37,399 - werkzeug - INFO - 127.0.0.1 - - [09/May/2025 14:27:37] "[36mGET /static/js/dashboard.js HTTP/1.1[0m" 304 -
+2025-05-09 14:27:37,400 - werkzeug - INFO - 127.0.0.1 - - [09/May/2025 14:27:37] "[36mGET /static/js/test.js HTTP/1.1[0m" 304 -
+2025-05-09 14:27:37,416 - werkzeug - INFO - 127.0.0.1 - - [09/May/2025 14:27:37] "[33mGET /api/recent_activity HTTP/1.1[0m" 404 -
+2025-05-09 14:27:37,418 - werkzeug - INFO - 127.0.0.1 - - [09/May/2025 14:27:37] "GET /api/get_analytics HTTP/1.1" 200 -
+2025-05-09 14:27:37,574 - werkzeug - INFO - 127.0.0.1 - - [09/May/2025 14:27:37] "GET /dashboard HTTP/1.1" 200 -
+2025-05-09 14:27:37,624 - werkzeug - INFO - 127.0.0.1 - - [09/May/2025 14:27:37] "[36mGET /static/css/style.css HTTP/1.1[0m" 304 -
+2025-05-09 14:27:37,629 - werkzeug - INFO - 127.0.0.1 - - [09/May/2025 14:27:37] "[36mGET /static/js/dashboard.js HTTP/1.1[0m" 304 -
+2025-05-09 14:27:37,632 - werkzeug - INFO - 127.0.0.1 - - [09/May/2025 14:27:37] "[36mGET /static/js/test.js HTTP/1.1[0m" 304 -
+2025-05-09 14:27:37,647 - werkzeug - INFO - 127.0.0.1 - - [09/May/2025 14:27:37] "[33mGET /api/recent_activity HTTP/1.1[0m" 404 -
+2025-05-09 14:27:37,649 - werkzeug - INFO - 127.0.0.1 - - [09/May/2025 14:27:37] "GET /api/get_analytics HTTP/1.1" 200 -
+2025-05-09 14:27:37,770 - werkzeug - INFO - 127.0.0.1 - - [09/May/2025 14:27:37] "GET /dashboard HTTP/1.1" 200 -
+2025-05-09 14:27:37,818 - werkzeug - INFO - 127.0.0.1 - - [09/May/2025 14:27:37] "[36mGET /static/css/style.css HTTP/1.1[0m" 304 -
+2025-05-09 14:27:37,825 - werkzeug - INFO - 127.0.0.1 - - [09/May/2025 14:27:37] "[36mGET /static/js/test.js HTTP/1.1[0m" 304 -
+2025-05-09 14:27:37,826 - werkzeug - INFO - 127.0.0.1 - - [09/May/2025 14:27:37] "[36mGET /static/js/dashboard.js HTTP/1.1[0m" 304 -
+2025-05-09 14:27:37,845 - werkzeug - INFO - 127.0.0.1 - - [09/May/2025 14:27:37] "[33mGET /api/recent_activity HTTP/1.1[0m" 404 -
+2025-05-09 14:27:37,848 - werkzeug - INFO - 127.0.0.1 - - [09/May/2025 14:27:37] "GET /api/get_analytics HTTP/1.1" 200 -
+2025-05-09 14:27:37,965 - werkzeug - INFO - 127.0.0.1 - - [09/May/2025 14:27:37] "GET /dashboard HTTP/1.1" 200 -
+2025-05-09 14:27:38,008 - werkzeug - INFO - 127.0.0.1 - - [09/May/2025 14:27:38] "[36mGET /static/css/style.css HTTP/1.1[0m" 304 -
+2025-05-09 14:27:38,018 - werkzeug - INFO - 127.0.0.1 - - [09/May/2025 14:27:38] "[36mGET /static/js/dashboard.js HTTP/1.1[0m" 304 -
+2025-05-09 14:27:38,019 - werkzeug - INFO - 127.0.0.1 - - [09/May/2025 14:27:38] "[36mGET /static/js/test.js HTTP/1.1[0m" 304 -
+2025-05-09 14:27:38,032 - werkzeug - INFO - 127.0.0.1 - - [09/May/2025 14:27:38] "[33mGET /api/recent_activity HTTP/1.1[0m" 404 -
+2025-05-09 14:27:38,034 - werkzeug - INFO - 127.0.0.1 - - [09/May/2025 14:27:38] "GET /api/get_analytics HTTP/1.1" 200 -
+2025-05-09 14:27:38,177 - werkzeug - INFO - 127.0.0.1 - - [09/May/2025 14:27:38] "GET /dashboard HTTP/1.1" 200 -
+2025-05-09 14:27:38,235 - werkzeug - INFO - 127.0.0.1 - - [09/May/2025 14:27:38] "[36mGET /static/css/style.css HTTP/1.1[0m" 304 -
+2025-05-09 14:27:38,238 - werkzeug - INFO - 127.0.0.1 - - [09/May/2025 14:27:38] "[36mGET /static/js/dashboard.js HTTP/1.1[0m" 304 -
+2025-05-09 14:27:38,240 - werkzeug - INFO - 127.0.0.1 - - [09/May/2025 14:27:38] "[36mGET /static/js/test.js HTTP/1.1[0m" 304 -
+2025-05-09 14:27:38,255 - werkzeug - INFO - 127.0.0.1 - - [09/May/2025 14:27:38] "[33mGET /api/recent_activity HTTP/1.1[0m" 404 -
+2025-05-09 14:27:38,258 - werkzeug - INFO - 127.0.0.1 - - [09/May/2025 14:27:38] "GET /api/get_analytics HTTP/1.1" 200 -
+2025-05-09 14:27:38,350 - werkzeug - INFO - 127.0.0.1 - - [09/May/2025 14:27:38] "GET /dashboard HTTP/1.1" 200 -
+2025-05-09 14:27:38,383 - werkzeug - INFO - 127.0.0.1 - - [09/May/2025 14:27:38] "[36mGET /static/css/style.css HTTP/1.1[0m" 304 -
+2025-05-09 14:27:38,390 - werkzeug - INFO - 127.0.0.1 - - [09/May/2025 14:27:38] "[36mGET /static/js/dashboard.js HTTP/1.1[0m" 304 -
+2025-05-09 14:27:38,392 - werkzeug - INFO - 127.0.0.1 - - [09/May/2025 14:27:38] "[36mGET /static/js/test.js HTTP/1.1[0m" 304 -
+2025-05-09 14:27:38,409 - werkzeug - INFO - 127.0.0.1 - - [09/May/2025 14:27:38] "[33mGET /api/recent_activity HTTP/1.1[0m" 404 -
+2025-05-09 14:27:38,410 - werkzeug - INFO - 127.0.0.1 - - [09/May/2025 14:27:38] "GET /api/get_analytics HTTP/1.1" 200 -
+2025-05-09 14:27:38,572 - werkzeug - INFO - 127.0.0.1 - - [09/May/2025 14:27:38] "GET /dashboard HTTP/1.1" 200 -
+2025-05-09 14:27:38,631 - werkzeug - INFO - 127.0.0.1 - - [09/May/2025 14:27:38] "[36mGET /static/css/style.css HTTP/1.1[0m" 304 -
+2025-05-09 14:27:38,637 - werkzeug - INFO - 127.0.0.1 - - [09/May/2025 14:27:38] "[36mGET /static/js/dashboard.js HTTP/1.1[0m" 304 -
+2025-05-09 14:27:38,643 - werkzeug - INFO - 127.0.0.1 - - [09/May/2025 14:27:38] "[36mGET /static/js/test.js HTTP/1.1[0m" 304 -
+2025-05-09 14:27:38,654 - werkzeug - INFO - 127.0.0.1 - - [09/May/2025 14:27:38] "[33mGET /api/recent_activity HTTP/1.1[0m" 404 -
+2025-05-09 14:27:38,655 - werkzeug - INFO - 127.0.0.1 - - [09/May/2025 14:27:38] "GET /api/get_analytics HTTP/1.1" 200 -
+2025-05-09 14:27:38,751 - werkzeug - INFO - 127.0.0.1 - - [09/May/2025 14:27:38] "GET /dashboard HTTP/1.1" 200 -
+2025-05-09 14:27:38,771 - werkzeug - INFO - 127.0.0.1 - - [09/May/2025 14:27:38] "[36mGET /static/css/style.css HTTP/1.1[0m" 304 -
+2025-05-09 14:27:38,775 - werkzeug - INFO - 127.0.0.1 - - [09/May/2025 14:27:38] "[36mGET /static/js/dashboard.js HTTP/1.1[0m" 304 -
+2025-05-09 14:27:38,775 - werkzeug - INFO - 127.0.0.1 - - [09/May/2025 14:27:38] "[36mGET /static/js/test.js HTTP/1.1[0m" 304 -
+2025-05-09 14:27:38,791 - werkzeug - INFO - 127.0.0.1 - - [09/May/2025 14:27:38] "[33mGET /api/recent_activity HTTP/1.1[0m" 404 -
+2025-05-09 14:27:38,792 - werkzeug - INFO - 127.0.0.1 - - [09/May/2025 14:27:38] "GET /api/get_analytics HTTP/1.1" 200 -
+2025-05-09 14:27:39,005 - werkzeug - INFO - 127.0.0.1 - - [09/May/2025 14:27:39] "GET /dashboard HTTP/1.1" 200 -
+2025-05-09 14:27:39,032 - werkzeug - INFO - 127.0.0.1 - - [09/May/2025 14:27:39] "[36mGET /static/css/style.css HTTP/1.1[0m" 304 -
+2025-05-09 14:27:39,038 - werkzeug - INFO - 127.0.0.1 - - [09/May/2025 14:27:39] "[36mGET /static/js/dashboard.js HTTP/1.1[0m" 304 -
+2025-05-09 14:27:39,038 - werkzeug - INFO - 127.0.0.1 - - [09/May/2025 14:27:39] "[36mGET /static/js/test.js HTTP/1.1[0m" 304 -
+2025-05-09 14:27:39,050 - werkzeug - INFO - 127.0.0.1 - - [09/May/2025 14:27:39] "[33mGET /api/recent_activity HTTP/1.1[0m" 404 -
+2025-05-09 14:27:39,052 - werkzeug - INFO - 127.0.0.1 - - [09/May/2025 14:27:39] "GET /api/get_analytics HTTP/1.1" 200 -
+2025-05-09 14:27:39,314 - werkzeug - INFO - 127.0.0.1 - - [09/May/2025 14:27:39] "GET /dashboard HTTP/1.1" 200 -
+2025-05-09 14:27:39,340 - werkzeug - INFO - 127.0.0.1 - - [09/May/2025 14:27:39] "[36mGET /static/css/style.css HTTP/1.1[0m" 304 -
+2025-05-09 14:27:39,344 - werkzeug - INFO - 127.0.0.1 - - [09/May/2025 14:27:39] "[36mGET /static/js/dashboard.js HTTP/1.1[0m" 304 -
+2025-05-09 14:27:39,344 - werkzeug - INFO - 127.0.0.1 - - [09/May/2025 14:27:39] "[36mGET /static/js/test.js HTTP/1.1[0m" 304 -
+2025-05-09 14:27:39,357 - werkzeug - INFO - 127.0.0.1 - - [09/May/2025 14:27:39] "[33mGET /api/recent_activity HTTP/1.1[0m" 404 -
+2025-05-09 14:27:39,359 - werkzeug - INFO - 127.0.0.1 - - [09/May/2025 14:27:39] "GET /api/get_analytics HTTP/1.1" 200 -
+2025-05-09 14:27:39,575 - werkzeug - INFO - 127.0.0.1 - - [09/May/2025 14:27:39] "GET /dashboard HTTP/1.1" 200 -
+2025-05-09 14:27:39,599 - werkzeug - INFO - 127.0.0.1 - - [09/May/2025 14:27:39] "[36mGET /static/css/style.css HTTP/1.1[0m" 304 -
+2025-05-09 14:27:39,605 - werkzeug - INFO - 127.0.0.1 - - [09/May/2025 14:27:39] "[36mGET /static/js/dashboard.js HTTP/1.1[0m" 304 -
+2025-05-09 14:27:39,605 - werkzeug - INFO - 127.0.0.1 - - [09/May/2025 14:27:39] "[36mGET /static/js/test.js HTTP/1.1[0m" 304 -
+2025-05-09 14:27:39,670 - werkzeug - INFO - 127.0.0.1 - - [09/May/2025 14:27:39] "[33mGET /api/recent_activity HTTP/1.1[0m" 404 -
+2025-05-09 14:27:39,672 - werkzeug - INFO - 127.0.0.1 - - [09/May/2025 14:27:39] "GET /api/get_analytics HTTP/1.1" 200 -
+2025-05-09 14:27:39,693 - werkzeug - INFO - 127.0.0.1 - - [09/May/2025 14:27:39] "GET /dashboard HTTP/1.1" 200 -
+2025-05-09 14:27:39,718 - werkzeug - INFO - 127.0.0.1 - - [09/May/2025 14:27:39] "[36mGET /static/css/style.css HTTP/1.1[0m" 304 -
+2025-05-09 14:27:39,721 - werkzeug - INFO - 127.0.0.1 - - [09/May/2025 14:27:39] "[36mGET /static/js/dashboard.js HTTP/1.1[0m" 304 -
+2025-05-09 14:27:39,722 - werkzeug - INFO - 127.0.0.1 - - [09/May/2025 14:27:39] "[36mGET /static/js/test.js HTTP/1.1[0m" 304 -
+2025-05-09 14:27:39,736 - werkzeug - INFO - 127.0.0.1 - - [09/May/2025 14:27:39] "GET /api/get_analytics HTTP/1.1" 200 -
+2025-05-09 14:27:39,738 - werkzeug - INFO - 127.0.0.1 - - [09/May/2025 14:27:39] "[33mGET /api/recent_activity HTTP/1.1[0m" 404 -
+2025-05-09 14:27:39,906 - werkzeug - INFO - 127.0.0.1 - - [09/May/2025 14:27:39] "GET /dashboard HTTP/1.1" 200 -
+2025-05-09 14:27:39,943 - werkzeug - INFO - 127.0.0.1 - - [09/May/2025 14:27:39] "[36mGET /static/css/style.css HTTP/1.1[0m" 304 -
+2025-05-09 14:27:39,944 - werkzeug - INFO - 127.0.0.1 - - [09/May/2025 14:27:39] "[36mGET /static/js/dashboard.js HTTP/1.1[0m" 304 -
+2025-05-09 14:27:39,944 - werkzeug - INFO - 127.0.0.1 - - [09/May/2025 14:27:39] "[36mGET /static/js/test.js HTTP/1.1[0m" 304 -
+2025-05-09 14:27:39,958 - werkzeug - INFO - 127.0.0.1 - - [09/May/2025 14:27:39] "[33mGET /api/recent_activity HTTP/1.1[0m" 404 -
+2025-05-09 14:27:39,960 - werkzeug - INFO - 127.0.0.1 - - [09/May/2025 14:27:39] "GET /api/get_analytics HTTP/1.1" 200 -
+2025-05-09 14:27:40,121 - werkzeug - INFO - 127.0.0.1 - - [09/May/2025 14:27:40] "GET /dashboard HTTP/1.1" 200 -
+2025-05-09 14:27:40,149 - werkzeug - INFO - 127.0.0.1 - - [09/May/2025 14:27:40] "[36mGET /static/css/style.css HTTP/1.1[0m" 304 -
+2025-05-09 14:27:40,155 - werkzeug - INFO - 127.0.0.1 - - [09/May/2025 14:27:40] "[36mGET /static/js/dashboard.js HTTP/1.1[0m" 304 -
+2025-05-09 14:27:40,156 - werkzeug - INFO - 127.0.0.1 - - [09/May/2025 14:27:40] "[36mGET /static/js/test.js HTTP/1.1[0m" 304 -
+2025-05-09 14:27:40,166 - werkzeug - INFO - 127.0.0.1 - - [09/May/2025 14:27:40] "[33mGET /api/recent_activity HTTP/1.1[0m" 404 -
+2025-05-09 14:27:40,167 - werkzeug - INFO - 127.0.0.1 - - [09/May/2025 14:27:40] "GET /api/get_analytics HTTP/1.1" 200 -
+2025-05-09 14:27:40,299 - werkzeug - INFO - 127.0.0.1 - - [09/May/2025 14:27:40] "GET /dashboard HTTP/1.1" 200 -
+2025-05-09 14:27:40,350 - werkzeug - INFO - 127.0.0.1 - - [09/May/2025 14:27:40] "[36mGET /static/css/style.css HTTP/1.1[0m" 304 -
+2025-05-09 14:27:40,361 - werkzeug - INFO - 127.0.0.1 - - [09/May/2025 14:27:40] "[36mGET /static/js/dashboard.js HTTP/1.1[0m" 304 -
+2025-05-09 14:27:40,362 - werkzeug - INFO - 127.0.0.1 - - [09/May/2025 14:27:40] "[36mGET /static/js/test.js HTTP/1.1[0m" 304 -
+2025-05-09 14:27:40,375 - werkzeug - INFO - 127.0.0.1 - - [09/May/2025 14:27:40] "[33mGET /api/recent_activity HTTP/1.1[0m" 404 -
+2025-05-09 14:27:40,376 - werkzeug - INFO - 127.0.0.1 - - [09/May/2025 14:27:40] "GET /api/get_analytics HTTP/1.1" 200 -
+2025-05-09 14:27:40,485 - werkzeug - INFO - 127.0.0.1 - - [09/May/2025 14:27:40] "GET /dashboard HTTP/1.1" 200 -
+2025-05-09 14:27:40,503 - werkzeug - INFO - 127.0.0.1 - - [09/May/2025 14:27:40] "[36mGET /static/css/style.css HTTP/1.1[0m" 304 -
+2025-05-09 14:27:40,507 - werkzeug - INFO - 127.0.0.1 - - [09/May/2025 14:27:40] "[36mGET /static/js/dashboard.js HTTP/1.1[0m" 304 -
+2025-05-09 14:27:40,507 - werkzeug - INFO - 127.0.0.1 - - [09/May/2025 14:27:40] "[36mGET /static/js/test.js HTTP/1.1[0m" 304 -
+2025-05-09 14:27:40,520 - werkzeug - INFO - 127.0.0.1 - - [09/May/2025 14:27:40] "[33mGET /api/recent_activity HTTP/1.1[0m" 404 -
+2025-05-09 14:27:40,522 - werkzeug - INFO - 127.0.0.1 - - [09/May/2025 14:27:40] "GET /api/get_analytics HTTP/1.1" 200 -
+2025-05-09 14:27:40,710 - werkzeug - INFO - 127.0.0.1 - - [09/May/2025 14:27:40] "GET /dashboard HTTP/1.1" 200 -
+2025-05-09 14:27:40,763 - werkzeug - INFO - 127.0.0.1 - - [09/May/2025 14:27:40] "[36mGET /static/css/style.css HTTP/1.1[0m" 304 -
+2025-05-09 14:27:40,768 - werkzeug - INFO - 127.0.0.1 - - [09/May/2025 14:27:40] "[36mGET /static/js/dashboard.js HTTP/1.1[0m" 304 -
+2025-05-09 14:27:40,769 - werkzeug - INFO - 127.0.0.1 - - [09/May/2025 14:27:40] "[36mGET /static/js/test.js HTTP/1.1[0m" 304 -
+2025-05-09 14:27:40,781 - werkzeug - INFO - 127.0.0.1 - - [09/May/2025 14:27:40] "[33mGET /api/recent_activity HTTP/1.1[0m" 404 -
+2025-05-09 14:27:40,783 - werkzeug - INFO - 127.0.0.1 - - [09/May/2025 14:27:40] "GET /api/get_analytics HTTP/1.1" 200 -
+2025-05-09 14:27:40,875 - werkzeug - INFO - 127.0.0.1 - - [09/May/2025 14:27:40] "GET /dashboard HTTP/1.1" 200 -
+2025-05-09 14:27:40,894 - werkzeug - INFO - 127.0.0.1 - - [09/May/2025 14:27:40] "[36mGET /static/css/style.css HTTP/1.1[0m" 304 -
+2025-05-09 14:27:40,901 - werkzeug - INFO - 127.0.0.1 - - [09/May/2025 14:27:40] "[36mGET /static/js/dashboard.js HTTP/1.1[0m" 304 -
+2025-05-09 14:27:40,901 - werkzeug - INFO - 127.0.0.1 - - [09/May/2025 14:27:40] "[36mGET /static/js/test.js HTTP/1.1[0m" 304 -
+2025-05-09 14:27:40,912 - werkzeug - INFO - 127.0.0.1 - - [09/May/2025 14:27:40] "GET /api/get_analytics HTTP/1.1" 200 -
+2025-05-09 14:27:40,914 - werkzeug - INFO - 127.0.0.1 - - [09/May/2025 14:27:40] "[33mGET /api/recent_activity HTTP/1.1[0m" 404 -
+2025-05-09 14:27:41,091 - werkzeug - INFO - 127.0.0.1 - - [09/May/2025 14:27:41] "GET /dashboard HTTP/1.1" 200 -
+2025-05-09 14:27:41,130 - werkzeug - INFO - 127.0.0.1 - - [09/May/2025 14:27:41] "[36mGET /static/css/style.css HTTP/1.1[0m" 304 -
+2025-05-09 14:27:41,138 - werkzeug - INFO - 127.0.0.1 - - [09/May/2025 14:27:41] "[36mGET /static/js/dashboard.js HTTP/1.1[0m" 304 -
+2025-05-09 14:27:41,139 - werkzeug - INFO - 127.0.0.1 - - [09/May/2025 14:27:41] "[36mGET /static/js/test.js HTTP/1.1[0m" 304 -
+2025-05-09 14:27:41,151 - werkzeug - INFO - 127.0.0.1 - - [09/May/2025 14:27:41] "[33mGET /api/recent_activity HTTP/1.1[0m" 404 -
+2025-05-09 14:27:41,152 - werkzeug - INFO - 127.0.0.1 - - [09/May/2025 14:27:41] "GET /api/get_analytics HTTP/1.1" 200 -
+2025-05-09 14:27:41,275 - werkzeug - INFO - 127.0.0.1 - - [09/May/2025 14:27:41] "GET /dashboard HTTP/1.1" 200 -
+2025-05-09 14:27:41,317 - werkzeug - INFO - 127.0.0.1 - - [09/May/2025 14:27:41] "[36mGET /static/css/style.css HTTP/1.1[0m" 304 -
+2025-05-09 14:27:41,322 - werkzeug - INFO - 127.0.0.1 - - [09/May/2025 14:27:41] "[36mGET /static/js/dashboard.js HTTP/1.1[0m" 304 -
+2025-05-09 14:27:41,322 - werkzeug - INFO - 127.0.0.1 - - [09/May/2025 14:27:41] "[36mGET /static/js/test.js HTTP/1.1[0m" 304 -
+2025-05-09 14:27:41,336 - werkzeug - INFO - 127.0.0.1 - - [09/May/2025 14:27:41] "[33mGET /api/recent_activity HTTP/1.1[0m" 404 -
+2025-05-09 14:27:41,337 - werkzeug - INFO - 127.0.0.1 - - [09/May/2025 14:27:41] "GET /api/get_analytics HTTP/1.1" 200 -
+2025-05-09 14:27:41,465 - werkzeug - INFO - 127.0.0.1 - - [09/May/2025 14:27:41] "GET /dashboard HTTP/1.1" 200 -
+2025-05-09 14:27:41,488 - werkzeug - INFO - 127.0.0.1 - - [09/May/2025 14:27:41] "[36mGET /static/css/style.css HTTP/1.1[0m" 304 -
+2025-05-09 14:27:41,494 - werkzeug - INFO - 127.0.0.1 - - [09/May/2025 14:27:41] "[36mGET /static/js/test.js HTTP/1.1[0m" 304 -
+2025-05-09 14:27:41,494 - werkzeug - INFO - 127.0.0.1 - - [09/May/2025 14:27:41] "[36mGET /static/js/dashboard.js HTTP/1.1[0m" 304 -
+2025-05-09 14:27:41,512 - werkzeug - INFO - 127.0.0.1 - - [09/May/2025 14:27:41] "[33mGET /api/recent_activity HTTP/1.1[0m" 404 -
+2025-05-09 14:27:41,513 - werkzeug - INFO - 127.0.0.1 - - [09/May/2025 14:27:41] "GET /api/get_analytics HTTP/1.1" 200 -
+2025-05-09 14:27:41,687 - werkzeug - INFO - 127.0.0.1 - - [09/May/2025 14:27:41] "GET /dashboard HTTP/1.1" 200 -
+2025-05-09 14:27:41,739 - werkzeug - INFO - 127.0.0.1 - - [09/May/2025 14:27:41] "[36mGET /static/css/style.css HTTP/1.1[0m" 304 -
+2025-05-09 14:27:41,747 - werkzeug - INFO - 127.0.0.1 - - [09/May/2025 14:27:41] "[36mGET /static/js/dashboard.js HTTP/1.1[0m" 304 -
+2025-05-09 14:27:41,748 - werkzeug - INFO - 127.0.0.1 - - [09/May/2025 14:27:41] "[36mGET /static/js/test.js HTTP/1.1[0m" 304 -
+2025-05-09 14:27:41,759 - werkzeug - INFO - 127.0.0.1 - - [09/May/2025 14:27:41] "[33mGET /api/recent_activity HTTP/1.1[0m" 404 -
+2025-05-09 14:27:41,761 - werkzeug - INFO - 127.0.0.1 - - [09/May/2025 14:27:41] "GET /api/get_analytics HTTP/1.1" 200 -
+2025-05-09 14:27:41,857 - werkzeug - INFO - 127.0.0.1 - - [09/May/2025 14:27:41] "GET /dashboard HTTP/1.1" 200 -
+2025-05-09 14:27:41,877 - werkzeug - INFO - 127.0.0.1 - - [09/May/2025 14:27:41] "[36mGET /static/css/style.css HTTP/1.1[0m" 304 -
+2025-05-09 14:27:41,884 - werkzeug - INFO - 127.0.0.1 - - [09/May/2025 14:27:41] "[36mGET /static/js/dashboard.js HTTP/1.1[0m" 304 -
+2025-05-09 14:27:41,884 - werkzeug - INFO - 127.0.0.1 - - [09/May/2025 14:27:41] "[36mGET /static/js/test.js HTTP/1.1[0m" 304 -
+2025-05-09 14:27:41,890 - werkzeug - INFO - 127.0.0.1 - - [09/May/2025 14:27:41] "[33mGET /api/recent_activity HTTP/1.1[0m" 404 -
+2025-05-09 14:27:41,891 - werkzeug - INFO - 127.0.0.1 - - [09/May/2025 14:27:41] "GET /api/get_analytics HTTP/1.1" 200 -
+2025-05-09 14:27:42,076 - werkzeug - INFO - 127.0.0.1 - - [09/May/2025 14:27:42] "GET /dashboard HTTP/1.1" 200 -
+2025-05-09 14:27:42,144 - werkzeug - INFO - 127.0.0.1 - - [09/May/2025 14:27:42] "[36mGET /static/css/style.css HTTP/1.1[0m" 304 -
+2025-05-09 14:27:42,145 - werkzeug - INFO - 127.0.0.1 - - [09/May/2025 14:27:42] "[36mGET /static/js/dashboard.js HTTP/1.1[0m" 304 -
+2025-05-09 14:27:42,145 - werkzeug - INFO - 127.0.0.1 - - [09/May/2025 14:27:42] "[36mGET /static/js/test.js HTTP/1.1[0m" 304 -
+2025-05-09 14:27:42,162 - werkzeug - INFO - 127.0.0.1 - - [09/May/2025 14:27:42] "[33mGET /api/recent_activity HTTP/1.1[0m" 404 -
+2025-05-09 14:27:42,165 - werkzeug - INFO - 127.0.0.1 - - [09/May/2025 14:27:42] "GET /api/get_analytics HTTP/1.1" 200 -
+2025-05-09 14:27:42,240 - werkzeug - INFO - 127.0.0.1 - - [09/May/2025 14:27:42] "GET /dashboard HTTP/1.1" 200 -
+2025-05-09 14:27:42,263 - werkzeug - INFO - 127.0.0.1 - - [09/May/2025 14:27:42] "[36mGET /static/css/style.css HTTP/1.1[0m" 304 -
+2025-05-09 14:27:42,270 - werkzeug - INFO - 127.0.0.1 - - [09/May/2025 14:27:42] "[36mGET /static/js/dashboard.js HTTP/1.1[0m" 304 -
+2025-05-09 14:27:42,270 - werkzeug - INFO - 127.0.0.1 - - [09/May/2025 14:27:42] "[36mGET /static/js/test.js HTTP/1.1[0m" 304 -
+2025-05-09 14:27:42,277 - werkzeug - INFO - 127.0.0.1 - - [09/May/2025 14:27:42] "[33mGET /api/recent_activity HTTP/1.1[0m" 404 -
+2025-05-09 14:27:42,278 - werkzeug - INFO - 127.0.0.1 - - [09/May/2025 14:27:42] "GET /api/get_analytics HTTP/1.1" 200 -
+2025-05-09 14:27:42,458 - werkzeug - INFO - 127.0.0.1 - - [09/May/2025 14:27:42] "GET /dashboard HTTP/1.1" 200 -
+2025-05-09 14:27:42,506 - werkzeug - INFO - 127.0.0.1 - - [09/May/2025 14:27:42] "[36mGET /static/js/dashboard.js HTTP/1.1[0m" 304 -
+2025-05-09 14:27:42,507 - werkzeug - INFO - 127.0.0.1 - - [09/May/2025 14:27:42] "[36mGET /static/css/style.css HTTP/1.1[0m" 304 -
+2025-05-09 14:27:42,507 - werkzeug - INFO - 127.0.0.1 - - [09/May/2025 14:27:42] "[36mGET /static/js/test.js HTTP/1.1[0m" 304 -
+2025-05-09 14:27:42,522 - werkzeug - INFO - 127.0.0.1 - - [09/May/2025 14:27:42] "[33mGET /api/recent_activity HTTP/1.1[0m" 404 -
+2025-05-09 14:27:42,524 - werkzeug - INFO - 127.0.0.1 - - [09/May/2025 14:27:42] "GET /api/get_analytics HTTP/1.1" 200 -
+2025-05-09 14:27:42,627 - werkzeug - INFO - 127.0.0.1 - - [09/May/2025 14:27:42] "GET /dashboard HTTP/1.1" 200 -
+2025-05-09 14:27:42,650 - werkzeug - INFO - 127.0.0.1 - - [09/May/2025 14:27:42] "[36mGET /static/js/dashboard.js HTTP/1.1[0m" 304 -
+2025-05-09 14:27:42,650 - werkzeug - INFO - 127.0.0.1 - - [09/May/2025 14:27:42] "[36mGET /static/css/style.css HTTP/1.1[0m" 304 -
+2025-05-09 14:27:42,651 - werkzeug - INFO - 127.0.0.1 - - [09/May/2025 14:27:42] "[36mGET /static/js/test.js HTTP/1.1[0m" 304 -
+2025-05-09 14:27:42,660 - werkzeug - INFO - 127.0.0.1 - - [09/May/2025 14:27:42] "[33mGET /api/recent_activity HTTP/1.1[0m" 404 -
+2025-05-09 14:27:42,661 - werkzeug - INFO - 127.0.0.1 - - [09/May/2025 14:27:42] "GET /api/get_analytics HTTP/1.1" 200 -
+2025-05-09 14:27:42,854 - werkzeug - INFO - 127.0.0.1 - - [09/May/2025 14:27:42] "GET /dashboard HTTP/1.1" 200 -
+2025-05-09 14:27:42,895 - werkzeug - INFO - 127.0.0.1 - - [09/May/2025 14:27:42] "[36mGET /static/css/style.css HTTP/1.1[0m" 304 -
+2025-05-09 14:27:42,899 - werkzeug - INFO - 127.0.0.1 - - [09/May/2025 14:27:42] "[36mGET /static/js/dashboard.js HTTP/1.1[0m" 304 -
+2025-05-09 14:27:42,900 - werkzeug - INFO - 127.0.0.1 - - [09/May/2025 14:27:42] "[36mGET /static/js/test.js HTTP/1.1[0m" 304 -
+2025-05-09 14:27:42,914 - werkzeug - INFO - 127.0.0.1 - - [09/May/2025 14:27:42] "[33mGET /api/recent_activity HTTP/1.1[0m" 404 -
+2025-05-09 14:27:42,916 - werkzeug - INFO - 127.0.0.1 - - [09/May/2025 14:27:42] "GET /api/get_analytics HTTP/1.1" 200 -
+2025-05-09 14:27:43,026 - werkzeug - INFO - 127.0.0.1 - - [09/May/2025 14:27:43] "GET /dashboard HTTP/1.1" 200 -
+2025-05-09 14:27:43,044 - werkzeug - INFO - 127.0.0.1 - - [09/May/2025 14:27:43] "[36mGET /static/css/style.css HTTP/1.1[0m" 304 -
+2025-05-09 14:27:43,051 - werkzeug - INFO - 127.0.0.1 - - [09/May/2025 14:27:43] "[36mGET /static/js/dashboard.js HTTP/1.1[0m" 304 -
+2025-05-09 14:27:43,052 - werkzeug - INFO - 127.0.0.1 - - [09/May/2025 14:27:43] "[36mGET /static/js/test.js HTTP/1.1[0m" 304 -
+2025-05-09 14:27:43,058 - werkzeug - INFO - 127.0.0.1 - - [09/May/2025 14:27:43] "[33mGET /api/recent_activity HTTP/1.1[0m" 404 -
+2025-05-09 14:27:43,058 - werkzeug - INFO - 127.0.0.1 - - [09/May/2025 14:27:43] "GET /api/get_analytics HTTP/1.1" 200 -
+2025-05-09 14:27:43,260 - werkzeug - INFO - 127.0.0.1 - - [09/May/2025 14:27:43] "GET /dashboard HTTP/1.1" 200 -
+2025-05-09 14:27:43,306 - werkzeug - INFO - 127.0.0.1 - - [09/May/2025 14:27:43] "[36mGET /static/css/style.css HTTP/1.1[0m" 304 -
+2025-05-09 14:27:43,309 - werkzeug - INFO - 127.0.0.1 - - [09/May/2025 14:27:43] "[36mGET /static/js/dashboard.js HTTP/1.1[0m" 304 -
+2025-05-09 14:27:43,318 - werkzeug - INFO - 127.0.0.1 - - [09/May/2025 14:27:43] "[36mGET /static/js/test.js HTTP/1.1[0m" 304 -
+2025-05-09 14:27:43,328 - werkzeug - INFO - 127.0.0.1 - - [09/May/2025 14:27:43] "[33mGET /api/recent_activity HTTP/1.1[0m" 404 -
+2025-05-09 14:27:43,328 - werkzeug - INFO - 127.0.0.1 - - [09/May/2025 14:27:43] "GET /api/get_analytics HTTP/1.1" 200 -
+2025-05-09 14:27:43,420 - werkzeug - INFO - 127.0.0.1 - - [09/May/2025 14:27:43] "GET /dashboard HTTP/1.1" 200 -
+2025-05-09 14:27:43,442 - werkzeug - INFO - 127.0.0.1 - - [09/May/2025 14:27:43] "[36mGET /static/css/style.css HTTP/1.1[0m" 304 -
+2025-05-09 14:27:43,446 - werkzeug - INFO - 127.0.0.1 - - [09/May/2025 14:27:43] "[36mGET /static/js/dashboard.js HTTP/1.1[0m" 304 -
+2025-05-09 14:27:43,447 - werkzeug - INFO - 127.0.0.1 - - [09/May/2025 14:27:43] "[36mGET /static/js/test.js HTTP/1.1[0m" 304 -
+2025-05-09 14:27:43,455 - werkzeug - INFO - 127.0.0.1 - - [09/May/2025 14:27:43] "[33mGET /api/recent_activity HTTP/1.1[0m" 404 -
+2025-05-09 14:27:43,456 - werkzeug - INFO - 127.0.0.1 - - [09/May/2025 14:27:43] "GET /api/get_analytics HTTP/1.1" 200 -
+2025-05-09 14:27:43,632 - werkzeug - INFO - 127.0.0.1 - - [09/May/2025 14:27:43] "GET /dashboard HTTP/1.1" 200 -
+2025-05-09 14:27:43,682 - werkzeug - INFO - 127.0.0.1 - - [09/May/2025 14:27:43] "[36mGET /static/css/style.css HTTP/1.1[0m" 304 -
+2025-05-09 14:27:43,687 - werkzeug - INFO - 127.0.0.1 - - [09/May/2025 14:27:43] "[36mGET /static/js/dashboard.js HTTP/1.1[0m" 304 -
+2025-05-09 14:27:43,689 - werkzeug - INFO - 127.0.0.1 - - [09/May/2025 14:27:43] "[36mGET /static/js/test.js HTTP/1.1[0m" 304 -
+2025-05-09 14:27:43,704 - werkzeug - INFO - 127.0.0.1 - - [09/May/2025 14:27:43] "[33mGET /api/recent_activity HTTP/1.1[0m" 404 -
+2025-05-09 14:27:43,707 - werkzeug - INFO - 127.0.0.1 - - [09/May/2025 14:27:43] "GET /api/get_analytics HTTP/1.1" 200 -
+2025-05-09 14:27:43,783 - werkzeug - INFO - 127.0.0.1 - - [09/May/2025 14:27:43] "GET /dashboard HTTP/1.1" 200 -
+2025-05-09 14:27:43,804 - werkzeug - INFO - 127.0.0.1 - - [09/May/2025 14:27:43] "[36mGET /static/css/style.css HTTP/1.1[0m" 304 -
+2025-05-09 14:27:43,806 - werkzeug - INFO - 127.0.0.1 - - [09/May/2025 14:27:43] "[36mGET /static/js/dashboard.js HTTP/1.1[0m" 304 -
+2025-05-09 14:27:43,809 - werkzeug - INFO - 127.0.0.1 - - [09/May/2025 14:27:43] "[36mGET /static/js/test.js HTTP/1.1[0m" 304 -
+2025-05-09 14:27:43,821 - werkzeug - INFO - 127.0.0.1 - - [09/May/2025 14:27:43] "[33mGET /api/recent_activity HTTP/1.1[0m" 404 -
+2025-05-09 14:27:43,822 - werkzeug - INFO - 127.0.0.1 - - [09/May/2025 14:27:43] "GET /api/get_analytics HTTP/1.1" 200 -
+2025-05-09 14:27:44,008 - werkzeug - INFO - 127.0.0.1 - - [09/May/2025 14:27:44] "GET /dashboard HTTP/1.1" 200 -
+2025-05-09 14:27:44,058 - werkzeug - INFO - 127.0.0.1 - - [09/May/2025 14:27:44] "[36mGET /static/css/style.css HTTP/1.1[0m" 304 -
+2025-05-09 14:27:44,062 - werkzeug - INFO - 127.0.0.1 - - [09/May/2025 14:27:44] "[36mGET /static/js/dashboard.js HTTP/1.1[0m" 304 -
+2025-05-09 14:27:44,065 - werkzeug - INFO - 127.0.0.1 - - [09/May/2025 14:27:44] "[36mGET /static/js/test.js HTTP/1.1[0m" 304 -
+2025-05-09 14:27:44,082 - werkzeug - INFO - 127.0.0.1 - - [09/May/2025 14:27:44] "[33mGET /api/recent_activity HTTP/1.1[0m" 404 -
+2025-05-09 14:27:44,083 - werkzeug - INFO - 127.0.0.1 - - [09/May/2025 14:27:44] "GET /api/get_analytics HTTP/1.1" 200 -
+2025-05-09 14:27:44,170 - werkzeug - INFO - 127.0.0.1 - - [09/May/2025 14:27:44] "GET /dashboard HTTP/1.1" 200 -
+2025-05-09 14:27:44,191 - werkzeug - INFO - 127.0.0.1 - - [09/May/2025 14:27:44] "[36mGET /static/css/style.css HTTP/1.1[0m" 304 -
+2025-05-09 14:27:44,194 - werkzeug - INFO - 127.0.0.1 - - [09/May/2025 14:27:44] "[36mGET /static/js/dashboard.js HTTP/1.1[0m" 304 -
+2025-05-09 14:27:44,196 - werkzeug - INFO - 127.0.0.1 - - [09/May/2025 14:27:44] "[36mGET /static/js/test.js HTTP/1.1[0m" 304 -
+2025-05-09 14:27:44,205 - werkzeug - INFO - 127.0.0.1 - - [09/May/2025 14:27:44] "[33mGET /api/recent_activity HTTP/1.1[0m" 404 -
+2025-05-09 14:27:44,206 - werkzeug - INFO - 127.0.0.1 - - [09/May/2025 14:27:44] "GET /api/get_analytics HTTP/1.1" 200 -
+2025-05-09 14:27:44,386 - werkzeug - INFO - 127.0.0.1 - - [09/May/2025 14:27:44] "GET /dashboard HTTP/1.1" 200 -
+2025-05-09 14:27:44,428 - werkzeug - INFO - 127.0.0.1 - - [09/May/2025 14:27:44] "[36mGET /static/css/style.css HTTP/1.1[0m" 304 -
+2025-05-09 14:27:44,434 - werkzeug - INFO - 127.0.0.1 - - [09/May/2025 14:27:44] "[36mGET /static/js/dashboard.js HTTP/1.1[0m" 304 -
+2025-05-09 14:27:44,434 - werkzeug - INFO - 127.0.0.1 - - [09/May/2025 14:27:44] "[36mGET /static/js/test.js HTTP/1.1[0m" 304 -
+2025-05-09 14:27:44,450 - werkzeug - INFO - 127.0.0.1 - - [09/May/2025 14:27:44] "[33mGET /api/recent_activity HTTP/1.1[0m" 404 -
+2025-05-09 14:27:44,451 - werkzeug - INFO - 127.0.0.1 - - [09/May/2025 14:27:44] "GET /api/get_analytics HTTP/1.1" 200 -
+2025-05-09 14:27:44,560 - werkzeug - INFO - 127.0.0.1 - - [09/May/2025 14:27:44] "GET /dashboard HTTP/1.1" 200 -
+2025-05-09 14:27:44,597 - werkzeug - INFO - 127.0.0.1 - - [09/May/2025 14:27:44] "[36mGET /static/css/style.css HTTP/1.1[0m" 304 -
+2025-05-09 14:27:44,607 - werkzeug - INFO - 127.0.0.1 - - [09/May/2025 14:27:44] "[36mGET /static/js/dashboard.js HTTP/1.1[0m" 304 -
+2025-05-09 14:27:44,608 - werkzeug - INFO - 127.0.0.1 - - [09/May/2025 14:27:44] "[36mGET /static/js/test.js HTTP/1.1[0m" 304 -
+2025-05-09 14:27:44,625 - werkzeug - INFO - 127.0.0.1 - - [09/May/2025 14:27:44] "[33mGET /api/recent_activity HTTP/1.1[0m" 404 -
+2025-05-09 14:27:44,628 - werkzeug - INFO - 127.0.0.1 - - [09/May/2025 14:27:44] "GET /api/get_analytics HTTP/1.1" 200 -
+2025-05-09 14:27:44,760 - werkzeug - INFO - 127.0.0.1 - - [09/May/2025 14:27:44] "GET /dashboard HTTP/1.1" 200 -
+2025-05-09 14:27:44,794 - werkzeug - INFO - 127.0.0.1 - - [09/May/2025 14:27:44] "[36mGET /static/css/style.css HTTP/1.1[0m" 304 -
+2025-05-09 14:27:44,807 - werkzeug - INFO - 127.0.0.1 - - [09/May/2025 14:27:44] "[36mGET /static/js/dashboard.js HTTP/1.1[0m" 304 -
+2025-05-09 14:27:44,809 - werkzeug - INFO - 127.0.0.1 - - [09/May/2025 14:27:44] "[36mGET /static/js/test.js HTTP/1.1[0m" 304 -
+2025-05-09 14:27:44,826 - werkzeug - INFO - 127.0.0.1 - - [09/May/2025 14:27:44] "[33mGET /api/recent_activity HTTP/1.1[0m" 404 -
+2025-05-09 14:27:44,827 - werkzeug - INFO - 127.0.0.1 - - [09/May/2025 14:27:44] "GET /api/get_analytics HTTP/1.1" 200 -
+2025-05-09 14:27:44,962 - werkzeug - INFO - 127.0.0.1 - - [09/May/2025 14:27:44] "GET /dashboard HTTP/1.1" 200 -
+2025-05-09 14:27:45,013 - werkzeug - INFO - 127.0.0.1 - - [09/May/2025 14:27:45] "[36mGET /static/css/style.css HTTP/1.1[0m" 304 -
+2025-05-09 14:27:45,016 - werkzeug - INFO - 127.0.0.1 - - [09/May/2025 14:27:45] "[36mGET /static/js/dashboard.js HTTP/1.1[0m" 304 -
+2025-05-09 14:27:45,018 - werkzeug - INFO - 127.0.0.1 - - [09/May/2025 14:27:45] "[36mGET /static/js/test.js HTTP/1.1[0m" 304 -
+2025-05-09 14:27:45,034 - werkzeug - INFO - 127.0.0.1 - - [09/May/2025 14:27:45] "[33mGET /api/recent_activity HTTP/1.1[0m" 404 -
+2025-05-09 14:27:45,036 - werkzeug - INFO - 127.0.0.1 - - [09/May/2025 14:27:45] "GET /api/get_analytics HTTP/1.1" 200 -
+2025-05-09 14:27:45,173 - werkzeug - INFO - 127.0.0.1 - - [09/May/2025 14:27:45] "GET /dashboard HTTP/1.1" 200 -
+2025-05-09 14:27:45,229 - werkzeug - INFO - 127.0.0.1 - - [09/May/2025 14:27:45] "[36mGET /static/css/style.css HTTP/1.1[0m" 304 -
+2025-05-09 14:27:45,237 - werkzeug - INFO - 127.0.0.1 - - [09/May/2025 14:27:45] "[36mGET /static/js/dashboard.js HTTP/1.1[0m" 304 -
+2025-05-09 14:27:45,237 - werkzeug - INFO - 127.0.0.1 - - [09/May/2025 14:27:45] "[36mGET /static/js/test.js HTTP/1.1[0m" 304 -
+2025-05-09 14:27:45,251 - werkzeug - INFO - 127.0.0.1 - - [09/May/2025 14:27:45] "[33mGET /api/recent_activity HTTP/1.1[0m" 404 -
+2025-05-09 14:27:45,253 - werkzeug - INFO - 127.0.0.1 - - [09/May/2025 14:27:45] "GET /api/get_analytics HTTP/1.1" 200 -
+2025-05-09 14:27:45,411 - werkzeug - INFO - 127.0.0.1 - - [09/May/2025 14:27:45] "GET /dashboard HTTP/1.1" 200 -
+2025-05-09 14:27:45,460 - werkzeug - INFO - 127.0.0.1 - - [09/May/2025 14:27:45] "[36mGET /static/css/style.css HTTP/1.1[0m" 304 -
+2025-05-09 14:27:45,467 - werkzeug - INFO - 127.0.0.1 - - [09/May/2025 14:27:45] "[36mGET /static/js/dashboard.js HTTP/1.1[0m" 304 -
+2025-05-09 14:27:45,471 - werkzeug - INFO - 127.0.0.1 - - [09/May/2025 14:27:45] "[36mGET /static/js/test.js HTTP/1.1[0m" 304 -
+2025-05-09 14:27:45,482 - werkzeug - INFO - 127.0.0.1 - - [09/May/2025 14:27:45] "[33mGET /api/recent_activity HTTP/1.1[0m" 404 -
+2025-05-09 14:27:45,484 - werkzeug - INFO - 127.0.0.1 - - [09/May/2025 14:27:45] "GET /api/get_analytics HTTP/1.1" 200 -
+2025-05-09 14:27:45,600 - werkzeug - INFO - 127.0.0.1 - - [09/May/2025 14:27:45] "GET /dashboard HTTP/1.1" 200 -
+2025-05-09 14:27:45,619 - werkzeug - INFO - 127.0.0.1 - - [09/May/2025 14:27:45] "[36mGET /static/css/style.css HTTP/1.1[0m" 304 -
+2025-05-09 14:27:45,623 - werkzeug - INFO - 127.0.0.1 - - [09/May/2025 14:27:45] "[36mGET /static/js/dashboard.js HTTP/1.1[0m" 304 -
+2025-05-09 14:27:45,623 - werkzeug - INFO - 127.0.0.1 - - [09/May/2025 14:27:45] "[36mGET /static/js/test.js HTTP/1.1[0m" 304 -
+2025-05-09 14:27:45,630 - werkzeug - INFO - 127.0.0.1 - - [09/May/2025 14:27:45] "[33mGET /api/recent_activity HTTP/1.1[0m" 404 -
+2025-05-09 14:27:45,631 - werkzeug - INFO - 127.0.0.1 - - [09/May/2025 14:27:45] "GET /api/get_analytics HTTP/1.1" 200 -
+2025-05-09 14:27:45,798 - werkzeug - INFO - 127.0.0.1 - - [09/May/2025 14:27:45] "GET /dashboard HTTP/1.1" 200 -
+2025-05-09 14:27:45,838 - werkzeug - INFO - 127.0.0.1 - - [09/May/2025 14:27:45] "[36mGET /static/css/style.css HTTP/1.1[0m" 304 -
+2025-05-09 14:27:45,842 - werkzeug - INFO - 127.0.0.1 - - [09/May/2025 14:27:45] "[36mGET /static/js/dashboard.js HTTP/1.1[0m" 304 -
+2025-05-09 14:27:45,843 - werkzeug - INFO - 127.0.0.1 - - [09/May/2025 14:27:45] "[36mGET /static/js/test.js HTTP/1.1[0m" 304 -
+2025-05-09 14:27:45,861 - werkzeug - INFO - 127.0.0.1 - - [09/May/2025 14:27:45] "[33mGET /api/recent_activity HTTP/1.1[0m" 404 -
+2025-05-09 14:27:45,862 - werkzeug - INFO - 127.0.0.1 - - [09/May/2025 14:27:45] "GET /api/get_analytics HTTP/1.1" 200 -
+2025-05-09 22:32:49,888 - app - INFO - Database database/user_data.db initialized successfully
+2025-05-09 22:32:49,888 - app - INFO - init_models called (no-op placeholder).
+2025-05-09 22:32:49,942 - werkzeug - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5000
+2025-05-09 22:32:49,943 - werkzeug - INFO - [33mPress CTRL+C to quit[0m
+2025-05-09 22:33:02,983 - werkzeug - INFO - 127.0.0.1 - - [09/May/2025 22:33:02] "GET / HTTP/1.1" 200 -
+2025-05-09 22:33:03,085 - werkzeug - INFO - 127.0.0.1 - - [09/May/2025 22:33:03] "[36mGET /static/css/style.css HTTP/1.1[0m" 304 -
+2025-05-09 22:33:03,162 - werkzeug - INFO - 127.0.0.1 - - [09/May/2025 22:33:03] "[33mGET /favicon.ico HTTP/1.1[0m" 404 -
+2025-05-09 22:33:04,313 - werkzeug - INFO - 127.0.0.1 - - [09/May/2025 22:33:04] "GET /login HTTP/1.1" 200 -
+2025-05-09 22:33:04,335 - werkzeug - INFO - 127.0.0.1 - - [09/May/2025 22:33:04] "[36mGET /static/css/auth.css HTTP/1.1[0m" 304 -
+2025-05-09 22:33:04,368 - werkzeug - INFO - 127.0.0.1 - - [09/May/2025 22:33:04] "[36mGET /static/js/auth.js HTTP/1.1[0m" 304 -
+2025-05-09 22:33:05,463 - app - INFO - User logged in: ayush
+2025-05-09 22:33:05,468 - werkzeug - INFO - 127.0.0.1 - - [09/May/2025 22:33:05] "POST /login HTTP/1.1" 200 -
+2025-05-09 22:33:05,507 - werkzeug - INFO - 127.0.0.1 - - [09/May/2025 22:33:05] "GET /dashboard HTTP/1.1" 200 -
+2025-05-09 22:33:05,526 - werkzeug - INFO - 127.0.0.1 - - [09/May/2025 22:33:05] "[36mGET /static/css/style.css HTTP/1.1[0m" 304 -
+2025-05-09 22:33:05,558 - werkzeug - INFO - 127.0.0.1 - - [09/May/2025 22:33:05] "[36mGET /static/js/dashboard.js HTTP/1.1[0m" 304 -
+2025-05-09 22:33:05,562 - werkzeug - INFO - 127.0.0.1 - - [09/May/2025 22:33:05] "[36mGET /static/js/test.js HTTP/1.1[0m" 304 -
+2025-05-09 22:33:05,600 - werkzeug - INFO - 127.0.0.1 - - [09/May/2025 22:33:05] "GET /api/get_analytics HTTP/1.1" 200 -
+2025-05-09 22:33:05,606 - werkzeug - INFO - 127.0.0.1 - - [09/May/2025 22:33:05] "[33mGET /api/recent_activity HTTP/1.1[0m" 404 -
+2025-05-09 22:33:35,955 - werkzeug - INFO - 127.0.0.1 - - [09/May/2025 22:33:35] "GET /api/get_analytics HTTP/1.1" 200 -
+2025-05-09 22:34:05,969 - werkzeug - INFO - 127.0.0.1 - - [09/May/2025 22:34:05] "GET /api/get_analytics HTTP/1.1" 200 -
+2025-05-09 22:34:35,601 - werkzeug - INFO - 127.0.0.1 - - [09/May/2025 22:34:35] "GET /api/get_analytics HTTP/1.1" 200 -
+2025-05-09 22:35:05,966 - werkzeug - INFO - 127.0.0.1 - - [09/May/2025 22:35:05] "GET /api/get_analytics HTTP/1.1" 200 -
+2025-05-09 22:35:35,972 - werkzeug - INFO - 127.0.0.1 - - [09/May/2025 22:35:35] "GET /api/get_analytics HTTP/1.1" 200 -
+2025-05-09 22:36:05,955 - werkzeug - INFO - 127.0.0.1 - - [09/May/2025 22:36:05] "GET /api/get_analytics HTTP/1.1" 200 -
+2025-05-09 22:36:35,966 - werkzeug - INFO - 127.0.0.1 - - [09/May/2025 22:36:35] "GET /api/get_analytics HTTP/1.1" 200 -
+2025-05-09 22:37:36,958 - werkzeug - INFO - 127.0.0.1 - - [09/May/2025 22:37:36] "GET /api/get_analytics HTTP/1.1" 200 -
+2025-05-09 22:38:37,958 - werkzeug - INFO - 127.0.0.1 - - [09/May/2025 22:38:37] "GET /api/get_analytics HTTP/1.1" 200 -
+2025-05-09 22:39:36,700 - werkzeug - INFO - 127.0.0.1 - - [09/May/2025 22:39:36] "GET /api/get_analytics HTTP/1.1" 200 -
+2025-05-09 22:40:10,162 - app - INFO - Database database/user_data.db initialized successfully
+2025-05-09 22:40:10,162 - app - INFO - init_models called (no-op placeholder).
+2025-05-09 22:40:10,178 - werkzeug - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5000
+2025-05-09 22:40:10,179 - werkzeug - INFO - [33mPress CTRL+C to quit[0m
+2025-05-09 22:40:13,616 - werkzeug - INFO - 127.0.0.1 - - [09/May/2025 22:40:13] "GET / HTTP/1.1" 200 -
+2025-05-09 22:40:13,728 - werkzeug - INFO - 127.0.0.1 - - [09/May/2025 22:40:13] "[36mGET /static/css/style.css HTTP/1.1[0m" 304 -
+2025-05-09 22:40:14,893 - werkzeug - INFO - 127.0.0.1 - - [09/May/2025 22:40:14] "GET /login HTTP/1.1" 200 -
+2025-05-09 22:40:14,918 - werkzeug - INFO - 127.0.0.1 - - [09/May/2025 22:40:14] "[36mGET /static/css/auth.css HTTP/1.1[0m" 304 -
+2025-05-09 22:40:14,923 - werkzeug - INFO - 127.0.0.1 - - [09/May/2025 22:40:14] "[36mGET /static/js/auth.js HTTP/1.1[0m" 304 -
+2025-05-09 22:40:16,197 - app - INFO - User logged in: ayush
+2025-05-09 22:40:16,198 - werkzeug - INFO - 127.0.0.1 - - [09/May/2025 22:40:16] "POST /login HTTP/1.1" 200 -
+2025-05-09 22:40:16,220 - werkzeug - INFO - 127.0.0.1 - - [09/May/2025 22:40:16] "GET /dashboard HTTP/1.1" 200 -
+2025-05-09 22:40:16,245 - werkzeug - INFO - 127.0.0.1 - - [09/May/2025 22:40:16] "[36mGET /static/css/style.css HTTP/1.1[0m" 304 -
+2025-05-09 22:40:16,251 - werkzeug - INFO - 127.0.0.1 - - [09/May/2025 22:40:16] "[36mGET /static/js/test.js HTTP/1.1[0m" 304 -
+2025-05-09 22:40:16,289 - werkzeug - INFO - 127.0.0.1 - - [09/May/2025 22:40:16] "GET /static/js/dashboard.js HTTP/1.1" 200 -
+2025-05-09 22:40:16,327 - werkzeug - INFO - 127.0.0.1 - - [09/May/2025 22:40:16] "[33mGET /api/recent_activity HTTP/1.1[0m" 404 -
+2025-05-09 22:40:16,327 - werkzeug - INFO - 127.0.0.1 - - [09/May/2025 22:40:16] "GET /api/get_analytics HTTP/1.1" 200 -
+2025-05-09 22:40:35,967 - werkzeug - INFO - 127.0.0.1 - - [09/May/2025 22:40:35] "GET /api/get_analytics HTTP/1.1" 200 -
+2025-05-09 22:40:46,326 - werkzeug - INFO - 127.0.0.1 - - [09/May/2025 22:40:46] "GET /api/get_analytics HTTP/1.1" 200 -
+2025-05-09 22:41:16,971 - werkzeug - INFO - 127.0.0.1 - - [09/May/2025 22:41:16] "GET /api/get_analytics HTTP/1.1" 200 -
+2025-05-09 22:41:36,968 - werkzeug - INFO - 127.0.0.1 - - [09/May/2025 22:41:36] "GET /api/get_analytics HTTP/1.1" 200 -
+2025-05-09 22:41:46,966 - werkzeug - INFO - 127.0.0.1 - - [09/May/2025 22:41:46] "GET /api/get_analytics HTTP/1.1" 200 -
+2025-05-09 22:42:16,966 - werkzeug - INFO - 127.0.0.1 - - [09/May/2025 22:42:16] "GET /api/get_analytics HTTP/1.1" 200 -
+2025-05-09 22:42:37,978 - werkzeug - INFO - 127.0.0.1 - - [09/May/2025 22:42:37] "GET /api/get_analytics HTTP/1.1" 200 -
+2025-05-09 22:42:46,963 - werkzeug - INFO - 127.0.0.1 - - [09/May/2025 22:42:46] "GET /api/get_analytics HTTP/1.1" 200 -
+2025-05-09 22:43:16,960 - werkzeug - INFO - 127.0.0.1 - - [09/May/2025 22:43:16] "GET /api/get_analytics HTTP/1.1" 200 -
+2025-05-09 22:43:38,958 - werkzeug - INFO - 127.0.0.1 - - [09/May/2025 22:43:38] "GET /api/get_analytics HTTP/1.1" 200 -
+2025-05-09 22:43:46,955 - werkzeug - INFO - 127.0.0.1 - - [09/May/2025 22:43:46] "GET /api/get_analytics HTTP/1.1" 200 -
+2025-05-09 22:44:39,961 - werkzeug - INFO - 127.0.0.1 - - [09/May/2025 22:44:39] "GET /api/get_analytics HTTP/1.1" 200 -
+2025-05-09 22:44:47,965 - werkzeug - INFO - 127.0.0.1 - - [09/May/2025 22:44:47] "GET /api/get_analytics HTTP/1.1" 200 -
+2025-05-09 22:45:40,955 - werkzeug - INFO - 127.0.0.1 - - [09/May/2025 22:45:40] "GET /api/get_analytics HTTP/1.1" 200 -
+2025-05-09 22:45:48,955 - werkzeug - INFO - 127.0.0.1 - - [09/May/2025 22:45:48] "GET /api/get_analytics HTTP/1.1" 200 -
+2025-05-09 22:46:41,969 - werkzeug - INFO - 127.0.0.1 - - [09/May/2025 22:46:41] "GET /api/get_analytics HTTP/1.1" 200 -
+2025-05-09 22:46:49,957 - werkzeug - INFO - 127.0.0.1 - - [09/May/2025 22:46:49] "GET /api/get_analytics HTTP/1.1" 200 -
+2025-05-09 22:47:42,957 - werkzeug - INFO - 127.0.0.1 - - [09/May/2025 22:47:42] "GET /api/get_analytics HTTP/1.1" 200 -
+2025-05-09 22:47:50,956 - werkzeug - INFO - 127.0.0.1 - - [09/May/2025 22:47:50] "GET /api/get_analytics HTTP/1.1" 200 -
+2025-05-09 22:48:43,965 - werkzeug - INFO - 127.0.0.1 - - [09/May/2025 22:48:43] "GET /api/get_analytics HTTP/1.1" 200 -
+2025-05-09 22:48:51,955 - werkzeug - INFO - 127.0.0.1 - - [09/May/2025 22:48:51] "GET /api/get_analytics HTTP/1.1" 200 -
+2025-05-09 22:49:45,005 - werkzeug - INFO - 127.0.0.1 - - [09/May/2025 22:49:45] "GET /api/get_analytics HTTP/1.1" 200 -
+2025-05-09 22:49:57,697 - app - INFO - Database database/user_data.db initialized successfully
+2025-05-09 22:49:57,697 - app - INFO - init_models called (no-op placeholder).
+2025-05-09 22:49:57,712 - werkzeug - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5000
+2025-05-09 22:49:57,712 - werkzeug - INFO - [33mPress CTRL+C to quit[0m
+2025-05-09 22:50:00,556 - werkzeug - INFO - 127.0.0.1 - - [09/May/2025 22:50:00] "GET / HTTP/1.1" 200 -
+2025-05-09 22:50:00,653 - werkzeug - INFO - 127.0.0.1 - - [09/May/2025 22:50:00] "[36mGET /static/css/style.css HTTP/1.1[0m" 304 -
+2025-05-09 22:50:01,773 - werkzeug - INFO - 127.0.0.1 - - [09/May/2025 22:50:01] "GET /login HTTP/1.1" 200 -
+2025-05-09 22:50:01,800 - werkzeug - INFO - 127.0.0.1 - - [09/May/2025 22:50:01] "[36mGET /static/css/auth.css HTTP/1.1[0m" 304 -
+2025-05-09 22:50:01,804 - werkzeug - INFO - 127.0.0.1 - - [09/May/2025 22:50:01] "[36mGET /static/js/auth.js HTTP/1.1[0m" 304 -
+2025-05-09 22:50:02,896 - app - INFO - User logged in: ayush
+2025-05-09 22:50:02,897 - werkzeug - INFO - 127.0.0.1 - - [09/May/2025 22:50:02] "POST /login HTTP/1.1" 200 -
+2025-05-09 22:50:02,921 - werkzeug - INFO - 127.0.0.1 - - [09/May/2025 22:50:02] "GET /dashboard HTTP/1.1" 200 -
+2025-05-09 22:50:02,947 - werkzeug - INFO - 127.0.0.1 - - [09/May/2025 22:50:02] "[36mGET /static/css/style.css HTTP/1.1[0m" 304 -
+2025-05-09 22:50:02,953 - werkzeug - INFO - 127.0.0.1 - - [09/May/2025 22:50:02] "[36mGET /static/js/test.js HTTP/1.1[0m" 304 -
+2025-05-09 22:50:02,984 - werkzeug - INFO - 127.0.0.1 - - [09/May/2025 22:50:02] "GET /static/js/dashboard.js HTTP/1.1" 200 -
+2025-05-09 22:50:03,025 - werkzeug - INFO - 127.0.0.1 - - [09/May/2025 22:50:03] "GET /api/get_analytics HTTP/1.1" 200 -
+2025-05-09 22:50:09,889 - werkzeug - INFO - 127.0.0.1 - - [09/May/2025 22:50:09] "GET /chatbot HTTP/1.1" 200 -
+2025-05-09 22:50:09,914 - werkzeug - INFO - 127.0.0.1 - - [09/May/2025 22:50:09] "[36mGET /static/css/chatbot.css HTTP/1.1[0m" 304 -
+2025-05-09 22:50:09,918 - werkzeug - INFO - 127.0.0.1 - - [09/May/2025 22:50:09] "[36mGET /static/js/chatbot.js HTTP/1.1[0m" 304 -
+2025-05-09 22:50:45,956 - werkzeug - INFO - 127.0.0.1 - - [09/May/2025 22:50:45] "GET /api/get_analytics HTTP/1.1" 200 -
+2025-05-09 22:50:53,965 - werkzeug - INFO - 127.0.0.1 - - [09/May/2025 22:50:53] "GET /api/get_analytics HTTP/1.1" 200 -
+2025-05-09 22:51:46,968 - werkzeug - INFO - 127.0.0.1 - - [09/May/2025 22:51:46] "GET /api/get_analytics HTTP/1.1" 200 -
+2025-05-09 22:51:53,960 - werkzeug - INFO - 127.0.0.1 - - [09/May/2025 22:51:53] "GET /api/get_analytics HTTP/1.1" 200 -
+2025-05-09 22:52:47,966 - werkzeug - INFO - 127.0.0.1 - - [09/May/2025 22:52:47] "GET /api/get_analytics HTTP/1.1" 200 -
+2025-05-09 22:52:53,956 - werkzeug - INFO - 127.0.0.1 - - [09/May/2025 22:52:53] "GET /api/get_analytics HTTP/1.1" 200 -
+2025-05-09 22:53:48,958 - werkzeug - INFO - 127.0.0.1 - - [09/May/2025 22:53:48] "GET /api/get_analytics HTTP/1.1" 200 -
+2025-05-09 22:53:53,961 - werkzeug - INFO - 127.0.0.1 - - [09/May/2025 22:53:53] "GET /api/get_analytics HTTP/1.1" 200 -
+2025-05-09 22:54:49,962 - werkzeug - INFO - 127.0.0.1 - - [09/May/2025 22:54:49] "GET /api/get_analytics HTTP/1.1" 200 -
+2025-05-09 22:54:53,963 - werkzeug - INFO - 127.0.0.1 - - [09/May/2025 22:54:53] "GET /api/get_analytics HTTP/1.1" 200 -
+2025-05-09 22:55:50,966 - werkzeug - INFO - 127.0.0.1 - - [09/May/2025 22:55:50] "GET /api/get_analytics HTTP/1.1" 200 -
+2025-05-09 22:55:53,966 - werkzeug - INFO - 127.0.0.1 - - [09/May/2025 22:55:53] "GET /api/get_analytics HTTP/1.1" 200 -
+2025-05-09 22:56:51,955 - werkzeug - INFO - 127.0.0.1 - - [09/May/2025 22:56:51] "GET /api/get_analytics HTTP/1.1" 200 -
+2025-05-09 22:56:53,955 - werkzeug - INFO - 127.0.0.1 - - [09/May/2025 22:56:53] "GET /api/get_analytics HTTP/1.1" 200 -

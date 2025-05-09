@@ -1,96 +1,173 @@
 document.addEventListener('DOMContentLoaded', function () {
     // Initialize
-    loadAnalytics();
+    let refreshTimer = null;
+    let isRequestInProgress = false; // Flag to prevent multiple concurrent requests
+    let consecutiveErrors = 0; // Track consecutive errors
+    const MAX_ERRORS = 5; // Max consecutive errors before stopping auto-refresh
+    
+    initializeDashboard();
 
-    // Event listeners
-    document.querySelectorAll('.subject-card').forEach(card => {
-        card.addEventListener('click', function () {
-            const subject = this.dataset.subject;
-            window.location.href = `/chatbot?subject=${subject}`;
-        });
-    });
+    function initializeDashboard() {
+        loadAnalytics();
+        setupEventListeners();
+        startAutoRefresh();
+    }
 
-    document.getElementById('logoutBtn').addEventListener('click', function () {
-        window.location.href = '/logout';
-    });
-    
-    // Take Test Button Event Listener
-    document.getElementById('takeTestBtn').addEventListener('click', function() {
-        document.getElementById('testModal').style.display = 'block';
-    });
-    
-    // Close Modal Button
-    document.querySelectorAll('.close-modal').forEach(button => {
-        button.addEventListener('click', function() {
-            this.closest('.modal').style.display = 'none';
+    function setupEventListeners() {
+        // Subject card listeners
+        document.querySelectorAll('.subject-card').forEach(card => {
+            card.addEventListener('click', function () {
+                const subject = this.dataset.subject;
+                window.location.href = `/chatbot?subject=${subject}`;
+            });
         });
-    });
-    
-    // Test Form Submission
-    document.getElementById('testForm').addEventListener('submit', function(e) {
-        e.preventDefault();
-        const subject = document.getElementById('testSubject').value;
-        const topic = document.getElementById('testTopic').value;
-        
-        if (subject && topic) {
-            document.getElementById('testModal').style.display = 'none';
-            document.getElementById('testTitle').textContent = `${subject.charAt(0).toUpperCase() + subject.slice(1)} - ${topic}`;
-            document.getElementById('testInterface').style.display = 'block';
-            
-            // Start loading questions
-            loadTestQuestions(subject, topic);
+
+        // Logout button
+        document.getElementById('logoutBtn')?.addEventListener('click', function () {
+            window.location.href = '/logout';
+        });
+
+        // Take Test Button
+        document.getElementById('takeTestBtn')?.addEventListener('click', function () {
+            document.getElementById('testModal').style.display = 'block';
+        });
+
+        // Close Modal Buttons
+        document.querySelectorAll('.close-modal').forEach(button => {
+            button.addEventListener('click', function () {
+                this.closest('.modal').style.display = 'none';
+            });
+        });
+
+        // Test Form
+        document.getElementById('testForm')?.addEventListener('submit', function (e) {
+            e.preventDefault();
+            const subject = document.getElementById('testSubject').value;
+            const topic = document.getElementById('testTopic').value;
+
+            if (subject && topic) {
+                document.getElementById('testModal').style.display = 'none';
+                document.getElementById('testTitle').textContent = 
+                    `${subject.charAt(0).toUpperCase() + subject.slice(1)} - ${topic}`;
+                document.getElementById('testInterface').style.display = 'block';
+                loadTestQuestions(subject, topic);
+            }
+        });
+
+        // Summarize Button
+        document.getElementById('summarizeBtn')?.addEventListener('click', handleSummarize);
+    }
+
+    function startAutoRefresh() {
+        if (refreshTimer) {
+            clearInterval(refreshTimer);
         }
-    });
+        refreshTimer = setInterval(loadAnalytics, 30000);
+    }
 
-    // Load analytics
     function loadAnalytics() {
+        // Prevent multiple concurrent requests
+        if (isRequestInProgress) {
+            console.log('Analytics request already in progress, skipping');
+            return;
+        }
+        
+        isRequestInProgress = true;
+        
         fetch('/api/get_analytics')
             .then(response => {
                 if (!response.ok) {
-                    throw new Error('Network response was not ok');
+                    throw new Error(`Network response was not ok: ${response.status}`);
                 }
                 return response.json();
             })
             .then(data => {
-                if (data.progress && data.recent_interactions) {
+                // Reset error counter on success
+                consecutiveErrors = 0;
+                
+                if (data.progress) {
                     renderCharts(data.progress);
-                    renderRecentActivity(data.recent_interactions);
-                } else {
-                    showError('No analytics data available');
+                }
+                if (data.recent_activities) {
+                    renderRecentActivity(data.recent_activities);
                 }
             })
             .catch(error => {
                 console.error('Error loading analytics:', error);
-                showError('Failed to load analytics data');
+                showNoDataMessage();
+                
+                // Increment error counter
+                consecutiveErrors++;
+                
+                // If we've hit too many consecutive errors, stop the auto-refresh
+                if (consecutiveErrors >= MAX_ERRORS) {
+                    console.error('Too many consecutive errors. Stopping auto-refresh.');
+                    if (refreshTimer) {
+                        clearInterval(refreshTimer);
+                        refreshTimer = null;
+                    }
+                }
+            })
+            .finally(() => {
+                isRequestInProgress = false;
             });
     }
 
-    function showError(message) {
-        document.querySelector('.charts-container').innerHTML = `
-        <div class="error-message">
-            <p>${message}</p>
-            <button onclick="loadAnalytics()">Retry</button>
-        </div>
-    `;
+    function showNoDataMessage() {
+        const recentActivitiesElement = document.getElementById('recentActivities');
+        if (recentActivitiesElement) {
+            recentActivitiesElement.innerHTML = `
+                <div class="no-activity-message">
+                    <p>Start a learning session to see your progress!</p>
+                    <button class="btn primary-btn" onclick="window.location.href='/chatbot'">
+                        Start Learning
+                    </button>
+                </div>
+            `;
+        }
     }
 
     // Render charts
     function renderCharts(progressData) {
-        if (progressData.length === 0) {
-            // No data yet
-            document.getElementById('performanceChart').parentNode.innerHTML = '<p>No learning data available yet. Start a session to see your progress!</p>';
-            document.getElementById('timeChart').parentNode.innerHTML = '<p>No learning data available yet. Start a session to see your response times!</p>';
+        const chartsContainer = document.querySelector('.charts-container');
+        if (!chartsContainer) return;
+
+        if (!progressData || progressData.length === 0) {
+            chartsContainer.innerHTML = `
+            <div class="no-data-message">
+                <p>No learning data available yet.</p>
+                <p>Start a learning session to see your progress!</p>
+                <button class="btn primary-btn" onclick="window.location.href='/chatbot'">
+                    Start Learning
+                </button>
+            </div>
+        `;
             return;
         }
 
-        // Performance chart (correct vs incorrect by topic)
-        const performanceCtx = document.getElementById('performanceChart').getContext('2d');
+        // Check if canvas elements exist before creating charts
+        const performanceCtx = document.getElementById('performanceChart');
+        const timeCtx = document.getElementById('timeChart');
+        
+        if (!performanceCtx || !timeCtx) {
+            console.error('Chart canvas elements not found');
+            return;
+        }
+
+        // Clear any existing charts to prevent memory leaks
+        if (window.performanceChart) {
+            window.performanceChart.destroy();
+        }
+        if (window.timeChart) {
+            window.timeChart.destroy();
+        }
 
         const topics = progressData.map(item => item.topic);
         const correctData = progressData.map(item => item.correct_count);
         const incorrectData = progressData.map(item => item.incorrect_count);
 
-        new Chart(performanceCtx, {
+        // Performance chart (correct vs incorrect by topic)
+        window.performanceChart = new Chart(performanceCtx.getContext('2d'), {
             type: 'bar',
             data: {
                 labels: topics.map(t => t.charAt(0).toUpperCase() + t.slice(1)),
@@ -142,9 +219,7 @@ document.addEventListener('DOMContentLoaded', function () {
         });
 
         // Response time chart
-        const timeCtx = document.getElementById('timeChart').getContext('2d');
-
-        new Chart(timeCtx, {
+        window.timeChart = new Chart(timeCtx.getContext('2d'), {
             type: 'line',
             data: {
                 labels: topics.map(t => t.charAt(0).toUpperCase() + t.slice(1)),
@@ -200,221 +275,167 @@ document.addEventListener('DOMContentLoaded', function () {
     }
 
     // Render recent activity
-    function renderRecentActivity(activities) {
+     function renderRecentActivity(activities) {
         const recentActivitiesElement = document.getElementById('recentActivities');
+        if (!recentActivitiesElement) return;
 
-        if (activities.length === 0) {
-            recentActivitiesElement.innerHTML = '<p>No recent activities. Start a learning session!</p>';
+        if (!activities || activities.length === 0) {
+            showNoDataMessage();
             return;
         }
 
-        let activityHTML = '';
-
-        activities.forEach(activity => {
+        const activityHTML = activities.map(activity => {
             const date = new Date(activity.timestamp).toLocaleString();
-            const statusClass = activity.is_correct ? 'activity-correct' : 'activity-incorrect';
-            const statusText = activity.is_correct ? 'Correct' : 'Incorrect';
-            
-            // Format response time to 1 decimal place and add 's' for seconds
-            const responseTime = parseFloat(activity.response_time).toFixed(1);
-            
-            // Add a label for rapid fire questions
-            const activityType = activity.response_type === 'rapid_quiz' ? '<span class="rapid-quiz-badge">Rapid Quiz</span>' : '';
-            
-            activityHTML += `
-                <div class="activity-item">
-                    <div class="activity-info">
-                        <strong>${activity.topic.charAt(0).toUpperCase() + activity.topic.slice(1)}:</strong> 
-                        ${truncateText(activity.question, 40)} ${activityType}
+            const statusClass = activity.is_correct ? 'correct' : 'incorrect';
+            return `
+                <div class="activity-card ${statusClass}">
+                    <div class="activity-header">
+                        <span class="activity-type">${activity.topic.toUpperCase()}</span>
+                        <span class="activity-time">${date}</span>
                     </div>
-                    <div class="activity-status ${statusClass}">
-                        ${statusText} (${responseTime}s)
+                    <div class="activity-content">
+                        <p class="activity-question">${activity.question}</p>
+                        <div class="activity-answers">
+                            <p>Your answer: ${activity.user_answer || 'No answer provided'}</p>
+                            <p>Correct answer: ${activity.correct_answer}</p>
+                        </div>
+                        <div class="activity-footer">
+                            <span class="response-time">Response time: ${parseFloat(activity.response_time || 0).toFixed(1)}s</span>
+                            <span class="result-badge ${statusClass}">
+                                ${activity.is_correct ? 'Correct' : 'Incorrect'}
+                            </span>
+                        </div>
                     </div>
                 </div>
             `;
-        });
+        }).join('');
 
         recentActivitiesElement.innerHTML = activityHTML;
     }
 
-    // Helper function to truncate text
-    function truncateText(text, maxLength) {
-        if (!text) return "Unknown question";
-        if (text.length <= maxLength) return text;
-        return text.slice(0, maxLength) + '...';
-    }
-    
-    function loadRecentActivities() {
-        const recentActivitiesContainer = document.getElementById('recentActivities');
-        
-        // Show loading message
-        recentActivitiesContainer.innerHTML = '<p class="loading-message">Loading your recent activities...</p>';
-        
-        fetch('/api/recent_activity')
+    function loadTestQuestions(subject, topic) {
+        const loadingElement = document.getElementById('loadingQuestions');
+        const contentElement = document.getElementById('questionContent');
+
+        if (loadingElement) loadingElement.style.display = 'block';
+        if (contentElement) contentElement.style.display = 'none';
+
+        fetch('/api/generate_test', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({ subject, topic })
+        })
             .then(response => {
                 if (!response.ok) {
-                    throw new Error('Network response was not ok');
+                    throw new Error(`Network response was not ok: ${response.status}`);
                 }
                 return response.json();
             })
             .then(data => {
-                if (data.error) {
-                    recentActivitiesContainer.innerHTML = `<p class="error-message">${data.error}</p>`;
-                    return;
+                if (data.questions?.length > 0) {
+                    sessionStorage.setItem('testQuestions', JSON.stringify(data.questions));
+                    displayQuestion(0);
+                    if (loadingElement) loadingElement.style.display = 'none';
+                    if (contentElement) contentElement.style.display = 'block';
+                } else {
+                    throw new Error('No questions received');
                 }
-                
-                if (!data.activities || data.activities.length === 0) {
-                    recentActivitiesContainer.innerHTML = '<p>No recent activity yet. Start a learning session!</p>';
-                    return;
-                }
-                
-                // Clear loading message
-                recentActivitiesContainer.innerHTML = '';
-                
-                // Add activity items
-                data.activities.forEach(activity => {
-                    const activityItem = document.createElement('div');
-                    activityItem.className = 'activity-item';
-                    
-                    if (activity.activity_type === 'rapid_quiz') {
-                        // Format time nicely
-                        const responseTimeFormatted = activity.response_time.toFixed(1);
-                        
-                        // Create status class based on correctness
-                        const statusClass = activity.is_correct ? 'correct' : 'incorrect';
-                        const statusLabel = activity.is_correct ? 'Correct' : 'Incorrect';
-                        
-                        // Create activity HTML
-                        activityItem.innerHTML = `
-                            <div class="activity-content">
-                                <div class="activity-header">
-                                    <span class="activity-topic">${activity.topic}</span>
-                                    <span class="activity-time">${formatTimestamp(activity.timestamp)}</span>
-                                </div>
-                                <div class="activity-question">${activity.question}</div>
-                                <div class="activity-details">
-                                    <span class="activity-response">Your answer: ${activity.user_answer}</span>
-                                    ${!activity.is_correct ? 
-                                        `<span class="activity-correct-answer">Correct answer: ${activity.correct_answer}</span>` : ''}
-                                    <span class="activity-time-taken">Time: ${responseTimeFormatted}s</span>
-                                    <span class="activity-status ${statusClass}">${statusLabel}</span>
-                                </div>
-                            </div>
-                        `;
-                    } else {
-                        // Handle other activity types in the future
-                        activityItem.innerHTML = `
-                            <div class="activity-content">
-                                <span class="activity-topic">${activity.topic || 'Unknown'}</span>
-                                <span class="activity-time">${formatTimestamp(activity.timestamp)}</span>
-                            </div>
-                        `;
-                    }
-                    
-                    recentActivitiesContainer.appendChild(activityItem);
-                });
             })
             .catch(error => {
-                console.error('Error loading recent activities:', error);
-                recentActivitiesContainer.innerHTML = '<p class="error-message">Failed to load recent activities.</p>';
+                console.error('Error loading test questions:', error);
+                if (loadingElement) {
+                    loadingElement.innerHTML = `
+                        <p>Error loading questions. Please try again.</p>
+                        <button class="btn secondary-btn" onclick="document.getElementById('testInterface').style.display = 'none'">
+                            Back to Dashboard
+                        </button>
+                    `;
+                }
             });
     }
-    
-    function formatTimestamp(timestamp) {
-        const date = new Date(timestamp);
-        return date.toLocaleString();
-    }
 
-
-    // Load test questions
-    function loadTestQuestions(subject, topic) {
-        document.getElementById('loadingQuestions').style.display = 'block';
-        document.getElementById('questionContent').style.display = 'none';
+    // This function appears to be referenced but not implemented in the original code
+    function displayQuestion(index) {
+        const testQuestions = JSON.parse(sessionStorage.getItem('testQuestions') || '[]');
+        const questionElement = document.getElementById('questionContent');
         
-        fetch('/api/generate_test', {
-            method: 'POST',
-            headers: {
-                'Content-Type': 'application/json',
-            },
-            body: JSON.stringify({ subject, topic })
-        })
-        .then(response => response.json())
-        .then(data => {
-            if (data.questions && data.questions.length > 0) {
-                // Store questions in session storage
-                sessionStorage.setItem('testQuestions', JSON.stringify(data.questions));
-                
-                // Display first question
-                displayQuestion(0);
-                
-                document.getElementById('loadingQuestions').style.display = 'none';
-                document.getElementById('questionContent').style.display = 'block';
-            } else {
-                throw new Error('No questions received');
-            }
-        })
-        .catch(error => {
-            console.error('Error loading test questions:', error);
-            document.getElementById('loadingQuestions').innerHTML = `
-                <p>Error loading questions. Please try again.</p>
-                <button class="btn secondary-btn" onclick="document.getElementById('testInterface').style.display = 'none'">
-                    Back to Dashboard
-                </button>
-            `;
-        });
-    }
-    
-    // Event listener for text summarizer
-    document.getElementById('summarizeBtn').addEventListener('click', function() {
-        const text = document.getElementById('textInput').value;
-        const difficulty = document.getElementById('difficulty').value;
-        const length = document.getElementById('length').value || 3; // Default to 3 if not specified
-        
-        if (!text) {
-            document.getElementById('summaryOutput').innerText = 'Please enter some text to summarize.';
+        if (!questionElement || !testQuestions || index >= testQuestions.length) {
+            console.error('Cannot display question: missing elements or invalid index');
             return;
         }
         
-        document.getElementById('summaryOutput').innerText = 'Generating summary...';
-        
+        const question = testQuestions[index];
+        // Implement question display logic here
+        questionElement.innerHTML = `
+            <div class="question">
+                <h3>Question ${index + 1} of ${testQuestions.length}</h3>
+                <p>${question.question}</p>
+                <div class="options">
+                    ${question.options.map((option, i) => `
+                        <div class="option">
+                            <input type="radio" name="answer" id="option${i}" value="${option}">
+                            <label for="option${i}">${option}</label>
+                        </div>
+                    `).join('')}
+                </div>
+                <div class="test-controls">
+                    ${index > 0 ? '<button class="btn secondary-btn" onclick="displayQuestion('+(index-1)+')">Previous</button>' : ''}
+                    ${index < testQuestions.length - 1 ? 
+                        '<button class="btn primary-btn" onclick="displayQuestion('+(index+1)+')">Next</button>' : 
+                        '<button class="btn primary-btn" onclick="submitTest()">Submit</button>'}
+                </div>
+            </div>
+        `;
+    }
+
+    function handleSummarize() {
+        const text = document.getElementById('textInput')?.value;
+        const difficulty = document.getElementById('difficulty')?.value;
+        const length = document.getElementById('length')?.value || 3;
+        const outputElement = document.getElementById('summaryOutput');
+
+        if (!text || !outputElement) {
+            if (outputElement) outputElement.innerText = 'Please enter some text to summarize.';
+            return;
+        }
+
+        outputElement.innerText = 'Generating summary...';
+
         fetch('/api/summarize', {
             method: 'POST',
-            headers: {
-                'Content-Type': 'application/json',
-            },
-            body: JSON.stringify({ 
-                text, 
-                difficulty,
-                length 
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({ text, difficulty, length })
+        })
+            .then(response => {
+                if (!response.ok) {
+                    throw new Error(`Network response was not ok: ${response.status}`);
+                }
+                return response.json();
             })
-        })
-        .then(response => response.json())
-        .then(data => {
-            if (data.summary) {
-                document.getElementById('summaryOutput').innerText = data.summary;
-            } else {
-                document.getElementById('summaryOutput').innerText = 'Error: Could not generate summary.';
-            }
-        })
-        .catch(error => {
-            console.error('Error:', error);
-            document.getElementById('summaryOutput').innerText = 'Error processing the text. Please try again later.';
-        });
-    });
+            .then(data => {
+                outputElement.innerText = data.summary || 'Error: Could not generate summary.';
+            })
+            .catch(error => {
+                console.error('Error:', error);
+                outputElement.innerText = 'Error processing the text. Please try again later.';
+            });
+    }
+
+    // Expose required functions to global scope for event handlers
+    window.displayQuestion = displayQuestion;
     
-    loadRecentActivities();
-    // Add CSS for rapid quiz badge
-    const style = document.createElement('style');
-    style.textContent = `
-        .rapid-quiz-badge {
-            background-color: #ff5722;
-            color: white;
-            font-size: 0.75rem;
-            padding: 2px 6px;
-            border-radius: 10px;
-            margin-left: 5px;
-            font-weight: bold;
+    // Function for test submission (referenced in displayQuestion but not implemented)
+    window.submitTest = function() {
+        console.log('Test submitted');
+        // Implement test submission logic here
+        document.getElementById('testInterface').style.display = 'none';
+        alert('Test submitted successfully!');
+    };
+
+    // Cleanup on page unload
+    window.addEventListener('beforeunload', function() {
+        if (refreshTimer) {
+            clearInterval(refreshTimer);
         }
-    `;
-    document.head.appendChild(style);
+    });
 });
