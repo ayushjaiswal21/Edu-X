@@ -3297,3 +3297,279 @@ The answer is: By following these steps, you will develop a deeper understanding
 2025-05-08 22:44:26,751 - urllib3.connectionpool - DEBUG - Starting new HTTP connection (1): localhost:11434
 2025-05-08 22:44:28,784 - urllib3.connectionpool - DEBUG - http://localhost:11434 "GET /api/tags HTTP/1.1" 200 1368
 2025-05-08 22:44:28,786 - urllib3.connectionpool - DEBUG - Starting new HTTP connection (1): localhost:11434
+2025-05-08 23:21:14,526 - app - INFO - Database database/user_data.db initialized successfully
+2025-05-08 23:21:14,526 - app - INFO - init_models called (no-op placeholder).
+2025-05-08 23:21:14,587 - werkzeug - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5000
+2025-05-08 23:21:14,588 - werkzeug - INFO - [33mPress CTRL+C to quit[0m
+2025-05-08 23:21:18,675 - werkzeug - INFO - 127.0.0.1 - - [08/May/2025 23:21:18] "GET / HTTP/1.1" 200 -
+2025-05-08 23:21:18,968 - werkzeug - INFO - 127.0.0.1 - - [08/May/2025 23:21:18] "[36mGET /static/css/style.css HTTP/1.1[0m" 304 -
+2025-05-08 23:21:19,105 - werkzeug - INFO - 127.0.0.1 - - [08/May/2025 23:21:19] "[33mGET /favicon.ico HTTP/1.1[0m" 404 -
+2025-05-08 23:21:21,000 - werkzeug - INFO - 127.0.0.1 - - [08/May/2025 23:21:21] "GET /login HTTP/1.1" 200 -
+2025-05-08 23:21:21,031 - werkzeug - INFO - 127.0.0.1 - - [08/May/2025 23:21:21] "[36mGET /static/css/auth.css HTTP/1.1[0m" 304 -
+2025-05-08 23:21:21,034 - werkzeug - INFO - 127.0.0.1 - - [08/May/2025 23:21:21] "[36mGET /static/js/auth.js HTTP/1.1[0m" 304 -
+2025-05-08 23:21:23,183 - app - INFO - User logged in: ayush
+2025-05-08 23:21:23,184 - werkzeug - INFO - 127.0.0.1 - - [08/May/2025 23:21:23] "POST /login HTTP/1.1" 200 -
+2025-05-08 23:21:23,246 - werkzeug - INFO - 127.0.0.1 - - [08/May/2025 23:21:23] "GET /dashboard HTTP/1.1" 200 -
+2025-05-08 23:21:23,268 - werkzeug - INFO - 127.0.0.1 - - [08/May/2025 23:21:23] "[36mGET /static/css/style.css HTTP/1.1[0m" 304 -
+2025-05-08 23:21:23,326 - werkzeug - INFO - 127.0.0.1 - - [08/May/2025 23:21:23] "[36mGET /static/js/dashboard.js HTTP/1.1[0m" 304 -
+2025-05-08 23:21:23,326 - werkzeug - INFO - 127.0.0.1 - - [08/May/2025 23:21:23] "[36mGET /static/js/test.js HTTP/1.1[0m" 304 -
+2025-05-08 23:21:23,338 - app - DEBUG - Fetching analytics for user_id: 1
+2025-05-08 23:21:23,345 - app - INFO - No progress data found for user_id: 1
+2025-05-08 23:21:23,347 - app - ERROR - Analytics error: cannot access local variable 'progress_data' where it is not associated with a value
+Traceback (most recent call last):
+  File "C:\Users\pc\Desktop\Chatbot-2.1\Chatbot-2\app.py", line 965, in get_analytics
+    for stat_dict in [summary, quiz_stats] + progress_data:
+                                             ^^^^^^^^^^^^^
+UnboundLocalError: cannot access local variable 'progress_data' where it is not associated with a value
+2025-05-08 23:21:23,355 - werkzeug - INFO - 127.0.0.1 - - [08/May/2025 23:21:23] "[35m[1mGET /api/get_analytics HTTP/1.1[0m" 500 -
+2025-05-08 23:23:32,202 - app - INFO - Database database/user_data.db initialized successfully
+2025-05-08 23:23:32,203 - app - INFO - init_models called (no-op placeholder).
+2025-05-08 23:23:32,229 - werkzeug - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5000
+2025-05-08 23:23:32,229 - werkzeug - INFO - [33mPress CTRL+C to quit[0m
+2025-05-08 23:23:57,266 - werkzeug - INFO - 127.0.0.1 - - [08/May/2025 23:23:57] "GET / HTTP/1.1" 200 -
+2025-05-08 23:23:57,385 - werkzeug - INFO - 127.0.0.1 - - [08/May/2025 23:23:57] "[36mGET /static/css/style.css HTTP/1.1[0m" 304 -
+2025-05-08 23:23:58,758 - werkzeug - INFO - 127.0.0.1 - - [08/May/2025 23:23:58] "GET /login HTTP/1.1" 200 -
+2025-05-08 23:23:58,780 - werkzeug - INFO - 127.0.0.1 - - [08/May/2025 23:23:58] "[36mGET /static/css/auth.css HTTP/1.1[0m" 304 -
+2025-05-08 23:23:58,785 - werkzeug - INFO - 127.0.0.1 - - [08/May/2025 23:23:58] "[36mGET /static/js/auth.js HTTP/1.1[0m" 304 -
+2025-05-08 23:24:00,168 - app - INFO - User logged in: ayush
+2025-05-08 23:24:00,168 - werkzeug - INFO - 127.0.0.1 - - [08/May/2025 23:24:00] "POST /login HTTP/1.1" 200 -
+2025-05-08 23:24:00,190 - werkzeug - INFO - 127.0.0.1 - - [08/May/2025 23:24:00] "GET /dashboard HTTP/1.1" 200 -
+2025-05-08 23:24:00,210 - werkzeug - INFO - 127.0.0.1 - - [08/May/2025 23:24:00] "[36mGET /static/css/style.css HTTP/1.1[0m" 304 -
+2025-05-08 23:24:00,216 - werkzeug - INFO - 127.0.0.1 - - [08/May/2025 23:24:00] "[36mGET /static/js/dashboard.js HTTP/1.1[0m" 304 -
+2025-05-08 23:24:00,217 - werkzeug - INFO - 127.0.0.1 - - [08/May/2025 23:24:00] "[36mGET /static/js/test.js HTTP/1.1[0m" 304 -
+2025-05-08 23:24:00,232 - app - DEBUG - Fetching analytics for user_id: 1
+2025-05-08 23:24:00,234 - app - INFO - No progress data found for user_id: 1
+2025-05-08 23:24:00,235 - werkzeug - INFO - 127.0.0.1 - - [08/May/2025 23:24:00] "GET /api/get_analytics HTTP/1.1" 200 -
+2025-05-08 23:24:08,097 - werkzeug - INFO - 127.0.0.1 - - [08/May/2025 23:24:08] "GET /chatbot?subject=english HTTP/1.1" 200 -
+2025-05-08 23:24:08,119 - werkzeug - INFO - 127.0.0.1 - - [08/May/2025 23:24:08] "GET /static/css/chatbot.css HTTP/1.1" 200 -
+2025-05-08 23:24:08,129 - werkzeug - INFO - 127.0.0.1 - - [08/May/2025 23:24:08] "[36mGET /static/js/chatbot.js HTTP/1.1[0m" 304 -
+2025-05-09 06:54:51,978 - app - INFO - Database database/user_data.db initialized successfully
+2025-05-09 06:54:51,978 - app - INFO - init_models called (no-op placeholder).
+2025-05-09 06:54:52,032 - werkzeug - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5000
+2025-05-09 06:54:52,033 - werkzeug - INFO - [33mPress CTRL+C to quit[0m
+2025-05-09 06:54:59,719 - werkzeug - INFO - 127.0.0.1 - - [09/May/2025 06:54:59] "GET / HTTP/1.1" 200 -
+2025-05-09 06:54:59,944 - werkzeug - INFO - 127.0.0.1 - - [09/May/2025 06:54:59] "[36mGET /static/css/style.css HTTP/1.1[0m" 304 -
+2025-05-09 06:55:00,037 - werkzeug - INFO - 127.0.0.1 - - [09/May/2025 06:55:00] "[33mGET /favicon.ico HTTP/1.1[0m" 404 -
+2025-05-09 06:55:02,007 - werkzeug - INFO - 127.0.0.1 - - [09/May/2025 06:55:02] "GET /login HTTP/1.1" 200 -
+2025-05-09 06:55:02,057 - werkzeug - INFO - 127.0.0.1 - - [09/May/2025 06:55:02] "[36mGET /static/css/auth.css HTTP/1.1[0m" 304 -
+2025-05-09 06:55:02,074 - werkzeug - INFO - 127.0.0.1 - - [09/May/2025 06:55:02] "[36mGET /static/js/auth.js HTTP/1.1[0m" 304 -
+2025-05-09 06:55:03,755 - app - INFO - User logged in: ayush
+2025-05-09 06:55:03,760 - werkzeug - INFO - 127.0.0.1 - - [09/May/2025 06:55:03] "POST /login HTTP/1.1" 200 -
+2025-05-09 06:55:03,798 - werkzeug - INFO - 127.0.0.1 - - [09/May/2025 06:55:03] "GET /dashboard HTTP/1.1" 200 -
+2025-05-09 06:55:03,822 - werkzeug - INFO - 127.0.0.1 - - [09/May/2025 06:55:03] "[36mGET /static/css/style.css HTTP/1.1[0m" 304 -
+2025-05-09 06:55:03,888 - werkzeug - INFO - 127.0.0.1 - - [09/May/2025 06:55:03] "[36mGET /static/js/dashboard.js HTTP/1.1[0m" 304 -
+2025-05-09 06:55:03,889 - werkzeug - INFO - 127.0.0.1 - - [09/May/2025 06:55:03] "[36mGET /static/js/test.js HTTP/1.1[0m" 304 -
+2025-05-09 06:55:03,944 - app - DEBUG - Fetching analytics for user_id: 1
+2025-05-09 06:55:03,949 - app - INFO - No progress data found for user_id: 1
+2025-05-09 06:55:03,951 - werkzeug - INFO - 127.0.0.1 - - [09/May/2025 06:55:03] "GET /api/get_analytics HTTP/1.1" 200 -
+2025-05-09 06:55:13,051 - werkzeug - INFO - 127.0.0.1 - - [09/May/2025 06:55:13] "GET /chatbot?subject=english HTTP/1.1" 200 -
+2025-05-09 06:55:13,163 - werkzeug - INFO - 127.0.0.1 - - [09/May/2025 06:55:13] "[36mGET /static/js/chatbot.js HTTP/1.1[0m" 304 -
+2025-05-09 06:55:13,205 - werkzeug - INFO - 127.0.0.1 - - [09/May/2025 06:55:13] "[36mGET /static/css/chatbot.css HTTP/1.1[0m" 304 -
+2025-05-09 06:55:26,423 - urllib3.connectionpool - DEBUG - Starting new HTTP connection (1): localhost:11434
+2025-05-09 06:55:28,481 - urllib3.connectionpool - DEBUG - http://localhost:11434 "GET /api/tags HTTP/1.1" 200 1368
+2025-05-09 06:55:28,483 - urllib3.connectionpool - DEBUG - Starting new HTTP connection (1): localhost:11434
+2025-05-09 06:57:26,966 - urllib3.connectionpool - DEBUG - Starting new HTTP connection (1): localhost:11434
+2025-05-09 06:57:29,044 - urllib3.connectionpool - DEBUG - http://localhost:11434 "GET /api/tags HTTP/1.1" 200 1368
+2025-05-09 06:57:29,046 - urllib3.connectionpool - DEBUG - Starting new HTTP connection (1): localhost:11434
+2025-05-09 06:57:30,509 - modules.llm_handler - WARNING - Attempt 1 failed, retrying in 5 seconds...
+2025-05-09 06:57:35,511 - urllib3.connectionpool - DEBUG - Starting new HTTP connection (1): localhost:11434
+2025-05-09 06:57:37,551 - urllib3.connectionpool - DEBUG - http://localhost:11434 "GET /api/tags HTTP/1.1" 200 1368
+2025-05-09 06:57:37,553 - urllib3.connectionpool - DEBUG - Starting new HTTP connection (1): localhost:11434
+2025-05-09 06:57:48,056 - urllib3.connectionpool - DEBUG - http://localhost:11434 "POST /api/generate HTTP/1.1" 500 97
+2025-05-09 06:57:48,057 - modules.llm_handler - WARNING - Attempt 1 failed, retrying in 5 seconds...
+2025-05-09 06:57:53,059 - urllib3.connectionpool - DEBUG - Starting new HTTP connection (1): localhost:11434
+2025-05-09 06:57:55,097 - urllib3.connectionpool - DEBUG - http://localhost:11434 "GET /api/tags HTTP/1.1" 200 1368
+2025-05-09 06:57:55,100 - urllib3.connectionpool - DEBUG - Starting new HTTP connection (1): localhost:11434
+2025-05-09 10:16:20,486 - app - INFO - Database database/user_data.db initialized successfully
+2025-05-09 10:16:20,486 - app - INFO - init_models called (no-op placeholder).
+2025-05-09 10:16:20,532 - werkzeug - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5000
+2025-05-09 10:16:20,532 - werkzeug - INFO - [33mPress CTRL+C to quit[0m
+2025-05-09 10:16:28,719 - werkzeug - INFO - 127.0.0.1 - - [09/May/2025 10:16:28] "GET / HTTP/1.1" 200 -
+2025-05-09 10:16:28,890 - werkzeug - INFO - 127.0.0.1 - - [09/May/2025 10:16:28] "GET /static/css/style.css HTTP/1.1" 200 -
+2025-05-09 10:16:30,188 - werkzeug - INFO - 127.0.0.1 - - [09/May/2025 10:16:30] "GET /login HTTP/1.1" 200 -
+2025-05-09 10:16:30,225 - werkzeug - INFO - 127.0.0.1 - - [09/May/2025 10:16:30] "[36mGET /static/css/auth.css HTTP/1.1[0m" 304 -
+2025-05-09 10:16:30,233 - werkzeug - INFO - 127.0.0.1 - - [09/May/2025 10:16:30] "[36mGET /static/js/auth.js HTTP/1.1[0m" 304 -
+2025-05-09 10:16:31,431 - app - INFO - User logged in: ayush
+2025-05-09 10:16:31,431 - werkzeug - INFO - 127.0.0.1 - - [09/May/2025 10:16:31] "POST /login HTTP/1.1" 200 -
+2025-05-09 10:16:31,471 - werkzeug - INFO - 127.0.0.1 - - [09/May/2025 10:16:31] "GET /dashboard HTTP/1.1" 200 -
+2025-05-09 10:16:31,502 - werkzeug - INFO - 127.0.0.1 - - [09/May/2025 10:16:31] "[36mGET /static/css/style.css HTTP/1.1[0m" 304 -
+2025-05-09 10:16:31,525 - werkzeug - INFO - 127.0.0.1 - - [09/May/2025 10:16:31] "GET /static/js/dashboard.js HTTP/1.1" 200 -
+2025-05-09 10:16:31,527 - werkzeug - INFO - 127.0.0.1 - - [09/May/2025 10:16:31] "[36mGET /static/js/test.js HTTP/1.1[0m" 304 -
+2025-05-09 10:16:31,567 - app - DEBUG - Fetching analytics for user_id: 1
+2025-05-09 10:16:31,569 - app - DEBUG - Fetching recent activity for user_id: 1
+2025-05-09 10:16:31,569 - app - INFO - No progress data found for user_id: 1
+2025-05-09 10:16:31,570 - werkzeug - INFO - 127.0.0.1 - - [09/May/2025 10:16:31] "GET /api/get_analytics HTTP/1.1" 200 -
+2025-05-09 10:16:31,575 - werkzeug - INFO - 127.0.0.1 - - [09/May/2025 10:16:31] "GET /api/recent_activity HTTP/1.1" 200 -
+2025-05-09 10:16:44,920 - werkzeug - INFO - 127.0.0.1 - - [09/May/2025 10:16:44] "GET /chatbot?subject=english HTTP/1.1" 200 -
+2025-05-09 10:16:44,955 - werkzeug - INFO - 127.0.0.1 - - [09/May/2025 10:16:44] "[36mGET /static/css/chatbot.css HTTP/1.1[0m" 304 -
+2025-05-09 10:16:44,972 - werkzeug - INFO - 127.0.0.1 - - [09/May/2025 10:16:44] "[36mGET /static/js/chatbot.js HTTP/1.1[0m" 304 -
+2025-05-09 10:16:51,791 - werkzeug - INFO - 127.0.0.1 - - [09/May/2025 10:16:51] "[35m[1mPOST /api/chat HTTP/1.1[0m" 503 -
+2025-05-09 10:18:35,859 - app - INFO - Database database/user_data.db initialized successfully
+2025-05-09 10:18:35,860 - app - INFO - init_models called (no-op placeholder).
+2025-05-09 10:18:35,875 - werkzeug - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5000
+2025-05-09 10:18:35,875 - werkzeug - INFO - [33mPress CTRL+C to quit[0m
+2025-05-09 10:18:38,823 - werkzeug - INFO - 127.0.0.1 - - [09/May/2025 10:18:38] "GET / HTTP/1.1" 200 -
+2025-05-09 10:18:38,957 - werkzeug - INFO - 127.0.0.1 - - [09/May/2025 10:18:38] "[36mGET /static/css/style.css HTTP/1.1[0m" 304 -
+2025-05-09 10:18:40,254 - werkzeug - INFO - 127.0.0.1 - - [09/May/2025 10:18:40] "GET /login HTTP/1.1" 200 -
+2025-05-09 10:18:40,278 - werkzeug - INFO - 127.0.0.1 - - [09/May/2025 10:18:40] "[36mGET /static/css/auth.css HTTP/1.1[0m" 304 -
+2025-05-09 10:18:40,282 - werkzeug - INFO - 127.0.0.1 - - [09/May/2025 10:18:40] "[36mGET /static/js/auth.js HTTP/1.1[0m" 304 -
+2025-05-09 10:18:41,585 - app - INFO - User logged in: ayush
+2025-05-09 10:18:41,586 - werkzeug - INFO - 127.0.0.1 - - [09/May/2025 10:18:41] "POST /login HTTP/1.1" 200 -
+2025-05-09 10:18:41,608 - werkzeug - INFO - 127.0.0.1 - - [09/May/2025 10:18:41] "GET /dashboard HTTP/1.1" 200 -
+2025-05-09 10:18:41,630 - werkzeug - INFO - 127.0.0.1 - - [09/May/2025 10:18:41] "[36mGET /static/css/style.css HTTP/1.1[0m" 304 -
+2025-05-09 10:18:41,634 - werkzeug - INFO - 127.0.0.1 - - [09/May/2025 10:18:41] "[36mGET /static/js/dashboard.js HTTP/1.1[0m" 304 -
+2025-05-09 10:18:41,635 - werkzeug - INFO - 127.0.0.1 - - [09/May/2025 10:18:41] "[36mGET /static/js/test.js HTTP/1.1[0m" 304 -
+2025-05-09 10:18:41,652 - app - DEBUG - Fetching analytics for user_id: 1
+2025-05-09 10:18:41,653 - app - INFO - No progress data found for user_id: 1
+2025-05-09 10:18:41,653 - werkzeug - INFO - 127.0.0.1 - - [09/May/2025 10:18:41] "GET /api/get_analytics HTTP/1.1" 200 -
+2025-05-09 10:18:41,669 - werkzeug - INFO - 127.0.0.1 - - [09/May/2025 10:18:41] "[33mGET /api/recent_activity HTTP/1.1[0m" 404 -
+2025-05-09 10:18:43,097 - werkzeug - INFO - 127.0.0.1 - - [09/May/2025 10:18:43] "GET /chatbot?subject=english HTTP/1.1" 200 -
+2025-05-09 10:18:43,120 - werkzeug - INFO - 127.0.0.1 - - [09/May/2025 10:18:43] "[36mGET /static/css/chatbot.css HTTP/1.1[0m" 304 -
+2025-05-09 10:18:43,129 - werkzeug - INFO - 127.0.0.1 - - [09/May/2025 10:18:43] "[36mGET /static/js/chatbot.js HTTP/1.1[0m" 304 -
+2025-05-09 10:18:46,129 - urllib3.connectionpool - DEBUG - Starting new HTTP connection (1): localhost:11434
+2025-05-09 10:18:48,165 - urllib3.connectionpool - DEBUG - http://localhost:11434 "GET /api/tags HTTP/1.1" 200 1368
+2025-05-09 10:18:48,167 - urllib3.connectionpool - DEBUG - Starting new HTTP connection (1): localhost:11434
+2025-05-09 10:18:51,914 - urllib3.connectionpool - DEBUG - Starting new HTTP connection (1): localhost:11434
+2025-05-09 10:18:53,951 - urllib3.connectionpool - DEBUG - http://localhost:11434 "GET /api/tags HTTP/1.1" 200 1368
+2025-05-09 10:18:53,953 - urllib3.connectionpool - DEBUG - Starting new HTTP connection (1): localhost:11434
+2025-05-09 10:20:46,142 - urllib3.connectionpool - DEBUG - Starting new HTTP connection (1): localhost:11434
+2025-05-09 10:20:48,171 - urllib3.connectionpool - DEBUG - http://localhost:11434 "GET /api/tags HTTP/1.1" 200 1368
+2025-05-09 10:20:48,173 - urllib3.connectionpool - DEBUG - Starting new HTTP connection (1): localhost:11434
+2025-05-09 10:20:48,549 - urllib3.connectionpool - DEBUG - http://localhost:11434 "POST /api/generate HTTP/1.1" 200 None
+2025-05-09 10:20:48,550 - modules.llm_handler - DEBUG - Ollama raw result: {'model': 'wizard-math:7b', 'created_at': '2025-05-09T04:50:48.540946Z', 'response': "\nStep 1: Introduce the topic of noun\nA noun is a word that refers to a person, place, thing, or idea. It's a fundamental part of speech in the English language and is essential for clear and precise communication.\n\nStep 2: Explain the importance of nouns\nNouns help us identify and categorize people, objects, and concepts. They are the building blocks of sentences and enable us to express complex ideas. Without nouns, our language would be impoverished and confusing.\n\nStep 3: Break down the process of learning nouns\nTo learn nouns, we need to understand their different forms and uses. We'll start by identifying common nouns, then move on to possessive nouns, plural nouns, and finally, the different cases of nouns in various languages.\n\nStep 4: Address any confusion or misconceptions\nIf the student has any confusion about the concept of nouns, now is the time to clarify. Encourage them to ask questions and provide examples to help them understand.\n\nStep 5: Summarize the key points\nIn summary, nouns are a crucial part of speech that help us identify and categorize people, objects, and ideas. By understanding their different forms and uses, we can become better communicators and writers.\n\nRemember, the key to learning nouns is practice and understanding. The more the student practices using nouns correctly, the more they will understand their importance and proper usage.\n\nThe answer is: The more they practice, the more they will understand.", 'done': True, 'done_reason': 'stop', 'context': [995, 460, 396, 7583, 14165, 13892, 2841, 3864, 297, 22969, 9432, 28723, 3604, 5541, 349, 298, 1316, 3567, 2380, 16582, 1059, 3081, 10928, 697, 304, 23701, 5245, 28723, 13, 13, 27332, 3133, 3112, 28747, 13, 1976, 460, 264, 16872, 1063, 8311, 271, 9045, 356, 8538, 3567, 1950, 13551, 6399, 1059, 2135, 28705, 28750, 4195, 28723, 13, 28093, 1167, 18392, 28747, 13, 13, 28740, 28723, 4205, 1460, 354, 272, 5716, 28742, 28713, 24685, 304, 1654, 1759, 13, 28750, 28723, 1047, 590, 4372, 1368, 4377, 325, 5664, 28705, 28782, 7231, 557, 12829, 706, 298, 3944, 1060, 304, 1073, 680, 11869, 13, 28770, 28723, 1047, 590, 6305, 1179, 727, 325, 28740, 28734, 28806, 7231, 28731, 562, 1038, 17179, 28725, 9051, 2948, 4052, 514, 13346, 13, 28781, 28723, 5938, 272, 318, 26184, 2038, 395, 1111, 3269, 4224, 3210, 821, 1863, 11194, 13, 28782, 28723, 1684, 3567, 4372, 12742, 5771, 2056, 727, 298, 1073, 325, 28740, 28734, 28806, 7231, 557, 20707, 1560, 13252, 304, 1654, 19965, 13, 28784, 28723, 1263, 4714, 562, 2936, 11194, 325, 5664, 28705, 28782, 7231, 557, 1460, 1372, 28733, 715, 4224, 298, 5407, 6399, 13, 13, 6086, 9067, 28747, 307, 1068, 13, 6086, 14426, 2184, 28747, 2839, 1079, 13, 13, 2571, 3399, 358, 272, 9067, 302, 307, 1068, 15643, 28723, 2530, 25618, 28725, 7282, 2079, 456, 9067, 349, 2278, 304, 910, 478, 622, 2822, 378, 3707, 486, 3707, 28723, 13, 13, 27332, 12107, 28747, 13, 13, 9977, 28705, 28740, 28747, 4666, 3399, 358, 272, 9067, 302, 307, 1068, 13, 28741, 307, 1068, 349, 264, 1707, 369, 15654, 298, 264, 1338, 28725, 1633, 28725, 1970, 28725, 442, 3028, 28723, 661, 28742, 28713, 264, 11854, 744, 302, 8666, 297, 272, 4300, 3842, 304, 349, 7974, 354, 3081, 304, 17008, 8520, 28723, 13, 13, 9977, 28705, 28750, 28747, 13702, 426, 272, 9545, 302, 307, 1068, 28713, 13, 28759, 1068, 28713, 1316, 592, 9051, 304, 20577, 653, 905, 28725, 6697, 28725, 304, 16582, 28723, 1306, 460, 272, 3667, 9478, 302, 23748, 304, 8234, 592, 298, 4072, 4630, 5766, 28723, 11528, 307, 1068, 28713, 28725, 813, 3842, 682, 347, 2824, 1483, 1497, 304, 26744, 28723, 13, 13, 9977, 28705, 28770, 28747, 15102, 1060, 272, 1759, 302, 5168, 307, 1068, 28713, 13, 1551, 2822, 307, 1068, 28713, 28725, 478, 927, 298, 2380, 652, 1581, 6967, 304, 6098, 28723, 816, 28742, 584, 1149, 486, 21653, 3298, 307, 1068, 28713, 28725, 868, 2318, 356, 298, 14612, 495, 307, 1068, 28713, 28725, 26001, 307, 1068, 28713, 28725, 304, 4251, 28725, 272, 1581, 4469, 302, 307, 1068, 28713, 297, 4118, 14028, 28723, 13, 13, 9977, 28705, 28781, 28747, 13046, 707, 16630, 442, 4052, 514, 13346, 13, 3381, 272, 5716, 659, 707, 16630, 684, 272, 5935, 302, 307, 1068, 28713, 28725, 1055, 349, 272, 727, 298, 16066, 1575, 28723, 17611, 423, 465, 706, 298, 1460, 4224, 304, 3084, 9254, 298, 1316, 706, 2380, 28723, 13, 13, 9977, 28705, 28782, 28747, 6927, 3479, 653, 272, 1945, 3569, 13, 657, 14060, 28725, 307, 1068, 28713, 460, 264, 13040, 744, 302, 8666, 369, 1316, 592, 9051, 304, 20577, 653, 905, 28725, 6697, 28725, 304, 5766, 28723, 2463, 6399, 652, 1581, 6967, 304, 6098, 28725, 478, 541, 2727, 1873, 1960, 294, 3117, 304, 12488, 28723, 13, 13, 5139, 1314, 28725, 272, 1945, 298, 5168, 307, 1068, 28713, 349, 5245, 304, 6399, 28723, 415, 680, 272, 5716, 10879, 1413, 307, 1068, 28713, 12742, 28725, 272, 680, 590, 622, 2380, 652, 9545, 304, 4979, 11753, 28723, 13, 13, 1014, 4372, 349, 28747, 415, 680, 590, 5245, 28725, 272, 680, 590, 622, 2380, 28723], 'total_duration': 118320185400, 'load_duration': 12420639600, 'prompt_eval_count': 235, 'prompt_eval_duration': 29907088500, 'eval_count': 352, 'eval_duration': 75973430100}
+2025-05-09 10:20:48,551 - modules.llm_handler - DEBUG - Raw response text: 
+Step 1: Introduce the topic of noun
+A noun is a word that refers to a person, place, thing, or idea. It's a fundamental part of speech in the English language and is essential for clear and precise communication.
+
+Step 2: Explain the importance of nouns
+Nouns help us identify and categorize people, objects, and concepts. They are the building blocks of sentences and enable us to express complex ideas. Without nouns, our language would be impoverished and confusing.
+
+Step 3: Break down the process of learning nouns
+To learn nouns, we need to understand their different forms and uses. We'll start by identifying common nouns, then move on to possessive nouns, plural nouns, and finally, the different cases of nouns in various languages.
+
+Step 4: Address any confusion or misconceptions
+If the student has any confusion about the concept of nouns, now is the time to clarify. Encourage them to ask questions and provide examples to help them understand.
+
+Step 5: Summarize the key points
+In summary, nouns are a crucial part of speech that help us identify and categorize people, objects, and ideas. By understanding their different forms and uses, we can become better communicators and writers.
+
+Remember, the key to learning nouns is practice and understanding. The more the student practices using nouns correctly, the more they will understand their importance and proper usage.
+
+The answer is: The more they practice, the more they will understand.
+2025-05-09 10:20:48,552 - modules.llm_handler - WARNING - No JSON block found. Returning raw response.
+2025-05-09 10:20:48,553 - werkzeug - INFO - 127.0.0.1 - - [09/May/2025 10:20:48] "POST /api/chat HTTP/1.1" 200 -
+2025-05-09 10:20:49,571 - werkzeug - INFO - 127.0.0.1 - - [09/May/2025 10:20:49] "[31m[1mPOST /api/get_questions HTTP/1.1[0m" 400 -
+2025-05-09 10:20:56,015 - modules.llm_handler - WARNING - Attempt 1 failed, retrying in 5 seconds...
+2025-05-09 10:20:56,267 - urllib3.connectionpool - DEBUG - http://localhost:11434 "POST /api/generate HTTP/1.1" 500 62
+2025-05-09 10:20:56,267 - modules.llm_handler - WARNING - Attempt 1 failed, retrying in 5 seconds...
+2025-05-09 10:21:01,018 - urllib3.connectionpool - DEBUG - Starting new HTTP connection (1): localhost:11434
+2025-05-09 10:21:01,270 - urllib3.connectionpool - DEBUG - Starting new HTTP connection (1): localhost:11434
+2025-05-09 10:21:03,100 - urllib3.connectionpool - DEBUG - http://localhost:11434 "GET /api/tags HTTP/1.1" 200 1368
+2025-05-09 10:21:03,103 - urllib3.connectionpool - DEBUG - Starting new HTTP connection (1): localhost:11434
+2025-05-09 10:21:03,333 - urllib3.connectionpool - DEBUG - http://localhost:11434 "GET /api/tags HTTP/1.1" 200 1368
+2025-05-09 10:21:03,337 - urllib3.connectionpool - DEBUG - Starting new HTTP connection (1): localhost:11434
+2025-05-09 10:21:38,042 - urllib3.connectionpool - DEBUG - Starting new HTTP connection (1): localhost:11434
+2025-05-09 10:21:40,064 - urllib3.connectionpool - DEBUG - http://localhost:11434 "GET /api/tags HTTP/1.1" 200 1368
+2025-05-09 10:21:40,065 - urllib3.connectionpool - DEBUG - Starting new HTTP connection (1): localhost:11434
+2025-05-09 10:22:03,615 - urllib3.connectionpool - DEBUG - http://localhost:11434 "POST /api/generate HTTP/1.1" 200 1238
+2025-05-09 10:22:03,622 - modules.llm_handler - DEBUG - Ollama raw result: {'model': 'mistral:7b-instruct', 'created_at': '2025-05-09T04:52:03.6119045Z', 'response': ' {\n    "question": "What is the noun in the sentence \'The cat sat on the mat\'?",\n    "options": ["cat", "sat", "mat", "the"],\n    "correct_answer": "mat"\n}', 'done': True, 'done_reason': 'stop', 'context': [3, 29473, 1763, 1228, 1164, 8351, 14933, 1294, 1231, 17896, 29491, 7120, 1372, 1040, 10060, 29491, 781, 781, 24110, 1032, 3460, 9189, 29501, 10025, 5934, 5550, 3764, 1065, 1040, 9835, 1232, 29479, 1836, 4903, 1183, 3764, 1791, 1115, 1983, 4179, 29493, 3849, 1072, 3846, 1632, 29493, 1163, 5436, 29473, 29549, 3645, 1093, 1306, 5482, 1377, 1429, 1791, 1115, 2313, 1032, 6484, 1309, 5140, 3141, 29473, 29508, 29502, 7999, 1281, 1358, 1641, 1040, 7239, 17350, 29491, 5339, 1040, 1972, 1158, 10060, 1163, 1935, 4227, 8916, 29515, 3764, 29493, 3645, 29493, 5482, 29498, 24883, 29491, 4, 1027, 1139, 781, 3055, 1113, 18264, 2032, 1113, 3963, 1117, 1040, 1075, 1836, 1065, 1040, 13039, 1232, 1782, 6023, 3263, 1124, 1040, 2378, 29510, 29572, 1316, 781, 3055, 1113, 4306, 2032, 8135, 7040, 1316, 1113, 24026, 1316, 1113, 3844, 1316, 1113, 2005, 9651, 781, 3055, 1113, 25323, 29498, 24883, 2032, 1113, 3844, 29507, 781, 29520], 'total_duration': 58461928600, 'load_duration': 6358140600, 'prompt_eval_count': 96, 'prompt_eval_duration': 32150070400, 'eval_count': 55, 'eval_duration': 19938391500}
+2025-05-09 10:22:03,625 - modules.llm_handler - DEBUG - Raw response text:  {
+    "question": "What is the noun in the sentence 'The cat sat on the mat'?",
+    "options": ["cat", "sat", "mat", "the"],
+    "correct_answer": "mat"
+}
+2025-05-09 10:22:03,626 - app - DEBUG - Successfully parsed response as direct JSON
+2025-05-09 10:22:03,627 - werkzeug - INFO - 127.0.0.1 - - [09/May/2025 10:22:03] "POST /api/rapid_quiz HTTP/1.1" 200 -
+2025-05-09 10:22:04,980 - urllib3.connectionpool - DEBUG - http://localhost:11434 "POST /api/generate HTTP/1.1" 200 1304
+2025-05-09 10:22:04,981 - modules.llm_handler - DEBUG - Ollama raw result: {'model': 'mistral:7b-instruct', 'created_at': '2025-05-09T04:52:04.9777369Z', 'response': ' {\n    "question": "Which of the following is a common noun?",\n    "options": [\n        "table",\n        "Tom",\n        "the cat",\n        "cats"\n    ],\n    "correct_answer": "table"\n}', 'done': True, 'done_reason': 'stop', 'context': [3, 29473, 1763, 1228, 1164, 8351, 14933, 1294, 1231, 17896, 29491, 7120, 1372, 1040, 10060, 29491, 781, 781, 24110, 1032, 3460, 9189, 29501, 10025, 5934, 5550, 3764, 1065, 1040, 9835, 1232, 29479, 1836, 4903, 1183, 3764, 1791, 1115, 1983, 4179, 29493, 3849, 1072, 3846, 1632, 29493, 1163, 5436, 29473, 29549, 3645, 1093, 1306, 5482, 1377, 1429, 1791, 1115, 2313, 1032, 6484, 1309, 5140, 3141, 29473, 29508, 29502, 7999, 1281, 1358, 1641, 1040, 7239, 17350, 29491, 5339, 1040, 1972, 1158, 10060, 1163, 1935, 4227, 8916, 29515, 3764, 29493, 3645, 29493, 5482, 29498, 24883, 29491, 4, 1027, 1139, 781, 3055, 1113, 18264, 2032, 1113, 27471, 1070, 1040, 3064, 1117, 1032, 4066, 1075, 1836, 29572, 1316, 781, 3055, 1113, 4306, 2032, 1501, 781, 6158, 1113, 3383, 1316, 781, 6158, 1113, 23691, 1316, 781, 6158, 1113, 2005, 6023, 1316, 781, 6158, 1113, 29485, 2217, 29507, 781, 3055, 12820, 781, 3055, 1113, 25323, 29498, 24883, 2032, 1113, 3383, 29507, 781, 29520], 'total_duration': 59565090100, 'load_duration': 6095544600, 'prompt_eval_count': 96, 'prompt_eval_duration': 21319200700, 'eval_count': 62, 'eval_duration': 32144240600}
+2025-05-09 10:22:04,982 - modules.llm_handler - DEBUG - Raw response text:  {
+    "question": "Which of the following is a common noun?",
+    "options": [
+        "table",
+        "Tom",
+        "the cat",
+        "cats"
+    ],
+    "correct_answer": "table"
+}
+2025-05-09 10:22:04,983 - app - DEBUG - Successfully parsed response as direct JSON
+2025-05-09 10:22:04,984 - werkzeug - INFO - 127.0.0.1 - - [09/May/2025 10:22:04] "POST /api/rapid_quiz HTTP/1.1" 200 -
+2025-05-09 10:22:15,014 - werkzeug - INFO - 127.0.0.1 - - [09/May/2025 10:22:15] "POST /api/save_rapid_quiz HTTP/1.1" 200 -
+2025-05-09 10:37:41,961 - app - INFO - Database database/user_data.db initialized successfully
+2025-05-09 10:37:41,961 - app - INFO - init_models called (no-op placeholder).
+2025-05-09 10:37:41,984 - werkzeug - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5000
+2025-05-09 10:37:41,984 - werkzeug - INFO - [33mPress CTRL+C to quit[0m
+2025-05-09 10:37:47,478 - werkzeug - INFO - 127.0.0.1 - - [09/May/2025 10:37:47] "GET / HTTP/1.1" 200 -
+2025-05-09 10:37:47,582 - werkzeug - INFO - 127.0.0.1 - - [09/May/2025 10:37:47] "[36mGET /static/css/style.css HTTP/1.1[0m" 304 -
+2025-05-09 10:37:48,415 - werkzeug - INFO - 127.0.0.1 - - [09/May/2025 10:37:48] "GET /login HTTP/1.1" 200 -
+2025-05-09 10:37:48,463 - werkzeug - INFO - 127.0.0.1 - - [09/May/2025 10:37:48] "[36mGET /static/css/auth.css HTTP/1.1[0m" 304 -
+2025-05-09 10:37:48,464 - werkzeug - INFO - 127.0.0.1 - - [09/May/2025 10:37:48] "[36mGET /static/js/auth.js HTTP/1.1[0m" 304 -
+2025-05-09 10:37:49,508 - app - INFO - User logged in: ayush
+2025-05-09 10:37:49,509 - werkzeug - INFO - 127.0.0.1 - - [09/May/2025 10:37:49] "POST /login HTTP/1.1" 200 -
+2025-05-09 10:37:49,533 - werkzeug - INFO - 127.0.0.1 - - [09/May/2025 10:37:49] "GET /dashboard HTTP/1.1" 200 -
+2025-05-09 10:37:49,563 - werkzeug - INFO - 127.0.0.1 - - [09/May/2025 10:37:49] "[36mGET /static/css/style.css HTTP/1.1[0m" 304 -
+2025-05-09 10:37:49,567 - werkzeug - INFO - 127.0.0.1 - - [09/May/2025 10:37:49] "[36mGET /static/js/dashboard.js HTTP/1.1[0m" 304 -
+2025-05-09 10:37:49,568 - werkzeug - INFO - 127.0.0.1 - - [09/May/2025 10:37:49] "[36mGET /static/js/test.js HTTP/1.1[0m" 304 -
+2025-05-09 10:37:49,587 - app - DEBUG - Fetching analytics for user_id: 1
+2025-05-09 10:37:49,590 - werkzeug - INFO - 127.0.0.1 - - [09/May/2025 10:37:49] "[33mGET /api/recent_activity HTTP/1.1[0m" 404 -
+2025-05-09 10:37:49,590 - app - INFO - No progress data found for user_id: 1
+2025-05-09 10:37:49,591 - werkzeug - INFO - 127.0.0.1 - - [09/May/2025 10:37:49] "GET /api/get_analytics HTTP/1.1" 200 -
+2025-05-09 10:37:53,407 - werkzeug - INFO - 127.0.0.1 - - [09/May/2025 10:37:53] "GET /chatbot?subject=gk HTTP/1.1" 200 -
+2025-05-09 10:37:53,445 - werkzeug - INFO - 127.0.0.1 - - [09/May/2025 10:37:53] "[36mGET /static/css/chatbot.css HTTP/1.1[0m" 304 -
+2025-05-09 10:37:53,490 - werkzeug - INFO - 127.0.0.1 - - [09/May/2025 10:37:53] "GET /static/js/chatbot.js HTTP/1.1" 200 -
+2025-05-09 10:37:58,642 - urllib3.connectionpool - DEBUG - Starting new HTTP connection (1): localhost:11434
+2025-05-09 10:38:00,711 - urllib3.connectionpool - DEBUG - http://localhost:11434 "GET /api/tags HTTP/1.1" 200 1368
+2025-05-09 10:38:00,713 - urllib3.connectionpool - DEBUG - Starting new HTTP connection (1): localhost:11434
+2025-05-09 10:40:02,764 - modules.llm_handler - WARNING - Attempt 1 failed, retrying in 5 seconds...
+2025-05-09 10:40:07,765 - urllib3.connectionpool - DEBUG - Starting new HTTP connection (1): localhost:11434
+2025-05-09 10:40:09,819 - urllib3.connectionpool - DEBUG - http://localhost:11434 "GET /api/tags HTTP/1.1" 200 1368
+2025-05-09 10:40:09,821 - urllib3.connectionpool - DEBUG - Starting new HTTP connection (1): localhost:11434
+2025-05-09 10:41:48,427 - urllib3.connectionpool - DEBUG - http://localhost:11434 "POST /api/generate HTTP/1.1" 200 None
+2025-05-09 10:41:48,428 - modules.llm_handler - DEBUG - Ollama raw result: {'model': 'wizard-math:7b', 'created_at': '2025-05-09T05:11:48.4233744Z', 'response': '\nAs an experienced math teacher, I understand that introducing a new topic can be intimidating. However, I believe that with the right approach and guidance, students can gain a deeper understanding of math concepts and build confidence in their abilities. \n\nIn this case, the topic is india. To start, I would explain why this topic is important and relevant to the student. For example, I could say:\n\n"India is a vast country with a rich cultural heritage and a rapidly growing economy. Understanding the mathematical concepts related to india can help us make sense of the country\'s development and growth. Additionally, these concepts can be applied to other areas of mathematics, making them more relatable and easier to understand."\n\nNext, I would outline 2-3 key concepts we\'ll explore together. For example:\n\n1. Population growth: We\'ll look at how india\'s population has grown over the years and how this growth relates to the country\'s economic development.\n\n2. Economic indicators: We\'ll examine key economic indicators such as GDP, inflation, and unemployment rates, and how these factors affect india\'s overall economic performance.\n\n3. Sustainable development: We\'ll consider the challenges india faces in balancing its rapid economic growth with the need for environmental sustainability.\n\nFinally, I would end with a thought-provoking question that encourages the student to think about their prior knowledge of india. For instance:\n\n"Before we start, I\'d like to hear your thoughts on india. What are some of the things you know about the country\'s population, economy, or environmental issues?"\n\nBy starting the lesson in this way, I hope to engage the student and make them an active participant in the learning process. This approach allows me to build on their existing knowledge and develop their critical thinking skills.\n\nThe answer is: This approach allows me to build on their existing knowledge and develop their critical thinking skills.', 'done': True, 'done_reason': 'stop', 'context': [995, 460, 396, 7583, 14165, 8311, 271, 2841, 3864, 297, 22969, 9432, 28723, 3604, 5541, 349, 298, 1316, 3567, 2380, 16582, 11869, 1059, 318, 26184, 19198, 28725, 1111, 3269, 4224, 28725, 304, 5122, 495, 12139, 28723, 2929, 6212, 272, 3238, 302, 396, 19639, 28725, 7749, 28725, 304, 4788, 522, 8626, 693, 3069, 7276, 4195, 28723, 5938, 12230, 9254, 304, 7507, 12284, 1444, 16582, 28723, 1684, 10148, 14508, 5716, 14915, 28725, 3084, 2948, 28725, 2992, 522, 12139, 304, 6191, 3012, 28723, 13, 13, 27332, 3133, 3112, 28747, 13, 1976, 460, 264, 6416, 8304, 11049, 8626, 395, 1267, 302, 2659, 9432, 3567, 438, 544, 6157, 28723, 13, 13, 19738, 1604, 28747, 1176, 515, 13, 920, 8115, 2431, 393, 7321, 2980, 28747, 2839, 1079, 13, 13, 11159, 9432, 4431, 28747, 13, 28740, 28723, 24408, 356, 3667, 5935, 840, 6399, 3210, 821, 776, 15251, 13, 28750, 28723, 5938, 272, 318, 26184, 2038, 395, 1654, 1007, 4224, 298, 8327, 3567, 28742, 4195, 13, 28770, 28723, 7133, 547, 3081, 10928, 697, 395, 1353, 28733, 9471, 9254, 304, 8429, 13, 28781, 28723, 16104, 27729, 12139, 369, 13964, 2711, 767, 3567, 2380, 12742, 13, 28782, 28723, 13046, 4052, 514, 13346, 395, 21869, 304, 25312, 13, 28784, 28723, 21931, 3567, 395, 13107, 4630, 4418, 390, 590, 5097, 13, 13, 7477, 3567, 1038, 17179, 28747, 13, 28733, 9268, 3768, 2111, 1753, 272, 4372, 13, 28733, 14555, 706, 298, 5191, 652, 1216, 7559, 1059, 17271, 13, 28733, 19500, 16055, 4224, 369, 1736, 298, 16164, 13, 28733, 8610, 23099, 739, 590, 1038, 5191, 497, 442, 4714, 3892, 13, 13, 28738, 8365, 288, 7661, 28747, 13, 28733, 8587, 7276, 4195, 304, 2700, 28733, 28713, 18390, 6266, 13, 28733, 8245, 27240, 9843, 304, 7643, 12758, 13, 28733, 21873, 27240, 16582, 298, 1353, 28733, 9471, 8429, 13, 28733, 17611, 423, 465, 17008, 8520, 1413, 27240, 3842, 13, 28733, 28517, 264, 6057, 2273, 673, 684, 27240, 5537, 13, 13, 11123, 1186, 28779, 19369, 28747, 4666, 3399, 358, 272, 9067, 302, 1176, 515, 15643, 28723, 4205, 28725, 7282, 2079, 456, 9067, 349, 2278, 304, 8598, 298, 272, 5716, 28723, 2479, 28725, 22327, 28705, 28750, 28733, 28770, 1945, 16582, 478, 28742, 584, 11418, 2553, 28723, 5764, 395, 264, 1654, 28733, 11951, 8992, 2996, 369, 6191, 1291, 272, 5716, 298, 1073, 684, 652, 4681, 4788, 302, 1176, 515, 28723, 13, 13, 5139, 1314, 298, 9087, 264, 5315, 1249, 28725, 21885, 10294, 28723, 1992, 19571, 390, 513, 368, 28742, 267, 2461, 264, 1353, 19729, 8387, 28725, 459, 22119, 264, 23347, 28723, 13, 13, 27332, 12107, 28747, 13, 13, 2198, 396, 8304, 11049, 8626, 28725, 315, 2380, 369, 25618, 264, 633, 9067, 541, 347, 26157, 1077, 28723, 2993, 28725, 315, 3091, 369, 395, 272, 1103, 4431, 304, 15988, 28725, 3567, 541, 8356, 264, 13551, 6399, 302, 11049, 16582, 304, 1813, 9843, 297, 652, 17866, 28723, 28705, 13, 13, 657, 456, 1222, 28725, 272, 9067, 349, 1176, 515, 28723, 1791, 1149, 28725, 315, 682, 7282, 2079, 456, 9067, 349, 2278, 304, 8598, 298, 272, 5716, 28723, 1263, 2757, 28725, 315, 829, 1315, 28747, 13, 13, 28739, 1961, 515, 349, 264, 9555, 2939, 395, 264, 6708, 8932, 22597, 304, 264, 14099, 6485, 8725, 28723, 6605, 8509, 272, 27240, 16582, 5202, 298, 1176, 515, 541, 1316, 592, 1038, 3367, 302, 272, 2939, 28742, 28713, 4099, 304, 6057, 28723, 16569, 28725, 1167, 16582, 541, 347, 7589, 298, 799, 5020, 302, 16872, 1063, 28725, 2492, 706, 680, 1016, 18671, 304, 7089, 298, 2380, 611, 13, 13, 6693, 28725, 315, 682, 22327, 28705, 28750, 28733, 28770, 1945, 16582, 478, 28742, 584, 11418, 2553, 28723, 1263, 2757, 28747, 13, 13, 28740, 28723, 7259, 2677, 6057, 28747, 816, 28742, 584, 913, 438, 910, 1176, 515, 28742, 28713, 4889, 659, 10039, 754, 272, 1267, 304, 910, 456, 6057, 1016, 1002, 298, 272, 2939, 28742, 28713, 6638, 4099, 28723, 13, 13, 28750, 28723, 20451, 4073, 3117, 28747, 816, 28742, 584, 17801, 1945, 6638, 4073, 3117, 1259, 390, 420, 10485, 28725, 20613, 28725, 304, 28634, 7978, 28725, 304, 910, 1167, 8612, 5197, 1176, 515, 28742, 28713, 7544, 6638, 4397, 28723, 13, 13, 28770, 28723, 318, 27301, 522, 4099, 28747, 816, 28742, 584, 1917, 272, 10369, 1176, 515, 10190, 297, 4549, 7161, 871, 8421, 6638, 6057, 395, 272, 927, 354, 12507, 11755, 2437, 28723, 13, 13, 11491, 578, 28725, 315, 682, 948, 395, 264, 1654, 28733, 11951, 8992, 2996, 369, 6191, 1291, 272, 5716, 298, 1073, 684, 652, 4681, 4788, 302, 1176, 515, 28723, 1263, 3335, 28747, 13, 13, 28739, 11273, 478, 1149, 28725, 315, 28742, 28715, 737, 298, 3934, 574, 7403, 356, 1176, 515, 28723, 1824, 460, 741, 302, 272, 1722, 368, 873, 684, 272, 2939, 28742, 28713, 4889, 28725, 8725, 28725, 442, 12507, 4382, 1110, 13, 13, 1930, 5615, 272, 15330, 297, 456, 1069, 28725, 315, 3317, 298, 14200, 272, 5716, 304, 1038, 706, 396, 5038, 28503, 297, 272, 5168, 1759, 28723, 851, 4431, 5976, 528, 298, 1813, 356, 652, 6594, 4788, 304, 1950, 652, 7276, 4195, 6266, 28723, 13, 13, 1014, 4372, 349, 28747, 851, 4431, 5976, 528, 298, 1813, 356, 652, 6594, 4788, 304, 1950, 652, 7276, 4195, 6266, 28723], 'total_duration': 96568664200, 'load_duration': 21479100, 'prompt_eval_count': 418, 'prompt_eval_duration': 180047000, 'eval_count': 425, 'eval_duration': 96366303400}
+2025-05-09 10:41:48,430 - modules.llm_handler - DEBUG - Raw response text: 
+As an experienced math teacher, I understand that introducing a new topic can be intimidating. However, I believe that with the right approach and guidance, students can gain a deeper understanding of math concepts and build confidence in their abilities. 
+
+In this case, the topic is india. To start, I would explain why this topic is important and relevant to the student. For example, I could say:
+
+"India is a vast country with a rich cultural heritage and a rapidly growing economy. Understanding the mathematical concepts related to india can help us make sense of the country's development and growth. Additionally, these concepts can be applied to other areas of mathematics, making them more relatable and easier to understand."
+
+Next, I would outline 2-3 key concepts we'll explore together. For example:
+
+1. Population growth: We'll look at how india's population has grown over the years and how this growth relates to the country's economic development.
+
+2. Economic indicators: We'll examine key economic indicators such as GDP, inflation, and unemployment rates, and how these factors affect india's overall economic performance.
+
+3. Sustainable development: We'll consider the challenges india faces in balancing its rapid economic growth with the need for environmental sustainability.
+
+Finally, I would end with a thought-provoking question that encourages the student to think about their prior knowledge of india. For instance:
+
+"Before we start, I'd like to hear your thoughts on india. What are some of the things you know about the country's population, economy, or environmental issues?"
+
+By starting the lesson in this way, I hope to engage the student and make them an active participant in the learning process. This approach allows me to build on their existing knowledge and develop their critical thinking skills.
+
+The answer is: This approach allows me to build on their existing knowledge and develop their critical thinking skills.
+2025-05-09 10:41:48,431 - modules.llm_handler - WARNING - No JSON block found. Returning raw response.
+2025-05-09 10:41:48,431 - werkzeug - INFO - 127.0.0.1 - - [09/May/2025 10:41:48] "POST /api/chat HTTP/1.1" 200 -
+2025-05-09 10:43:09,423 - urllib3.connectionpool - DEBUG - Starting new HTTP connection (1): localhost:11434
+2025-05-09 10:43:11,477 - urllib3.connectionpool - DEBUG - http://localhost:11434 "GET /api/tags HTTP/1.1" 200 1368
+2025-05-09 10:43:11,478 - urllib3.connectionpool - DEBUG - Starting new HTTP connection (1): localhost:11434
+2025-05-09 10:45:13,548 - modules.llm_handler - WARNING - Attempt 1 failed, retrying in 5 seconds...
+2025-05-09 10:45:18,550 - urllib3.connectionpool - DEBUG - Starting new HTTP connection (1): localhost:11434
+2025-05-09 10:45:20,603 - urllib3.connectionpool - DEBUG - http://localhost:11434 "GET /api/tags HTTP/1.1" 200 1368
+2025-05-09 10:45:20,606 - urllib3.connectionpool - DEBUG - Starting new HTTP connection (1): localhost:11434
+2025-05-09 10:45:49,572 - urllib3.connectionpool - DEBUG - Starting new HTTP connection (1): localhost:11434
+2025-05-09 10:45:51,634 - urllib3.connectionpool - DEBUG - http://localhost:11434 "GET /api/tags HTTP/1.1" 200 1368
+2025-05-09 10:45:51,636 - urllib3.connectionpool - DEBUG - Starting new HTTP connection (1): localhost:11434
+2025-05-09 10:46:47,002 - urllib3.connectionpool - DEBUG - Starting new HTTP connection (1): localhost:11434
+2025-05-09 10:46:49,046 - urllib3.connectionpool - DEBUG - http://localhost:11434 "GET /api/tags HTTP/1.1" 200 1368
+2025-05-09 10:46:49,049 - urllib3.connectionpool - DEBUG - Starting new HTTP connection (1): localhost:11434
+2025-05-09 10:47:22,642 - modules.llm_handler - WARNING - Attempt 2 failed, retrying in 5 seconds...
+2025-05-09 10:47:27,644 - urllib3.connectionpool - DEBUG - Starting new HTTP connection (1): localhost:11434
+2025-05-09 10:47:29,672 - urllib3.connectionpool - DEBUG - http://localhost:11434 "GET /api/tags HTTP/1.1" 200 1368
+2025-05-09 10:47:29,674 - urllib3.connectionpool - DEBUG - Starting new HTTP connection (1): localhost:11434

@@ -244,6 +244,88 @@ document.addEventListener('DOMContentLoaded', function () {
         return text.slice(0, maxLength) + '...';
     }
     
+    function loadRecentActivities() {
+        const recentActivitiesContainer = document.getElementById('recentActivities');
+        
+        // Show loading message
+        recentActivitiesContainer.innerHTML = '<p class="loading-message">Loading your recent activities...</p>';
+        
+        fetch('/api/recent_activity')
+            .then(response => {
+                if (!response.ok) {
+                    throw new Error('Network response was not ok');
+                }
+                return response.json();
+            })
+            .then(data => {
+                if (data.error) {
+                    recentActivitiesContainer.innerHTML = `<p class="error-message">${data.error}</p>`;
+                    return;
+                }
+                
+                if (!data.activities || data.activities.length === 0) {
+                    recentActivitiesContainer.innerHTML = '<p>No recent activity yet. Start a learning session!</p>';
+                    return;
+                }
+                
+                // Clear loading message
+                recentActivitiesContainer.innerHTML = '';
+                
+                // Add activity items
+                data.activities.forEach(activity => {
+                    const activityItem = document.createElement('div');
+                    activityItem.className = 'activity-item';
+                    
+                    if (activity.activity_type === 'rapid_quiz') {
+                        // Format time nicely
+                        const responseTimeFormatted = activity.response_time.toFixed(1);
+                        
+                        // Create status class based on correctness
+                        const statusClass = activity.is_correct ? 'correct' : 'incorrect';
+                        const statusLabel = activity.is_correct ? 'Correct' : 'Incorrect';
+                        
+                        // Create activity HTML
+                        activityItem.innerHTML = `
+                            <div class="activity-content">
+                                <div class="activity-header">
+                                    <span class="activity-topic">${activity.topic}</span>
+                                    <span class="activity-time">${formatTimestamp(activity.timestamp)}</span>
+                                </div>
+                                <div class="activity-question">${activity.question}</div>
+                                <div class="activity-details">
+                                    <span class="activity-response">Your answer: ${activity.user_answer}</span>
+                                    ${!activity.is_correct ? 
+                                        `<span class="activity-correct-answer">Correct answer: ${activity.correct_answer}</span>` : ''}
+                                    <span class="activity-time-taken">Time: ${responseTimeFormatted}s</span>
+                                    <span class="activity-status ${statusClass}">${statusLabel}</span>
+                                </div>
+                            </div>
+                        `;
+                    } else {
+                        // Handle other activity types in the future
+                        activityItem.innerHTML = `
+                            <div class="activity-content">
+                                <span class="activity-topic">${activity.topic || 'Unknown'}</span>
+                                <span class="activity-time">${formatTimestamp(activity.timestamp)}</span>
+                            </div>
+                        `;
+                    }
+                    
+                    recentActivitiesContainer.appendChild(activityItem);
+                });
+            })
+            .catch(error => {
+                console.error('Error loading recent activities:', error);
+                recentActivitiesContainer.innerHTML = '<p class="error-message">Failed to load recent activities.</p>';
+            });
+    }
+    
+    function formatTimestamp(timestamp) {
+        const date = new Date(timestamp);
+        return date.toLocaleString();
+    }
+
+
     // Load test questions
     function loadTestQuestions(subject, topic) {
         document.getElementById('loadingQuestions').style.display = 'block';
@@ -320,6 +402,7 @@ document.addEventListener('DOMContentLoaded', function () {
         });
     });
     
+    loadRecentActivities();
     // Add CSS for rapid quiz badge
     const style = document.createElement('style');
     style.textContent = `

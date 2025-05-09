@@ -102,6 +102,97 @@ a {
     font-weight: 500;
 }
 
+/* Recent Activity Styles */
+.activity-list {
+    max-height: 400px;
+    overflow-y: auto;
+    border-radius: 8px;
+    background-color: #f9f9f9;
+}
+
+.activity-item {
+    padding: 12px 16px;
+    border-bottom: 1px solid #e0e0e0;
+    transition: background-color 0.2s;
+}
+
+.activity-item:last-child {
+    border-bottom: none;
+}
+
+.activity-item:hover {
+    background-color: #f0f0f0;
+}
+
+.activity-header {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 6px;
+}
+
+.activity-topic {
+    font-weight: 600;
+    color: #2e75b6;
+    text-transform: capitalize;
+}
+
+.activity-time {
+    color: #666;
+    font-size: 0.85em;
+}
+
+.activity-question {
+    margin-bottom: 8px;
+    font-weight: 500;
+}
+
+.activity-details {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    font-size: 0.9em;
+    color: #555;
+}
+
+.activity-response,
+.activity-correct-answer {
+    flex: 1 1 100%;
+}
+
+.activity-time-taken {
+    flex: 0 0 auto;
+}
+
+.activity-status {
+    font-weight: 600;
+    padding: 2px 8px;
+    border-radius: 4px;
+    flex: 0 0 auto;
+}
+
+.activity-status.correct {
+    background-color: #d4edda;
+    color: #155724;
+}
+
+.activity-status.incorrect {
+    background-color: #f8d7da;
+    color: #721c24;
+}
+
+.loading-message {
+    text-align: center;
+    padding: 20px;
+    color: #666;
+}
+
+.error-message {
+    text-align: center;
+    padding: 20px;
+    color: #721c24;
+    background-color: #f8d7da;
+    border-radius: 4px;
+}
 a:hover {
     color: var(--primary-dark);
     text-decoration: none;

@@ -115,12 +115,25 @@ class LLMHandler:
             logger.debug(f"Raw response text: {text}")
             # Remove markdown code block if present
             text = re.sub(r"^```json|```$", "", text, flags=re.MULTILINE).strip()
-            json_match = re.search(r'\{.*?\}', text, re.DOTALL)
-            if not json_match:
-                logger.warning("No JSON block found. Returning raw response.")
-                return text
-            clean_response = json_match.group()
-            return clean_response
+            
+            # Try to parse as JSON first
+            try:
+                json_obj = json.loads(text)
+                return json.dumps(json_obj)  # Return properly formatted JSON
+            except json.JSONDecodeError:
+                # If direct parsing fails, try to extract JSON using regex
+                json_match = re.search(r'\{.*\}', text, re.DOTALL)
+                if json_match:
+                    try:
+                        json_str = json_match.group()
+                        json_obj = json.loads(json_str)
+                        return json.dumps(json_obj)  # Return properly formatted JSON
+                    except json.JSONDecodeError:
+                        logger.warning("Found JSON-like structure but it's not valid JSON.")
+                        return text
+                else:
+                    logger.warning("No JSON block found. Returning raw response.")
+                    return text
         except Exception as e:
             logger.error(f"Response formatting failed: {str(e)}")
             return text
