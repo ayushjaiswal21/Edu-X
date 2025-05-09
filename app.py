@@ -549,41 +549,80 @@ def rapid_quiz():
     try:
         data = request.get_json() or {}
         topic = data.get('topic', 'gk').lower()
-        # Fallback to 'gk' if topic is not in config
-        model = CONFIG['SUBJECT_MODELS'].get(topic, CONFIG['SUBJECT_MODELS']['gk'])
+        
+        # Validate topic is in the configuration
+        if topic not in CONFIG['SUBJECT_MODELS']:
+            logger.warning(f"Topic '{topic}' not in configured subjects, using 'gk' instead")
+            topic = 'gk'
+            
+        # Get the appropriate model
+        model = CONFIG['SUBJECT_MODELS'][topic]
+        
         prompt = (
             f"Generate a single rapid-fire multiple choice question in the topic '{topic}'. "
             "The question should be very easy, clear and concise, with exactly 4 options (one correct). "
             "It should be something a student can answer within 10 seconds if they know the basic concepts. "
-            "Return the result as JSON with these exact keys: question, options, correct_answer."
+            "Return the result as JSON with these exact keys: question, options (as an array), correct_answer."
         )
-        system_prompt = "You are an expert educational quiz generator. Only return the JSON."
+        system_prompt = "You are an expert educational quiz generator. Only return valid JSON data."
+        
         response = llm.generate_response(
             prompt=prompt,
             system_prompt=system_prompt,
             model=model
         )
         
-        # Improved JSON extraction 
+        # Improved JSON extraction with better error handling
         try:
-            # First try: direct JSON parsing if the response is already clean JSON
+            # First try: direct JSON parsing
             try:
                 question_data = json.loads(response)
                 logger.debug("Successfully parsed response as direct JSON")
             except json.JSONDecodeError:
                 # Second try: Clean up markdown and find JSON block
                 cleaned_response = re.sub(r"```json|```", "", response, flags=re.MULTILINE).strip()
-                json_match = re.search(r'\{.*\}', cleaned_response, re.DOTALL)
+                # More robust regex pattern for JSON object extraction
+                json_match = re.search(r'\{[\s\S]*\}', cleaned_response, re.DOTALL)
                 if json_match:
-                    question_data = json.loads(json_match.group())
-                    logger.debug("Successfully extracted JSON from markdown/text")
+                    try:
+                        question_data = json.loads(json_match.group())
+                        logger.debug("Successfully extracted JSON from markdown/text")
+                    except json.JSONDecodeError as je:
+                        logger.error(f"Extracted text is not valid JSON: {json_match.group()[:100]}...")
+                        raise ValueError(f"Extracted JSON is invalid: {str(je)}")
                 else:
                     raise ValueError("Could not find valid JSON in response")
             
+            # Validate required fields
             required_keys = {'question', 'options', 'correct_answer'}
             if not all(k in question_data for k in required_keys):
-                missing = required_keys - question_data.keys()
+                missing = required_keys - set(question_data.keys())
                 raise ValueError(f"Missing required fields: {missing}")
+            
+            # Validate options is a list with 4 elements
+            if not isinstance(question_data['options'], list):
+                logger.warning("Options is not a list, converting to list")
+                # Try to convert to list if possible
+                if isinstance(question_data['options'], str):
+                    # This handles the case where options might be a comma-separated string
+                    question_data['options'] = [opt.strip() for opt in question_data['options'].split(',')]
+                else:
+                    # Fallback for non-list, non-string
+                    question_data['options'] = [str(question_data['options'])]
+            
+            # Ensure we have exactly 4 options
+            if len(question_data['options']) < 4:
+                logger.warning(f"Only {len(question_data['options'])} options provided, padding to 4")
+                while len(question_data['options']) < 4:
+                    question_data['options'].append(f"Option {len(question_data['options']) + 1}")
+            elif len(question_data['options']) > 4:
+                logger.warning(f"Too many options ({len(question_data['options'])}), trimming to 4")
+                question_data['options'] = question_data['options'][:4]
+            
+            # Validate correct_answer is in options
+            if question_data['correct_answer'] not in question_data['options']:
+                logger.warning("Correct answer not in options, setting to first option")
+                question_data['correct_answer'] = question_data['options'][0]
                 
             return jsonify({
                 'question': question_data['question'],
@@ -601,44 +640,6 @@ def rapid_quiz():
     except Exception as e:
         logger.error(f"Rapid quiz error: {str(e)}")
         return jsonify({'error': str(e)}), 500
-
-# New utility function for more flexible answer comparison
-def similar_answers(answer1, answer2):
-    """
-    Compare two answers with some flexibility using sequence matcher
-    Returns True if they are similar enough, False otherwise
-    """
-    # Exact match
-    if answer1 == answer2:
-        return True
-    
-    # Normalize answers for comparison
-    norm_answer1 = re.sub(r'[^\w\s]', '', answer1.lower()).strip()
-    norm_answer2 = re.sub(r'[^\w\s]', '', answer2.lower()).strip()
-    
-    # Check for normalized exact match
-    if norm_answer1 == norm_answer2:
-        return True
-    
-    # Check for high similarity
-    similarity = SequenceMatcher(None, norm_answer1, norm_answer2).ratio()
-    if similarity > 0.85:  # Adjust this threshold as needed
-        return True
-    
-    # Check if one is a subset of the other
-    if norm_answer1 in norm_answer2 or norm_answer2 in norm_answer1:
-        return True
-    
-    # For numerical answers, check if they're close
-    try:
-        num1 = float(norm_answer1)
-        num2 = float(norm_answer2)
-        if abs(num1 - num2) < 0.001 * max(abs(num1), abs(num2)):
-            return True
-    except ValueError:
-        pass
-    
-    return False
 
 @app.route('/api/save_rapid_quiz', methods=['POST'])
 def save_rapid_quiz():

@@ -3573,3 +3573,34 @@ The answer is: This approach allows me to build on their existing knowledge and 
 2025-05-09 10:47:27,644 - urllib3.connectionpool - DEBUG - Starting new HTTP connection (1): localhost:11434
 2025-05-09 10:47:29,672 - urllib3.connectionpool - DEBUG - http://localhost:11434 "GET /api/tags HTTP/1.1" 200 1368
 2025-05-09 10:47:29,674 - urllib3.connectionpool - DEBUG - Starting new HTTP connection (1): localhost:11434
+2025-05-09 10:50:03,904 - app - INFO - Database database/user_data.db initialized successfully
+2025-05-09 10:50:03,905 - app - INFO - init_models called (no-op placeholder).
+2025-05-09 10:50:03,949 - werkzeug - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5000
+2025-05-09 10:50:03,949 - werkzeug - INFO - [33mPress CTRL+C to quit[0m
+2025-05-09 10:50:06,429 - werkzeug - INFO - 127.0.0.1 - - [09/May/2025 10:50:06] "GET / HTTP/1.1" 200 -
+2025-05-09 10:50:06,573 - werkzeug - INFO - 127.0.0.1 - - [09/May/2025 10:50:06] "[36mGET /static/css/style.css HTTP/1.1[0m" 304 -
+2025-05-09 10:50:06,626 - werkzeug - INFO - 127.0.0.1 - - [09/May/2025 10:50:06] "[33mGET /favicon.ico HTTP/1.1[0m" 404 -
+2025-05-09 10:50:07,861 - werkzeug - INFO - 127.0.0.1 - - [09/May/2025 10:50:07] "GET /login HTTP/1.1" 200 -
+2025-05-09 10:50:07,887 - werkzeug - INFO - 127.0.0.1 - - [09/May/2025 10:50:07] "[36mGET /static/css/auth.css HTTP/1.1[0m" 304 -
+2025-05-09 10:50:07,891 - werkzeug - INFO - 127.0.0.1 - - [09/May/2025 10:50:07] "[36mGET /static/js/auth.js HTTP/1.1[0m" 304 -
+2025-05-09 10:50:09,140 - app - INFO - User logged in: ayush
+2025-05-09 10:50:09,141 - werkzeug - INFO - 127.0.0.1 - - [09/May/2025 10:50:09] "POST /login HTTP/1.1" 200 -
+2025-05-09 10:50:09,166 - werkzeug - INFO - 127.0.0.1 - - [09/May/2025 10:50:09] "GET /dashboard HTTP/1.1" 200 -
+2025-05-09 10:50:09,190 - werkzeug - INFO - 127.0.0.1 - - [09/May/2025 10:50:09] "[36mGET /static/css/style.css HTTP/1.1[0m" 304 -
+2025-05-09 10:50:09,199 - werkzeug - INFO - 127.0.0.1 - - [09/May/2025 10:50:09] "[36mGET /static/js/test.js HTTP/1.1[0m" 304 -
+2025-05-09 10:50:09,201 - werkzeug - INFO - 127.0.0.1 - - [09/May/2025 10:50:09] "[36mGET /static/js/dashboard.js HTTP/1.1[0m" 304 -
+2025-05-09 10:50:09,215 - app - DEBUG - Fetching analytics for user_id: 1
+2025-05-09 10:50:09,217 - werkzeug - INFO - 127.0.0.1 - - [09/May/2025 10:50:09] "[33mGET /api/recent_activity HTTP/1.1[0m" 404 -
+2025-05-09 10:50:09,218 - app - INFO - No progress data found for user_id: 1
+2025-05-09 10:50:09,219 - werkzeug - INFO - 127.0.0.1 - - [09/May/2025 10:50:09] "GET /api/get_analytics HTTP/1.1" 200 -
+2025-05-09 10:50:11,405 - werkzeug - INFO - 127.0.0.1 - - [09/May/2025 10:50:11] "GET /chatbot?subject=science HTTP/1.1" 200 -
+2025-05-09 10:50:11,434 - werkzeug - INFO - 127.0.0.1 - - [09/May/2025 10:50:11] "[36mGET /static/css/chatbot.css HTTP/1.1[0m" 304 -
+2025-05-09 10:50:11,440 - werkzeug - INFO - 127.0.0.1 - - [09/May/2025 10:50:11] "[36mGET /static/js/chatbot.js HTTP/1.1[0m" 304 -
+2025-05-09 10:50:15,674 - urllib3.connectionpool - DEBUG - Starting new HTTP connection (1): localhost:11434
+2025-05-09 10:50:17,731 - urllib3.connectionpool - DEBUG - http://localhost:11434 "GET /api/tags HTTP/1.1" 200 1368
+2025-05-09 10:50:17,733 - urllib3.connectionpool - DEBUG - Starting new HTTP connection (1): localhost:11434
+2025-05-09 10:52:19,794 - modules.llm_handler - WARNING - Attempt 1 failed, retrying in 5 seconds...
+2025-05-09 10:52:24,796 - urllib3.connectionpool - DEBUG - Starting new HTTP connection (1): localhost:11434
+2025-05-09 10:52:26,839 - urllib3.connectionpool - DEBUG - http://localhost:11434 "GET /api/tags HTTP/1.1" 200 1368
+2025-05-09 10:52:26,841 - urllib3.connectionpool - DEBUG - Starting new HTTP connection (1): localhost:11434
