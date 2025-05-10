@@ -4214,3 +4214,168 @@ The answer is: It also demonstrates that we value the student's input and experi
 2025-05-09 22:55:53,966 - werkzeug - INFO - 127.0.0.1 - - [09/May/2025 22:55:53] "GET /api/get_analytics HTTP/1.1" 200 -
 2025-05-09 22:56:51,955 - werkzeug - INFO - 127.0.0.1 - - [09/May/2025 22:56:51] "GET /api/get_analytics HTTP/1.1" 200 -
 2025-05-09 22:56:53,955 - werkzeug - INFO - 127.0.0.1 - - [09/May/2025 22:56:53] "GET /api/get_analytics HTTP/1.1" 200 -
+2025-05-09 23:01:15,497 - app - INFO - Database database/user_data.db initialized successfully
+2025-05-09 23:01:15,498 - app - INFO - init_models called (no-op placeholder).
+2025-05-09 23:01:15,510 - werkzeug - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5000
+2025-05-09 23:01:15,511 - werkzeug - INFO - [33mPress CTRL+C to quit[0m
+2025-05-09 23:01:18,106 - werkzeug - INFO - 127.0.0.1 - - [09/May/2025 23:01:18] "GET / HTTP/1.1" 200 -
+2025-05-09 23:01:18,215 - werkzeug - INFO - 127.0.0.1 - - [09/May/2025 23:01:18] "[36mGET /static/css/style.css HTTP/1.1[0m" 304 -
+2025-05-09 23:01:19,479 - werkzeug - INFO - 127.0.0.1 - - [09/May/2025 23:01:19] "GET /login HTTP/1.1" 200 -
+2025-05-09 23:01:19,506 - werkzeug - INFO - 127.0.0.1 - - [09/May/2025 23:01:19] "[36mGET /static/css/auth.css HTTP/1.1[0m" 304 -
+2025-05-09 23:01:19,510 - werkzeug - INFO - 127.0.0.1 - - [09/May/2025 23:01:19] "[36mGET /static/js/auth.js HTTP/1.1[0m" 304 -
+2025-05-09 23:01:20,616 - app - INFO - User logged in: ayush
+2025-05-09 23:01:20,617 - werkzeug - INFO - 127.0.0.1 - - [09/May/2025 23:01:20] "POST /login HTTP/1.1" 200 -
+2025-05-09 23:01:20,642 - werkzeug - INFO - 127.0.0.1 - - [09/May/2025 23:01:20] "GET /dashboard HTTP/1.1" 200 -
+2025-05-09 23:01:20,668 - werkzeug - INFO - 127.0.0.1 - - [09/May/2025 23:01:20] "[36mGET /static/css/style.css HTTP/1.1[0m" 304 -
+2025-05-09 23:01:20,673 - werkzeug - INFO - 127.0.0.1 - - [09/May/2025 23:01:20] "[36mGET /static/js/test.js HTTP/1.1[0m" 304 -
+2025-05-09 23:01:20,701 - werkzeug - INFO - 127.0.0.1 - - [09/May/2025 23:01:20] "GET /static/js/dashboard.js HTTP/1.1" 200 -
+2025-05-09 23:01:20,748 - werkzeug - INFO - 127.0.0.1 - - [09/May/2025 23:01:20] "GET /api/get_analytics HTTP/1.1" 200 -
+2025-05-09 23:01:50,963 - werkzeug - INFO - 127.0.0.1 - - [09/May/2025 23:01:50] "GET /api/get_analytics HTTP/1.1" 200 -
+2025-05-09 23:02:20,957 - werkzeug - INFO - 127.0.0.1 - - [09/May/2025 23:02:20] "GET /api/get_analytics HTTP/1.1" 200 -
+2025-05-09 23:02:50,958 - werkzeug - INFO - 127.0.0.1 - - [09/May/2025 23:02:50] "GET /api/get_analytics HTTP/1.1" 200 -
+2025-05-10 09:46:42,305 - app - INFO - Database database/user_data.db initialized successfully
+2025-05-10 09:46:42,306 - app - INFO - init_models called (no-op placeholder).
+2025-05-10 09:46:42,367 - werkzeug - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5000
+2025-05-10 09:46:42,368 - werkzeug - INFO - [33mPress CTRL+C to quit[0m
+2025-05-10 09:46:45,758 - werkzeug - INFO - 127.0.0.1 - - [10/May/2025 09:46:45] "GET / HTTP/1.1" 200 -
+2025-05-10 09:46:45,921 - werkzeug - INFO - 127.0.0.1 - - [10/May/2025 09:46:45] "[36mGET /static/css/style.css HTTP/1.1[0m" 304 -
+2025-05-10 09:46:46,015 - werkzeug - INFO - 127.0.0.1 - - [10/May/2025 09:46:46] "[33mGET /favicon.ico HTTP/1.1[0m" 404 -
+2025-05-10 09:46:49,186 - werkzeug - INFO - 127.0.0.1 - - [10/May/2025 09:46:49] "GET /login HTTP/1.1" 200 -
+2025-05-10 09:46:49,221 - werkzeug - INFO - 127.0.0.1 - - [10/May/2025 09:46:49] "[36mGET /static/css/auth.css HTTP/1.1[0m" 304 -
+2025-05-10 09:46:49,257 - werkzeug - INFO - 127.0.0.1 - - [10/May/2025 09:46:49] "[36mGET /static/js/auth.js HTTP/1.1[0m" 304 -
+2025-05-10 09:46:50,791 - app - INFO - User logged in: ayush
+2025-05-10 09:46:50,795 - werkzeug - INFO - 127.0.0.1 - - [10/May/2025 09:46:50] "POST /login HTTP/1.1" 200 -
+2025-05-10 09:46:50,834 - werkzeug - INFO - 127.0.0.1 - - [10/May/2025 09:46:50] "GET /dashboard HTTP/1.1" 200 -
+2025-05-10 09:46:50,864 - werkzeug - INFO - 127.0.0.1 - - [10/May/2025 09:46:50] "[36mGET /static/css/style.css HTTP/1.1[0m" 304 -
+2025-05-10 09:46:50,889 - werkzeug - INFO - 127.0.0.1 - - [10/May/2025 09:46:50] "[36mGET /static/js/dashboard.js HTTP/1.1[0m" 304 -
+2025-05-10 09:46:50,951 - werkzeug - INFO - 127.0.0.1 - - [10/May/2025 09:46:50] "[36mGET /static/js/test.js HTTP/1.1[0m" 304 -
+2025-05-10 09:46:51,036 - werkzeug - INFO - 127.0.0.1 - - [10/May/2025 09:46:51] "GET /api/get_analytics HTTP/1.1" 200 -
+2025-05-10 09:46:55,248 - werkzeug - INFO - 127.0.0.1 - - [10/May/2025 09:46:55] "GET /chatbot HTTP/1.1" 200 -
+2025-05-10 09:46:55,301 - werkzeug - INFO - 127.0.0.1 - - [10/May/2025 09:46:55] "[36mGET /static/css/chatbot.css HTTP/1.1[0m" 304 -
+2025-05-10 09:46:55,324 - werkzeug - INFO - 127.0.0.1 - - [10/May/2025 09:46:55] "[36mGET /static/js/chatbot.js HTTP/1.1[0m" 304 -
+2025-05-10 09:47:15,852 - urllib3.connectionpool - DEBUG - Starting new HTTP connection (1): localhost:11434
+2025-05-10 09:47:17,900 - urllib3.connectionpool - DEBUG - http://localhost:11434 "GET /api/tags HTTP/1.1" 200 1368
+2025-05-10 09:47:17,901 - modules.llm_handler - DEBUG - Requested model: wizard-math:7b, base name: wizard-math
+2025-05-10 09:47:17,902 - modules.llm_handler - DEBUG - Available models: ['mistral-openorca:latest', 'dolphin-mistral:latest', 'wizard-math:7b', 'mistral:7b-instruct']
+2025-05-10 09:47:17,902 - modules.llm_handler - DEBUG - Exact model match found for wizard-math:7b
+2025-05-10 09:47:17,902 - modules.llm_handler - INFO - Generating response using model: wizard-math:7b
+2025-05-10 09:47:17,903 - urllib3.connectionpool - DEBUG - Starting new HTTP connection (1): localhost:11434
+2025-05-10 09:49:19,982 - modules.llm_handler - WARNING - Attempt 1 failed, retrying in 5 seconds...
+2025-05-10 09:49:24,985 - urllib3.connectionpool - DEBUG - Starting new HTTP connection (1): localhost:11434
+2025-05-10 09:49:27,451 - urllib3.connectionpool - DEBUG - http://localhost:11434 "GET /api/tags HTTP/1.1" 200 1368
+2025-05-10 09:49:27,459 - modules.llm_handler - DEBUG - Requested model: wizard-math:7b, base name: wizard-math
+2025-05-10 09:49:27,461 - modules.llm_handler - DEBUG - Available models: ['mistral-openorca:latest', 'dolphin-mistral:latest', 'wizard-math:7b', 'mistral:7b-instruct']
+2025-05-10 09:49:27,462 - modules.llm_handler - DEBUG - Exact model match found for wizard-math:7b
+2025-05-10 09:49:27,463 - modules.llm_handler - INFO - Generating response using model: wizard-math:7b
+2025-05-10 09:49:27,467 - urllib3.connectionpool - DEBUG - Starting new HTTP connection (1): localhost:11434
+2025-05-10 09:51:21,734 - urllib3.connectionpool - DEBUG - http://localhost:11434 "POST /api/generate HTTP/1.1" 200 None
+2025-05-10 09:51:21,735 - modules.llm_handler - DEBUG - Ollama raw result: {'model': 'wizard-math:7b', 'created_at': '2025-05-10T04:21:21.7205106Z', 'response': "\nProbability is an essential concept in mathematics because it helps us understand the likelihood of outcomes in situations where there is uncertainty. From flipping a coin to rolling a die, probability is all around us. In this course, we'll explore three key concepts:\n\n1. Probability as the ratio of favorable outcomes to total outcomes: This concept helps us understand that the probability of an event is the number of ways that event can occur divided by the total number of possible outcomes.\n\n2. Probability as the long-term frequency of outcomes: This concept helps us understand that the probability of an event is the frequency with which that event occurs in the long term.\n\n3. Probability as the degree of belief: This concept helps us understand that probability can be used to represent our subjective beliefs about the likelihood of an event occurring.\n\nNow, let's think about your prior knowledge of probability. What are some situations where you've encountered probability in your everyday life? How did you use it to make decisions or predictions?\n\nThe answer is: Now, let's think about your prior knowledge of probability. What are some situations where you've encountered probability in your everyday life? How did you use it to make decisions or predictions?.", 'done': True, 'done_reason': 'stop', 'context': [995, 460, 396, 7583, 14165, 8311, 271, 2841, 3864, 297, 22969, 9432, 28723, 3604, 5541, 349, 298, 1316, 3567, 2380, 16582, 11869, 1059, 318, 26184, 19198, 28725, 1111, 3269, 4224, 28725, 304, 5122, 495, 12139, 28723, 2929, 6212, 272, 3238, 302, 396, 19639, 28725, 7749, 28725, 304, 4788, 522, 8626, 693, 3069, 7276, 4195, 28723, 5938, 12230, 9254, 304, 7507, 12284, 1444, 16582, 28723, 1684, 10148, 14508, 5716, 14915, 28725, 3084, 2948, 28725, 2992, 522, 12139, 304, 6191, 3012, 28723, 13, 13, 27332, 3133, 3112, 28747, 13, 1976, 460, 264, 6416, 8304, 11049, 8626, 395, 1267, 302, 2659, 9432, 3567, 438, 544, 6157, 28723, 13, 13, 19738, 1604, 28747, 10966, 13, 920, 8115, 2431, 393, 7321, 2980, 28747, 2839, 1079, 13, 13, 11159, 9432, 4431, 28747, 13, 28740, 28723, 24408, 356, 3667, 5935, 840, 6399, 3210, 821, 776, 15251, 13, 28750, 28723, 5938, 272, 318, 26184, 2038, 395, 1654, 1007, 4224, 298, 8327, 3567, 28742, 4195, 13, 28770, 28723, 7133, 547, 3081, 10928, 697, 395, 1353, 28733, 9471, 9254, 304, 8429, 13, 28781, 28723, 16104, 27729, 12139, 369, 13964, 2711, 767, 3567, 2380, 12742, 13, 28782, 28723, 13046, 4052, 514, 13346, 395, 21869, 304, 25312, 13, 28784, 28723, 21931, 3567, 395, 13107, 4630, 4418, 390, 590, 5097, 13, 13, 7477, 3567, 1038, 17179, 28747, 13, 28733, 9268, 3768, 2111, 1753, 272, 4372, 13, 28733, 14555, 706, 298, 5191, 652, 1216, 7559, 1059, 17271, 13, 28733, 19500, 16055, 4224, 369, 1736, 298, 16164, 13, 28733, 8610, 23099, 739, 590, 1038, 5191, 497, 442, 4714, 3892, 13, 13, 28738, 8365, 288, 7661, 28747, 13, 28733, 8587, 7276, 4195, 304, 2700, 28733, 28713, 18390, 6266, 13, 28733, 8245, 27240, 9843, 304, 7643, 12758, 13, 28733, 21873, 27240, 16582, 298, 1353, 28733, 9471, 8429, 13, 28733, 17611, 423, 465, 17008, 8520, 1413, 27240, 3842, 13, 28733, 28517, 264, 6057, 2273, 673, 684, 27240, 5537, 13, 13, 11123, 1186, 28779, 19369, 28747, 4666, 3399, 358, 272, 9067, 302, 10966, 15643, 28723, 4205, 28725, 7282, 2079, 456, 9067, 349, 2278, 304, 8598, 298, 272, 5716, 28723, 2479, 28725, 22327, 28705, 28750, 28733, 28770, 1945, 16582, 478, 28742, 584, 11418, 2553, 28723, 5764, 395, 264, 1654, 28733, 11951, 8992, 2996, 369, 6191, 1291, 272, 5716, 298, 1073, 684, 652, 4681, 4788, 302, 10966, 28723, 13, 13, 5139, 1314, 298, 9087, 264, 5315, 1249, 28725, 21885, 10294, 28723, 1992, 19571, 390, 513, 368, 28742, 267, 2461, 264, 1353, 19729, 8387, 28725, 459, 22119, 264, 23347, 28723, 13, 13, 27332, 12107, 28747, 13, 13, 933, 28726, 2437, 349, 396, 7974, 5935, 297, 16872, 1063, 1096, 378, 7263, 592, 2380, 272, 24277, 302, 18014, 297, 11846, 970, 736, 349, 18110, 28723, 3672, 972, 10206, 264, 16544, 298, 15483, 264, 1202, 28725, 10966, 349, 544, 1401, 592, 28723, 560, 456, 2363, 28725, 478, 28742, 584, 11418, 1712, 1945, 16582, 28747, 13, 13, 28740, 28723, 1133, 28726, 2437, 390, 272, 10554, 302, 4268, 522, 18014, 298, 3102, 18014, 28747, 851, 5935, 7263, 592, 2380, 369, 272, 10966, 302, 396, 1951, 349, 272, 1474, 302, 4342, 369, 1951, 541, 5264, 13570, 486, 272, 3102, 1474, 302, 2572, 18014, 28723, 13, 13, 28750, 28723, 1133, 28726, 2437, 390, 272, 1043, 28733, 6590, 11010, 302, 18014, 28747, 851, 5935, 7263, 592, 2380, 369, 272, 10966, 302, 396, 1951, 349, 272, 11010, 395, 690, 369, 1951, 12022, 297, 272, 1043, 1850, 28723, 13, 13, 28770, 28723, 1133, 28726, 2437, 390, 272, 6153, 302, 12519, 28747, 851, 5935, 7263, 592, 2380, 369, 10966, 541, 347, 1307, 298, 2904, 813, 3817, 495, 16415, 684, 272, 24277, 302, 396, 1951, 28265, 28723, 13, 13, 8479, 28725, 1346, 28742, 28713, 1073, 684, 574, 4681, 4788, 302, 10966, 28723, 1824, 460, 741, 11846, 970, 368, 28742, 333, 19148, 10966, 297, 574, 15048, 1411, 28804, 1602, 863, 368, 938, 378, 298, 1038, 9549, 442, 20596, 28804, 13, 13, 1014, 4372, 349, 28747, 2961, 28725, 1346, 28742, 28713, 1073, 684, 574, 4681, 4788, 302, 10966, 28723, 1824, 460, 741, 11846, 970, 368, 28742, 333, 19148, 10966, 297, 574, 15048, 1411, 28804, 1602, 863, 368, 938, 378, 298, 1038, 9549, 442, 20596, 11030], 'total_duration': 112210145500, 'load_duration': 963899900, 'prompt_eval_count': 415, 'prompt_eval_duration': 506651800, 'eval_count': 266, 'eval_duration': 110739061300}
+2025-05-10 09:51:21,736 - modules.llm_handler - DEBUG - Raw response text: 
+Probability is an essential concept in mathematics because it helps us understand the likelihood of outcomes in situations where there is uncertainty. From flipping a coin to rolling a die, probability is all around us. In this course, we'll explore three key concepts:
+
+1. Probability as the ratio of favorable outcomes to total outcomes: This concept helps us understand that the probability of an event is the number of ways that event can occur divided by the total number of possible outcomes.
+
+2. Probability as the long-term frequency of outcomes: This concept helps us understand that the probability of an event is the frequency with which that event occurs in the long term.
+
+3. Probability as the degree of belief: This concept helps us understand that probability can be used to represent our subjective beliefs about the likelihood of an event occurring.
+
+Now, let's think about your prior knowledge of probability. What are some situations where you've encountered probability in your everyday life? How did you use it to make decisions or predictions?
+
+The answer is: Now, let's think about your prior knowledge of probability. What are some situations where you've encountered probability in your everyday life? How did you use it to make decisions or predictions?.
+2025-05-10 09:51:21,737 - modules.llm_handler - WARNING - No JSON block found. Returning raw response.
+2025-05-10 09:51:21,738 - werkzeug - INFO - 127.0.0.1 - - [10/May/2025 09:51:21] "POST /api/chat HTTP/1.1" 200 -
+2025-05-10 09:52:24,723 - urllib3.connectionpool - DEBUG - Starting new HTTP connection (1): localhost:11434
+2025-05-10 09:52:26,789 - urllib3.connectionpool - DEBUG - http://localhost:11434 "GET /api/tags HTTP/1.1" 200 1368
+2025-05-10 09:52:26,791 - modules.llm_handler - DEBUG - Requested model: wizard-math:7b, base name: wizard-math
+2025-05-10 09:52:26,792 - modules.llm_handler - DEBUG - Available models: ['mistral-openorca:latest', 'dolphin-mistral:latest', 'wizard-math:7b', 'mistral:7b-instruct']
+2025-05-10 09:52:26,792 - modules.llm_handler - DEBUG - Exact model match found for wizard-math:7b
+2025-05-10 09:52:26,793 - modules.llm_handler - INFO - Generating response using model: wizard-math:7b
+2025-05-10 09:52:26,795 - urllib3.connectionpool - DEBUG - Starting new HTTP connection (1): localhost:11434
+2025-05-10 09:54:28,832 - modules.llm_handler - WARNING - Attempt 1 failed, retrying in 5 seconds...
+2025-05-10 09:54:33,835 - urllib3.connectionpool - DEBUG - Starting new HTTP connection (1): localhost:11434
+2025-05-10 09:54:35,876 - urllib3.connectionpool - DEBUG - http://localhost:11434 "GET /api/tags HTTP/1.1" 200 1368
+2025-05-10 09:54:35,877 - modules.llm_handler - DEBUG - Requested model: wizard-math:7b, base name: wizard-math
+2025-05-10 09:54:35,878 - modules.llm_handler - DEBUG - Available models: ['mistral-openorca:latest', 'dolphin-mistral:latest', 'wizard-math:7b', 'mistral:7b-instruct']
+2025-05-10 09:54:35,879 - modules.llm_handler - DEBUG - Exact model match found for wizard-math:7b
+2025-05-10 09:54:35,880 - modules.llm_handler - INFO - Generating response using model: wizard-math:7b
+2025-05-10 09:54:35,883 - urllib3.connectionpool - DEBUG - Starting new HTTP connection (1): localhost:11434
+2025-05-10 09:56:28,978 - urllib3.connectionpool - DEBUG - http://localhost:11434 "POST /api/generate HTTP/1.1" 200 None
+2025-05-10 09:56:28,980 - modules.llm_handler - DEBUG - Ollama raw result: {'model': 'wizard-math:7b', 'created_at': '2025-05-10T04:26:28.9700765Z', 'response': "\nGreat! Flipping a coin is a good example. In this case, there are two possible outcomes: heads or tails. So, the probability of getting heads is 1 (favorable outcome) divided by 2 (total outcomes), which is 1/2 or 0.5.\n\nNow, let's think about another situation where you've encountered probability.\n\nThe answer is: Now, let's think about another situation where you've encountered probability.", 'done': True, 'done_reason': 'stop', 'context': [995, 460, 396, 7583, 14165, 8311, 271, 2841, 3864, 297, 22969, 9432, 28723, 3604, 5541, 349, 298, 1316, 3567, 2380, 16582, 11869, 1059, 318, 26184, 19198, 28725, 1111, 3269, 4224, 28725, 304, 5122, 495, 12139, 28723, 2929, 6212, 272, 3238, 302, 396, 19639, 28725, 7749, 28725, 304, 4788, 522, 8626, 693, 3069, 7276, 4195, 28723, 5938, 12230, 9254, 304, 7507, 12284, 1444, 16582, 28723, 1684, 10148, 14508, 5716, 14915, 28725, 3084, 2948, 28725, 2992, 522, 12139, 304, 6191, 3012, 28723, 13, 13, 27332, 3133, 3112, 28747, 13, 28284, 7114, 28747, 13, 28738, 8365, 263, 28747, 1133, 28726, 2437, 349, 396, 7974, 5935, 297, 16872, 1063, 1096, 378, 7263, 592, 2380, 272, 24277, 302, 18014, 297, 11846, 970, 736, 349, 18110, 28723, 3672, 972, 10206, 264, 16544, 298, 15483, 264, 1202, 28725, 10966, 349, 544, 1401, 592, 28723, 560, 456, 2363, 28725, 478, 28742, 584, 11418, 1712, 1945, 16582, 28747, 13, 13, 28740, 28723, 1133, 28726, 2437, 390, 272, 10554, 302, 4268, 522, 18014, 298, 3102, 18014, 28747, 851, 5935, 7263, 592, 2380, 369, 272, 10966, 302, 396, 1951, 349, 272, 1474, 302, 4342, 369, 1951, 541, 5264, 13570, 486, 272, 3102, 1474, 302, 2572, 18014, 28723, 13, 13, 28750, 28723, 1133, 28726, 2437, 390, 272, 1043, 28733, 6590, 11010, 302, 18014, 28747, 851, 5935, 7263, 592, 2380, 369, 272, 10966, 302, 396, 1951, 349, 272, 11010, 395, 690, 369, 1951, 12022, 297, 272, 1043, 1850, 28723, 13, 13, 28770, 28723, 1133, 28726, 2437, 390, 272, 6153, 302, 12519, 28747, 851, 5935, 7263, 592, 2380, 369, 10966, 541, 347, 1307, 298, 2904, 813, 3817, 495, 16415, 684, 272, 24277, 302, 396, 1951, 28265, 28723, 13, 13, 8479, 28725, 1346, 28742, 28713, 1073, 684, 574, 4681, 4788, 302, 10966, 28723, 1824, 460, 741, 11846, 970, 368, 28742, 333, 19148, 10966, 297, 574, 15048, 1411, 28804, 1602, 863, 368, 938, 378, 298, 1038, 9549, 442, 20596, 28804, 13, 13, 1014, 4372, 349, 28747, 2961, 28725, 1346, 28742, 28713, 1073, 684, 574, 4681, 4788, 302, 10966, 28723, 1824, 460, 741, 11846, 970, 368, 28742, 333, 19148, 10966, 297, 574, 15048, 1411, 28804, 1602, 863, 368, 938, 378, 298, 1038, 9549, 442, 20596, 11030, 13, 13, 1976, 460, 264, 6416, 8304, 11049, 8626, 395, 1267, 302, 2659, 9432, 3567, 438, 544, 6157, 28723, 13, 13, 19738, 1604, 28747, 10966, 13, 920, 8115, 2431, 393, 7321, 2980, 28747, 2839, 1079, 13, 13, 11159, 9432, 4431, 28747, 13, 28740, 28723, 24408, 356, 3667, 5935, 840, 6399, 3210, 821, 776, 15251, 13, 28750, 28723, 5938, 272, 318, 26184, 2038, 395, 1654, 1007, 4224, 298, 8327, 3567, 28742, 4195, 13, 28770, 28723, 7133, 547, 3081, 10928, 697, 395, 1353, 28733, 9471, 9254, 304, 8429, 13, 28781, 28723, 16104, 27729, 12139, 369, 13964, 2711, 767, 3567, 2380, 12742, 13, 28782, 28723, 13046, 4052, 514, 13346, 395, 21869, 304, 25312, 13, 28784, 28723, 21931, 3567, 395, 13107, 4630, 4418, 390, 590, 5097, 13, 13, 7477, 3567, 1038, 17179, 28747, 13, 28733, 9268, 3768, 2111, 1753, 272, 4372, 13, 28733, 14555, 706, 298, 5191, 652, 1216, 7559, 1059, 17271, 13, 28733, 19500, 16055, 4224, 369, 1736, 298, 16164, 13, 28733, 8610, 23099, 739, 590, 1038, 5191, 497, 442, 4714, 3892, 13, 13, 28738, 8365, 288, 7661, 28747, 13, 28733, 8587, 7276, 4195, 304, 2700, 28733, 28713, 18390, 6266, 13, 28733, 8245, 27240, 9843, 304, 7643, 12758, 13, 28733, 21873, 27240, 16582, 298, 1353, 28733, 9471, 8429, 13, 28733, 17611, 423, 465, 17008, 8520, 1413, 27240, 3842, 13, 28733, 28517, 264, 6057, 2273, 673, 684, 27240, 5537, 13, 13, 11123, 1186, 28779, 19369, 28747, 28705, 13, 24994, 369, 403, 2261, 28747, 345, 933, 28726, 2437, 349, 396, 7974, 5935, 297, 16872, 1063, 1096, 378, 7263, 592, 2380, 272, 24277, 302, 18014, 297, 11846, 970, 736, 349, 18110, 28723, 3672, 972, 10206, 264, 16544, 298, 15483, 264, 1202, 28725, 10966, 349, 544, 1401, 592, 28723, 560, 456, 2363, 28725, 478, 28742, 584, 11418, 1712, 1945, 16582, 28747, 13, 13, 28740, 28723, 1133, 28726, 2437, 390, 272, 10554, 302, 4268, 522, 18014, 298, 3102, 18014, 28747, 851, 5935, 7263, 592, 2380, 369, 272, 10966, 302, 396, 1951, 349, 272, 1474, 302, 4342, 369, 1951, 541, 5264, 13570, 486, 272, 3102, 1474, 302, 2572, 18014, 28723, 13, 13, 28750, 28723, 1133, 28726, 2437, 390, 272, 1043, 28733, 6590, 11010, 302, 18014, 28747, 851, 5935, 7263, 592, 2380, 369, 272, 10966, 302, 396, 1951, 349, 272, 11010, 395, 690, 369, 1951, 12022, 297, 272, 1043, 1850, 28723, 13, 13, 28770, 28723, 1133, 28726, 2437, 390, 272, 6153, 302, 12519, 28747, 851, 5935, 7263, 592, 2380, 369, 10966, 541, 347, 1307, 298, 2904, 813, 3817, 495, 16415, 684, 272, 24277, 302, 396, 1951, 28265, 28723, 13, 13, 8479, 28725, 1346, 28742, 28713, 1073, 684, 574, 4681, 4788, 302, 10966, 28723, 1824, 460, 741, 11846, 970, 368, 28742, 333, 19148, 10966, 297, 574, 15048, 1411, 28804, 1602, 863, 368, 938, 378, 298, 1038, 9549, 442, 20596, 28804, 13, 13, 1014, 4372, 349, 28747, 2961, 28725, 1346, 28742, 28713, 1073, 684, 574, 4681, 4788, 302, 10966, 28723, 1824, 460, 741, 11846, 970, 368, 28742, 333, 19148, 10966, 297, 574, 15048, 1411, 28804, 1602, 863, 368, 938, 378, 298, 1038, 9549, 442, 20596, 28804, 611, 13, 13, 28514, 28742, 28713, 2899, 28747, 345, 11183, 11846, 460, 737, 19071, 288, 264, 16544, 28739, 13, 13, 28740, 28723, 4205, 28725, 20765, 767, 272, 5716, 27422, 12742, 28723, 13, 28750, 28723, 2479, 28725, 9051, 707, 4052, 514, 13346, 442, 5020, 369, 927, 16066, 2500, 28723, 13, 28770, 28723, 7133, 547, 5122, 495, 12139, 369, 13964, 2711, 652, 4261, 28723, 13, 28781, 28723, 13702, 426, 272, 4714, 5935, 297, 264, 3081, 28725, 3078, 864, 1069, 513, 3236, 28723, 13, 28782, 28723, 5764, 395, 264, 1372, 28733, 715, 2996, 369, 24030, 356, 272, 8387, 304, 3534, 596, 6399, 28723, 13, 13, 24205, 574, 2899, 5315, 1249, 304, 21885, 28725, 737, 264, 27729, 8626, 682, 28723, 13, 13, 13, 5139, 1314, 298, 9087, 264, 5315, 1249, 28725, 21885, 10294, 28723, 1992, 19571, 390, 513, 368, 28742, 267, 2461, 264, 1353, 19729, 8387, 28725, 459, 22119, 264, 23347, 28723, 13, 13, 27332, 12107, 28747, 13, 13, 26315, 28808, 2494, 10206, 264, 16544, 349, 264, 1179, 2757, 28723, 560, 456, 1222, 28725, 736, 460, 989, 2572, 18014, 28747, 10478, 442, 261, 2014, 28723, 1537, 28725, 272, 10966, 302, 2719, 10478, 349, 28705, 28740, 325, 28722, 3115, 522, 14120, 28731, 13570, 486, 28705, 28750, 325, 6828, 18014, 557, 690, 349, 28705, 28740, 28748, 28750, 442, 28705, 28734, 28723, 28782, 28723, 13, 13, 8479, 28725, 1346, 28742, 28713, 1073, 684, 1698, 4620, 970, 368, 28742, 333, 19148, 10966, 28723, 13, 13, 1014, 4372, 349, 28747, 2961, 28725, 1346, 28742, 28713, 1073, 684, 1698, 4620, 970, 368, 28742, 333, 19148, 10966, 28723], 'total_duration': 111039264700, 'load_duration': 16838000, 'prompt_eval_count': 1018, 'prompt_eval_duration': 66646302700, 'eval_count': 104, 'eval_duration': 44369296300}
+2025-05-10 09:56:28,982 - modules.llm_handler - DEBUG - Raw response text: 
+Great! Flipping a coin is a good example. In this case, there are two possible outcomes: heads or tails. So, the probability of getting heads is 1 (favorable outcome) divided by 2 (total outcomes), which is 1/2 or 0.5.
+
+Now, let's think about another situation where you've encountered probability.
+
+The answer is: Now, let's think about another situation where you've encountered probability.
+2025-05-10 09:56:28,982 - modules.llm_handler - WARNING - No JSON block found. Returning raw response.
+2025-05-10 09:56:29,011 - werkzeug - INFO - 127.0.0.1 - - [10/May/2025 09:56:29] "POST /api/chat HTTP/1.1" 200 -
+2025-05-10 09:56:30,868 - app - WARNING - Topic 'probability' not in configured subjects, using 'gk' instead
+2025-05-10 09:56:30,869 - urllib3.connectionpool - DEBUG - Starting new HTTP connection (1): localhost:11434
+2025-05-10 09:56:32,918 - urllib3.connectionpool - DEBUG - http://localhost:11434 "GET /api/tags HTTP/1.1" 200 1368
+2025-05-10 09:56:32,919 - modules.llm_handler - DEBUG - Requested model: mistral:7b-instruct, base name: mistral
+2025-05-10 09:56:32,919 - modules.llm_handler - DEBUG - Available models: ['mistral-openorca:latest', 'dolphin-mistral:latest', 'wizard-math:7b', 'mistral:7b-instruct']
+2025-05-10 09:56:32,920 - modules.llm_handler - DEBUG - Exact model match found for mistral:7b-instruct
+2025-05-10 09:56:32,920 - modules.llm_handler - INFO - Generating response using model: mistral:7b-instruct
+2025-05-10 09:56:32,921 - urllib3.connectionpool - DEBUG - Starting new HTTP connection (1): localhost:11434
+2025-05-10 09:57:26,350 - urllib3.connectionpool - DEBUG - http://localhost:11434 "POST /api/generate HTTP/1.1" 200 1178
+2025-05-10 09:57:26,351 - modules.llm_handler - DEBUG - Ollama raw result: {'model': 'mistral:7b-instruct', 'created_at': '2025-05-10T04:27:26.3469779Z', 'response': ' {\n  "question": "Which of the following is the capital of France?",\n  "options": ["Paris", "Rome", "Berlin", "Madrid"],\n  "correct_answer": "Paris"\n}', 'done': True, 'done_reason': 'stop', 'context': [3, 29473, 1763, 1228, 1164, 14933, 1294, 1231, 17896, 29491, 5339, 1633, 4484, 10060, 1946, 29491, 781, 781, 24110, 1032, 3460, 5934, 5550, 3764, 1122, 9189, 15849, 29491, 781, 26230, 29515, 1087, 29497, 781, 23743, 2107, 29515, 781, 29501, 14417, 4179, 15194, 2952, 781, 29501, 17444, 29493, 3846, 1632, 3764, 781, 29501, 2297, 20009, 29473, 29549, 3645, 1163, 1392, 5482, 5140, 781, 5824, 29515, 5339, 10456, 10648, 4484, 10060, 1163, 1935, 4227, 8916, 29515, 3764, 29493, 3645, 1093, 2933, 1325, 5482, 29498, 24883, 4, 1027, 1139, 781, 29473, 1113, 18264, 2032, 1113, 27471, 1070, 1040, 3064, 1117, 1040, 6333, 1070, 5611, 29572, 1316, 781, 29473, 1113, 4306, 2032, 8135, 4684, 1046, 1316, 1113, 29522, 1293, 1316, 1113, 24299, 3062, 1316, 1113, 23530, 4129, 9651, 781, 29473, 1113, 25323, 29498, 24883, 2032, 1113, 4684, 1046, 29507, 781, 29520], 'total_duration': 51381894000, 'load_duration': 13457178100, 'prompt_eval_count': 86, 'prompt_eval_duration': 20095611400, 'eval_count': 53, 'eval_duration': 17818199000}
+2025-05-10 09:57:26,352 - modules.llm_handler - DEBUG - Raw response text:  {
+  "question": "Which of the following is the capital of France?",
+  "options": ["Paris", "Rome", "Berlin", "Madrid"],
+  "correct_answer": "Paris"
+}
+2025-05-10 09:57:26,352 - werkzeug - INFO - 127.0.0.1 - - [10/May/2025 09:57:26] "POST /api/rapid_quiz HTTP/1.1" 200 -
+2025-05-10 09:57:36,404 - urllib3.connectionpool - DEBUG - Starting new HTTP connection (1): localhost:11434
+2025-05-10 09:57:36,411 - werkzeug - INFO - 127.0.0.1 - - [10/May/2025 09:57:36] "POST /api/save_rapid_quiz HTTP/1.1" 200 -
+2025-05-10 09:57:38,469 - urllib3.connectionpool - DEBUG - http://localhost:11434 "GET /api/tags HTTP/1.1" 200 1368
+2025-05-10 09:57:38,469 - modules.llm_handler - DEBUG - Requested model: wizard-math:7b, base name: wizard-math
+2025-05-10 09:57:38,470 - modules.llm_handler - DEBUG - Available models: ['mistral-openorca:latest', 'dolphin-mistral:latest', 'wizard-math:7b', 'mistral:7b-instruct']
+2025-05-10 09:57:38,470 - modules.llm_handler - DEBUG - Exact model match found for wizard-math:7b
+2025-05-10 09:57:38,470 - modules.llm_handler - INFO - Generating response using model: wizard-math:7b
+2025-05-10 09:57:38,472 - urllib3.connectionpool - DEBUG - Starting new HTTP connection (1): localhost:11434
+2025-05-10 10:11:55,625 - app - INFO - Database database/user_data.db initialized successfully
+2025-05-10 10:11:55,625 - app - INFO - init_models called (no-op placeholder).
+2025-05-10 10:11:55,716 - werkzeug - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5000
+2025-05-10 10:11:55,716 - werkzeug - INFO - [33mPress CTRL+C to quit[0m
+2025-05-10 10:11:58,420 - werkzeug - INFO - 127.0.0.1 - - [10/May/2025 10:11:58] "GET / HTTP/1.1" 200 -
+2025-05-10 10:11:58,605 - werkzeug - INFO - 127.0.0.1 - - [10/May/2025 10:11:58] "GET /static/css/style.css HTTP/1.1" 200 -
+2025-05-10 10:11:59,813 - werkzeug - INFO - 127.0.0.1 - - [10/May/2025 10:11:59] "GET /login HTTP/1.1" 200 -
+2025-05-10 10:11:59,837 - werkzeug - INFO - 127.0.0.1 - - [10/May/2025 10:11:59] "[36mGET /static/css/auth.css HTTP/1.1[0m" 304 -
+2025-05-10 10:11:59,851 - werkzeug - INFO - 127.0.0.1 - - [10/May/2025 10:11:59] "[36mGET /static/js/auth.js HTTP/1.1[0m" 304 -
+2025-05-10 10:12:01,043 - app - INFO - User logged in: ayush
+2025-05-10 10:12:01,044 - werkzeug - INFO - 127.0.0.1 - - [10/May/2025 10:12:01] "POST /login HTTP/1.1" 200 -
+2025-05-10 10:12:01,070 - werkzeug - INFO - 127.0.0.1 - - [10/May/2025 10:12:01] "GET /dashboard HTTP/1.1" 200 -
+2025-05-10 10:12:01,095 - werkzeug - INFO - 127.0.0.1 - - [10/May/2025 10:12:01] "[36mGET /static/css/style.css HTTP/1.1[0m" 304 -
+2025-05-10 10:12:01,101 - werkzeug - INFO - 127.0.0.1 - - [10/May/2025 10:12:01] "[36mGET /static/js/test.js HTTP/1.1[0m" 304 -
+2025-05-10 10:12:01,159 - werkzeug - INFO - 127.0.0.1 - - [10/May/2025 10:12:01] "GET /static/js/dashboard.js HTTP/1.1" 200 -
+2025-05-10 10:12:01,204 - werkzeug - INFO - 127.0.0.1 - - [10/May/2025 10:12:01] "GET /api/get_analytics HTTP/1.1" 200 -
+2025-05-10 10:12:31,205 - werkzeug - INFO - 127.0.0.1 - - [10/May/2025 10:12:31] "GET /api/get_analytics HTTP/1.1" 200 -
+2025-05-10 10:13:01,201 - werkzeug - INFO - 127.0.0.1 - - [10/May/2025 10:13:01] "GET /api/get_analytics HTTP/1.1" 200 -
+2025-05-10 10:13:31,208 - werkzeug - INFO - 127.0.0.1 - - [10/May/2025 10:13:31] "GET /api/get_analytics HTTP/1.1" 200 -
+2025-05-10 10:30:12,449 - app - INFO - Database database/user_data.db initialized successfully
+2025-05-10 10:30:12,450 - app - INFO - init_models called (no-op placeholder).
+2025-05-10 10:30:12,463 - werkzeug - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5000
+2025-05-10 10:30:12,464 - werkzeug - INFO - [33mPress CTRL+C to quit[0m
+2025-05-10 10:30:14,861 - werkzeug - INFO - 127.0.0.1 - - [10/May/2025 10:30:14] "GET / HTTP/1.1" 200 -
+2025-05-10 10:30:15,021 - werkzeug - INFO - 127.0.0.1 - - [10/May/2025 10:30:15] "[36mGET /static/css/style.css HTTP/1.1[0m" 304 -
+2025-05-10 10:30:16,110 - werkzeug - INFO - 127.0.0.1 - - [10/May/2025 10:30:16] "GET /login HTTP/1.1" 200 -
+2025-05-10 10:30:16,135 - werkzeug - INFO - 127.0.0.1 - - [10/May/2025 10:30:16] "[36mGET /static/css/auth.css HTTP/1.1[0m" 304 -
+2025-05-10 10:30:16,150 - werkzeug - INFO - 127.0.0.1 - - [10/May/2025 10:30:16] "[36mGET /static/js/auth.js HTTP/1.1[0m" 304 -
+2025-05-10 10:30:17,300 - app - INFO - User logged in: ayush
+2025-05-10 10:30:17,301 - werkzeug - INFO - 127.0.0.1 - - [10/May/2025 10:30:17] "POST /login HTTP/1.1" 200 -
+2025-05-10 10:30:17,322 - werkzeug - INFO - 127.0.0.1 - - [10/May/2025 10:30:17] "GET /dashboard HTTP/1.1" 200 -
+2025-05-10 10:30:17,348 - werkzeug - INFO - 127.0.0.1 - - [10/May/2025 10:30:17] "[36mGET /static/css/style.css HTTP/1.1[0m" 304 -
+2025-05-10 10:30:17,354 - werkzeug - INFO - 127.0.0.1 - - [10/May/2025 10:30:17] "[36mGET /static/js/test.js HTTP/1.1[0m" 304 -
+2025-05-10 10:30:17,398 - werkzeug - INFO - 127.0.0.1 - - [10/May/2025 10:30:17] "GET /static/js/dashboard.js HTTP/1.1" 200 -
+2025-05-10 10:30:17,436 - werkzeug - INFO - 127.0.0.1 - - [10/May/2025 10:30:17] "GET /api/get_analytics HTTP/1.1" 200 -
+2025-05-10 10:30:54,126 - werkzeug - INFO - 127.0.0.1 - - [10/May/2025 10:30:54] "GET /api/get_analytics HTTP/1.1" 200 -
+2025-05-10 10:32:09,790 - werkzeug - INFO - 127.0.0.1 - - [10/May/2025 10:32:09] "GET /api/get_analytics HTTP/1.1" 200 -
+2025-05-10 10:32:21,116 - werkzeug - INFO - 127.0.0.1 - - [10/May/2025 10:32:21] "GET /dashboard HTTP/1.1" 200 -
+2025-05-10 10:32:21,138 - werkzeug - INFO - 127.0.0.1 - - [10/May/2025 10:32:21] "[36mGET /static/css/style.css HTTP/1.1[0m" 304 -
+2025-05-10 10:32:21,156 - werkzeug - INFO - 127.0.0.1 - - [10/May/2025 10:32:21] "[36mGET /static/js/test.js HTTP/1.1[0m" 304 -
+2025-05-10 10:32:21,181 - werkzeug - INFO - 127.0.0.1 - - [10/May/2025 10:32:21] "GET /static/js/dashboard.js HTTP/1.1" 200 -
+2025-05-10 10:32:21,209 - werkzeug - INFO - 127.0.0.1 - - [10/May/2025 10:32:21] "GET /api/get_analytics HTTP/1.1" 200 -

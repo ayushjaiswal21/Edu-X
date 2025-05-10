@@ -84,144 +84,146 @@ document.addEventListener('DOMContentLoaded', function () {
 
     // Fetch bot response from API (advanced flow)
     function fetchBotResponse(requestData) {
-        appendMessage('system', '<div class="loading-indicator"><span class="dot"></span><span class="dot"></span><span class="dot"></span></div>');
         fetch('/api/chat', {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify(requestData)
         })
-        .then(response => response.json())
-        .then(data => {
-            // Remove last loading indicator
-            const loadingMessages = chatbox.querySelectorAll('.loading-indicator');
-            if (loadingMessages.length > 0) {
-                loadingMessages[loadingMessages.length - 1].parentElement.innerHTML = `<div class="message-content">${markdownToHtml(data.response)}</div>`;
-            } else {
-                appendMessage('system', markdownToHtml(data.response));
-            }
+            .then(response => response.json())
+            .then(data => {
+                // Remove loading indicator
+                const loadingMessages = chatbox.querySelectorAll('.loading-indicator');
+                if (loadingMessages.length > 0) {
+                    loadingMessages[loadingMessages.length - 1].parentElement.innerHTML =
+                        `<div class="message-content">${markdownToHtml(data.response)}</div>`;
+                } else {
+                    appendMessage('system', markdownToHtml(data.response));
+                }
 
-            // Update conversation state
-            conversationState.stage = data.stage || conversationState.stage;
-            if (data.response) conversationState.history.push(data.response);
+                // Update conversation state
+                conversationState.stage = data.stage || conversationState.stage;
+                if (data.response) conversationState.history.push(data.response);
 
-            // If the bot asked a question, prepare for student response
-            if (data.has_followup && conversationState.stage !== 'evaluate_response') {
-                conversationState.currentQuestion = data.response;
-                conversationState.stage = 'awaiting_answer';
-                conversationState.startTime = Date.now();
-                setTimeout(() => {
-                    userMessage.disabled = false;
-                    userMessage.placeholder = "Type your response here...";
-                    userMessage.focus();
-                }, 1000);
-            }
-            // After evaluation, show rapid quiz, then move to follow-up
-            else if (conversationState.stage === 'evaluate_response') {
-                setTimeout(() => {
-                    showRapidQuiz(() => {
-                        // After rapid quiz, continue with follow-up
-                        fetchBotResponse({
-                            topic: currentTopic,
-                            stage: 'follow_up',
-                            message: 'continue',
-                            history: conversationState.history
+                // Show rapid quiz after every response except during introduction
+                if (conversationState.stage !== 'introduction') {
+                    setTimeout(() => {
+                        showRapidQuiz(() => {
+                            // After rapid quiz, enable user input for next response
+                            userMessage.disabled = false;
+                            userMessage.placeholder = "Type your response here...";
+                            userMessage.focus();
                         });
-                    });
-                }, 1500);
-            }
-            // If introduction completed, ask first conceptual question
-            else if (conversationState.stage === 'introduction') {
-                setTimeout(() => {
-                    fetchBotResponse({
-                        topic: currentTopic,
-                        stage: 'conceptual_question',
-                        message: 'start',
-                        history: conversationState.history
-                    });
-                }, 1500);
-            }
-        })
-        .catch(error => {
-            console.error('Error:', error);
-            appendMessage('system', "Sorry, I encountered an error. Please try again.");
-            userMessage.disabled = false;
-        });
+                    }, 1500);
+                } else {
+                    // If it's introduction, just enable user input
+                    setTimeout(() => {
+                        userMessage.disabled = false;
+                        userMessage.placeholder = "Type your response here...";
+                        userMessage.focus();
+                    }, 1000);
+                }
+            })
+            .catch(error => {
+                console.error('Error:', error);
+                appendMessage('system', "Sorry, I encountered an error. Please try again.");
+                userMessage.disabled = false;
+            });
     }
 
     // Show rapid quiz and call callback after completion
-    function showRapidQuiz(callback) {
-        fetch('/api/rapid_quiz', {
-            method: 'POST',
-            headers: { 'Content-Type': 'application/json' },
-            body: JSON.stringify({ topic: currentTopic })
+function showRapidQuiz(callback) {
+    // Clear any existing timers
+    if (rapidQuizTimeout) {
+        clearTimeout(rapidQuizTimeout);
+    }
+    if (rapidQuizCountdown) {
+        clearInterval(rapidQuizCountdown);
+    }
+
+    // Get the current subject from the URL
+    const urlParams = new URLSearchParams(window.location.search);
+    const currentSubject = urlParams.get('subject') || 'gk';
+
+    fetch('/api/rapid_quiz', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ 
+            topic: currentTopic,
+            subject: currentSubject
         })
-        .then(response => response.json())
-        .then(data => {
-            quizContainer.style.display = 'block';
-            quizQuestion.textContent = data.question;
-            quizOptions.innerHTML = '';
-            rapidQuizStartTime = Date.now();
+    })
+            .then(response => response.json())
+            .then(data => {
+                if (data.error) {
+                    throw new Error(data.error);
+                }
 
-            // Create timer display
-            const timerDiv = document.createElement('div');
-            timerDiv.className = 'rapid-quiz-timer';
-            timerDiv.textContent = '10';
-            quizQuestion.appendChild(timerDiv);
-            rapidQuizTimerDisplay = timerDiv;
+                appendMessage('system', '<div class="edu-question">Quick Quiz Time! 🎯</div>');
+                quizContainer.style.display = 'block';
+                quizQuestion.textContent = data.question;
+                quizOptions.innerHTML = '';
+                rapidQuizStartTime = Date.now();
 
-            let timeLeft = RAPID_QUIZ_TIMER / 1000;
-            let currentQuizData = data;
+                // Create timer display
+                const timerDiv = document.createElement('div');
+                timerDiv.className = 'rapid-quiz-timer';
+                timerDiv.textContent = '10';
+                quizQuestion.appendChild(timerDiv);
+                rapidQuizTimerDisplay = timerDiv;
 
-            // Start countdown
-            rapidQuizCountdown = setInterval(() => {
-                timeLeft--;
-                if (rapidQuizTimerDisplay) {
-                    rapidQuizTimerDisplay.textContent = timeLeft;
-                    if (timeLeft <= 3) {
-                        rapidQuizTimerDisplay.classList.add('timer-urgent');
+                let timeLeft = RAPID_QUIZ_TIMER / 1000;
+                let currentQuizData = data;
+
+                // Start countdown
+                rapidQuizCountdown = setInterval(() => {
+                    timeLeft--;
+                    if (rapidQuizTimerDisplay) {
+                        rapidQuizTimerDisplay.textContent = timeLeft;
+                        if (timeLeft <= 3) {
+                            rapidQuizTimerDisplay.classList.add('timer-urgent');
+                        }
                     }
-                }
-                if (timeLeft <= 0) {
-                    clearInterval(rapidQuizCountdown);
-                    handleRapidQuizTimeout(currentQuizData, callback);
-                }
-            }, 1000);
+                    if (timeLeft <= 0) {
+                        clearInterval(rapidQuizCountdown);
+                        handleRapidQuizTimeout(currentQuizData, callback);
+                    }
+                }, 1000);
 
-            data.options.forEach(option => {
-                const btn = document.createElement('button');
-                btn.className = 'quiz-option';
-                btn.textContent = option;
-                btn.onclick = function () {
-                    document.querySelectorAll('.quiz-option').forEach(b => b.classList.remove('selected'));
-                    btn.classList.add('selected');
-                    submitQuizAnswer.style.display = 'block';
-                    submitQuizAnswer.onclick = function () {
+                // Create options buttons
+                data.options.forEach(option => {
+                    const btn = document.createElement('button');
+                    btn.className = 'quiz-option';
+                    btn.textContent = option;
+                    btn.onclick = function () {
                         clearInterval(rapidQuizCountdown);
                         const responseTime = (Date.now() - rapidQuizStartTime) / 1000;
                         const isCorrect = option === data.correct;
+
                         saveRapidQuizResult(data.question, option, data.correct, isCorrect, responseTime);
+
                         if (isCorrect) {
                             correctAnswers++;
-                            appendMessage('system', '<div class="quiz-result correct">Correct! Well done!</div>');
+                            appendMessage('system', '<div class="quiz-result correct">Correct! Well done! ✨</div>');
                         } else {
                             incorrectAnswers++;
                             appendMessage('system', `<div class="quiz-result incorrect">The correct answer was: ${data.correct}</div>`);
                         }
+
                         updateProgressDisplay();
                         quizContainer.style.display = 'none';
-                        submitQuizAnswer.style.display = 'none';
-                        if (typeof callback === 'function') callback();
+                        if (typeof callback === 'function') {
+                            setTimeout(callback, 1500);
+                        }
                     };
-                };
-                quizOptions.appendChild(btn);
+                    quizOptions.appendChild(btn);
+                });
+            })
+            .catch(error => {
+                console.error('Error showing rapid quiz:', error);
+                if (typeof callback === 'function') {
+                    callback();
+                }
             });
-        })
-        .catch(error => {
-            console.error('Error showing rapid quiz:', error);
-            quizContainer.style.display = 'none';
-            submitQuizAnswer.style.display = 'none';
-            if (typeof callback === 'function') callback();
-        });
     }
 
     function handleRapidQuizTimeout(quizData, callback) {
@@ -248,13 +250,13 @@ document.addEventListener('DOMContentLoaded', function () {
                 response_time: responseTime
             })
         })
-        .then(response => response.json())
-        .then(data => {
-            console.log('Rapid quiz result saved:', data);
-        })
-        .catch(error => {
-            console.error('Error saving rapid quiz result:', error);
-        });
+            .then(response => response.json())
+            .then(data => {
+                console.log('Rapid quiz result saved:', data);
+            })
+            .catch(error => {
+                console.error('Error saving rapid quiz result:', error);
+            });
     }
 
     // Handle user message submission (advanced flow)

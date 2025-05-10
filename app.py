@@ -548,40 +548,53 @@ def rapid_quiz():
         return jsonify({'error': 'Ollama server is not available.'}), 503
     try:
         data = request.get_json() or {}
-        topic = data.get('topic', 'gk').lower()
+        topic = data.get('topic', '').lower()
+        subject = data.get('subject', 'gk').lower()
         
-        # Validate topic is in the configuration
-        if topic not in CONFIG['SUBJECT_MODELS']:
-            logger.warning(f"Topic '{topic}' not in configured subjects, using 'gk' instead")
-            topic = 'gk'
+        # Validate subject is in the configuration
+        if subject not in CONFIG['SUBJECT_MODELS']:
+            logger.warning(f"Subject '{subject}' not in configured subjects, using 'gk' instead")
+            subject = 'gk'
             
-        # Get the appropriate model
-        model = CONFIG['SUBJECT_MODELS'][topic]
+        # Get the appropriate model and prompt template
+        model = CONFIG['SUBJECT_MODELS'][subject]
+        prompt_template = PROMPT_TEMPLATES.get(subject)
         
         # Modified prompt for more reliable JSON generation
-        prompt = (
-            "Generate a single multiple choice question for rapid assessment.\n"
-            f"Topic: {topic}\n"
-            "Requirements:\n"
-            "- Very easy difficulty level\n"
-            "- Clear, concise question\n"
-            "- Exactly 4 options with one correct answer\n"
-            "Format: Return ONLY valid JSON with these exact keys: question, options (array), correct_answer"
+        formatted_prompt = LLMHandler.format_prompt(
+            prompt_template,
+            {
+                "TOPIC": topic,
+                "LEVEL": "beginner",
+                "USER_QUERY": f"""
+Generate a single multiple choice question for quick assessment.
+Requirements:
+- Question must be specifically about {topic} in the context of {subject}
+- Very easy difficulty level
+- Clear, concise question
+- Exactly 4 options with one correct answer
+Format: Return ONLY valid JSON with these exact keys: question, options (array), correct_answer
+
+Example for math/probability:
+{{
+  "question": "What is the probability of getting heads when flipping a fair coin?",
+  "options": ["1/2", "1/4", "1", "0"],
+  "correct_answer": "1/2"
+}}
+"""
+            }
         )
         
-        system_prompt = "You are an educational quiz generator. Return only valid JSON data."
-        
         response = llm.generate_response(
-            prompt=prompt,
-            system_prompt=system_prompt,
+            prompt=formatted_prompt,
+            system_prompt="You are a subject matter expert in " + subject + ". Generate only valid JSON format quiz questions.",
             model=model
         )
         
         try:
-            # Direct JSON parsing
             question_data = json.loads(response)
             
-            # Validate and fix question data
+            # Validation and fixes remain the same
             if not isinstance(question_data.get('options'), list):
                 question_data['options'] = [str(x) for x in range(1, 5)]
             
@@ -594,18 +607,32 @@ def rapid_quiz():
                 question_data['correct_answer'] = question_data['options'][0]
             
             return jsonify({
-                'question': question_data.get('question', 'Default question'),
+                'question': question_data.get('question', f'What is a key concept about {topic} in {subject}?'),
                 'options': question_data['options'],
                 'correct': question_data['correct_answer']
             })
             
         except json.JSONDecodeError:
             logger.error(f"Invalid JSON response: {response}")
-            return jsonify({
-                'question': f"What is a key concept in {topic}?",
+            # Provide a subject-specific fallback question
+            fallback_questions = {
+                'math': {
+                    'question': f"Which of these best describes {topic} in mathematics?",
+                    'options': ["A mathematical concept", "A random guess", "Not related to math", "None of these"],
+                    'correct': "A mathematical concept"
+                },
+                'science': {
+                    'question': f"What is {topic} in science?",
+                    'options': ["A scientific concept", "Not scientific", "Unrelated", "None of these"],
+                    'correct': "A scientific concept"
+                }
+                # Add more subject-specific fallbacks as needed
+            }
+            return jsonify(fallback_questions.get(subject, {
+                'question': f"What is {topic}?",
                 'options': ["Option A", "Option B", "Option C", "Option D"],
                 'correct': "Option A"
-            })
+            }))
             
     except Exception as e:
         logger.error(f"Rapid quiz error: {str(e)}")
@@ -852,15 +879,30 @@ def get_analytics():
         with get_db_connection() as conn:
             cursor = conn.cursor()
             
-            # Get regular progress data
-            cursor.execute("""
-                SELECT topic, correct_count, incorrect_count, avg_response_time 
-                FROM user_progress 
-                WHERE user_id = ?
-            """, (user_id,))
-            progress_data = [dict(row) for row in cursor.fetchall()]
+            # Get all subjects first
+            subjects = list(CONFIG['SUBJECT_MODELS'].keys())
+            
+            # Get progress data with default values for subjects with no data
+            progress_data = []
+            for subject in subjects:
+                cursor.execute("""
+                    SELECT topic, correct_count, incorrect_count, avg_response_time 
+                    FROM user_progress 
+                    WHERE user_id = ? AND topic = ?
+                """, (user_id, subject))
+                row = cursor.fetchone()
+                if row:
+                    progress_data.append(dict(row))
+                else:
+                    # Add default entry for subjects with no data
+                    progress_data.append({
+                        'topic': subject,
+                        'correct_count': 0,
+                        'incorrect_count': 0,
+                        'avg_response_time': 0
+                    })
 
-            # Get recent activities
+            # Get recent activities including both rapid quiz and regular interactions
             cursor.execute("""
                 SELECT 
                     'rapid_quiz' as activity_type,
@@ -873,20 +915,34 @@ def get_analytics():
                     timestamp
                 FROM rapid_quiz_responses 
                 WHERE user_id = ?
+                UNION ALL
+                SELECT 
+                    'interaction' as activity_type,
+                    topic,
+                    question,
+                    answer as user_answer,
+                    '' as correct_answer,
+                    is_correct,
+                    response_time,
+                    timestamp
+                FROM interactions
+                WHERE user_id = ?
                 ORDER BY timestamp DESC
                 LIMIT 10
-            """, (user_id,))
+            """, (user_id, user_id))
             recent_activities = [dict(row) for row in cursor.fetchall()]
 
             return jsonify({
-                'progress': progress_data or [],  # Return empty array if no progress
-                'recent_activities': recent_activities or []  # Return empty array if no activities
+                'progress': progress_data,
+                'recent_activities': recent_activities,
+                'subjects': subjects
             })
     except Exception as e:
         logger.error(f"Analytics error: {str(e)}")
         return jsonify({
             'progress': [],
             'recent_activities': [],
+            'subjects': list(CONFIG['SUBJECT_MODELS'].keys()),
             'message': 'Start a learning session to see your progress!'
         })
 
