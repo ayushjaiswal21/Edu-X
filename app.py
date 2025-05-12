@@ -301,10 +301,13 @@ def dashboard():
 def chatbot():
     if 'user_id' not in session:
         return redirect(url_for('login'))
+    
     subject = request.args.get('subject', 'math').lower()
     if subject not in CONFIG['SUBJECT_MODELS']:
         return redirect(url_for('dashboard'))
-    initial_message = f"Welcome to the {subject.title()} learning session! Please specify a topic you'd like to learn about."
+    
+    initial_message = f"Welcome to the {subject.title()} learning session! Please specify a topic you'd like to learn about and select your grade level to begin."
+    
     return render_template(
         'chatbot.html',
         subject=subject,
@@ -316,8 +319,10 @@ def chatbot():
 def handle_chat():
     if not llm.server_available:
         return jsonify({'error': 'Ollama server is not available. Chat functionality is disabled.'}), 503
+    
     if 'user_id' not in session:
         return jsonify({'error': 'Not authenticated'}), 401
+    
     try:
         data = request.json
         user_id = session['user_id']
@@ -325,123 +330,243 @@ def handle_chat():
         user_message = data.get('message', '').strip()
         chat_stage = data.get('stage', 'question')
         conversation_history = data.get('history', [])
+        difficulty_level = data.get('difficulty', 'beginner')
         
-        # Get the appropriate model and prompt template
-        model = CONFIG['SUBJECT_MODELS'].get(topic, CONFIG['SUBJECT_MODELS']['math'])
-        prompt_template = PROMPT_TEMPLATES.get(topic, PROMPT_TEMPLATES['math'])
+        # Get the subject from URL parameters
+        subject = request.args.get('subject', 'math').lower()
+        if subject not in CONFIG['SUBJECT_MODELS']:
+            subject = 'math'  # Default to math if invalid subject
         
-        # Prepare system prompt based on teaching context
+        # Get the appropriate model and prompt template for the subject
+        model = CONFIG['SUBJECT_MODELS'].get(subject, CONFIG['SUBJECT_MODELS']['math'])
+        prompt_template = PROMPT_TEMPLATES.get(subject, PROMPT_TEMPLATES['math'])
+        
+        # Map difficulty levels to more specific descriptions
+        difficulty_mapping = {
+            'beginner': 'elementary school level (grades 1-5)',
+            'intermediate': 'middle school level (grades 6-8)',
+            'advanced': 'high school level (grades 9-12)',
+            'expert': 'college/university level'
+        }
+        
+        student_level = difficulty_mapping.get(difficulty_level, 'beginner')
+        
+        # Prepare enhanced system prompt
         system_prompt = (
-            "You are an expert educational tutor specializing in interactive teaching. "
+            f"You are an expert educational tutor specializing in {subject}. "
+            f"You are teaching at a {student_level}. "
             "Your goal is to help students understand concepts deeply through Socratic dialogue, "
             "guiding questions, and constructive feedback. Emulate the style of an engaging, "
-            "patient, and knowledgeable teacher who values critical thinking. Use concrete examples "
-            "and establish connections between concepts. When analyzing student responses, "
-            "provide specific, actionable feedback and encouragement."
+            "patient, and knowledgeable teacher who values critical thinking. "
+            
+            # Added more specific Socratic teaching guidelines
+            "When using the Socratic method: "
+            "- Ask open-ended questions that require more than yes/no answers "
+            "- Respond to student answers with follow-up questions that prompt deeper thinking "
+            "- Help students discover answers through guided reasoning rather than direct instruction "
+            "- Acknowledge student contributions and build upon their ideas "
+            "- Use strategic pauses and wait time to encourage reflection "
+            
+            "Use concrete examples and establish connections between concepts. "
+            "Tailor your explanations to the student's level while gradually introducing more complex ideas. "
+            "IMPORTANT: Respond directly to the student. Do NOT include teaching instructions or steps "
+            "in your response. Do not label your response with 'Step 1:', etc. Just write a natural, "
+            "conversational response as if you're speaking directly to the student."
         )
+        
+        # Get user's interests and learning style if available
+        try:
+            with get_db_connection() as conn:
+                cursor = conn.cursor()
+                cursor.execute('SELECT interests, learning_style FROM user_preferences WHERE user_id = ?', (user_id,))
+                user_prefs = cursor.fetchone()
+                
+                if user_prefs:
+                    interests = user_prefs[0]
+                    learning_style = user_prefs[1]
+                    
+                    # Append personalization to the system prompt
+                    if interests:
+                        system_prompt += f" This student has expressed interest in {interests}. Try to connect examples to these interests when relevant."
+                        
+                    if learning_style:
+                        system_prompt += f" This student tends to learn best through {learning_style} approaches."
+        except Exception as db_error:
+            # If there's an error, just continue without the personalization
+            logger.error(f"Failed to fetch user preferences: {str(db_error)}")
+
+        # Get performance data on this topic if available
+        try:
+            with get_db_connection() as conn:
+                cursor = conn.cursor()
+                cursor.execute('''
+                    SELECT AVG(is_correct) as success_rate 
+                    FROM interactions 
+                    WHERE user_id = ? AND topic LIKE ?
+                    GROUP BY user_id
+                ''', (user_id, f"%{topic}%"))
+                
+                result = cursor.fetchone()
+                
+                if result and result[0] is not None:
+                    success_rate = result[0]
+                    
+                    # Customize difficulty based on past performance
+                    if success_rate > 0.8:
+                        system_prompt += f" The student seems to be performing well on this topic (success rate: {success_rate:.0%}). Consider introducing more challenging concepts."
+                    elif success_rate < 0.4:
+                        system_prompt += f" The student seems to be struggling with this topic (success rate: {success_rate:.0%}). Focus on building foundational understanding with extra examples."
+        except Exception as db_error:
+            # If there's an error, just continue without the performance data
+            logger.error(f"Failed to fetch performance data: {str(db_error)}")
         
         # Handle different stages of the teaching conversation
         if chat_stage == 'introduction':
-            # Generate an introduction to the topic
             formatted_prompt = LLMHandler.format_prompt(
                 prompt_template,
                 {
                     "TOPIC": topic,
-                    "LEVEL": "beginner",
-                    "USER_QUERY": f"Introduce the topic of {topic} briefly. First, explain why this topic is important and relevant to the student. Then, outline 2-3 key concepts we'll explore together. End with a thought-provoking question that encourages the student to think about their prior knowledge of {topic}."
+                    "LEVEL": difficulty_level,
+                    "USER_QUERY": f"Introduce the topic of {topic} briefly for a {student_level} student. Explain why this topic is important and relevant to the student. Then, outline 2-3 key concepts we'll explore together. End with a thought-provoking question that encourages the student to think about their prior knowledge of {topic}."
+                }
+            )
+            
+        elif chat_stage == 'knowledge_assessment':
+            formatted_prompt = LLMHandler.format_prompt(
+                prompt_template,
+                {
+                    "TOPIC": topic,
+                    "LEVEL": difficulty_level,
+                    "USER_QUERY": f"""
+Create a brief diagnostic assessment with 2-3 questions to gauge the student's current understanding of {topic} at a {student_level}. 
+
+The questions should:
+- Start with easier concepts and build to more challenging ones
+- Include at least one question requiring critical thinking rather than just recall
+- Be presented in a friendly, non-intimidating way
+
+Write this directly to the student in a conversational tone, explaining that you'd like to understand their current knowledge to better guide the session.
+"""
                 }
             )
             
         elif chat_stage == 'conceptual_question':
-            # Generate a theoretical, conceptual question about the topic
             formatted_prompt = LLMHandler.format_prompt(
                 prompt_template,
                 {
                     "TOPIC": topic,
-                    "LEVEL": "beginner",
-                    "USER_QUERY": f"Generate a thought-provoking, theoretical question about {topic} that requires understanding of core concepts rather than just facts. The question should encourage critical thinking and be answerable in a few sentences. Don't provide the answer, just ask the question in a conversational, teacher-like way."
+                    "LEVEL": difficulty_level,
+                    "USER_QUERY": f"Generate a thought-provoking, theoretical question about {topic} that is appropriate for a {student_level} student. The question should require understanding of core concepts rather than just facts. The question should encourage critical thinking and be answerable in a few sentences. Ask the question in a conversational, teacher-like way."
                 }
             )
             
         elif chat_stage == 'evaluate_response':
-            # Evaluate the student's natural language answer
             previous_question = data.get('previous_question', '')
             
             formatted_prompt = LLMHandler.format_prompt(
                 prompt_template,
                 {
                     "TOPIC": topic,
-                    "LEVEL": "beginner",
+                    "LEVEL": difficulty_level,
                     "USER_QUERY": f"""
-Question that was asked: "{previous_question}"
-
+Student's question: "{previous_question}"
 Student's response: "{user_message}"
 
-1. First, analyze what the student understands correctly.
-2. Then, identify any misconceptions or areas that need clarification.
-3. Provide constructive feedback that acknowledges their effort.
-4. Explain the correct concept in a clear, concise way if needed.
-5. End with a follow-up question that builds on the discussion and deepens understanding.
+The student is at a {student_level}.
 
-Keep your response conversational and encouraging, like a supportive teacher would.
+Analyze what the student understands correctly. Identify any misconceptions or areas that need clarification. Provide constructive feedback that acknowledges their effort. Explain the correct concept if needed. End with a follow-up question that deepens understanding.
+
+Keep your response conversational and encouraging. Write directly to the student - do NOT include instructions or steps in your response.
 """
                 }
             )
             
         elif chat_stage == 'follow_up':
-            # Generate a follow-up question based on the conversation so far
             formatted_prompt = LLMHandler.format_prompt(
                 prompt_template,
                 {
                     "TOPIC": topic,
-                    "LEVEL": "beginner",
+                    "LEVEL": difficulty_level,
                     "USER_QUERY": f"""
-Based on our conversation so far about {topic}, generate a follow-up question that:
-1. Builds on what we've discussed
-2. Introduces a new but related concept or application
-3. Encourages the student to make connections between ideas
-4. Requires critical thinking rather than simple recall
+Based on our conversation so far about {topic}, ask a follow-up question that builds on what we've discussed, introduces a related concept, encourages connections between ideas, requires critical thinking, and is appropriate for a {student_level} student.
 
-Make your question conversational and engaging, as if you're genuinely curious about their thoughts.
+Make your question conversational and engaging, as if you're genuinely curious about their thoughts. Write directly to the student.
+"""
+                }
+            )
+            
+        elif chat_stage == 'metacognitive_reflection':
+            formatted_prompt = LLMHandler.format_prompt(
+                prompt_template,
+                {
+                    "TOPIC": topic,
+                    "LEVEL": difficulty_level,
+                    "USER_QUERY": f"""
+Guide the student in a metacognitive reflection on their learning about {topic}. 
+
+Ask thought-provoking questions like:
+- What concepts about {topic} make sense to you now that didn't before?
+- What strategies helped you understand difficult parts of {topic}?
+- What connections can you make between {topic} and other things you know?
+- What questions do you still have about {topic}?
+
+Your response should encourage the student to think about their own learning process, while being appropriate for a {student_level} student. The goal is to help them develop awareness of how they learn best.
+
+Write directly to the student in a warm, supportive tone.
+"""
+                }
+            )
+            
+        elif chat_stage == 'real_world_application':
+            formatted_prompt = LLMHandler.format_prompt(
+                prompt_template,
+                {
+                    "TOPIC": topic,
+                    "LEVEL": difficulty_level,
+                    "USER_QUERY": f"""
+Present a real-world scenario or problem where the student can apply what they've learned about {topic}.
+
+Your scenario should:
+- Be relevant and interesting to a {student_level} student
+- Clearly connect to the key concepts we've discussed about {topic}
+- Be presented as a challenge that invites creative problem-solving
+- Include enough detail to be engaging without being overwhelming
+- Provide a meaningful context that shows why this knowledge matters
+
+Ask the student how they would approach solving this problem or analyzing this scenario using what they've learned.
+
+Write directly to the student in an engaging, conversational tone.
 """
                 }
             )
             
         elif chat_stage == 'summary':
-            # Summarize what's been learned so far
             formatted_prompt = LLMHandler.format_prompt(
                 prompt_template,
                 {
                     "TOPIC": topic,
-                    "LEVEL": "beginner",
+                    "LEVEL": difficulty_level,
                     "USER_QUERY": f"""
-Provide a concise summary of our discussion about {topic} so far. Include:
-1. Key concepts we've covered
-2. Important insights or connections made
-3. Areas that might benefit from further exploration
-4. A brief preview of related topics we could explore next
+Provide a concise summary of our discussion about {topic} that is appropriate for a {student_level} student. Include key concepts covered, important insights made, areas for further exploration, and a brief preview of related topics.
 
-Keep this summary encouraging and highlight the progress made, like a teacher wrapping up a productive class session.
+Keep this summary encouraging and highlight the progress made. Write directly to the student in a conversational tone.
 """
                 }
             )
             
         else:
-            # General chat about the topic - more conversational teaching style
+            # General chat about the topic - conversational teaching style
             formatted_prompt = LLMHandler.format_prompt(
                 prompt_template,
                 {
                     "TOPIC": topic,
-                    "LEVEL": "beginner",
-                    "USER_QUERY": f"""Student message: "{user_message}"
+                    "LEVEL": difficulty_level,
+                    "USER_QUERY": f"""
+Student message: "{user_message}"
 
-Respond as a knowledgeable and encouraging teacher discussing {topic}. If the student asks a question, provide a clear explanation that:
-1. Addresses their specific question
-2. Provides helpful context and examples
-3. Checks for understanding with a brief follow-up question
-4. Encourages critical thinking rather than memorization
+Respond as a knowledgeable and encouraging {subject} teacher speaking to a {student_level} student. If the student asks a question, provide a clear explanation that addresses their specific question using age-appropriate language and concepts, provides helpful context and examples, and encourages critical thinking.
 
-If the student made a statement rather than asking a question, engage with their ideas and guide the conversation toward deeper understanding of {topic} concepts.
+Write directly to the student in a conversational tone. Do NOT include teaching instructions or steps in your response.
 """
                 }
             )
@@ -460,18 +585,11 @@ If the student made a statement rather than asking a question, engage with their
             model=model
         )
         
-        # Record interaction for analytics if appropriate
-        if chat_stage == 'evaluate_response':
-            # Simple heuristic to gauge response quality (can be improved)
-            previous_question = data.get('previous_question', '')
-            response_time = data.get('response_time', 30)  # Default to 30 seconds if not provided
-            
-            # Basic analysis of response quality
-            # This is simplified - in a real system, you'd want more sophisticated analysis
-            response_length = len(user_message.split())
-            has_keywords = any(keyword in user_message.lower() for keyword in topic.lower().split())
-            is_thoughtful = response_length > 15 and has_keywords
-            
+        # Clean the response to ensure it doesn't contain teaching instructions
+        llm_response = clean_teacher_instructions(llm_response)
+        
+        # Record interaction in database
+        try:
             with get_db_connection() as conn:
                 cursor = conn.cursor()
                 cursor.execute('''
@@ -481,66 +599,144 @@ If the student made a statement rather than asking a question, engage with their
                 ''', (
                     user_id,
                     topic,
-                    previous_question,
-                    user_message,
-                    is_thoughtful,  # Using our simple heuristic
-                    response_time,
+                    user_message[:500],  # Limit length to prevent DB issues
+                    llm_response[:500],   # Limit length to prevent DB issues
+                    True,                 # Default to True for chat interactions
+                    data.get('response_time', 0),
                     model
                 ))
-                
-                # Update user progress
-                cursor.execute('''
-                    SELECT id FROM user_progress 
-                    WHERE user_id = ? AND topic = ?
-                ''', (user_id, topic))
-                progress = cursor.fetchone()
-                
-                if progress:
-                    # Update existing progress - weight thoughtful responses more
-                    cursor.execute('''
-                        UPDATE user_progress
-                        SET correct_count = correct_count + ?,
-                            incorrect_count = incorrect_count + ?,
-                            avg_response_time = (avg_response_time + ?) / 2
-                        WHERE user_id = ? AND topic = ?
-                    ''', (
-                        1 if is_thoughtful else 0,
-                        0 if is_thoughtful else 1,
-                        response_time,
-                        user_id,
-                        topic
-                    ))
-                else:
-                    # Create new progress record
-                    cursor.execute('''
-                        INSERT INTO user_progress
-                        (user_id, topic, correct_count, incorrect_count, avg_response_time)
-                        VALUES (?, ?, ?, ?, ?)
-                    ''', (
-                        user_id,
-                        topic,
-                        1 if is_thoughtful else 0,
-                        0 if is_thoughtful else 1,
-                        response_time
-                    ))
                 conn.commit()
+        except Exception as db_error:
+            logger.error(f"Failed to record interaction: {str(db_error)}")
         
-        # Detect if the LLM included a follow-up question
+        # Enhanced detection for whether the response includes a follow-up question
         has_followup = any(phrase in llm_response.lower() for phrase in [
-            "what do you think", "can you explain", "why do you", "how would you", 
-            "do you know", "can you describe", "?", "what is", "tell me about"
+            "what do you think", "can you explain", "why do you", "how would you",
+            "do you know", "can you describe", "?", "what is", "tell me about",
+            "have you considered", "what might happen if", "how does", "could you share",
+            "what's your understanding of", "why might", "what factors", "how can we"
         ])
         
-        response_data = {
+        return jsonify({
             'response': llm_response,
             'stage': chat_stage,
-            'has_followup': has_followup
-        }
+            'has_followup': has_followup,
+            'difficulty': difficulty_level,
+            'subject': subject
+        })
         
-        return jsonify(response_data)
     except Exception as e:
         logger.error(f"Chat error: {str(e)}")
-        return jsonify({'error': str(e)}), 500
+        return jsonify({
+            'error': f"An error occurred while processing your request: {str(e)}"
+        }), 500
+
+def clean_teacher_instructions(text):
+    """Remove any teaching instructions or step markers from response"""
+    # More comprehensive list of patterns to clean
+    instruction_markers = [
+        "Step 1:", "Step 2:", "Step 3:", "Step 4:", "Step 5:",
+        "Remember, the goal is to", 
+        "== this type of response",
+        "should not be seen to student",
+        "Teaching approach:",
+        "Note to self:",
+        "Socratic approach:",
+        "For this response:",
+        "Remember as a teacher:",
+        "[Teacher guidance:",
+        "Teaching instructions:",
+        "Teaching note:",
+        "(Not for student to see)",
+        "Student level:"
+    ]
+    
+    # Remove lines that contain instruction markers
+    lines = text.split('\n')
+    cleaned_lines = []
+    skip_section = False
+    
+    for line in lines:
+        # Check if line starts a section to skip
+        if any(line.strip().startswith(marker) for marker in ["Teaching notes:", "Instructor notes:", "NOTE:"]):
+            skip_section = True
+            continue
+        
+        # Check if we're back to normal content
+        if skip_section and line.strip() == "":
+            skip_section = False
+            continue
+        
+        # Skip lines in the skip section or containing instruction markers
+        if not skip_section and not any(marker in line for marker in instruction_markers):
+            # Filter out lines that start with "Step "
+            if not line.strip().startswith("Step "):
+                cleaned_lines.append(line)
+    
+    cleaned_text = '\n'.join(cleaned_lines)
+    
+    # Remove any remaining instruction blocks with regex if needed
+    import re
+    cleaned_text = re.sub(r'<teacher instructions>.*?</teacher instructions>', '', cleaned_text, flags=re.DOTALL)
+    cleaned_text = re.sub(r'\[Teacher:.*?\]', '', cleaned_text, flags=re.DOTALL)
+    cleaned_text = re.sub(r'\(Teacher note:.*?\)', '', cleaned_text, flags=re.DOTALL)
+    
+    return cleaned_text
+
+@app.route('/api/feedback', methods=['POST'])
+def handle_feedback():
+    """Endpoint to collect student feedback on the tutoring experience"""
+    if 'user_id' not in session:
+        return jsonify({'error': 'Not authenticated'}), 401
+    
+    try:
+        data = request.json
+        user_id = session['user_id']
+        interaction_id = data.get('interaction_id')
+        helpful_rating = data.get('helpful_rating')  # 1-5 scale
+        clarity_rating = data.get('clarity_rating')  # 1-5 scale
+        engagement_rating = data.get('engagement_rating')  # 1-5 scale
+        comments = data.get('comments', '').strip()
+        
+        if not interaction_id or not helpful_rating or not clarity_rating or not engagement_rating:
+            return jsonify({'error': 'Missing required feedback fields'}), 400
+        
+        # Store feedback in database
+        with get_db_connection() as conn:
+            cursor = conn.cursor()
+            cursor.execute('''
+                INSERT INTO feedback
+                (user_id, interaction_id, helpful_rating, clarity_rating, engagement_rating, comments)
+                VALUES (?, ?, ?, ?, ?, ?)
+            ''', (
+                user_id,
+                interaction_id,
+                helpful_rating,
+                clarity_rating,
+                engagement_rating,
+                comments
+            ))
+            conn.commit()
+        
+        # Use feedback to adjust teaching approach for this student
+        if helpful_rating < 3 or clarity_rating < 3:
+            # If ratings are low, adjust student preferences to simplify explanations
+            with get_db_connection() as conn:
+                cursor = conn.cursor()
+                cursor.execute('''
+                    UPDATE user_preferences
+                    SET preferred_explanation_style = 'simplified'
+                    WHERE user_id = ?
+                ''', (user_id,))
+                conn.commit()
+        
+        return jsonify({'success': True, 'message': 'Feedback recorded successfully'})
+        
+    except Exception as e:
+        logger.error(f"Feedback error: {str(e)}")
+        return jsonify({
+            'error': f"An error occurred while processing your feedback: {str(e)}"
+        }), 500
 
 @app.route('/api/rapid_quiz', methods=['POST'])
 def rapid_quiz():
@@ -957,6 +1153,18 @@ def summarize_text():
     except Exception as e:
         logger.error(f"Summarization error: {str(e)}")
         return jsonify({'error': str(e)}), 500
+
+@app.route('/recent-activity')
+def recent_activity():
+    return render_template('recent_activity.html')
+
+@app.route('/text-summarizer')
+def text_summarizer():
+    return render_template('text_summarizer.html')
+
+@app.route('/youtube-extractor')
+def youtube_extractor():
+    return render_template('youtube_extractor.html')
 
 @app.errorhandler(404)
 def page_not_found(e):

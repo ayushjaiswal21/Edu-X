@@ -1,10 +1,26 @@
 :root {
-    --primary-color: #4a6fa5;
+    --primary-color: #a259ff;
+    --primary-dark: #6c2bd7;
+    --primary-light: #c299fc;
+    --sidebar-bg: #1a1333;
+    --sidebar-active: #2d1a4d;
+    --background-color: #18122b;
+    --card-color: #231942;
+    --border-color: #3d246c;
+    --text-color: #f3eaff;
+    --text-secondary: #b8a9d1;
+    --button-bg: #a259ff;
+    --button-hover: #c299fc;
+    --button-text: #fff;
+    --input-bg: #2d1a4d;
+    --input-border: #6c2bd7;
+    --input-text: #f3eaff;
+    --shadow-md: 0 4px 16px rgba(162, 89, 255, 0.15);
+    --border-radius: 12px;
+    --font-primary: 'Roboto', 'Segoe UI', sans-serif;
     --error-color: #e74c3c;
     --success-color: #2ecc71;
-    --text-color: #333;
     --light-gray: #f5f5f5;
-    --border-color: #ddd;
 }
 
 body {

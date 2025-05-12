@@ -4379,3 +4379,683 @@ The answer is: Now, let's think about another situation where you've encountered
 2025-05-10 10:32:21,156 - werkzeug - INFO - 127.0.0.1 - - [10/May/2025 10:32:21] "[36mGET /static/js/test.js HTTP/1.1[0m" 304 -
 2025-05-10 10:32:21,181 - werkzeug - INFO - 127.0.0.1 - - [10/May/2025 10:32:21] "GET /static/js/dashboard.js HTTP/1.1" 200 -
 2025-05-10 10:32:21,209 - werkzeug - INFO - 127.0.0.1 - - [10/May/2025 10:32:21] "GET /api/get_analytics HTTP/1.1" 200 -
+2025-05-10 10:53:31,037 - app - INFO - Database database/user_data.db initialized successfully
+2025-05-10 10:53:31,038 - app - INFO - init_models called (no-op placeholder).
+2025-05-10 10:53:31,050 - werkzeug - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5000
+2025-05-10 10:53:31,050 - werkzeug - INFO - [33mPress CTRL+C to quit[0m
+2025-05-10 10:53:34,249 - werkzeug - INFO - 127.0.0.1 - - [10/May/2025 10:53:34] "GET / HTTP/1.1" 200 -
+2025-05-10 10:53:34,623 - werkzeug - INFO - 127.0.0.1 - - [10/May/2025 10:53:34] "[36mGET /static/css/style.css HTTP/1.1[0m" 304 -
+2025-05-10 10:53:34,748 - werkzeug - INFO - 127.0.0.1 - - [10/May/2025 10:53:34] "[33mGET /favicon.ico HTTP/1.1[0m" 404 -
+2025-05-10 10:53:35,814 - werkzeug - INFO - 127.0.0.1 - - [10/May/2025 10:53:35] "GET /login HTTP/1.1" 200 -
+2025-05-10 10:53:35,849 - werkzeug - INFO - 127.0.0.1 - - [10/May/2025 10:53:35] "[36mGET /static/css/auth.css HTTP/1.1[0m" 304 -
+2025-05-10 10:53:35,853 - werkzeug - INFO - 127.0.0.1 - - [10/May/2025 10:53:35] "[36mGET /static/js/auth.js HTTP/1.1[0m" 304 -
+2025-05-10 10:53:37,528 - app - INFO - User logged in: ayush
+2025-05-10 10:53:37,529 - werkzeug - INFO - 127.0.0.1 - - [10/May/2025 10:53:37] "POST /login HTTP/1.1" 200 -
+2025-05-10 10:53:37,577 - werkzeug - INFO - 127.0.0.1 - - [10/May/2025 10:53:37] "GET /dashboard HTTP/1.1" 200 -
+2025-05-10 10:53:37,687 - werkzeug - INFO - 127.0.0.1 - - [10/May/2025 10:53:37] "GET /static/js/dashboard.js HTTP/1.1" 200 -
+2025-05-10 10:53:37,687 - werkzeug - INFO - 127.0.0.1 - - [10/May/2025 10:53:37] "[36mGET /static/css/style.css HTTP/1.1[0m" 304 -
+2025-05-10 10:53:37,688 - werkzeug - INFO - 127.0.0.1 - - [10/May/2025 10:53:37] "[36mGET /static/js/test.js HTTP/1.1[0m" 304 -
+2025-05-10 10:53:37,788 - werkzeug - INFO - 127.0.0.1 - - [10/May/2025 10:53:37] "GET /api/get_analytics HTTP/1.1" 200 -
+2025-05-10 10:54:37,779 - werkzeug - INFO - 127.0.0.1 - - [10/May/2025 10:54:37] "GET /api/get_analytics HTTP/1.1" 200 -
+2025-05-10 10:55:37,791 - werkzeug - INFO - 127.0.0.1 - - [10/May/2025 10:55:37] "GET /api/get_analytics HTTP/1.1" 200 -
+2025-05-10 10:56:37,782 - werkzeug - INFO - 127.0.0.1 - - [10/May/2025 10:56:37] "GET /api/get_analytics HTTP/1.1" 200 -
+2025-05-10 10:57:37,781 - werkzeug - INFO - 127.0.0.1 - - [10/May/2025 10:57:37] "GET /api/get_analytics HTTP/1.1" 200 -
+2025-05-10 10:58:37,792 - werkzeug - INFO - 127.0.0.1 - - [10/May/2025 10:58:37] "GET /api/get_analytics HTTP/1.1" 200 -
+2025-05-11 19:07:24,487 - __main__ - INFO - Database database/user_data.db initialized successfully
+2025-05-11 19:07:24,487 - __main__ - INFO - init_models called (no-op placeholder).
+2025-05-11 19:07:24,968 - werkzeug - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:5000
+ * Running on http://192.168.157.242:5000
+2025-05-11 19:07:24,969 - werkzeug - INFO - [33mPress CTRL+C to quit[0m
+2025-05-11 19:07:25,007 - werkzeug - INFO -  * Restarting with watchdog (windowsapi)
+2025-05-11 19:07:30,072 - __main__ - INFO - Database database/user_data.db initialized successfully
+2025-05-11 19:07:30,073 - __main__ - INFO - init_models called (no-op placeholder).
+2025-05-11 19:07:30,186 - werkzeug - WARNING -  * Debugger is active!
+2025-05-11 19:07:30,224 - werkzeug - INFO -  * Debugger PIN: 108-223-847
+2025-05-11 19:07:35,939 - werkzeug - INFO -  * Detected change in 'C:\\Python312\\Lib\\encodings\\unicode_escape.py', reloading
+2025-05-11 19:07:35,942 - werkzeug - INFO - 192.168.157.242 - - [11/May/2025 19:07:35] "GET / HTTP/1.1" 200 -
+2025-05-11 19:07:36,006 - werkzeug - INFO - 192.168.157.242 - - [11/May/2025 19:07:36] "GET /static/css/style.css HTTP/1.1" 200 -
+2025-05-11 19:07:36,485 - werkzeug - INFO -  * Restarting with watchdog (windowsapi)
+2025-05-11 19:07:41,283 - __main__ - INFO - Database database/user_data.db initialized successfully
+2025-05-11 19:07:41,285 - __main__ - INFO - init_models called (no-op placeholder).
+2025-05-11 19:07:41,391 - werkzeug - WARNING -  * Debugger is active!
+2025-05-11 19:07:41,401 - werkzeug - INFO -  * Debugger PIN: 108-223-847
+2025-05-11 19:07:41,532 - werkzeug - INFO - 192.168.157.242 - - [11/May/2025 19:07:41] "GET /login HTTP/1.1" 200 -
+2025-05-11 19:07:41,533 - werkzeug - INFO - 192.168.157.242 - - [11/May/2025 19:07:41] "[33mGET /favicon.ico HTTP/1.1[0m" 404 -
+2025-05-11 19:07:41,717 - werkzeug - INFO - 192.168.157.242 - - [11/May/2025 19:07:41] "GET /static/css/auth.css HTTP/1.1" 200 -
+2025-05-11 19:07:41,718 - werkzeug - INFO - 192.168.157.242 - - [11/May/2025 19:07:41] "GET /static/js/auth.js HTTP/1.1" 200 -
+2025-05-11 19:07:41,796 - werkzeug - INFO - 192.168.157.242 - - [11/May/2025 19:07:41] "[33mGET /favicon.ico HTTP/1.1[0m" 404 -
+2025-05-11 19:07:44,577 - werkzeug - INFO - 192.168.157.242 - - [11/May/2025 19:07:44] "GET /signup HTTP/1.1" 200 -
+2025-05-11 19:07:44,653 - werkzeug - INFO - 192.168.157.242 - - [11/May/2025 19:07:44] "[36mGET /static/css/auth.css HTTP/1.1[0m" 304 -
+2025-05-11 19:07:44,655 - werkzeug - INFO - 192.168.157.242 - - [11/May/2025 19:07:44] "[36mGET /static/js/auth.js HTTP/1.1[0m" 304 -
+2025-05-11 19:09:52,099 - __main__ - INFO - New user registered: Kunal
+2025-05-11 19:09:52,101 - werkzeug - INFO - 192.168.157.242 - - [11/May/2025 19:09:52] "POST /signup HTTP/1.1" 200 -
+2025-05-11 19:09:52,139 - werkzeug - INFO - 192.168.157.242 - - [11/May/2025 19:09:52] "GET /dashboard HTTP/1.1" 200 -
+2025-05-11 19:09:52,180 - werkzeug - INFO - 192.168.157.242 - - [11/May/2025 19:09:52] "GET /static/js/dashboard.js HTTP/1.1" 200 -
+2025-05-11 19:09:52,182 - werkzeug - INFO - 192.168.157.242 - - [11/May/2025 19:09:52] "[36mGET /static/css/style.css HTTP/1.1[0m" 304 -
+2025-05-11 19:09:52,184 - werkzeug - INFO - 192.168.157.242 - - [11/May/2025 19:09:52] "GET /static/js/test.js HTTP/1.1" 200 -
+2025-05-11 19:09:52,965 - werkzeug - INFO - 192.168.157.242 - - [11/May/2025 19:09:52] "GET /api/get_analytics HTTP/1.1" 200 -
+2025-05-11 19:09:56,229 - werkzeug - INFO - 192.168.157.242 - - [11/May/2025 19:09:56] "GET /chatbot?subject=science HTTP/1.1" 200 -
+2025-05-11 19:09:56,274 - werkzeug - INFO - 192.168.157.242 - - [11/May/2025 19:09:56] "GET /static/css/chatbot.css HTTP/1.1" 200 -
+2025-05-11 19:09:56,275 - werkzeug - INFO - 192.168.157.242 - - [11/May/2025 19:09:56] "GET /static/js/chatbot.js HTTP/1.1" 200 -
+2025-05-11 19:10:01,091 - werkzeug - INFO - 192.168.157.242 - - [11/May/2025 19:10:01] "GET /dashboard HTTP/1.1" 200 -
+2025-05-11 19:10:01,135 - werkzeug - INFO - 192.168.157.242 - - [11/May/2025 19:10:01] "[36mGET /static/css/style.css HTTP/1.1[0m" 304 -
+2025-05-11 19:10:01,135 - werkzeug - INFO - 192.168.157.242 - - [11/May/2025 19:10:01] "[36mGET /static/js/dashboard.js HTTP/1.1[0m" 304 -
+2025-05-11 19:10:01,137 - werkzeug - INFO - 192.168.157.242 - - [11/May/2025 19:10:01] "[36mGET /static/js/test.js HTTP/1.1[0m" 304 -
+2025-05-11 19:10:01,160 - werkzeug - INFO - 192.168.157.242 - - [11/May/2025 19:10:01] "GET /api/get_analytics HTTP/1.1" 200 -
+2025-05-11 19:10:32,452 - werkzeug - INFO - 192.168.157.242 - - [11/May/2025 19:10:32] "GET /api/get_analytics HTTP/1.1" 200 -
+2025-05-11 19:12:18,213 - werkzeug - INFO - 192.168.157.242 - - [11/May/2025 19:12:18] "GET /api/get_analytics HTTP/1.1" 200 -
+2025-05-11 19:12:24,168 - werkzeug - INFO - 192.168.157.242 - - [11/May/2025 19:12:24] "GET /chatbot?subject=history HTTP/1.1" 200 -
+2025-05-11 19:12:24,207 - werkzeug - INFO - 192.168.157.242 - - [11/May/2025 19:12:24] "[36mGET /static/css/chatbot.css HTTP/1.1[0m" 304 -
+2025-05-11 19:12:24,208 - werkzeug - INFO - 192.168.157.242 - - [11/May/2025 19:12:24] "[36mGET /static/js/chatbot.js HTTP/1.1[0m" 304 -
+2025-05-11 19:12:33,807 - werkzeug - INFO - 192.168.157.242 - - [11/May/2025 19:12:33] "[35m[1mPOST /api/chat HTTP/1.1[0m" 503 -
+2025-05-11 19:12:38,128 - werkzeug - INFO - 192.168.157.242 - - [11/May/2025 19:12:38] "[35m[1mPOST /api/chat HTTP/1.1[0m" 503 -
+2025-05-11 19:23:52,424 - werkzeug - INFO - 192.168.157.242 - - [11/May/2025 19:23:52] "GET /api/get_analytics HTTP/1.1" 200 -
+2025-05-11 19:23:52,708 - werkzeug - INFO - 192.168.157.242 - - [11/May/2025 19:23:52] "GET /signup HTTP/1.1" 200 -
+2025-05-11 19:23:54,459 - werkzeug - INFO - 192.168.157.242 - - [11/May/2025 19:23:54] "[32mGET / HTTP/1.1[0m" 302 -
+2025-05-11 19:23:54,492 - __main__ - ERROR - Dashboard error: Could not build url for endpoint 'recent_activity'. Did you mean 'get_analytics' instead?
+2025-05-11 19:23:54,494 - werkzeug - INFO - 192.168.157.242 - - [11/May/2025 19:23:54] "[32mGET /dashboard HTTP/1.1[0m" 302 -
+2025-05-11 19:23:54,504 - werkzeug - INFO - 192.168.157.242 - - [11/May/2025 19:23:54] "GET /login HTTP/1.1" 200 -
+2025-05-11 19:23:54,534 - werkzeug - INFO - 192.168.157.242 - - [11/May/2025 19:23:54] "[36mGET /static/js/auth.js HTTP/1.1[0m" 304 -
+2025-05-11 19:23:54,534 - werkzeug - INFO - 192.168.157.242 - - [11/May/2025 19:23:54] "GET /static/css/auth.css HTTP/1.1" 200 -
+2025-05-11 19:23:55,253 - werkzeug - INFO - 192.168.157.242 - - [11/May/2025 19:23:55] "GET /login HTTP/1.1" 200 -
+2025-05-11 19:23:55,289 - werkzeug - INFO - 192.168.157.242 - - [11/May/2025 19:23:55] "[36mGET /static/css/auth.css HTTP/1.1[0m" 304 -
+2025-05-11 19:23:55,291 - werkzeug - INFO - 192.168.157.242 - - [11/May/2025 19:23:55] "[36mGET /static/js/auth.js HTTP/1.1[0m" 304 -
+2025-05-11 19:26:08,072 - __main__ - INFO - Database database/user_data.db initialized successfully
+2025-05-11 19:26:08,073 - __main__ - INFO - init_models called (no-op placeholder).
+2025-05-11 19:26:08,160 - werkzeug - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:5000
+ * Running on http://192.168.157.242:5000
+2025-05-11 19:26:08,161 - werkzeug - INFO - [33mPress CTRL+C to quit[0m
+2025-05-11 19:26:08,175 - werkzeug - INFO -  * Restarting with watchdog (windowsapi)
+2025-05-11 19:26:10,861 - __main__ - INFO - Database database/user_data.db initialized successfully
+2025-05-11 19:26:10,862 - __main__ - INFO - init_models called (no-op placeholder).
+2025-05-11 19:26:10,947 - werkzeug - WARNING -  * Debugger is active!
+2025-05-11 19:26:10,952 - werkzeug - INFO -  * Debugger PIN: 108-223-847
+2025-05-11 19:26:11,465 - werkzeug - INFO -  * Detected change in 'C:\\Users\\kunal\\AppData\\Roaming\\Python\\Python312\\site-packages\\flask\\app.py', reloading
+2025-05-11 19:26:11,487 - werkzeug - INFO -  * Detected change in 'C:\\Users\\kunal\\AppData\\Roaming\\Python\\Python312\\site-packages\\flask\\templating.py', reloading
+2025-05-11 19:26:11,517 - werkzeug - INFO -  * Detected change in 'C:\\Users\\kunal\\AppData\\Roaming\\Python\\Python312\\site-packages\\jinja2\\environment.py', reloading
+2025-05-11 19:26:11,558 - werkzeug - INFO -  * Detected change in 'C:\\Users\\kunal\\AppData\\Roaming\\Python\\Python312\\site-packages\\werkzeug\\routing\\map.py', reloading
+2025-05-11 19:26:11,574 - werkzeug - INFO - 127.0.0.1 - - [11/May/2025 19:26:11] "[35m[1mGET / HTTP/1.1[0m" 500 -
+2025-05-11 19:26:11,687 - werkzeug - INFO - 127.0.0.1 - - [11/May/2025 19:26:11] "GET /?__debugger__=yes&cmd=resource&f=style.css HTTP/1.1" 200 -
+2025-05-11 19:26:11,692 - werkzeug - INFO - 127.0.0.1 - - [11/May/2025 19:26:11] "GET /?__debugger__=yes&cmd=resource&f=debugger.js HTTP/1.1" 200 -
+2025-05-11 19:26:11,756 - werkzeug - INFO - 127.0.0.1 - - [11/May/2025 19:26:11] "GET /?__debugger__=yes&cmd=resource&f=console.png&s=TgYvvrXZ7Y7YDCBmCifq HTTP/1.1" 200 -
+2025-05-11 19:26:11,767 - werkzeug - INFO - 127.0.0.1 - - [11/May/2025 19:26:11] "GET /?__debugger__=yes&cmd=resource&f=console.png HTTP/1.1" 200 -
+2025-05-11 19:26:12,090 - werkzeug - INFO -  * Restarting with watchdog (windowsapi)
+2025-05-11 19:26:14,689 - __main__ - INFO - Database database/user_data.db initialized successfully
+2025-05-11 19:26:14,690 - __main__ - INFO - init_models called (no-op placeholder).
+2025-05-11 19:26:14,774 - werkzeug - WARNING -  * Debugger is active!
+2025-05-11 19:26:14,780 - werkzeug - INFO -  * Debugger PIN: 108-223-847
+2025-05-11 19:26:23,311 - werkzeug - INFO - 127.0.0.1 - - [11/May/2025 19:26:23] "[35m[1mGET / HTTP/1.1[0m" 500 -
+2025-05-11 19:26:23,410 - werkzeug - INFO - 127.0.0.1 - - [11/May/2025 19:26:23] "[36mGET /?__debugger__=yes&cmd=resource&f=style.css HTTP/1.1[0m" 304 -
+2025-05-11 19:26:23,411 - werkzeug - INFO - 127.0.0.1 - - [11/May/2025 19:26:23] "[36mGET /?__debugger__=yes&cmd=resource&f=debugger.js HTTP/1.1[0m" 304 -
+2025-05-11 19:26:23,496 - werkzeug - INFO - 127.0.0.1 - - [11/May/2025 19:26:23] "GET /?__debugger__=yes&cmd=resource&f=console.png&s=E5P8UJxJdQdVQ0C7KGvd HTTP/1.1" 200 -
+2025-05-11 19:26:59,368 - __main__ - INFO - Database database/user_data.db initialized successfully
+2025-05-11 19:26:59,368 - __main__ - INFO - init_models called (no-op placeholder).
+2025-05-11 19:26:59,470 - werkzeug - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:5000
+ * Running on http://192.168.157.242:5000
+2025-05-11 19:26:59,470 - werkzeug - INFO - [33mPress CTRL+C to quit[0m
+2025-05-11 19:26:59,487 - werkzeug - INFO -  * Restarting with watchdog (windowsapi)
+2025-05-11 19:27:02,281 - __main__ - INFO - Database database/user_data.db initialized successfully
+2025-05-11 19:27:02,282 - __main__ - INFO - init_models called (no-op placeholder).
+2025-05-11 19:27:02,365 - werkzeug - WARNING -  * Debugger is active!
+2025-05-11 19:27:02,369 - werkzeug - INFO -  * Debugger PIN: 108-223-847
+2025-05-11 19:27:03,256 - werkzeug - INFO - 127.0.0.1 - - [11/May/2025 19:27:03] "[35m[1mGET / HTTP/1.1[0m" 500 -
+2025-05-11 19:27:03,340 - werkzeug - INFO - 127.0.0.1 - - [11/May/2025 19:27:03] "[36mGET /?__debugger__=yes&cmd=resource&f=debugger.js HTTP/1.1[0m" 304 -
+2025-05-11 19:27:03,341 - werkzeug - INFO - 127.0.0.1 - - [11/May/2025 19:27:03] "[36mGET /?__debugger__=yes&cmd=resource&f=style.css HTTP/1.1[0m" 304 -
+2025-05-11 19:27:03,425 - werkzeug - INFO - 127.0.0.1 - - [11/May/2025 19:27:03] "GET /?__debugger__=yes&cmd=resource&f=console.png&s=U8eZRlVFpK3jpwLbwPwl HTTP/1.1" 200 -
+2025-05-11 19:28:15,250 - werkzeug - INFO -  * Detected change in 'C:\\Hackathon\\Chatbot-2\\Chatbot-2\\app.py', reloading
+2025-05-11 19:28:15,252 - werkzeug - INFO -  * Detected change in 'C:\\Hackathon\\Chatbot-2\\Chatbot-2\\app.py', reloading
+2025-05-11 19:28:15,888 - werkzeug - INFO -  * Restarting with watchdog (windowsapi)
+2025-05-11 19:28:18,529 - __main__ - INFO - Database database/user_data.db initialized successfully
+2025-05-11 19:28:18,530 - __main__ - INFO - init_models called (no-op placeholder).
+2025-05-11 19:28:18,603 - werkzeug - WARNING -  * Debugger is active!
+2025-05-11 19:28:18,608 - werkzeug - INFO -  * Debugger PIN: 108-223-847
+2025-05-11 19:29:54,292 - __main__ - INFO - Database database/user_data.db initialized successfully
+2025-05-11 19:29:54,293 - __main__ - INFO - init_models called (no-op placeholder).
+2025-05-11 19:29:54,374 - werkzeug - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:5000
+ * Running on http://192.168.157.242:5000
+2025-05-11 19:29:54,374 - werkzeug - INFO - [33mPress CTRL+C to quit[0m
+2025-05-11 19:29:54,386 - werkzeug - INFO -  * Restarting with watchdog (windowsapi)
+2025-05-11 19:29:56,974 - __main__ - INFO - Database database/user_data.db initialized successfully
+2025-05-11 19:29:56,975 - __main__ - INFO - init_models called (no-op placeholder).
+2025-05-11 19:29:57,047 - werkzeug - WARNING -  * Debugger is active!
+2025-05-11 19:29:57,051 - werkzeug - INFO -  * Debugger PIN: 108-223-847
+2025-05-11 19:29:57,178 - werkzeug - INFO - 127.0.0.1 - - [11/May/2025 19:29:57] "GET / HTTP/1.1" 200 -
+2025-05-11 19:29:57,240 - werkzeug - INFO - 127.0.0.1 - - [11/May/2025 19:29:57] "GET /static/css/style.css HTTP/1.1" 200 -
+2025-05-11 19:29:57,320 - werkzeug - INFO - 127.0.0.1 - - [11/May/2025 19:29:57] "[33mGET /favicon.ico HTTP/1.1[0m" 404 -
+2025-05-11 19:29:59,630 - werkzeug - INFO - 127.0.0.1 - - [11/May/2025 19:29:59] "[32mGET /dashboard HTTP/1.1[0m" 302 -
+2025-05-11 19:29:59,679 - werkzeug - INFO - 127.0.0.1 - - [11/May/2025 19:29:59] "GET /login HTTP/1.1" 200 -
+2025-05-11 19:29:59,723 - werkzeug - INFO - 127.0.0.1 - - [11/May/2025 19:29:59] "GET /static/css/auth.css HTTP/1.1" 200 -
+2025-05-11 19:29:59,724 - werkzeug - INFO - 127.0.0.1 - - [11/May/2025 19:29:59] "GET /static/js/auth.js HTTP/1.1" 200 -
+2025-05-11 19:30:52,206 - werkzeug - INFO - 127.0.0.1 - - [11/May/2025 19:30:52] "GET /recent-activity HTTP/1.1" 200 -
+2025-05-11 19:30:52,238 - werkzeug - INFO - 127.0.0.1 - - [11/May/2025 19:30:52] "[36mGET /static/css/style.css HTTP/1.1[0m" 304 -
+2025-05-11 19:30:52,938 - werkzeug - INFO - 127.0.0.1 - - [11/May/2025 19:30:52] "GET /text-summarizer HTTP/1.1" 200 -
+2025-05-11 19:30:52,979 - werkzeug - INFO - 127.0.0.1 - - [11/May/2025 19:30:52] "[36mGET /static/css/style.css HTTP/1.1[0m" 304 -
+2025-05-11 19:30:53,635 - werkzeug - INFO - 127.0.0.1 - - [11/May/2025 19:30:53] "GET /youtube-extractor HTTP/1.1" 200 -
+2025-05-11 19:30:53,680 - werkzeug - INFO - 127.0.0.1 - - [11/May/2025 19:30:53] "[36mGET /static/css/style.css HTTP/1.1[0m" 304 -
+2025-05-11 19:30:55,413 - werkzeug - INFO - 127.0.0.1 - - [11/May/2025 19:30:55] "[32mGET /dashboard HTTP/1.1[0m" 302 -
+2025-05-11 19:30:55,424 - werkzeug - INFO - 127.0.0.1 - - [11/May/2025 19:30:55] "GET /login HTTP/1.1" 200 -
+2025-05-11 19:30:55,465 - werkzeug - INFO - 127.0.0.1 - - [11/May/2025 19:30:55] "[36mGET /static/js/auth.js HTTP/1.1[0m" 304 -
+2025-05-11 19:30:55,465 - werkzeug - INFO - 127.0.0.1 - - [11/May/2025 19:30:55] "[36mGET /static/css/auth.css HTTP/1.1[0m" 304 -
+2025-05-11 19:33:09,210 - werkzeug - INFO - 127.0.0.1 - - [11/May/2025 19:33:09] "GET /login HTTP/1.1" 200 -
+2025-05-11 19:33:09,244 - werkzeug - INFO - 127.0.0.1 - - [11/May/2025 19:33:09] "[36mGET /static/css/auth.css HTTP/1.1[0m" 304 -
+2025-05-11 19:33:09,245 - werkzeug - INFO - 127.0.0.1 - - [11/May/2025 19:33:09] "[36mGET /static/js/auth.js HTTP/1.1[0m" 304 -
+2025-05-11 19:33:13,570 - werkzeug - INFO - 127.0.0.1 - - [11/May/2025 19:33:13] "GET /youtube-extractor HTTP/1.1" 200 -
+2025-05-11 19:33:13,595 - werkzeug - INFO - 127.0.0.1 - - [11/May/2025 19:33:13] "[36mGET /static/css/style.css HTTP/1.1[0m" 304 -
+2025-05-11 19:33:14,210 - werkzeug - INFO - 127.0.0.1 - - [11/May/2025 19:33:14] "GET /youtube-extractor HTTP/1.1" 200 -
+2025-05-11 19:33:14,241 - werkzeug - INFO - 127.0.0.1 - - [11/May/2025 19:33:14] "[36mGET /static/css/style.css HTTP/1.1[0m" 304 -
+2025-05-11 19:33:18,909 - werkzeug - INFO - 127.0.0.1 - - [11/May/2025 19:33:18] "GET /signup HTTP/1.1" 200 -
+2025-05-11 19:33:18,951 - werkzeug - INFO - 127.0.0.1 - - [11/May/2025 19:33:18] "[36mGET /static/css/auth.css HTTP/1.1[0m" 304 -
+2025-05-11 19:33:18,953 - werkzeug - INFO - 127.0.0.1 - - [11/May/2025 19:33:18] "[36mGET /static/js/auth.js HTTP/1.1[0m" 304 -
+2025-05-11 19:33:21,933 - werkzeug - INFO - 127.0.0.1 - - [11/May/2025 19:33:21] "GET /youtube-extractor HTTP/1.1" 200 -
+2025-05-11 19:33:21,953 - werkzeug - INFO - 127.0.0.1 - - [11/May/2025 19:33:21] "[36mGET /static/css/style.css HTTP/1.1[0m" 304 -
+2025-05-11 19:33:22,086 - werkzeug - INFO - 127.0.0.1 - - [11/May/2025 19:33:22] "GET /youtube-extractor HTTP/1.1" 200 -
+2025-05-11 19:33:22,118 - werkzeug - INFO - 127.0.0.1 - - [11/May/2025 19:33:22] "[36mGET /static/css/style.css HTTP/1.1[0m" 304 -
+2025-05-11 19:33:25,127 - werkzeug - INFO - 127.0.0.1 - - [11/May/2025 19:33:25] "GET / HTTP/1.1" 200 -
+2025-05-11 19:33:25,164 - werkzeug - INFO - 127.0.0.1 - - [11/May/2025 19:33:25] "[36mGET /static/css/style.css HTTP/1.1[0m" 304 -
+2025-05-11 19:36:18,286 - __main__ - INFO - Database database/user_data.db initialized successfully
+2025-05-11 19:36:18,287 - __main__ - INFO - init_models called (no-op placeholder).
+2025-05-11 19:36:18,368 - werkzeug - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:5000
+ * Running on http://192.168.157.242:5000
+2025-05-11 19:36:18,368 - werkzeug - INFO - [33mPress CTRL+C to quit[0m
+2025-05-11 19:36:18,383 - werkzeug - INFO -  * Restarting with watchdog (windowsapi)
+2025-05-11 19:36:21,030 - __main__ - INFO - Database database/user_data.db initialized successfully
+2025-05-11 19:36:21,031 - __main__ - INFO - init_models called (no-op placeholder).
+2025-05-11 19:36:21,091 - werkzeug - WARNING -  * Debugger is active!
+2025-05-11 19:36:21,095 - werkzeug - INFO -  * Debugger PIN: 108-223-847
+2025-05-11 19:36:21,678 - werkzeug - INFO - 127.0.0.1 - - [11/May/2025 19:36:21] "GET / HTTP/1.1" 200 -
+2025-05-11 19:36:21,753 - werkzeug - INFO - 127.0.0.1 - - [11/May/2025 19:36:21] "[36mGET /static/css/style.css HTTP/1.1[0m" 304 -
+2025-05-11 19:36:40,577 - werkzeug - INFO - 127.0.0.1 - - [11/May/2025 19:36:40] "GET /login HTTP/1.1" 200 -
+2025-05-11 19:36:40,620 - werkzeug - INFO - 127.0.0.1 - - [11/May/2025 19:36:40] "[36mGET /static/js/auth.js HTTP/1.1[0m" 304 -
+2025-05-11 19:36:40,621 - werkzeug - INFO - 127.0.0.1 - - [11/May/2025 19:36:40] "[36mGET /static/css/auth.css HTTP/1.1[0m" 304 -
+2025-05-11 19:36:46,585 - werkzeug - INFO - 127.0.0.1 - - [11/May/2025 19:36:46] "GET /signup HTTP/1.1" 200 -
+2025-05-11 19:36:46,626 - werkzeug - INFO - 127.0.0.1 - - [11/May/2025 19:36:46] "[36mGET /static/css/auth.css HTTP/1.1[0m" 304 -
+2025-05-11 19:36:46,628 - werkzeug - INFO - 127.0.0.1 - - [11/May/2025 19:36:46] "[36mGET /static/js/auth.js HTTP/1.1[0m" 304 -
+2025-05-11 19:36:53,804 - __main__ - ERROR - Signup error: Username or email already exists
+2025-05-11 19:36:53,806 - werkzeug - INFO - 127.0.0.1 - - [11/May/2025 19:36:53] "[31m[1mPOST /signup HTTP/1.1[0m" 400 -
+2025-05-11 19:36:58,023 - __main__ - ERROR - Signup error: Username or email already exists
+2025-05-11 19:36:58,024 - werkzeug - INFO - 127.0.0.1 - - [11/May/2025 19:36:58] "[31m[1mPOST /signup HTTP/1.1[0m" 400 -
+2025-05-11 19:37:01,888 - __main__ - INFO - New user registered: Kunal007
+2025-05-11 19:37:01,890 - werkzeug - INFO - 127.0.0.1 - - [11/May/2025 19:37:01] "POST /signup HTTP/1.1" 200 -
+2025-05-11 19:37:01,931 - werkzeug - INFO - 127.0.0.1 - - [11/May/2025 19:37:01] "GET /dashboard HTTP/1.1" 200 -
+2025-05-11 19:37:01,969 - werkzeug - INFO - 127.0.0.1 - - [11/May/2025 19:37:01] "[36mGET /static/css/style.css HTTP/1.1[0m" 304 -
+2025-05-11 19:37:01,971 - werkzeug - INFO - 127.0.0.1 - - [11/May/2025 19:37:01] "GET /static/js/dashboard.js HTTP/1.1" 200 -
+2025-05-11 19:37:01,972 - werkzeug - INFO - 127.0.0.1 - - [11/May/2025 19:37:01] "GET /static/js/test.js HTTP/1.1" 200 -
+2025-05-11 19:37:02,143 - werkzeug - INFO - 127.0.0.1 - - [11/May/2025 19:37:02] "GET /api/get_analytics HTTP/1.1" 200 -
+2025-05-11 19:37:06,664 - werkzeug - INFO - 127.0.0.1 - - [11/May/2025 19:37:06] "GET /recent-activity HTTP/1.1" 200 -
+2025-05-11 19:37:06,703 - werkzeug - INFO - 127.0.0.1 - - [11/May/2025 19:37:06] "[36mGET /static/css/style.css HTTP/1.1[0m" 304 -
+2025-05-11 19:37:07,815 - werkzeug - INFO - 127.0.0.1 - - [11/May/2025 19:37:07] "GET /text-summarizer HTTP/1.1" 200 -
+2025-05-11 19:37:07,861 - werkzeug - INFO - 127.0.0.1 - - [11/May/2025 19:37:07] "[36mGET /static/css/style.css HTTP/1.1[0m" 304 -
+2025-05-11 19:37:08,789 - werkzeug - INFO - 127.0.0.1 - - [11/May/2025 19:37:08] "GET /youtube-extractor HTTP/1.1" 200 -
+2025-05-11 19:37:08,837 - werkzeug - INFO - 127.0.0.1 - - [11/May/2025 19:37:08] "[36mGET /static/css/style.css HTTP/1.1[0m" 304 -
+2025-05-11 19:37:09,725 - werkzeug - INFO - 127.0.0.1 - - [11/May/2025 19:37:09] "GET /recent-activity HTTP/1.1" 200 -
+2025-05-11 19:37:09,773 - werkzeug - INFO - 127.0.0.1 - - [11/May/2025 19:37:09] "[36mGET /static/css/style.css HTTP/1.1[0m" 304 -
+2025-05-11 19:37:10,346 - werkzeug - INFO - 127.0.0.1 - - [11/May/2025 19:37:10] "GET /dashboard HTTP/1.1" 200 -
+2025-05-11 19:37:10,390 - werkzeug - INFO - 127.0.0.1 - - [11/May/2025 19:37:10] "[36mGET /static/css/style.css HTTP/1.1[0m" 304 -
+2025-05-11 19:37:10,395 - werkzeug - INFO - 127.0.0.1 - - [11/May/2025 19:37:10] "[36mGET /static/js/dashboard.js HTTP/1.1[0m" 304 -
+2025-05-11 19:37:10,398 - werkzeug - INFO - 127.0.0.1 - - [11/May/2025 19:37:10] "[36mGET /static/js/test.js HTTP/1.1[0m" 304 -
+2025-05-11 19:37:10,415 - werkzeug - INFO - 127.0.0.1 - - [11/May/2025 19:37:10] "GET /api/get_analytics HTTP/1.1" 200 -
+2025-05-11 19:37:54,318 - werkzeug - INFO - 127.0.0.1 - - [11/May/2025 19:37:54] "GET /api/get_analytics HTTP/1.1" 200 -
+2025-05-11 19:37:56,423 - werkzeug - INFO - 127.0.0.1 - - [11/May/2025 19:37:56] "GET /text-summarizer HTTP/1.1" 200 -
+2025-05-11 19:37:56,474 - werkzeug - INFO - 127.0.0.1 - - [11/May/2025 19:37:56] "[36mGET /static/css/style.css HTTP/1.1[0m" 304 -
+2025-05-11 19:37:57,171 - werkzeug - INFO - 127.0.0.1 - - [11/May/2025 19:37:57] "GET /recent-activity HTTP/1.1" 200 -
+2025-05-11 19:37:57,226 - werkzeug - INFO - 127.0.0.1 - - [11/May/2025 19:37:57] "[36mGET /static/css/style.css HTTP/1.1[0m" 304 -
+2025-05-11 19:37:58,014 - werkzeug - INFO - 127.0.0.1 - - [11/May/2025 19:37:58] "GET /dashboard HTTP/1.1" 200 -
+2025-05-11 19:37:58,055 - werkzeug - INFO - 127.0.0.1 - - [11/May/2025 19:37:58] "[36mGET /static/css/style.css HTTP/1.1[0m" 304 -
+2025-05-11 19:37:58,059 - werkzeug - INFO - 127.0.0.1 - - [11/May/2025 19:37:58] "[36mGET /static/js/dashboard.js HTTP/1.1[0m" 304 -
+2025-05-11 19:37:58,059 - werkzeug - INFO - 127.0.0.1 - - [11/May/2025 19:37:58] "[36mGET /static/js/test.js HTTP/1.1[0m" 304 -
+2025-05-11 19:37:58,068 - werkzeug - INFO - 127.0.0.1 - - [11/May/2025 19:37:58] "GET /api/get_analytics HTTP/1.1" 200 -
+2025-05-11 19:38:48,403 - werkzeug - INFO - 127.0.0.1 - - [11/May/2025 19:38:48] "GET /api/get_analytics HTTP/1.1" 200 -
+2025-05-11 19:38:51,802 - werkzeug - INFO - 127.0.0.1 - - [11/May/2025 19:38:51] "GET /recent-activity HTTP/1.1" 200 -
+2025-05-11 19:38:51,848 - werkzeug - INFO - 127.0.0.1 - - [11/May/2025 19:38:51] "[36mGET /static/css/style.css HTTP/1.1[0m" 304 -
+2025-05-11 19:38:52,157 - werkzeug - INFO - 127.0.0.1 - - [11/May/2025 19:38:52] "GET /text-summarizer HTTP/1.1" 200 -
+2025-05-11 19:38:52,204 - werkzeug - INFO - 127.0.0.1 - - [11/May/2025 19:38:52] "[36mGET /static/css/style.css HTTP/1.1[0m" 304 -
+2025-05-11 19:38:52,229 - werkzeug - INFO - 127.0.0.1 - - [11/May/2025 19:38:52] "GET /dashboard HTTP/1.1" 200 -
+2025-05-11 19:38:52,267 - werkzeug - INFO - 127.0.0.1 - - [11/May/2025 19:38:52] "[36mGET /static/js/dashboard.js HTTP/1.1[0m" 304 -
+2025-05-11 19:38:52,269 - werkzeug - INFO - 127.0.0.1 - - [11/May/2025 19:38:52] "[36mGET /static/css/style.css HTTP/1.1[0m" 304 -
+2025-05-11 19:38:52,270 - werkzeug - INFO - 127.0.0.1 - - [11/May/2025 19:38:52] "[36mGET /static/js/test.js HTTP/1.1[0m" 304 -
+2025-05-11 19:38:52,296 - werkzeug - INFO - 127.0.0.1 - - [11/May/2025 19:38:52] "GET /api/get_analytics HTTP/1.1" 200 -
+2025-05-11 19:38:52,576 - werkzeug - INFO - 127.0.0.1 - - [11/May/2025 19:38:52] "GET /youtube-extractor HTTP/1.1" 200 -
+2025-05-11 19:38:52,629 - werkzeug - INFO - 127.0.0.1 - - [11/May/2025 19:38:52] "[36mGET /static/css/style.css HTTP/1.1[0m" 304 -
+2025-05-11 19:38:54,555 - werkzeug - INFO - 127.0.0.1 - - [11/May/2025 19:38:54] "GET /recent-activity HTTP/1.1" 200 -
+2025-05-11 19:38:54,603 - werkzeug - INFO - 127.0.0.1 - - [11/May/2025 19:38:54] "[36mGET /static/css/style.css HTTP/1.1[0m" 304 -
+2025-05-11 19:38:55,027 - werkzeug - INFO - 127.0.0.1 - - [11/May/2025 19:38:55] "GET /text-summarizer HTTP/1.1" 200 -
+2025-05-11 19:38:55,076 - werkzeug - INFO - 127.0.0.1 - - [11/May/2025 19:38:55] "[36mGET /static/css/style.css HTTP/1.1[0m" 304 -
+2025-05-11 19:38:55,093 - werkzeug - INFO - 127.0.0.1 - - [11/May/2025 19:38:55] "GET /dashboard HTTP/1.1" 200 -
+2025-05-11 19:38:55,121 - werkzeug - INFO - 127.0.0.1 - - [11/May/2025 19:38:55] "[36mGET /static/css/style.css HTTP/1.1[0m" 304 -
+2025-05-11 19:38:55,123 - werkzeug - INFO - 127.0.0.1 - - [11/May/2025 19:38:55] "[36mGET /static/js/dashboard.js HTTP/1.1[0m" 304 -
+2025-05-11 19:38:55,127 - werkzeug - INFO - 127.0.0.1 - - [11/May/2025 19:38:55] "[36mGET /static/js/test.js HTTP/1.1[0m" 304 -
+2025-05-11 19:38:55,141 - werkzeug - INFO - 127.0.0.1 - - [11/May/2025 19:38:55] "GET /api/get_analytics HTTP/1.1" 200 -
+2025-05-11 19:38:56,425 - werkzeug - INFO - 127.0.0.1 - - [11/May/2025 19:38:56] "GET /dashboard HTTP/1.1" 200 -
+2025-05-11 19:38:56,456 - werkzeug - INFO - 127.0.0.1 - - [11/May/2025 19:38:56] "[36mGET /static/css/style.css HTTP/1.1[0m" 304 -
+2025-05-11 19:38:56,460 - werkzeug - INFO - 127.0.0.1 - - [11/May/2025 19:38:56] "[36mGET /static/js/dashboard.js HTTP/1.1[0m" 304 -
+2025-05-11 19:38:56,463 - werkzeug - INFO - 127.0.0.1 - - [11/May/2025 19:38:56] "[36mGET /static/js/test.js HTTP/1.1[0m" 304 -
+2025-05-11 19:38:56,480 - werkzeug - INFO - 127.0.0.1 - - [11/May/2025 19:38:56] "GET /api/get_analytics HTTP/1.1" 200 -
+2025-05-11 19:38:57,292 - werkzeug - INFO - 127.0.0.1 - - [11/May/2025 19:38:57] "GET /recent-activity HTTP/1.1" 200 -
+2025-05-11 19:38:57,341 - werkzeug - INFO - 127.0.0.1 - - [11/May/2025 19:38:57] "[36mGET /static/css/style.css HTTP/1.1[0m" 304 -
+2025-05-11 19:38:57,979 - werkzeug - INFO - 127.0.0.1 - - [11/May/2025 19:38:57] "GET /text-summarizer HTTP/1.1" 200 -
+2025-05-11 19:38:58,032 - werkzeug - INFO - 127.0.0.1 - - [11/May/2025 19:38:58] "[36mGET /static/css/style.css HTTP/1.1[0m" 304 -
+2025-05-11 19:38:58,061 - werkzeug - INFO - 127.0.0.1 - - [11/May/2025 19:38:58] "GET /dashboard HTTP/1.1" 200 -
+2025-05-11 19:38:58,088 - werkzeug - INFO - 127.0.0.1 - - [11/May/2025 19:38:58] "[36mGET /static/css/style.css HTTP/1.1[0m" 304 -
+2025-05-11 19:38:58,090 - werkzeug - INFO - 127.0.0.1 - - [11/May/2025 19:38:58] "[36mGET /static/js/dashboard.js HTTP/1.1[0m" 304 -
+2025-05-11 19:38:58,092 - werkzeug - INFO - 127.0.0.1 - - [11/May/2025 19:38:58] "[36mGET /static/js/test.js HTTP/1.1[0m" 304 -
+2025-05-11 19:38:58,114 - werkzeug - INFO - 127.0.0.1 - - [11/May/2025 19:38:58] "GET /api/get_analytics HTTP/1.1" 200 -
+2025-05-11 19:39:00,019 - werkzeug - INFO - 127.0.0.1 - - [11/May/2025 19:39:00] "GET /dashboard HTTP/1.1" 200 -
+2025-05-11 19:39:00,060 - werkzeug - INFO - 127.0.0.1 - - [11/May/2025 19:39:00] "[36mGET /static/css/style.css HTTP/1.1[0m" 304 -
+2025-05-11 19:39:00,061 - werkzeug - INFO - 127.0.0.1 - - [11/May/2025 19:39:00] "[36mGET /static/js/test.js HTTP/1.1[0m" 304 -
+2025-05-11 19:39:00,065 - werkzeug - INFO - 127.0.0.1 - - [11/May/2025 19:39:00] "[36mGET /static/js/dashboard.js HTTP/1.1[0m" 304 -
+2025-05-11 19:39:00,082 - werkzeug - INFO - 127.0.0.1 - - [11/May/2025 19:39:00] "GET /api/get_analytics HTTP/1.1" 200 -
+2025-05-11 19:39:29,962 - werkzeug - INFO - 127.0.0.1 - - [11/May/2025 19:39:29] "GET /youtube-extractor HTTP/1.1" 200 -
+2025-05-11 19:39:30,005 - werkzeug - INFO - 127.0.0.1 - - [11/May/2025 19:39:30] "[36mGET /static/css/style.css HTTP/1.1[0m" 304 -
+2025-05-11 19:39:30,019 - werkzeug - INFO - 127.0.0.1 - - [11/May/2025 19:39:30] "GET /dashboard HTTP/1.1" 200 -
+2025-05-11 19:39:30,048 - werkzeug - INFO - 127.0.0.1 - - [11/May/2025 19:39:30] "[36mGET /static/css/style.css HTTP/1.1[0m" 304 -
+2025-05-11 19:39:30,049 - werkzeug - INFO - 127.0.0.1 - - [11/May/2025 19:39:30] "[36mGET /static/js/dashboard.js HTTP/1.1[0m" 304 -
+2025-05-11 19:39:30,051 - werkzeug - INFO - 127.0.0.1 - - [11/May/2025 19:39:30] "[36mGET /static/js/test.js HTTP/1.1[0m" 304 -
+2025-05-11 19:39:30,075 - werkzeug - INFO - 127.0.0.1 - - [11/May/2025 19:39:30] "GET /api/get_analytics HTTP/1.1" 200 -
+2025-05-11 19:39:31,959 - werkzeug - INFO - 127.0.0.1 - - [11/May/2025 19:39:31] "GET /text-summarizer HTTP/1.1" 200 -
+2025-05-11 19:39:32,006 - werkzeug - INFO - 127.0.0.1 - - [11/May/2025 19:39:32] "[36mGET /static/css/style.css HTTP/1.1[0m" 304 -
+2025-05-11 19:39:32,021 - werkzeug - INFO - 127.0.0.1 - - [11/May/2025 19:39:32] "GET /dashboard HTTP/1.1" 200 -
+2025-05-11 19:39:32,050 - werkzeug - INFO - 127.0.0.1 - - [11/May/2025 19:39:32] "[36mGET /static/js/dashboard.js HTTP/1.1[0m" 304 -
+2025-05-11 19:39:32,050 - werkzeug - INFO - 127.0.0.1 - - [11/May/2025 19:39:32] "[36mGET /static/css/style.css HTTP/1.1[0m" 304 -
+2025-05-11 19:39:32,053 - werkzeug - INFO - 127.0.0.1 - - [11/May/2025 19:39:32] "[36mGET /static/js/test.js HTTP/1.1[0m" 304 -
+2025-05-11 19:39:32,067 - werkzeug - INFO - 127.0.0.1 - - [11/May/2025 19:39:32] "GET /api/get_analytics HTTP/1.1" 200 -
+2025-05-11 19:39:32,860 - werkzeug - INFO - 127.0.0.1 - - [11/May/2025 19:39:32] "GET /recent-activity HTTP/1.1" 200 -
+2025-05-11 19:39:32,912 - werkzeug - INFO - 127.0.0.1 - - [11/May/2025 19:39:32] "[36mGET /static/css/style.css HTTP/1.1[0m" 304 -
+2025-05-11 19:39:34,167 - werkzeug - INFO - 127.0.0.1 - - [11/May/2025 19:39:34] "GET /dashboard HTTP/1.1" 200 -
+2025-05-11 19:39:34,216 - werkzeug - INFO - 127.0.0.1 - - [11/May/2025 19:39:34] "[36mGET /static/css/style.css HTTP/1.1[0m" 304 -
+2025-05-11 19:39:34,216 - werkzeug - INFO - 127.0.0.1 - - [11/May/2025 19:39:34] "[36mGET /static/js/dashboard.js HTTP/1.1[0m" 304 -
+2025-05-11 19:39:34,217 - werkzeug - INFO - 127.0.0.1 - - [11/May/2025 19:39:34] "[36mGET /static/js/test.js HTTP/1.1[0m" 304 -
+2025-05-11 19:39:34,239 - werkzeug - INFO - 127.0.0.1 - - [11/May/2025 19:39:34] "GET /api/get_analytics HTTP/1.1" 200 -
+2025-05-11 19:39:37,590 - werkzeug - INFO - 127.0.0.1 - - [11/May/2025 19:39:37] "GET /chatbot?subject=science HTTP/1.1" 200 -
+2025-05-11 19:39:37,678 - werkzeug - INFO - 127.0.0.1 - - [11/May/2025 19:39:37] "GET /static/css/chatbot.css HTTP/1.1" 200 -
+2025-05-11 19:39:37,679 - werkzeug - INFO - 127.0.0.1 - - [11/May/2025 19:39:37] "GET /static/js/chatbot.js HTTP/1.1" 200 -
+2025-05-11 19:42:26,851 - werkzeug - INFO - 127.0.0.1 - - [11/May/2025 19:42:26] "GET /chatbot?subject=science HTTP/1.1" 200 -
+2025-05-11 19:42:26,884 - werkzeug - INFO - 127.0.0.1 - - [11/May/2025 19:42:26] "[36mGET /static/css/style.css HTTP/1.1[0m" 304 -
+2025-05-11 19:42:26,884 - werkzeug - INFO - 127.0.0.1 - - [11/May/2025 19:42:26] "[36mGET /static/js/chatbot.js HTTP/1.1[0m" 304 -
+2025-05-11 19:43:59,693 - werkzeug - INFO - 127.0.0.1 - - [11/May/2025 19:43:59] "GET /chatbot?subject=science HTTP/1.1" 200 -
+2025-05-11 19:43:59,717 - werkzeug - INFO - 127.0.0.1 - - [11/May/2025 19:43:59] "[36mGET /static/css/style.css HTTP/1.1[0m" 304 -
+2025-05-11 19:43:59,719 - werkzeug - INFO - 127.0.0.1 - - [11/May/2025 19:43:59] "[36mGET /static/js/chatbot.js HTTP/1.1[0m" 304 -
+2025-05-11 19:44:07,164 - werkzeug - INFO - 127.0.0.1 - - [11/May/2025 19:44:07] "GET /api/get_analytics HTTP/1.1" 200 -
+2025-05-11 19:44:09,392 - werkzeug - INFO - 127.0.0.1 - - [11/May/2025 19:44:09] "GET /text-summarizer HTTP/1.1" 200 -
+2025-05-11 19:44:09,436 - werkzeug - INFO - 127.0.0.1 - - [11/May/2025 19:44:09] "[36mGET /static/css/style.css HTTP/1.1[0m" 304 -
+2025-05-11 19:44:09,461 - werkzeug - INFO - 127.0.0.1 - - [11/May/2025 19:44:09] "GET /dashboard HTTP/1.1" 200 -
+2025-05-11 19:44:09,484 - werkzeug - INFO - 127.0.0.1 - - [11/May/2025 19:44:09] "[36mGET /static/css/style.css HTTP/1.1[0m" 304 -
+2025-05-11 19:44:09,488 - werkzeug - INFO - 127.0.0.1 - - [11/May/2025 19:44:09] "[36mGET /static/js/dashboard.js HTTP/1.1[0m" 304 -
+2025-05-11 19:44:09,488 - werkzeug - INFO - 127.0.0.1 - - [11/May/2025 19:44:09] "[36mGET /static/js/test.js HTTP/1.1[0m" 304 -
+2025-05-11 19:44:09,510 - werkzeug - INFO - 127.0.0.1 - - [11/May/2025 19:44:09] "GET /api/get_analytics HTTP/1.1" 200 -
+2025-05-11 19:46:01,527 - werkzeug - INFO - 127.0.0.1 - - [11/May/2025 19:46:01] "GET /api/get_analytics HTTP/1.1" 200 -
+2025-05-11 19:46:03,799 - werkzeug - INFO - 127.0.0.1 - - [11/May/2025 19:46:03] "GET /dashboard HTTP/1.1" 200 -
+2025-05-11 19:46:03,839 - werkzeug - INFO - 127.0.0.1 - - [11/May/2025 19:46:03] "[36mGET /static/js/dashboard.js HTTP/1.1[0m" 304 -
+2025-05-11 19:46:03,841 - werkzeug - INFO - 127.0.0.1 - - [11/May/2025 19:46:03] "[36mGET /static/css/style.css HTTP/1.1[0m" 304 -
+2025-05-11 19:46:03,842 - werkzeug - INFO - 127.0.0.1 - - [11/May/2025 19:46:03] "[36mGET /static/js/test.js HTTP/1.1[0m" 304 -
+2025-05-11 19:46:03,863 - werkzeug - INFO - 127.0.0.1 - - [11/May/2025 19:46:03] "GET /api/get_analytics HTTP/1.1" 200 -
+2025-05-11 19:46:04,971 - __main__ - INFO - User logged out: Kunal007
+2025-05-11 19:46:04,973 - werkzeug - INFO - 127.0.0.1 - - [11/May/2025 19:46:04] "[32mGET /logout HTTP/1.1[0m" 302 -
+2025-05-11 19:46:04,984 - werkzeug - INFO - 127.0.0.1 - - [11/May/2025 19:46:04] "GET /login HTTP/1.1" 200 -
+2025-05-11 19:46:05,038 - werkzeug - INFO - 127.0.0.1 - - [11/May/2025 19:46:05] "[36mGET /static/css/auth.css HTTP/1.1[0m" 304 -
+2025-05-11 19:46:05,039 - werkzeug - INFO - 127.0.0.1 - - [11/May/2025 19:46:05] "[36mGET /static/js/auth.js HTTP/1.1[0m" 304 -
+2025-05-11 19:46:08,780 - __main__ - ERROR - Login error: Invalid credentials
+2025-05-11 19:46:08,782 - werkzeug - INFO - 127.0.0.1 - - [11/May/2025 19:46:08] "[31m[1mPOST /login HTTP/1.1[0m" 401 -
+2025-05-11 19:46:10,370 - __main__ - ERROR - Login error: Invalid credentials
+2025-05-11 19:46:10,372 - werkzeug - INFO - 127.0.0.1 - - [11/May/2025 19:46:10] "[31m[1mPOST /login HTTP/1.1[0m" 401 -
+2025-05-11 19:46:11,154 - werkzeug - INFO - 127.0.0.1 - - [11/May/2025 19:46:11] "GET /signup HTTP/1.1" 200 -
+2025-05-11 19:46:11,200 - werkzeug - INFO - 127.0.0.1 - - [11/May/2025 19:46:11] "[36mGET /static/css/auth.css HTTP/1.1[0m" 304 -
+2025-05-11 19:46:11,202 - werkzeug - INFO - 127.0.0.1 - - [11/May/2025 19:46:11] "[36mGET /static/js/auth.js HTTP/1.1[0m" 304 -
+2025-05-11 21:14:35,864 - app - INFO - Database database/user_data.db initialized successfully
+2025-05-11 21:14:35,864 - app - INFO - init_models called (no-op placeholder).
+2025-05-11 21:14:35,878 - werkzeug - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5000
+2025-05-11 21:14:35,878 - werkzeug - INFO - [33mPress CTRL+C to quit[0m
+2025-05-11 21:14:41,719 - werkzeug - INFO - 127.0.0.1 - - [11/May/2025 21:14:41] "GET / HTTP/1.1" 200 -
+2025-05-11 21:14:41,841 - werkzeug - INFO - 127.0.0.1 - - [11/May/2025 21:14:41] "GET /static/css/style.css HTTP/1.1" 200 -
+2025-05-11 21:14:41,922 - werkzeug - INFO - 127.0.0.1 - - [11/May/2025 21:14:41] "[33mGET /favicon.ico HTTP/1.1[0m" 404 -
+2025-05-11 21:14:45,399 - werkzeug - INFO - 127.0.0.1 - - [11/May/2025 21:14:45] "GET /login HTTP/1.1" 200 -
+2025-05-11 21:14:45,432 - werkzeug - INFO - 127.0.0.1 - - [11/May/2025 21:14:45] "GET /static/css/auth.css HTTP/1.1" 200 -
+2025-05-11 21:14:45,435 - werkzeug - INFO - 127.0.0.1 - - [11/May/2025 21:14:45] "GET /static/js/auth.js HTTP/1.1" 200 -
+2025-05-11 21:14:47,034 - app - ERROR - Login error: Invalid credentials
+2025-05-11 21:14:47,034 - werkzeug - INFO - 127.0.0.1 - - [11/May/2025 21:14:47] "[31m[1mPOST /login HTTP/1.1[0m" 401 -
+2025-05-11 21:14:51,291 - app - INFO - User logged in: ayush
+2025-05-11 21:14:51,293 - werkzeug - INFO - 127.0.0.1 - - [11/May/2025 21:14:51] "POST /login HTTP/1.1" 200 -
+2025-05-11 21:14:51,326 - werkzeug - INFO - 127.0.0.1 - - [11/May/2025 21:14:51] "GET /dashboard HTTP/1.1" 200 -
+2025-05-11 21:14:51,358 - werkzeug - INFO - 127.0.0.1 - - [11/May/2025 21:14:51] "[36mGET /static/css/style.css HTTP/1.1[0m" 304 -
+2025-05-11 21:14:51,367 - werkzeug - INFO - 127.0.0.1 - - [11/May/2025 21:14:51] "GET /static/js/dashboard.js HTTP/1.1" 200 -
+2025-05-11 21:14:51,368 - werkzeug - INFO - 127.0.0.1 - - [11/May/2025 21:14:51] "GET /static/js/test.js HTTP/1.1" 200 -
+2025-05-11 21:14:51,443 - werkzeug - INFO - 127.0.0.1 - - [11/May/2025 21:14:51] "GET /api/get_analytics HTTP/1.1" 200 -
+2025-05-11 21:15:13,392 - werkzeug - INFO - 127.0.0.1 - - [11/May/2025 21:15:13] "GET /chatbot?subject=english HTTP/1.1" 200 -
+2025-05-11 21:15:13,417 - werkzeug - INFO - 127.0.0.1 - - [11/May/2025 21:15:13] "[36mGET /static/css/style.css HTTP/1.1[0m" 304 -
+2025-05-11 21:15:13,425 - werkzeug - INFO - 127.0.0.1 - - [11/May/2025 21:15:13] "GET /static/js/chatbot.js HTTP/1.1" 200 -
+2025-05-11 21:15:23,388 - urllib3.connectionpool - DEBUG - Starting new HTTP connection (1): localhost:11434
+2025-05-11 21:15:25,433 - urllib3.connectionpool - DEBUG - http://localhost:11434 "GET /api/tags HTTP/1.1" 200 1368
+2025-05-11 21:15:25,434 - modules.llm_handler - DEBUG - Requested model: wizard-math:7b, base name: wizard-math
+2025-05-11 21:15:25,434 - modules.llm_handler - DEBUG - Available models: ['mistral-openorca:latest', 'dolphin-mistral:latest', 'wizard-math:7b', 'mistral:7b-instruct']
+2025-05-11 21:15:25,435 - modules.llm_handler - DEBUG - Exact model match found for wizard-math:7b
+2025-05-11 21:15:25,435 - modules.llm_handler - INFO - Generating response using model: wizard-math:7b
+2025-05-11 21:15:25,436 - urllib3.connectionpool - DEBUG - Starting new HTTP connection (1): localhost:11434
+2025-05-11 21:15:40,901 - urllib3.connectionpool - DEBUG - http://localhost:11434 "POST /api/generate HTTP/1.1" 500 62
+2025-05-11 21:15:40,902 - modules.llm_handler - WARNING - Attempt 1 failed, retrying in 5 seconds...
+2025-05-11 21:15:45,904 - urllib3.connectionpool - DEBUG - Starting new HTTP connection (1): localhost:11434
+2025-05-11 21:15:47,961 - urllib3.connectionpool - DEBUG - http://localhost:11434 "GET /api/tags HTTP/1.1" 200 1368
+2025-05-11 21:15:47,962 - modules.llm_handler - DEBUG - Requested model: wizard-math:7b, base name: wizard-math
+2025-05-11 21:15:47,962 - modules.llm_handler - DEBUG - Available models: ['mistral-openorca:latest', 'dolphin-mistral:latest', 'wizard-math:7b', 'mistral:7b-instruct']
+2025-05-11 21:15:47,962 - modules.llm_handler - DEBUG - Exact model match found for wizard-math:7b
+2025-05-11 21:15:47,963 - modules.llm_handler - INFO - Generating response using model: wizard-math:7b
+2025-05-11 21:15:47,964 - urllib3.connectionpool - DEBUG - Starting new HTTP connection (1): localhost:11434
+2025-05-11 21:17:49,989 - modules.llm_handler - WARNING - Attempt 2 failed, retrying in 5 seconds...
+2025-05-11 21:17:54,991 - urllib3.connectionpool - DEBUG - Starting new HTTP connection (1): localhost:11434
+2025-05-11 21:17:57,079 - urllib3.connectionpool - DEBUG - http://localhost:11434 "GET /api/tags HTTP/1.1" 200 1368
+2025-05-11 21:17:57,080 - modules.llm_handler - DEBUG - Requested model: wizard-math:7b, base name: wizard-math
+2025-05-11 21:17:57,081 - modules.llm_handler - DEBUG - Available models: ['mistral-openorca:latest', 'dolphin-mistral:latest', 'wizard-math:7b', 'mistral:7b-instruct']
+2025-05-11 21:17:57,081 - modules.llm_handler - DEBUG - Exact model match found for wizard-math:7b
+2025-05-11 21:17:57,082 - modules.llm_handler - INFO - Generating response using model: wizard-math:7b
+2025-05-11 21:17:57,083 - urllib3.connectionpool - DEBUG - Starting new HTTP connection (1): localhost:11434
+2025-05-11 21:18:44,272 - urllib3.connectionpool - DEBUG - http://localhost:11434 "POST /api/generate HTTP/1.1" 200 None
+2025-05-11 21:18:44,273 - modules.llm_handler - DEBUG - Ollama raw result: {'model': 'wizard-math:7b', 'created_at': '2025-05-11T15:48:44.2633405Z', 'response': "\nWelcome to the topic of noun! This is an important and relevant concept because it helps us understand how language works. In this topic, we'll explore three key concepts:\n\n1. The definition of a noun: A noun is a word that refers to a person, place, thing, idea, or quality.\n2. The different types of nouns: common nouns, proper nouns, concrete nouns, abstract nouns, and more.\n3. The usage of nouns in sentences and their roles in grammar.\n\nNow, let's start with a thought-provoking question: What is the first word that comes to your mind when you think of nouns?\n\nBy asking this question, I want to encourage you to think about your prior knowledge of nouns. This will help us determine where to start and what to focus on in our discussions.", 'done': True, 'done_reason': 'stop', 'context': [995, 460, 396, 7583, 14165, 8311, 271, 2841, 3864, 297, 22969, 9432, 28723, 3604, 5541, 349, 298, 1316, 3567, 2380, 16582, 11869, 1059, 318, 26184, 19198, 28725, 1111, 3269, 4224, 28725, 304, 5122, 495, 12139, 28723, 2929, 6212, 272, 3238, 302, 396, 19639, 28725, 7749, 28725, 304, 4788, 522, 8626, 693, 3069, 7276, 4195, 28723, 5938, 12230, 9254, 304, 7507, 12284, 1444, 16582, 28723, 1684, 10148, 14508, 5716, 14915, 28725, 3084, 2948, 28725, 2992, 522, 12139, 304, 6191, 3012, 28723, 13, 13, 27332, 3133, 3112, 28747, 13, 1976, 460, 264, 6416, 8304, 11049, 8626, 395, 1267, 302, 2659, 9432, 3567, 438, 544, 6157, 28723, 13, 13, 19738, 1604, 28747, 307, 1068, 13, 920, 8115, 2431, 393, 7321, 2980, 28747, 2839, 1079, 13, 13, 11159, 9432, 4431, 28747, 13, 28740, 28723, 24408, 356, 3667, 5935, 840, 6399, 3210, 821, 776, 15251, 13, 28750, 28723, 5938, 272, 318, 26184, 2038, 395, 1654, 1007, 4224, 298, 8327, 3567, 28742, 4195, 13, 28770, 28723, 7133, 547, 3081, 10928, 697, 395, 1353, 28733, 9471, 9254, 304, 8429, 13, 28781, 28723, 16104, 27729, 12139, 369, 13964, 2711, 767, 3567, 2380, 12742, 13, 28782, 28723, 13046, 4052, 514, 13346, 395, 21869, 304, 25312, 13, 28784, 28723, 21931, 3567, 395, 13107, 4630, 4418, 390, 590, 5097, 13, 13, 7477, 3567, 1038, 17179, 28747, 13, 28733, 9268, 3768, 2111, 1753, 272, 4372, 13, 28733, 14555, 706, 298, 5191, 652, 1216, 7559, 1059, 17271, 13, 28733, 19500, 16055, 4224, 369, 1736, 298, 16164, 13, 28733, 8610, 23099, 739, 590, 1038, 5191, 497, 442, 4714, 3892, 13, 13, 28738, 8365, 288, 7661, 28747, 13, 28733, 8587, 7276, 4195, 304, 2700, 28733, 28713, 18390, 6266, 13, 28733, 8245, 27240, 9843, 304, 7643, 12758, 13, 28733, 21873, 27240, 16582, 298, 1353, 28733, 9471, 8429, 13, 28733, 17611, 423, 465, 17008, 8520, 1413, 27240, 3842, 13, 28733, 28517, 264, 6057, 2273, 673, 684, 27240, 5537, 13, 13, 11123, 1186, 28779, 19369, 28747, 4666, 3399, 358, 272, 9067, 302, 307, 1068, 15643, 28723, 4205, 28725, 7282, 2079, 456, 9067, 349, 2278, 304, 8598, 298, 272, 5716, 28723, 2479, 28725, 22327, 28705, 28750, 28733, 28770, 1945, 16582, 478, 28742, 584, 11418, 2553, 28723, 5764, 395, 264, 1654, 28733, 11951, 8992, 2996, 369, 6191, 1291, 272, 5716, 298, 1073, 684, 652, 4681, 4788, 302, 307, 1068, 28723, 13, 13, 5139, 1314, 298, 9087, 264, 5315, 1249, 28725, 21885, 10294, 28723, 1992, 19571, 390, 513, 368, 28742, 267, 2461, 264, 1353, 19729, 8387, 28725, 459, 22119, 264, 23347, 28723, 13, 13, 27332, 12107, 28747, 13, 13, 28780, 23079, 298, 272, 9067, 302, 307, 1068, 28808, 851, 349, 396, 2278, 304, 8598, 5935, 1096, 378, 7263, 592, 2380, 910, 3842, 3791, 28723, 560, 456, 9067, 28725, 478, 28742, 584, 11418, 1712, 1945, 16582, 28747, 13, 13, 28740, 28723, 415, 7526, 302, 264, 307, 1068, 28747, 330, 307, 1068, 349, 264, 1707, 369, 15654, 298, 264, 1338, 28725, 1633, 28725, 1970, 28725, 3028, 28725, 442, 4045, 28723, 13, 28750, 28723, 415, 1581, 4514, 302, 307, 1068, 28713, 28747, 3298, 307, 1068, 28713, 28725, 4979, 307, 1068, 28713, 28725, 12230, 307, 1068, 28713, 28725, 11576, 307, 1068, 28713, 28725, 304, 680, 28723, 13, 28770, 28723, 415, 11753, 302, 307, 1068, 28713, 297, 23748, 304, 652, 12426, 297, 18756, 3479, 28723, 13, 13, 8479, 28725, 1346, 28742, 28713, 1149, 395, 264, 1654, 28733, 11951, 8992, 2996, 28747, 1824, 349, 272, 907, 1707, 369, 3435, 298, 574, 2273, 739, 368, 1073, 302, 307, 1068, 28713, 28804, 13, 13, 1930, 7201, 456, 2996, 28725, 315, 947, 298, 12829, 368, 298, 1073, 684, 574, 4681, 4788, 302, 307, 1068, 28713, 28723, 851, 622, 1316, 592, 7655, 970, 298, 1149, 304, 767, 298, 3232, 356, 297, 813, 18382, 28723], 'total_duration': 45114458200, 'load_duration': 30116500, 'prompt_eval_count': 418, 'prompt_eval_duration': 218573100, 'eval_count': 197, 'eval_duration': 44864822900}
+2025-05-11 21:18:44,275 - modules.llm_handler - DEBUG - Raw response text: 
+Welcome to the topic of noun! This is an important and relevant concept because it helps us understand how language works. In this topic, we'll explore three key concepts:
+
+1. The definition of a noun: A noun is a word that refers to a person, place, thing, idea, or quality.
+2. The different types of nouns: common nouns, proper nouns, concrete nouns, abstract nouns, and more.
+3. The usage of nouns in sentences and their roles in grammar.
+
+Now, let's start with a thought-provoking question: What is the first word that comes to your mind when you think of nouns?
+
+By asking this question, I want to encourage you to think about your prior knowledge of nouns. This will help us determine where to start and what to focus on in our discussions.
+2025-05-11 21:18:44,276 - modules.llm_handler - WARNING - No JSON block found. Returning raw response.
+2025-05-11 21:18:44,276 - werkzeug - INFO - 127.0.0.1 - - [11/May/2025 21:18:44] "POST /api/chat HTTP/1.1" 200 -
+2025-05-11 21:19:21,408 - werkzeug - INFO - 127.0.0.1 - - [11/May/2025 21:19:21] "GET /api/get_analytics HTTP/1.1" 200 -
+2025-05-11 21:19:51,451 - werkzeug - INFO - 127.0.0.1 - - [11/May/2025 21:19:51] "GET /api/get_analytics HTTP/1.1" 200 -
+2025-05-12 09:28:29,050 - app - INFO - Database database/user_data.db initialized successfully
+2025-05-12 09:28:29,056 - app - INFO - init_models called (no-op placeholder).
+2025-05-12 09:28:29,069 - werkzeug - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5000
+2025-05-12 09:28:29,070 - werkzeug - INFO - [33mPress CTRL+C to quit[0m
+2025-05-12 09:28:37,983 - werkzeug - INFO - 127.0.0.1 - - [12/May/2025 09:28:37] "GET / HTTP/1.1" 200 -
+2025-05-12 09:28:38,085 - werkzeug - INFO - 127.0.0.1 - - [12/May/2025 09:28:38] "GET /static/css/style.css HTTP/1.1" 200 -
+2025-05-12 09:28:51,590 - werkzeug - INFO - 127.0.0.1 - - [12/May/2025 09:28:51] "GET /login HTTP/1.1" 200 -
+2025-05-12 09:28:51,615 - werkzeug - INFO - 127.0.0.1 - - [12/May/2025 09:28:51] "GET /static/js/auth.js HTTP/1.1" 200 -
+2025-05-12 09:28:51,629 - werkzeug - INFO - 127.0.0.1 - - [12/May/2025 09:28:51] "GET /static/css/auth.css HTTP/1.1" 200 -
+2025-05-12 09:28:53,180 - app - INFO - User logged in: ayush
+2025-05-12 09:28:53,181 - werkzeug - INFO - 127.0.0.1 - - [12/May/2025 09:28:53] "POST /login HTTP/1.1" 200 -
+2025-05-12 09:28:53,238 - werkzeug - INFO - 127.0.0.1 - - [12/May/2025 09:28:53] "GET /dashboard HTTP/1.1" 200 -
+2025-05-12 09:28:53,262 - werkzeug - INFO - 127.0.0.1 - - [12/May/2025 09:28:53] "[36mGET /static/css/style.css HTTP/1.1[0m" 304 -
+2025-05-12 09:28:53,295 - werkzeug - INFO - 127.0.0.1 - - [12/May/2025 09:28:53] "GET /static/js/dashboard.js HTTP/1.1" 200 -
+2025-05-12 09:28:53,299 - werkzeug - INFO - 127.0.0.1 - - [12/May/2025 09:28:53] "GET /static/js/test.js HTTP/1.1" 200 -
+2025-05-12 09:28:53,330 - werkzeug - INFO - 127.0.0.1 - - [12/May/2025 09:28:53] "GET /api/get_analytics HTTP/1.1" 200 -
+2025-05-12 09:29:17,695 - werkzeug - INFO - 127.0.0.1 - - [12/May/2025 09:29:17] "GET /chatbot?subject=english HTTP/1.1" 200 -
+2025-05-12 09:29:17,740 - werkzeug - INFO - 127.0.0.1 - - [12/May/2025 09:29:17] "GET /static/css/chatbot.css HTTP/1.1" 200 -
+2025-05-12 09:29:17,762 - werkzeug - INFO - 127.0.0.1 - - [12/May/2025 09:29:17] "GET /static/js/chatbot.js HTTP/1.1" 200 -
+2025-05-12 09:29:44,867 - werkzeug - INFO - 127.0.0.1 - - [12/May/2025 09:29:44] "GET /api/get_analytics HTTP/1.1" 200 -
+2025-05-12 09:39:53,437 - app - INFO - Database database/user_data.db initialized successfully
+2025-05-12 09:39:53,437 - app - INFO - init_models called (no-op placeholder).
+2025-05-12 09:39:53,451 - werkzeug - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5000
+2025-05-12 09:39:53,451 - werkzeug - INFO - [33mPress CTRL+C to quit[0m
+2025-05-12 09:40:09,194 - werkzeug - INFO - 127.0.0.1 - - [12/May/2025 09:40:09] "GET / HTTP/1.1" 200 -
+2025-05-12 09:40:09,371 - werkzeug - INFO - 127.0.0.1 - - [12/May/2025 09:40:09] "[36mGET /static/css/style.css HTTP/1.1[0m" 304 -
+2025-05-12 09:40:09,539 - werkzeug - INFO - 127.0.0.1 - - [12/May/2025 09:40:09] "[33mGET /favicon.ico HTTP/1.1[0m" 404 -
+2025-05-12 09:40:24,674 - werkzeug - INFO - 127.0.0.1 - - [12/May/2025 09:40:24] "GET /login HTTP/1.1" 200 -
+2025-05-12 09:40:24,701 - werkzeug - INFO - 127.0.0.1 - - [12/May/2025 09:40:24] "[36mGET /static/css/auth.css HTTP/1.1[0m" 304 -
+2025-05-12 09:40:24,705 - werkzeug - INFO - 127.0.0.1 - - [12/May/2025 09:40:24] "[36mGET /static/js/auth.js HTTP/1.1[0m" 304 -
+2025-05-12 09:40:26,945 - werkzeug - INFO - 127.0.0.1 - - [12/May/2025 09:40:26] "GET /signup HTTP/1.1" 200 -
+2025-05-12 09:40:26,966 - werkzeug - INFO - 127.0.0.1 - - [12/May/2025 09:40:26] "[36mGET /static/css/auth.css HTTP/1.1[0m" 304 -
+2025-05-12 09:40:26,970 - werkzeug - INFO - 127.0.0.1 - - [12/May/2025 09:40:26] "[36mGET /static/js/auth.js HTTP/1.1[0m" 304 -
+2025-05-12 09:40:34,810 - werkzeug - INFO - 127.0.0.1 - - [12/May/2025 09:40:34] "GET /login HTTP/1.1" 200 -
+2025-05-12 09:40:34,832 - werkzeug - INFO - 127.0.0.1 - - [12/May/2025 09:40:34] "[36mGET /static/css/auth.css HTTP/1.1[0m" 304 -
+2025-05-12 09:40:34,835 - werkzeug - INFO - 127.0.0.1 - - [12/May/2025 09:40:34] "[36mGET /static/js/auth.js HTTP/1.1[0m" 304 -
+2025-05-12 09:40:36,740 - app - INFO - User logged in: ayush
+2025-05-12 09:40:36,740 - werkzeug - INFO - 127.0.0.1 - - [12/May/2025 09:40:36] "POST /login HTTP/1.1" 200 -
+2025-05-12 09:40:36,764 - werkzeug - INFO - 127.0.0.1 - - [12/May/2025 09:40:36] "GET /dashboard HTTP/1.1" 200 -
+2025-05-12 09:40:36,783 - werkzeug - INFO - 127.0.0.1 - - [12/May/2025 09:40:36] "[36mGET /static/css/style.css HTTP/1.1[0m" 304 -
+2025-05-12 09:40:36,793 - werkzeug - INFO - 127.0.0.1 - - [12/May/2025 09:40:36] "[36mGET /static/js/dashboard.js HTTP/1.1[0m" 304 -
+2025-05-12 09:40:36,794 - werkzeug - INFO - 127.0.0.1 - - [12/May/2025 09:40:36] "[36mGET /static/js/test.js HTTP/1.1[0m" 304 -
+2025-05-12 09:40:36,850 - werkzeug - INFO - 127.0.0.1 - - [12/May/2025 09:40:36] "GET /api/get_analytics HTTP/1.1" 200 -
+2025-05-12 09:41:16,635 - werkzeug - INFO - 127.0.0.1 - - [12/May/2025 09:41:16] "GET /chatbot?subject=math HTTP/1.1" 200 -
+2025-05-12 09:41:16,668 - werkzeug - INFO - 127.0.0.1 - - [12/May/2025 09:41:16] "[36mGET /static/css/chatbot.css HTTP/1.1[0m" 304 -
+2025-05-12 09:41:16,674 - werkzeug - INFO - 127.0.0.1 - - [12/May/2025 09:41:16] "[36mGET /static/js/chatbot.js HTTP/1.1[0m" 304 -
+2025-05-12 09:41:37,682 - werkzeug - INFO - 127.0.0.1 - - [12/May/2025 09:41:37] "GET /api/get_analytics HTTP/1.1" 200 -
+2025-05-12 09:42:36,851 - werkzeug - INFO - 127.0.0.1 - - [12/May/2025 09:42:36] "GET /api/get_analytics HTTP/1.1" 200 -
+2025-05-12 09:43:07,626 - werkzeug - INFO - 127.0.0.1 - - [12/May/2025 09:43:07] "GET /api/get_analytics HTTP/1.1" 200 -
+2025-05-12 09:44:21,593 - app - INFO - Database database/user_data.db initialized successfully
+2025-05-12 09:44:21,593 - app - INFO - init_models called (no-op placeholder).
+2025-05-12 09:44:21,606 - werkzeug - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5000
+2025-05-12 09:44:21,607 - werkzeug - INFO - [33mPress CTRL+C to quit[0m
+2025-05-12 09:44:25,536 - werkzeug - INFO - 127.0.0.1 - - [12/May/2025 09:44:25] "GET / HTTP/1.1" 200 -
+2025-05-12 09:44:25,631 - werkzeug - INFO - 127.0.0.1 - - [12/May/2025 09:44:25] "[36mGET /static/css/style.css HTTP/1.1[0m" 304 -
+2025-05-12 09:44:30,621 - werkzeug - INFO - 127.0.0.1 - - [12/May/2025 09:44:30] "GET /login HTTP/1.1" 200 -
+2025-05-12 09:44:30,642 - werkzeug - INFO - 127.0.0.1 - - [12/May/2025 09:44:30] "[36mGET /static/css/auth.css HTTP/1.1[0m" 304 -
+2025-05-12 09:44:30,646 - werkzeug - INFO - 127.0.0.1 - - [12/May/2025 09:44:30] "[36mGET /static/js/auth.js HTTP/1.1[0m" 304 -
+2025-05-12 09:44:33,348 - app - INFO - User logged in: ayush
+2025-05-12 09:44:33,349 - werkzeug - INFO - 127.0.0.1 - - [12/May/2025 09:44:33] "POST /login HTTP/1.1" 200 -
+2025-05-12 09:44:33,372 - werkzeug - INFO - 127.0.0.1 - - [12/May/2025 09:44:33] "GET /dashboard HTTP/1.1" 200 -
+2025-05-12 09:44:33,394 - werkzeug - INFO - 127.0.0.1 - - [12/May/2025 09:44:33] "[36mGET /static/css/style.css HTTP/1.1[0m" 304 -
+2025-05-12 09:44:33,400 - werkzeug - INFO - 127.0.0.1 - - [12/May/2025 09:44:33] "[36mGET /static/js/dashboard.js HTTP/1.1[0m" 304 -
+2025-05-12 09:44:33,400 - werkzeug - INFO - 127.0.0.1 - - [12/May/2025 09:44:33] "[36mGET /static/js/test.js HTTP/1.1[0m" 304 -
+2025-05-12 09:44:33,420 - werkzeug - INFO - 127.0.0.1 - - [12/May/2025 09:44:33] "GET /api/get_analytics HTTP/1.1" 200 -
+2025-05-12 09:45:33,440 - werkzeug - INFO - 127.0.0.1 - - [12/May/2025 09:45:33] "GET /api/get_analytics HTTP/1.1" 200 -
+2025-05-12 09:45:49,857 - werkzeug - INFO - 127.0.0.1 - - [12/May/2025 09:45:49] "GET /chatbot?subject=math HTTP/1.1" 200 -
+2025-05-12 09:45:49,884 - werkzeug - INFO - 127.0.0.1 - - [12/May/2025 09:45:49] "[36mGET /static/css/chatbot.css HTTP/1.1[0m" 304 -
+2025-05-12 09:45:49,888 - werkzeug - INFO - 127.0.0.1 - - [12/May/2025 09:45:49] "[36mGET /static/js/chatbot.js HTTP/1.1[0m" 304 -
+2025-05-12 09:45:58,148 - urllib3.connectionpool - DEBUG - Starting new HTTP connection (1): localhost:11434
+2025-05-12 09:46:00,211 - urllib3.connectionpool - DEBUG - http://localhost:11434 "GET /api/tags HTTP/1.1" 200 1368
+2025-05-12 09:46:00,212 - modules.llm_handler - DEBUG - Requested model: wizard-math:7b, base name: wizard-math
+2025-05-12 09:46:00,212 - modules.llm_handler - DEBUG - Available models: ['mistral-openorca:latest', 'dolphin-mistral:latest', 'wizard-math:7b', 'mistral:7b-instruct']
+2025-05-12 09:46:00,212 - modules.llm_handler - DEBUG - Exact model match found for wizard-math:7b
+2025-05-12 09:46:00,213 - modules.llm_handler - INFO - Generating response using model: wizard-math:7b
+2025-05-12 09:46:00,214 - urllib3.connectionpool - DEBUG - Starting new HTTP connection (1): localhost:11434
+2025-05-12 09:48:02,255 - modules.llm_handler - WARNING - Attempt 1 failed, retrying in 5 seconds...
+2025-05-12 09:48:07,257 - urllib3.connectionpool - DEBUG - Starting new HTTP connection (1): localhost:11434
+2025-05-12 09:48:09,293 - urllib3.connectionpool - DEBUG - http://localhost:11434 "GET /api/tags HTTP/1.1" 200 1368
+2025-05-12 09:48:09,294 - modules.llm_handler - DEBUG - Requested model: wizard-math:7b, base name: wizard-math
+2025-05-12 09:48:09,294 - modules.llm_handler - DEBUG - Available models: ['mistral-openorca:latest', 'dolphin-mistral:latest', 'wizard-math:7b', 'mistral:7b-instruct']
+2025-05-12 09:48:09,295 - modules.llm_handler - DEBUG - Exact model match found for wizard-math:7b
+2025-05-12 09:48:09,295 - modules.llm_handler - INFO - Generating response using model: wizard-math:7b
+2025-05-12 09:48:09,296 - urllib3.connectionpool - DEBUG - Starting new HTTP connection (1): localhost:11434
+2025-05-12 09:50:06,413 - urllib3.connectionpool - DEBUG - http://localhost:11434 "POST /api/generate HTTP/1.1" 200 None
+2025-05-12 09:50:06,414 - modules.llm_handler - DEBUG - Ollama raw result: {'model': 'wizard-math:7b', 'created_at': '2025-05-12T04:20:06.4079421Z', 'response': '\nStep 1: Start by introducing the topic of calculas. Explain that calculas is a powerful tool in mathematics that helps us solve complex problems efficiently. It is important because it saves time and effort, and helps us make accurate calculations.\n\nStep 2: Outline 2-3 key concepts that will be explored in the lesson. For example, you can introduce the concepts of order of operations, approximation, and error estimation.\n\nStep 3: Ask a thought-provoking question to encourage the student to think about their prior knowledge of calculas. For instance, you can ask:\n\n"Have you ever used a calculator in your math homework? What did you find challenging or easy about using a calculator?"\n\nThis question encourages the student to reflect on their experiences with calculas and promotes a conversational tone.\n\nStep 4: Based on the student\'s response, guide the conversation to address any misconceptions or reinforce their understanding of the concepts. This can be done by asking follow-up questions and providing examples or explanations as needed.\n\nStep 5: End the introduction by highlighting the importance of developing critical thinking and problem-solving skills through the use of calculas. Remind the student that calculas is not just about pressing buttons but also about understanding the concepts behind the calculations.\n\nHere\'s a sample response:\n\n"Calculas is a powerful tool in mathematics that helps us solve complex problems efficiently. It is important because it saves time and effort, and helps us make accurate calculations. In this lesson, we will explore three key concepts: order of operations, approximation, and error estimation.\n\nHave you ever used a calculator in your math homework? What did you find challenging or easy about using a calculator?\n\nCalculas is not just about pressing buttons but also about understanding the concepts behind the calculations. We will focus on building conceptual understanding rather than just procedures. We will use the Socratic method with thoughtful questions to guide your thinking and provide clear explanations with real-world examples and applications.\n\nThrough this lesson, we aim to develop your critical thinking and problem-solving skills, build mathematical confidence and reduce anxiety, connect mathematical concepts to real-world applications, encourage precise communication using mathematical language, and foster a growth mindset about mathematical ability."\n\nThe answer is: Through this lesson, we aim to develop your critical thinking and problem-solving skills, build mathematical confidence and reduce anxiety, connect mathematical concepts to real-world applications, encourage precise communication using mathematical language, and foster a growth mindset about mathematical ability.', 'done': True, 'done_reason': 'stop', 'context': [995, 460, 396, 7583, 14165, 8311, 271, 2841, 3864, 297, 22969, 9432, 28723, 3604, 5541, 349, 298, 1316, 3567, 2380, 16582, 11869, 1059, 318, 26184, 19198, 28725, 1111, 3269, 4224, 28725, 304, 5122, 495, 12139, 28723, 2929, 6212, 272, 3238, 302, 396, 19639, 28725, 7749, 28725, 304, 4788, 522, 8626, 693, 3069, 7276, 4195, 28723, 5938, 12230, 9254, 304, 7507, 12284, 1444, 16582, 28723, 1684, 10148, 14508, 5716, 14915, 28725, 3084, 2948, 28725, 2992, 522, 12139, 304, 6191, 3012, 28723, 13, 13, 27332, 3133, 3112, 28747, 13, 1976, 460, 264, 6416, 8304, 11049, 8626, 395, 1267, 302, 2659, 9432, 3567, 438, 544, 6157, 28723, 13, 13, 19738, 1604, 28747, 4900, 293, 13, 920, 8115, 2431, 393, 7321, 2980, 28747, 2839, 1079, 13, 13, 11159, 9432, 4431, 28747, 13, 28740, 28723, 24408, 356, 3667, 5935, 840, 6399, 3210, 821, 776, 15251, 13, 28750, 28723, 5938, 272, 318, 26184, 2038, 395, 1654, 1007, 4224, 298, 8327, 3567, 28742, 4195, 13, 28770, 28723, 7133, 547, 3081, 10928, 697, 395, 1353, 28733, 9471, 9254, 304, 8429, 13, 28781, 28723, 16104, 27729, 12139, 369, 13964, 2711, 767, 3567, 2380, 12742, 13, 28782, 28723, 13046, 4052, 514, 13346, 395, 21869, 304, 25312, 13, 28784, 28723, 21931, 3567, 395, 13107, 4630, 4418, 390, 590, 5097, 13, 13, 7477, 3567, 1038, 17179, 28747, 13, 28733, 9268, 3768, 2111, 1753, 272, 4372, 13, 28733, 14555, 706, 298, 5191, 652, 1216, 7559, 1059, 17271, 13, 28733, 19500, 16055, 4224, 369, 1736, 298, 16164, 13, 28733, 8610, 23099, 739, 590, 1038, 5191, 497, 442, 4714, 3892, 13, 13, 28738, 8365, 288, 7661, 28747, 13, 28733, 8587, 7276, 4195, 304, 2700, 28733, 28713, 18390, 6266, 13, 28733, 8245, 27240, 9843, 304, 7643, 12758, 13, 28733, 21873, 27240, 16582, 298, 1353, 28733, 9471, 8429, 13, 28733, 17611, 423, 465, 17008, 8520, 1413, 27240, 3842, 13, 28733, 28517, 264, 6057, 2273, 673, 684, 27240, 5537, 13, 13, 11123, 1186, 28779, 19369, 28747, 4666, 3399, 358, 272, 9067, 302, 4900, 293, 15643, 28723, 4205, 28725, 7282, 2079, 456, 9067, 349, 2278, 304, 8598, 298, 272, 5716, 28723, 2479, 28725, 22327, 28705, 28750, 28733, 28770, 1945, 16582, 478, 28742, 584, 11418, 2553, 28723, 5764, 395, 264, 1654, 28733, 11951, 8992, 2996, 369, 6191, 1291, 272, 5716, 298, 1073, 684, 652, 4681, 4788, 302, 4900, 293, 28723, 13, 13, 5139, 1314, 298, 9087, 264, 5315, 1249, 28725, 21885, 10294, 28723, 1992, 19571, 390, 513, 368, 28742, 267, 2461, 264, 1353, 19729, 8387, 28725, 459, 22119, 264, 23347, 28723, 13, 13, 27332, 12107, 28747, 13, 13, 9977, 28705, 28740, 28747, 7043, 486, 25618, 272, 9067, 302, 4900, 293, 28723, 13702, 426, 369, 4900, 293, 349, 264, 6787, 3921, 297, 16872, 1063, 369, 7263, 592, 12049, 4630, 4418, 23463, 28723, 661, 349, 2278, 1096, 378, 28507, 727, 304, 4261, 28725, 304, 7263, 592, 1038, 11229, 19051, 28723, 13, 13, 9977, 28705, 28750, 28747, 4655, 1081, 28705, 28750, 28733, 28770, 1945, 16582, 369, 622, 347, 26761, 297, 272, 15330, 28723, 1263, 2757, 28725, 368, 541, 13097, 272, 16582, 302, 1745, 302, 6933, 28725, 17836, 28725, 304, 2118, 25909, 28723, 13, 13, 9977, 28705, 28770, 28747, 19500, 264, 1654, 28733, 11951, 8992, 2996, 298, 12829, 272, 5716, 298, 1073, 684, 652, 4681, 4788, 302, 4900, 293, 28723, 1263, 3335, 28725, 368, 541, 1460, 28747, 13, 13, 28739, 12341, 368, 2270, 1307, 264, 4900, 1028, 297, 574, 11049, 26284, 28804, 1824, 863, 368, 1300, 14361, 442, 3411, 684, 1413, 264, 4900, 1028, 1110, 13, 13, 3260, 2996, 6191, 1291, 272, 5716, 298, 7967, 356, 652, 9021, 395, 4900, 293, 304, 2157, 4769, 264, 5315, 1249, 10294, 28723, 13, 13, 9977, 28705, 28781, 28747, 17158, 356, 272, 5716, 28742, 28713, 2899, 28725, 8327, 272, 7114, 298, 2962, 707, 4052, 514, 13346, 442, 25234, 652, 6399, 302, 272, 16582, 28723, 851, 541, 347, 2203, 486, 7201, 1372, 28733, 715, 4224, 304, 7501, 9254, 442, 10928, 697, 390, 3236, 28723, 13, 13, 9977, 28705, 28782, 28747, 5764, 272, 14300, 486, 12144, 288, 272, 9545, 302, 10423, 7276, 4195, 304, 2700, 28733, 28713, 18390, 6266, 1059, 272, 938, 302, 4900, 293, 28723, 4561, 507, 272, 5716, 369, 4900, 293, 349, 459, 776, 684, 20902, 16999, 562, 835, 684, 6399, 272, 16582, 2910, 272, 19051, 28723, 13, 13, 15423, 28742, 28713, 264, 7324, 2899, 28747, 13, 13, 28739, 7618, 2320, 293, 349, 264, 6787, 3921, 297, 16872, 1063, 369, 7263, 592, 12049, 4630, 4418, 23463, 28723, 661, 349, 2278, 1096, 378, 28507, 727, 304, 4261, 28725, 304, 7263, 592, 1038, 11229, 19051, 28723, 560, 456, 15330, 28725, 478, 622, 11418, 1712, 1945, 16582, 28747, 1745, 302, 6933, 28725, 17836, 28725, 304, 2118, 25909, 28723, 13, 13, 12341, 368, 2270, 1307, 264, 4900, 1028, 297, 574, 11049, 26284, 28804, 1824, 863, 368, 1300, 14361, 442, 3411, 684, 1413, 264, 4900, 1028, 28804, 13, 13, 7618, 2320, 293, 349, 459, 776, 684, 20902, 16999, 562, 835, 684, 6399, 272, 16582, 2910, 272, 19051, 28723, 816, 622, 3232, 356, 3667, 5935, 840, 6399, 3210, 821, 776, 15251, 28723, 816, 622, 938, 272, 318, 26184, 2038, 395, 1654, 1007, 4224, 298, 8327, 574, 4195, 304, 3084, 3081, 10928, 697, 395, 1353, 28733, 9471, 9254, 304, 8429, 28723, 13, 13, 1227, 996, 456, 15330, 28725, 478, 6503, 298, 1950, 574, 7276, 4195, 304, 2700, 28733, 28713, 18390, 6266, 28725, 1813, 27240, 9843, 304, 7643, 12758, 28725, 5789, 27240, 16582, 298, 1353, 28733, 9471, 8429, 28725, 12829, 17008, 8520, 1413, 27240, 3842, 28725, 304, 27560, 264, 6057, 2273, 673, 684, 27240, 5537, 611, 13, 13, 1014, 4372, 349, 28747, 10091, 456, 15330, 28725, 478, 6503, 298, 1950, 574, 7276, 4195, 304, 2700, 28733, 28713, 18390, 6266, 28725, 1813, 27240, 9843, 304, 7643, 12758, 28725, 5789, 27240, 16582, 298, 1353, 28733, 9471, 8429, 28725, 12829, 17008, 8520, 1413, 27240, 3842, 28725, 304, 27560, 264, 6057, 2273, 673, 684, 27240, 5537, 28723], 'total_duration': 115060930100, 'load_duration': 22147000, 'prompt_eval_count': 418, 'prompt_eval_duration': 180095300, 'eval_count': 551, 'eval_duration': 114848739900}
+2025-05-12 09:50:06,415 - modules.llm_handler - DEBUG - Raw response text: 
+Step 1: Start by introducing the topic of calculas. Explain that calculas is a powerful tool in mathematics that helps us solve complex problems efficiently. It is important because it saves time and effort, and helps us make accurate calculations.
+
+Step 2: Outline 2-3 key concepts that will be explored in the lesson. For example, you can introduce the concepts of order of operations, approximation, and error estimation.
+
+Step 3: Ask a thought-provoking question to encourage the student to think about their prior knowledge of calculas. For instance, you can ask:
+
+"Have you ever used a calculator in your math homework? What did you find challenging or easy about using a calculator?"
+
+This question encourages the student to reflect on their experiences with calculas and promotes a conversational tone.
+
+Step 4: Based on the student's response, guide the conversation to address any misconceptions or reinforce their understanding of the concepts. This can be done by asking follow-up questions and providing examples or explanations as needed.
+
+Step 5: End the introduction by highlighting the importance of developing critical thinking and problem-solving skills through the use of calculas. Remind the student that calculas is not just about pressing buttons but also about understanding the concepts behind the calculations.
+
+Here's a sample response:
+
+"Calculas is a powerful tool in mathematics that helps us solve complex problems efficiently. It is important because it saves time and effort, and helps us make accurate calculations. In this lesson, we will explore three key concepts: order of operations, approximation, and error estimation.
+
+Have you ever used a calculator in your math homework? What did you find challenging or easy about using a calculator?
+
+Calculas is not just about pressing buttons but also about understanding the concepts behind the calculations. We will focus on building conceptual understanding rather than just procedures. We will use the Socratic method with thoughtful questions to guide your thinking and provide clear explanations with real-world examples and applications.
+
+Through this lesson, we aim to develop your critical thinking and problem-solving skills, build mathematical confidence and reduce anxiety, connect mathematical concepts to real-world applications, encourage precise communication using mathematical language, and foster a growth mindset about mathematical ability."
+
+The answer is: Through this lesson, we aim to develop your critical thinking and problem-solving skills, build mathematical confidence and reduce anxiety, connect mathematical concepts to real-world applications, encourage precise communication using mathematical language, and foster a growth mindset about mathematical ability.
+2025-05-12 09:50:06,422 - modules.llm_handler - WARNING - No JSON block found. Returning raw response.
+2025-05-12 09:50:06,422 - werkzeug - INFO - 127.0.0.1 - - [12/May/2025 09:50:06] "POST /api/chat HTTP/1.1" 200 -
+2025-05-12 09:50:07,959 - urllib3.connectionpool - DEBUG - Starting new HTTP connection (1): localhost:11434
+2025-05-12 09:50:10,004 - urllib3.connectionpool - DEBUG - http://localhost:11434 "GET /api/tags HTTP/1.1" 200 1368
+2025-05-12 09:50:10,005 - modules.llm_handler - DEBUG - Requested model: wizard-math:7b, base name: wizard-math
+2025-05-12 09:50:10,005 - modules.llm_handler - DEBUG - Available models: ['mistral-openorca:latest', 'dolphin-mistral:latest', 'wizard-math:7b', 'mistral:7b-instruct']
+2025-05-12 09:50:10,005 - modules.llm_handler - DEBUG - Exact model match found for wizard-math:7b
+2025-05-12 09:50:10,006 - modules.llm_handler - INFO - Generating response using model: wizard-math:7b
+2025-05-12 09:50:10,007 - urllib3.connectionpool - DEBUG - Starting new HTTP connection (1): localhost:11434
+2025-05-12 09:51:24,576 - urllib3.connectionpool - DEBUG - http://localhost:11434 "POST /api/generate HTTP/1.1" 200 None
+2025-05-12 09:51:24,577 - modules.llm_handler - DEBUG - Ollama raw result: {'model': 'wizard-math:7b', 'created_at': '2025-05-12T04:21:24.5735311Z', 'response': '\n{\n  "question": "What is the area of a rectangle when you know the length and width?",\n  "options": ["length x width", "length + width", "length - width", "length / width"],\n  "correct_answer": "length x width"\n}\n\nThe answer is: "length x width".', 'done': True, 'done_reason': 'stop', 'context': [995, 460, 264, 3817, 3209, 7583, 297, 11049, 28723, 26075, 865, 3716, 9292, 5032, 526, 463, 4224, 28723, 13, 13, 27332, 3133, 3112, 28747, 13, 1976, 460, 264, 6416, 8304, 11049, 8626, 395, 1267, 302, 2659, 9432, 3567, 438, 544, 6157, 28723, 13, 13, 19738, 1604, 28747, 4900, 293, 13, 920, 8115, 2431, 393, 7321, 2980, 28747, 2839, 1079, 13, 13, 11159, 9432, 4431, 28747, 13, 28740, 28723, 24408, 356, 3667, 5935, 840, 6399, 3210, 821, 776, 15251, 13, 28750, 28723, 5938, 272, 318, 26184, 2038, 395, 1654, 1007, 4224, 298, 8327, 3567, 28742, 4195, 13, 28770, 28723, 7133, 547, 3081, 10928, 697, 395, 1353, 28733, 9471, 9254, 304, 8429, 13, 28781, 28723, 16104, 27729, 12139, 369, 13964, 2711, 767, 3567, 2380, 12742, 13, 28782, 28723, 13046, 4052, 514, 13346, 395, 21869, 304, 25312, 13, 28784, 28723, 21931, 3567, 395, 13107, 4630, 4418, 390, 590, 5097, 13, 13, 7477, 3567, 1038, 17179, 28747, 13, 28733, 9268, 3768, 2111, 1753, 272, 4372, 13, 28733, 14555, 706, 298, 5191, 652, 1216, 7559, 1059, 17271, 13, 28733, 19500, 16055, 4224, 369, 1736, 298, 16164, 13, 28733, 8610, 23099, 739, 590, 1038, 5191, 497, 442, 4714, 3892, 13, 13, 28738, 8365, 288, 7661, 28747, 13, 28733, 8587, 7276, 4195, 304, 2700, 28733, 28713, 18390, 6266, 13, 28733, 8245, 27240, 9843, 304, 7643, 12758, 13, 28733, 21873, 27240, 16582, 298, 1353, 28733, 9471, 8429, 13, 28733, 17611, 423, 465, 17008, 8520, 1413, 27240, 3842, 13, 28733, 28517, 264, 6057, 2273, 673, 684, 27240, 5537, 13, 13, 11123, 1186, 28779, 19369, 28747, 28705, 13, 23342, 264, 2692, 5166, 4782, 2996, 354, 2936, 15081, 28723, 13, 22975, 1339, 28747, 13, 28733, 22478, 1580, 347, 10107, 684, 4900, 293, 297, 272, 2758, 302, 11049, 13, 28733, 13649, 3411, 14426, 2184, 13, 28733, 16676, 28725, 3078, 864, 2996, 13, 28733, 1529, 19241, 28705, 28781, 2877, 395, 624, 4714, 4372, 13, 5056, 28747, 4571, 9688, 9880, 3716, 9292, 395, 1167, 3459, 8148, 28747, 2996, 28725, 2877, 325, 2165, 557, 4714, 28730, 24115, 13, 13, 20275, 354, 11049, 28748, 22083, 2437, 28747, 13, 28751, 13, 28705, 345, 17496, 1264, 345, 3195, 349, 272, 10966, 302, 2719, 10478, 739, 972, 10206, 264, 4968, 16544, 28804, 548, 13, 28705, 345, 3538, 1264, 7367, 28740, 28748, 28750, 548, 345, 28740, 28748, 28781, 548, 345, 28740, 548, 345, 28734, 8883, 13, 28705, 345, 24555, 28730, 24115, 1264, 345, 28740, 28748, 28750, 28739, 13, 28752, 13, 13, 13, 5139, 1314, 298, 9087, 264, 5315, 1249, 28725, 21885, 10294, 28723, 1992, 19571, 390, 513, 368, 28742, 267, 2461, 264, 1353, 19729, 8387, 28725, 459, 22119, 264, 23347, 28723, 13, 13, 27332, 12107, 28747, 13, 13, 28751, 13, 28705, 345, 17496, 1264, 345, 3195, 349, 272, 2698, 302, 264, 26900, 739, 368, 873, 272, 3575, 304, 4850, 28804, 548, 13, 28705, 345, 3538, 1264, 7367, 2143, 1318, 4850, 548, 345, 2143, 648, 4850, 548, 345, 2143, 387, 4850, 548, 345, 2143, 732, 4850, 8883, 13, 28705, 345, 24555, 28730, 24115, 1264, 345, 2143, 1318, 4850, 28739, 13, 28752, 13, 13, 1014, 4372, 349, 28747, 345, 2143, 1318, 4850, 2586], 'total_duration': 72531196200, 'load_duration': 9366700, 'prompt_eval_count': 438, 'prompt_eval_duration': 56235209700, 'eval_count': 75, 'eval_duration': 16285967800}
+2025-05-12 09:51:24,578 - modules.llm_handler - DEBUG - Raw response text: 
+{
+  "question": "What is the area of a rectangle when you know the length and width?",
+  "options": ["length x width", "length + width", "length - width", "length / width"],
+  "correct_answer": "length x width"
+}
+
+The answer is: "length x width".
+2025-05-12 09:51:24,579 - werkzeug - INFO - 127.0.0.1 - - [12/May/2025 09:51:24] "POST /api/rapid_quiz HTTP/1.1" 200 -
+2025-05-12 09:51:33,557 - werkzeug - INFO - 127.0.0.1 - - [12/May/2025 09:51:33] "POST /api/save_rapid_quiz HTTP/1.1" 200 -
+2025-05-12 09:52:02,506 - urllib3.connectionpool - DEBUG - Starting new HTTP connection (1): localhost:11434
+2025-05-12 09:52:04,541 - urllib3.connectionpool - DEBUG - http://localhost:11434 "GET /api/tags HTTP/1.1" 200 1368
+2025-05-12 09:52:04,541 - modules.llm_handler - DEBUG - Requested model: wizard-math:7b, base name: wizard-math
+2025-05-12 09:52:04,541 - modules.llm_handler - DEBUG - Available models: ['mistral-openorca:latest', 'dolphin-mistral:latest', 'wizard-math:7b', 'mistral:7b-instruct']
+2025-05-12 09:52:04,542 - modules.llm_handler - DEBUG - Exact model match found for wizard-math:7b
+2025-05-12 09:52:04,542 - modules.llm_handler - INFO - Generating response using model: wizard-math:7b
+2025-05-12 09:52:04,543 - urllib3.connectionpool - DEBUG - Starting new HTTP connection (1): localhost:11434
+2025-05-12 09:54:06,598 - modules.llm_handler - WARNING - Attempt 1 failed, retrying in 5 seconds...
+2025-05-12 09:54:09,023 - werkzeug - INFO - 127.0.0.1 - - [12/May/2025 09:54:09] "GET /api/get_analytics HTTP/1.1" 200 -
+2025-05-12 09:54:11,601 - urllib3.connectionpool - DEBUG - Starting new HTTP connection (1): localhost:11434
+2025-05-12 09:54:13,621 - urllib3.connectionpool - DEBUG - http://localhost:11434 "GET /api/tags HTTP/1.1" 200 1368
+2025-05-12 09:54:13,622 - modules.llm_handler - DEBUG - Requested model: wizard-math:7b, base name: wizard-math
+2025-05-12 09:54:13,623 - modules.llm_handler - DEBUG - Available models: ['mistral-openorca:latest', 'dolphin-mistral:latest', 'wizard-math:7b', 'mistral:7b-instruct']
+2025-05-12 09:54:13,623 - modules.llm_handler - DEBUG - Exact model match found for wizard-math:7b
+2025-05-12 09:54:13,623 - modules.llm_handler - INFO - Generating response using model: wizard-math:7b
+2025-05-12 09:54:13,625 - urllib3.connectionpool - DEBUG - Starting new HTTP connection (1): localhost:11434
+2025-05-12 09:58:56,426 - app - INFO - Database database/user_data.db initialized successfully
+2025-05-12 09:58:56,426 - app - INFO - init_models called (no-op placeholder).
+2025-05-12 09:58:56,451 - werkzeug - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5000
+2025-05-12 09:58:56,452 - werkzeug - INFO - [33mPress CTRL+C to quit[0m
+2025-05-12 09:59:00,177 - werkzeug - INFO - 127.0.0.1 - - [12/May/2025 09:59:00] "GET / HTTP/1.1" 200 -
+2025-05-12 09:59:00,392 - werkzeug - INFO - 127.0.0.1 - - [12/May/2025 09:59:00] "[36mGET /static/css/style.css HTTP/1.1[0m" 304 -
+2025-05-12 09:59:00,576 - werkzeug - INFO - 127.0.0.1 - - [12/May/2025 09:59:00] "[33mGET /favicon.ico HTTP/1.1[0m" 404 -
+2025-05-12 09:59:02,064 - werkzeug - INFO - 127.0.0.1 - - [12/May/2025 09:59:02] "GET /login HTTP/1.1" 200 -
+2025-05-12 09:59:02,090 - werkzeug - INFO - 127.0.0.1 - - [12/May/2025 09:59:02] "[36mGET /static/css/auth.css HTTP/1.1[0m" 304 -
+2025-05-12 09:59:02,093 - werkzeug - INFO - 127.0.0.1 - - [12/May/2025 09:59:02] "[36mGET /static/js/auth.js HTTP/1.1[0m" 304 -
+2025-05-12 09:59:03,441 - app - INFO - User logged in: ayush
+2025-05-12 09:59:03,442 - werkzeug - INFO - 127.0.0.1 - - [12/May/2025 09:59:03] "POST /login HTTP/1.1" 200 -
+2025-05-12 09:59:03,474 - werkzeug - INFO - 127.0.0.1 - - [12/May/2025 09:59:03] "GET /dashboard HTTP/1.1" 200 -
+2025-05-12 09:59:03,497 - werkzeug - INFO - 127.0.0.1 - - [12/May/2025 09:59:03] "[36mGET /static/css/style.css HTTP/1.1[0m" 304 -
+2025-05-12 09:59:03,507 - werkzeug - INFO - 127.0.0.1 - - [12/May/2025 09:59:03] "[36mGET /static/js/dashboard.js HTTP/1.1[0m" 304 -
+2025-05-12 09:59:03,507 - werkzeug - INFO - 127.0.0.1 - - [12/May/2025 09:59:03] "[36mGET /static/js/test.js HTTP/1.1[0m" 304 -
+2025-05-12 09:59:03,578 - werkzeug - INFO - 127.0.0.1 - - [12/May/2025 09:59:03] "GET /api/get_analytics HTTP/1.1" 200 -
+2025-05-12 09:59:04,746 - werkzeug - INFO - 127.0.0.1 - - [12/May/2025 09:59:04] "GET /chatbot?subject=english HTTP/1.1" 200 -
+2025-05-12 09:59:04,775 - werkzeug - INFO - 127.0.0.1 - - [12/May/2025 09:59:04] "[36mGET /static/css/chatbot.css HTTP/1.1[0m" 304 -
+2025-05-12 09:59:04,781 - werkzeug - INFO - 127.0.0.1 - - [12/May/2025 09:59:04] "[36mGET /static/js/chatbot.js HTTP/1.1[0m" 304 -
+2025-05-12 10:09:34,354 - app - INFO - Database database/user_data.db initialized successfully
+2025-05-12 10:09:34,354 - app - INFO - init_models called (no-op placeholder).
+2025-05-12 10:09:34,369 - werkzeug - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5000
+2025-05-12 10:09:34,370 - werkzeug - INFO - [33mPress CTRL+C to quit[0m
+2025-05-12 10:09:38,364 - werkzeug - INFO - 127.0.0.1 - - [12/May/2025 10:09:38] "GET / HTTP/1.1" 200 -
+2025-05-12 10:09:38,565 - werkzeug - INFO - 127.0.0.1 - - [12/May/2025 10:09:38] "[36mGET /static/css/style.css HTTP/1.1[0m" 304 -
+2025-05-12 10:09:38,701 - werkzeug - INFO - 127.0.0.1 - - [12/May/2025 10:09:38] "[33mGET /favicon.ico HTTP/1.1[0m" 404 -
+2025-05-12 10:09:39,991 - werkzeug - INFO - 127.0.0.1 - - [12/May/2025 10:09:39] "GET /login HTTP/1.1" 200 -
+2025-05-12 10:09:40,014 - werkzeug - INFO - 127.0.0.1 - - [12/May/2025 10:09:40] "[36mGET /static/css/auth.css HTTP/1.1[0m" 304 -
+2025-05-12 10:09:40,016 - werkzeug - INFO - 127.0.0.1 - - [12/May/2025 10:09:40] "[36mGET /static/js/auth.js HTTP/1.1[0m" 304 -
+2025-05-12 10:09:41,033 - app - INFO - User logged in: ayush
+2025-05-12 10:09:41,034 - werkzeug - INFO - 127.0.0.1 - - [12/May/2025 10:09:41] "POST /login HTTP/1.1" 200 -
+2025-05-12 10:09:41,064 - werkzeug - INFO - 127.0.0.1 - - [12/May/2025 10:09:41] "GET /dashboard HTTP/1.1" 200 -
+2025-05-12 10:09:41,099 - werkzeug - INFO - 127.0.0.1 - - [12/May/2025 10:09:41] "[36mGET /static/css/style.css HTTP/1.1[0m" 304 -
+2025-05-12 10:09:41,107 - werkzeug - INFO - 127.0.0.1 - - [12/May/2025 10:09:41] "[36mGET /static/js/dashboard.js HTTP/1.1[0m" 304 -
+2025-05-12 10:09:41,111 - werkzeug - INFO - 127.0.0.1 - - [12/May/2025 10:09:41] "[36mGET /static/js/test.js HTTP/1.1[0m" 304 -
+2025-05-12 10:09:41,207 - werkzeug - INFO - 127.0.0.1 - - [12/May/2025 10:09:41] "GET /api/get_analytics HTTP/1.1" 200 -
+2025-05-12 10:09:43,281 - werkzeug - INFO - 127.0.0.1 - - [12/May/2025 10:09:43] "GET /chatbot?subject=english HTTP/1.1" 200 -
+2025-05-12 10:09:43,312 - werkzeug - INFO - 127.0.0.1 - - [12/May/2025 10:09:43] "[36mGET /static/css/chatbot.css HTTP/1.1[0m" 304 -
+2025-05-12 10:09:43,368 - werkzeug - INFO - 127.0.0.1 - - [12/May/2025 10:09:43] "GET /static/js/chatbot.js HTTP/1.1" 200 -
+2025-05-12 10:09:53,126 - urllib3.connectionpool - DEBUG - Starting new HTTP connection (1): localhost:11434
+2025-05-12 10:09:55,168 - urllib3.connectionpool - DEBUG - http://localhost:11434 "GET /api/tags HTTP/1.1" 200 1368
+2025-05-12 10:09:55,169 - modules.llm_handler - DEBUG - Requested model: wizard-math:7b, base name: wizard-math
+2025-05-12 10:09:55,169 - modules.llm_handler - DEBUG - Available models: ['mistral-openorca:latest', 'dolphin-mistral:latest', 'wizard-math:7b', 'mistral:7b-instruct']
+2025-05-12 10:09:55,170 - modules.llm_handler - DEBUG - Exact model match found for wizard-math:7b
+2025-05-12 10:09:55,170 - modules.llm_handler - INFO - Generating response using model: wizard-math:7b
+2025-05-12 10:09:55,171 - urllib3.connectionpool - DEBUG - Starting new HTTP connection (1): localhost:11434
+2025-05-12 10:11:57,217 - modules.llm_handler - WARNING - Attempt 1 failed, retrying in 5 seconds...
+2025-05-12 10:12:02,218 - urllib3.connectionpool - DEBUG - Starting new HTTP connection (1): localhost:11434
+2025-05-12 10:12:04,258 - urllib3.connectionpool - DEBUG - http://localhost:11434 "GET /api/tags HTTP/1.1" 200 1368
+2025-05-12 10:12:04,259 - modules.llm_handler - DEBUG - Requested model: wizard-math:7b, base name: wizard-math
+2025-05-12 10:12:04,260 - modules.llm_handler - DEBUG - Available models: ['mistral-openorca:latest', 'dolphin-mistral:latest', 'wizard-math:7b', 'mistral:7b-instruct']
+2025-05-12 10:12:04,260 - modules.llm_handler - DEBUG - Exact model match found for wizard-math:7b
+2025-05-12 10:12:04,260 - modules.llm_handler - INFO - Generating response using model: wizard-math:7b
+2025-05-12 10:12:04,261 - urllib3.connectionpool - DEBUG - Starting new HTTP connection (1): localhost:11434
+2025-05-12 10:13:22,602 - urllib3.connectionpool - DEBUG - http://localhost:11434 "POST /api/generate HTTP/1.1" 200 None
+2025-05-12 10:13:22,603 - modules.llm_handler - DEBUG - Ollama raw result: {'model': 'wizard-math:7b', 'created_at': '2025-05-12T04:43:22.5967469Z', 'response': '\nStep 1: Start by asking the students if they know what a noun is. If they do, ask them to give an example of a noun. If they don\'t, provide a simple definition such as "a noun is a word that refers to a person, place, or thing."\n\nStep 2: Explain why nouns are important in mathematics. For example, in algebra, we often use variables to represent unknown quantities, which are types of nouns. In geometry, we label shapes and objects with nouns. In statistics, we use nouns to represent data sets and populations. Encourage the students to think of other examples.\n\nStep 3: Introduce 2-3 key concepts related to nouns in the context of the current topic. For example, if the topic is algebra, you might introduce the concept of variables as nouns, or if the topic is geometry, you might introduce the concept of naming shapes with nouns.\n\nStep 4: End with a thought-provoking question that encourages the student to think about their prior knowledge of noun. For example, "Can you think of a time when you used a noun in a math problem? How did it help you solve the problem?" or "Why do you think it\'s important to use the correct noun in a math problem?"\n\nRemember, the goal is to engage the students in a conversation, not to deliver a lecture. Encourage them to share their thoughts and experiences, and guide the discussion with open-ended questions.', 'done': True, 'done_reason': 'stop', 'context': [995, 460, 396, 7583, 14165, 8311, 271, 2841, 3864, 297, 11049, 28723, 995, 460, 9432, 438, 264, 1486, 2052, 2184, 325, 26830, 28705, 28774, 28733, 28740, 28750, 609, 3604, 5541, 349, 298, 1316, 3567, 2380, 16582, 11869, 1059, 318, 26184, 19198, 28725, 1111, 3269, 4224, 28725, 304, 5122, 495, 12139, 28723, 2929, 6212, 272, 3238, 302, 396, 19639, 28725, 7749, 28725, 304, 4788, 522, 8626, 693, 3069, 7276, 4195, 28723, 5938, 12230, 9254, 304, 7507, 12284, 1444, 16582, 28723, 1684, 10148, 14508, 5716, 14915, 28725, 3084, 2948, 28725, 2992, 522, 12139, 304, 6191, 3012, 28723, 13, 13, 27332, 3133, 3112, 28747, 13, 1976, 460, 264, 6416, 8304, 11049, 8626, 395, 1267, 302, 2659, 9432, 3567, 438, 544, 6157, 28723, 13, 13, 19738, 1604, 28747, 307, 1068, 13, 920, 8115, 2431, 393, 7321, 2980, 28747, 10023, 13, 13, 11159, 9432, 4431, 28747, 13, 28740, 28723, 24408, 356, 3667, 5935, 840, 6399, 3210, 821, 776, 15251, 13, 28750, 28723, 5938, 272, 318, 26184, 2038, 395, 1654, 1007, 4224, 298, 8327, 3567, 28742, 4195, 13, 28770, 28723, 7133, 547, 3081, 10928, 697, 395, 1353, 28733, 9471, 9254, 304, 8429, 13, 28781, 28723, 16104, 27729, 12139, 369, 13964, 2711, 767, 3567, 2380, 12742, 13, 28782, 28723, 13046, 4052, 514, 13346, 395, 21869, 304, 25312, 13, 28784, 28723, 21931, 3567, 395, 13107, 4630, 4418, 390, 590, 5097, 13, 13, 7477, 3567, 1038, 17179, 28747, 13, 28733, 9268, 3768, 2111, 1753, 272, 4372, 13, 28733, 14555, 706, 298, 5191, 652, 1216, 7559, 1059, 17271, 13, 28733, 19500, 16055, 4224, 369, 1736, 298, 16164, 13, 28733, 8610, 23099, 739, 590, 1038, 5191, 497, 442, 4714, 3892, 13, 13, 28738, 8365, 288, 7661, 28747, 13, 28733, 8587, 7276, 4195, 304, 2700, 28733, 28713, 18390, 6266, 13, 28733, 8245, 27240, 9843, 304, 7643, 12758, 13, 28733, 21873, 27240, 16582, 298, 1353, 28733, 9471, 8429, 13, 28733, 17611, 423, 465, 17008, 8520, 1413, 27240, 3842, 13, 28733, 28517, 264, 6057, 2273, 673, 684, 27240, 5537, 13, 13, 11123, 1186, 28779, 19369, 28747, 4666, 3399, 358, 272, 9067, 302, 307, 1068, 15643, 354, 264, 1486, 2052, 2184, 325, 26830, 28705, 28774, 28733, 28740, 28750, 28731, 5716, 28723, 4205, 28725, 7282, 2079, 456, 9067, 349, 2278, 304, 8598, 298, 272, 5716, 28723, 2479, 28725, 22327, 28705, 28750, 28733, 28770, 1945, 16582, 478, 28742, 584, 11418, 2553, 28723, 5764, 395, 264, 1654, 28733, 11951, 8992, 2996, 369, 6191, 1291, 272, 5716, 298, 1073, 684, 652, 4681, 4788, 302, 307, 1068, 28723, 13, 13, 5139, 1314, 298, 9087, 264, 5315, 1249, 28725, 21885, 10294, 28723, 1992, 19571, 390, 513, 368, 28742, 267, 2461, 264, 1353, 19729, 8387, 28725, 459, 22119, 264, 23347, 28723, 13, 13, 27332, 12107, 28747, 13, 13, 9977, 28705, 28740, 28747, 7043, 486, 7201, 272, 3567, 513, 590, 873, 767, 264, 307, 1068, 349, 28723, 1047, 590, 511, 28725, 1460, 706, 298, 2111, 396, 2757, 302, 264, 307, 1068, 28723, 1047, 590, 949, 28742, 28707, 28725, 3084, 264, 3588, 7526, 1259, 390, 345, 28708, 307, 1068, 349, 264, 1707, 369, 15654, 298, 264, 1338, 28725, 1633, 28725, 442, 1970, 611, 13, 13, 9977, 28705, 28750, 28747, 13702, 426, 2079, 307, 1068, 28713, 460, 2278, 297, 16872, 1063, 28723, 1263, 2757, 28725, 297, 13397, 28725, 478, 2608, 938, 8925, 298, 2904, 9038, 21709, 28725, 690, 460, 4514, 302, 307, 1068, 28713, 28723, 560, 17639, 28725, 478, 3870, 17187, 304, 6697, 395, 307, 1068, 28713, 28723, 560, 13110, 28725, 478, 938, 307, 1068, 28713, 298, 2904, 1178, 6491, 304, 19439, 28723, 17611, 423, 465, 272, 3567, 298, 1073, 302, 799, 9254, 28723, 13, 13, 9977, 28705, 28770, 28747, 4666, 3399, 358, 28705, 28750, 28733, 28770, 1945, 16582, 5202, 298, 307, 1068, 28713, 297, 272, 2758, 302, 272, 1868, 9067, 28723, 1263, 2757, 28725, 513, 272, 9067, 349, 13397, 28725, 368, 1659, 13097, 272, 5935, 302, 8925, 390, 307, 1068, 28713, 28725, 442, 513, 272, 9067, 349, 17639, 28725, 368, 1659, 13097, 272, 5935, 302, 307, 6133, 17187, 395, 307, 1068, 28713, 28723, 13, 13, 9977, 28705, 28781, 28747, 5764, 395, 264, 1654, 28733, 11951, 8992, 2996, 369, 6191, 1291, 272, 5716, 298, 1073, 684, 652, 4681, 4788, 302, 307, 1068, 28723, 1263, 2757, 28725, 345, 6325, 368, 1073, 302, 264, 727, 739, 368, 1307, 264, 307, 1068, 297, 264, 11049, 2700, 28804, 1602, 863, 378, 1316, 368, 12049, 272, 2700, 1110, 442, 345, 7638, 511, 368, 1073, 378, 28742, 28713, 2278, 298, 938, 272, 4714, 307, 1068, 297, 264, 11049, 2700, 1110, 13, 13, 5139, 1314, 28725, 272, 5541, 349, 298, 14200, 272, 3567, 297, 264, 7114, 28725, 459, 298, 5663, 264, 23347, 28723, 17611, 423, 465, 706, 298, 4098, 652, 7403, 304, 9021, 28725, 304, 8327, 272, 8387, 395, 1565, 28733, 2508, 4224, 28723], 'total_duration': 76286154700, 'load_duration': 32817700, 'prompt_eval_count': 446, 'prompt_eval_duration': 197517800, 'eval_count': 338, 'eval_duration': 76055313700}
+2025-05-12 10:13:22,606 - modules.llm_handler - DEBUG - Raw response text: 
+Step 1: Start by asking the students if they know what a noun is. If they do, ask them to give an example of a noun. If they don't, provide a simple definition such as "a noun is a word that refers to a person, place, or thing."
+
+Step 2: Explain why nouns are important in mathematics. For example, in algebra, we often use variables to represent unknown quantities, which are types of nouns. In geometry, we label shapes and objects with nouns. In statistics, we use nouns to represent data sets and populations. Encourage the students to think of other examples.
+
+Step 3: Introduce 2-3 key concepts related to nouns in the context of the current topic. For example, if the topic is algebra, you might introduce the concept of variables as nouns, or if the topic is geometry, you might introduce the concept of naming shapes with nouns.
+
+Step 4: End with a thought-provoking question that encourages the student to think about their prior knowledge of noun. For example, "Can you think of a time when you used a noun in a math problem? How did it help you solve the problem?" or "Why do you think it's important to use the correct noun in a math problem?"
+
+Remember, the goal is to engage the students in a conversation, not to deliver a lecture. Encourage them to share their thoughts and experiences, and guide the discussion with open-ended questions.
+2025-05-12 10:13:22,607 - modules.llm_handler - WARNING - No JSON block found. Returning raw response.
+2025-05-12 10:13:22,621 - werkzeug - INFO - 127.0.0.1 - - [12/May/2025 10:13:22] "POST /api/chat HTTP/1.1" 200 -
+2025-05-12 10:13:24,446 - urllib3.connectionpool - DEBUG - Starting new HTTP connection (1): localhost:11434
+2025-05-12 10:13:26,482 - urllib3.connectionpool - DEBUG - http://localhost:11434 "GET /api/tags HTTP/1.1" 200 1368
+2025-05-12 10:13:26,483 - modules.llm_handler - DEBUG - Requested model: mistral:7b-instruct, base name: mistral
+2025-05-12 10:13:26,483 - modules.llm_handler - DEBUG - Available models: ['mistral-openorca:latest', 'dolphin-mistral:latest', 'wizard-math:7b', 'mistral:7b-instruct']
+2025-05-12 10:13:26,484 - modules.llm_handler - DEBUG - Exact model match found for mistral:7b-instruct
+2025-05-12 10:13:26,484 - modules.llm_handler - INFO - Generating response using model: mistral:7b-instruct
+2025-05-12 10:13:26,485 - urllib3.connectionpool - DEBUG - Starting new HTTP connection (1): localhost:11434
+2025-05-12 10:15:04,585 - urllib3.connectionpool - DEBUG - http://localhost:11434 "POST /api/generate HTTP/1.1" 200 None
+2025-05-12 10:15:04,586 - modules.llm_handler - DEBUG - Ollama raw result: {'model': 'mistral:7b-instruct', 'created_at': '2025-05-12T04:45:04.5810429Z', 'response': ' {\n  "question": "Which of the following is a common example of a noun in English sentences?",\n  "options": ["The sun", "To run", "Yes", "Smile"],\n  "correct_answer": "The sun"\n}', 'done': True, 'done_reason': 'stop', 'context': [3, 29473, 1763, 1228, 1032, 4585, 3977, 8351, 1065, 25438, 1557, 29491, 26843, 1633, 4484, 10060, 5800, 1294, 1231, 4992, 29491, 781, 781, 2744, 1228, 1032, 7184, 9072, 5068, 12122, 1072, 4421, 9394, 1163, 2035, 1070, 3427, 10200, 4335, 1206, 1312, 6925, 29491, 781, 781, 20506, 2372, 29515, 1075, 1836, 781, 1688, 8883, 3199, 1161, 8089, 3748, 29515, 3607, 1847, 781, 781, 11927, 10200, 5199, 29515, 781, 29508, 29491, 25176, 1124, 4435, 4302, 7167, 1070, 20105, 1072, 6413, 9288, 781, 29518, 29491, 6706, 1040, 1086, 26952, 2806, 1066, 13597, 17484, 1072, 6411, 781, 29538, 29491, 7901, 1315, 3849, 11696, 1465, 1163, 10022, 1245, 12122, 1072, 4421, 781, 29549, 29491, 16872, 28497, 12907, 1137, 14732, 3479, 28904, 1072, 5788, 1122, 6825, 781, 29550, 29491, 13814, 4820, 1282, 14114, 1452, 19524, 4247, 29493, 4006, 29493, 1210, 6514, 1163, 22637, 781, 29552, 29491, 22699, 4335, 1163, 10579, 1072, 14073, 1513, 10564, 1158, 1358, 5865, 781, 781, 8245, 4335, 1806, 17947, 29515, 781, 29501, 10036, 4536, 2879, 2521, 1040, 5140, 781, 29501, 15323, 1474, 1066, 8735, 1124, 1420, 25453, 1210, 4421, 781, 29501, 20268, 16823, 4992, 1137, 2504, 1066, 16932, 781, 29501, 9378, 23867, 1507, 1358, 1806, 5959, 1265, 1210, 5684, 1420, 1539, 781, 781, 29506, 9133, 1056, 8429, 29515, 781, 29501, 9355, 8044, 5633, 29493, 4421, 29493, 1072, 9288, 7034, 781, 29501, 9013, 10611, 1065, 4840, 1056, 6534, 1072, 7958, 1465, 781, 29501, 22641, 12122, 1072, 4421, 1066, 2121, 29501, 10239, 9789, 781, 29501, 18379, 1191, 1233, 17776, 1706, 1070, 4610, 1072, 17724, 4239, 781, 29501, 29285, 1032, 6825, 3041, 1441, 1452, 5068, 1072, 4421, 6305, 781, 781, 11891, 1954, 29547, 20137, 29515, 29473, 781, 24110, 1032, 3460, 5934, 5550, 3764, 1122, 3704, 15849, 29491, 781, 23743, 2107, 29515, 781, 29501, 23246, 2348, 1115, 10875, 1452, 1075, 1836, 1065, 1040, 3526, 1070, 25438, 1557, 781, 29501, 14417, 4179, 15194, 2952, 781, 29501, 17444, 29493, 3846, 1632, 3764, 781, 29501, 2297, 20009, 29473, 29549, 3645, 1163, 1392, 5482, 5140, 781, 5824, 29515, 5339, 10456, 10648, 4484, 10060, 1163, 1935, 4227, 8916, 29515, 3764, 29493, 3645, 1093, 2933, 1325, 5482, 29498, 24883, 781, 781, 21043, 1122, 11817, 29516, 22851, 3205, 29515, 781, 29519, 781, 29473, 1113, 18264, 2032, 1113, 3963, 1117, 1040, 11734, 1070, 3487, 11246, 1507, 1740, 10974, 1032, 5736, 17312, 29572, 1316, 781, 29473, 1113, 4306, 2032, 8135, 29508, 29516, 29518, 1316, 1113, 29508, 29516, 29549, 1316, 1113, 29508, 1316, 1113, 29502, 9651, 781, 29473, 1113, 25323, 29498, 24883, 2032, 1113, 29508, 29516, 29518, 29507, 781, 29520, 781, 781, 781, 5907, 2082, 1066, 2608, 1342, 11062, 6083, 2017, 1072, 22653, 29493, 1158, 1281, 1065, 1032, 2121, 20497, 9155, 29491, 4, 1027, 1139, 781, 29473, 1113, 18264, 2032, 1113, 27471, 1070, 1040, 3064, 1117, 1032, 4066, 3525, 1070, 1032, 1075, 1836, 1065, 5068, 24516, 29572, 1316, 781, 29473, 1113, 4306, 2032, 8135, 1782, 5144, 1316, 1113, 2319, 2250, 1316, 1113, 6381, 1316, 1113, 11027, 1314, 9651, 781, 29473, 1113, 25323, 29498, 24883, 2032, 1113, 1782, 5144, 29507, 781, 29520], 'total_duration': 96053158300, 'load_duration': 13199111000, 'prompt_eval_count': 439, 'prompt_eval_duration': 69943932100, 'eval_count': 58, 'eval_duration': 12888775900}
+2025-05-12 10:15:04,587 - modules.llm_handler - DEBUG - Raw response text:  {
+  "question": "Which of the following is a common example of a noun in English sentences?",
+  "options": ["The sun", "To run", "Yes", "Smile"],
+  "correct_answer": "The sun"
+}
+2025-05-12 10:15:04,588 - werkzeug - INFO - 127.0.0.1 - - [12/May/2025 10:15:04] "POST /api/rapid_quiz HTTP/1.1" 200 -
+2025-05-12 10:15:14,627 - werkzeug - INFO - 127.0.0.1 - - [12/May/2025 10:15:14] "POST /api/save_rapid_quiz HTTP/1.1" 200 -
+2025-05-12 10:32:19,394 - app - INFO - Database database/user_data.db initialized successfully
+2025-05-12 10:32:19,395 - app - INFO - init_models called (no-op placeholder).
+2025-05-12 10:32:19,438 - werkzeug - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5000
+2025-05-12 10:32:19,439 - werkzeug - INFO - [33mPress CTRL+C to quit[0m
+2025-05-12 10:32:40,302 - app - INFO - Database database/user_data.db initialized successfully
+2025-05-12 10:32:40,302 - app - INFO - init_models called (no-op placeholder).
+2025-05-12 10:32:40,316 - werkzeug - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5000
+2025-05-12 10:32:40,317 - werkzeug - INFO - [33mPress CTRL+C to quit[0m
+2025-05-12 10:32:43,725 - werkzeug - INFO - 127.0.0.1 - - [12/May/2025 10:32:43] "GET / HTTP/1.1" 200 -
+2025-05-12 10:32:43,855 - werkzeug - INFO - 127.0.0.1 - - [12/May/2025 10:32:43] "[36mGET /static/css/style.css HTTP/1.1[0m" 304 -
+2025-05-12 10:32:45,369 - werkzeug - INFO - 127.0.0.1 - - [12/May/2025 10:32:45] "GET /login HTTP/1.1" 200 -
+2025-05-12 10:32:45,404 - werkzeug - INFO - 127.0.0.1 - - [12/May/2025 10:32:45] "[36mGET /static/css/auth.css HTTP/1.1[0m" 304 -
+2025-05-12 10:32:45,405 - werkzeug - INFO - 127.0.0.1 - - [12/May/2025 10:32:45] "[36mGET /static/js/auth.js HTTP/1.1[0m" 304 -
+2025-05-12 10:32:46,246 - app - INFO - User logged in: ayush
+2025-05-12 10:32:46,247 - werkzeug - INFO - 127.0.0.1 - - [12/May/2025 10:32:46] "POST /login HTTP/1.1" 200 -
+2025-05-12 10:32:46,289 - werkzeug - INFO - 127.0.0.1 - - [12/May/2025 10:32:46] "GET /dashboard HTTP/1.1" 200 -
+2025-05-12 10:32:46,320 - werkzeug - INFO - 127.0.0.1 - - [12/May/2025 10:32:46] "[36mGET /static/css/style.css HTTP/1.1[0m" 304 -
+2025-05-12 10:32:46,332 - werkzeug - INFO - 127.0.0.1 - - [12/May/2025 10:32:46] "[36mGET /static/js/dashboard.js HTTP/1.1[0m" 304 -
+2025-05-12 10:32:46,334 - werkzeug - INFO - 127.0.0.1 - - [12/May/2025 10:32:46] "[36mGET /static/js/test.js HTTP/1.1[0m" 304 -
+2025-05-12 10:32:46,397 - werkzeug - INFO - 127.0.0.1 - - [12/May/2025 10:32:46] "GET /api/get_analytics HTTP/1.1" 200 -
+2025-05-12 10:32:47,302 - werkzeug - INFO - 127.0.0.1 - - [12/May/2025 10:32:47] "GET /chatbot?subject=math HTTP/1.1" 200 -
+2025-05-12 10:32:47,333 - werkzeug - INFO - 127.0.0.1 - - [12/May/2025 10:32:47] "[36mGET /static/css/chatbot.css HTTP/1.1[0m" 304 -
+2025-05-12 10:32:47,345 - werkzeug - INFO - 127.0.0.1 - - [12/May/2025 10:32:47] "[36mGET /static/js/chatbot.js HTTP/1.1[0m" 304 -
+2025-05-12 10:32:59,147 - app - ERROR - Failed to fetch user preferences: no such table: user_preferences
+2025-05-12 10:32:59,156 - urllib3.connectionpool - DEBUG - Starting new HTTP connection (1): localhost:11434
+2025-05-12 10:33:01,194 - urllib3.connectionpool - DEBUG - http://localhost:11434 "GET /api/tags HTTP/1.1" 200 1368
+2025-05-12 10:33:01,195 - modules.llm_handler - DEBUG - Requested model: wizard-math:7b, base name: wizard-math
+2025-05-12 10:33:01,195 - modules.llm_handler - DEBUG - Available models: ['mistral-openorca:latest', 'dolphin-mistral:latest', 'wizard-math:7b', 'mistral:7b-instruct']
+2025-05-12 10:33:01,195 - modules.llm_handler - DEBUG - Exact model match found for wizard-math:7b
+2025-05-12 10:33:01,196 - modules.llm_handler - INFO - Generating response using model: wizard-math:7b
+2025-05-12 10:33:01,197 - urllib3.connectionpool - DEBUG - Starting new HTTP connection (1): localhost:11434
+2025-05-12 10:35:03,266 - modules.llm_handler - WARNING - Attempt 1 failed, retrying in 5 seconds...
+2025-05-12 10:35:08,268 - urllib3.connectionpool - DEBUG - Starting new HTTP connection (1): localhost:11434
+2025-05-12 10:35:10,317 - urllib3.connectionpool - DEBUG - http://localhost:11434 "GET /api/tags HTTP/1.1" 200 1368
+2025-05-12 10:35:10,318 - modules.llm_handler - DEBUG - Requested model: wizard-math:7b, base name: wizard-math
+2025-05-12 10:35:10,318 - modules.llm_handler - DEBUG - Available models: ['mistral-openorca:latest', 'dolphin-mistral:latest', 'wizard-math:7b', 'mistral:7b-instruct']
+2025-05-12 10:35:10,318 - modules.llm_handler - DEBUG - Exact model match found for wizard-math:7b
+2025-05-12 10:35:10,319 - modules.llm_handler - INFO - Generating response using model: wizard-math:7b
+2025-05-12 10:35:10,320 - urllib3.connectionpool - DEBUG - Starting new HTTP connection (1): localhost:11434
+2025-05-12 10:36:59,076 - urllib3.connectionpool - DEBUG - http://localhost:11434 "POST /api/generate HTTP/1.1" 200 None
+2025-05-12 10:36:59,081 - modules.llm_handler - DEBUG - Ollama raw result: {'model': 'wizard-math:7b', 'created_at': '2025-05-12T05:06:59.0603825Z', 'response': "\nFirst, let's start with a definition of decimal numbers. Decimal numbers are numbers that are expressed in the base-10 number system, which means they are made up of digits from 0 to 9. Decimal numbers are important because they are used in almost every aspect of our daily lives, from measuring time and temperature to calculating distances and costs.\n\nNow, let's outline some key concepts we'll explore together:\n\n1. Place value: Understanding the place value of each digit in a decimal number is crucial. For example, in the number 12.34, the digit 1 is in the tens place, 2 is in the ones place, 3 is in the hundredths place, and 4 is in the thousandths place.\n\n2. Conversion between fractions and decimals: We'll learn how to convert fractions into decimals and vice versa. For example, 1/2 is equivalent to 0.5, and 0.3 can be represented as 3/10.\n\n3. Decimal operations: We'll practice adding, subtracting, multiplying, and dividing decimal numbers. For example, 0.5 + 0.25 = 0.75, and 0.5 ÷ 0.25 = 2.\n\nTo end this introduction, let's encourage the student to think about their prior knowledge of decimal numbers. Ask them to recall any real-world situations where they have used decimal numbers or encountered them in their daily lives. This will help them make connections between the abstract concept and their everyday experiences.\n\nThe answer is: 0.25 = 0.75, and 0.5 ÷ 0.25 = 2.\nTo end this introduction, let's encourage the student to think about their prior knowledge of decimal numbers. Ask them to recall any real-world situations where they have used decimal numbers or encountered them in their daily lives. This will help them make connections between the abstract concept and their everyday experiences.", 'done': True, 'done_reason': 'stop', 'context': [995, 460, 396, 7583, 14165, 8311, 271, 2841, 3864, 297, 11049, 28723, 995, 460, 9432, 438, 264, 4986, 2052, 2184, 325, 26830, 28705, 28784, 28733, 28783, 609, 3604, 5541, 349, 298, 1316, 3567, 2380, 16582, 11869, 1059, 318, 26184, 19198, 28725, 1111, 3269, 4224, 28725, 304, 5122, 495, 12139, 28723, 2929, 6212, 272, 3238, 302, 396, 19639, 28725, 7749, 28725, 304, 4788, 522, 8626, 693, 3069, 7276, 4195, 28723, 1684, 1413, 272, 318, 26184, 2038, 28747, 387, 19500, 1565, 28733, 2508, 4224, 369, 2699, 680, 821, 5081, 28748, 1510, 11194, 387, 1992, 19571, 298, 5716, 11194, 395, 1372, 28733, 715, 4224, 369, 11510, 13551, 4195, 387, 15576, 3567, 5191, 11194, 1059, 23701, 24685, 3210, 821, 1863, 13126, 387, 330, 8979, 3829, 5716, 14036, 304, 1813, 3714, 652, 5766, 387, 5938, 16055, 11992, 274, 304, 2444, 727, 298, 12829, 17271, 5938, 12230, 9254, 304, 7507, 12284, 1444, 16582, 28723, 320, 614, 271, 574, 10928, 697, 298, 272, 5716, 28742, 28713, 2184, 1312, 17885, 25618, 680, 4630, 5766, 28723, 15347, 2934, 12738, 28747, 1992, 19571, 5090, 298, 272, 5716, 28723, 2378, 5457, 3024, 9432, 11382, 442, 5944, 297, 574, 2899, 28723, 2378, 459, 3870, 574, 2899, 395, 464, 9977, 28705, 28740, 28747, 647, 4345, 28723, 3194, 3324, 264, 4229, 28725, 5315, 1249, 2899, 390, 513, 368, 28742, 267, 8711, 5090, 298, 272, 5716, 28723, 13, 13, 27332, 3133, 3112, 28747, 13, 1976, 460, 264, 6416, 8304, 11049, 8626, 395, 1267, 302, 2659, 9432, 3567, 438, 544, 6157, 28723, 13, 13, 19738, 1604, 28747, 25888, 708, 28723, 13, 920, 8115, 2431, 393, 7321, 2980, 28747, 22602, 13, 13, 11159, 9432, 4431, 28747, 13, 28740, 28723, 24408, 356, 3667, 5935, 840, 6399, 3210, 821, 776, 15251, 13, 28750, 28723, 5938, 272, 318, 26184, 2038, 395, 1654, 1007, 4224, 298, 8327, 3567, 28742, 4195, 13, 28770, 28723, 7133, 547, 3081, 10928, 697, 395, 1353, 28733, 9471, 9254, 304, 8429, 13, 28781, 28723, 5938, 8809, 23384, 304, 13735, 28713, 298, 8740, 380, 16582, 739, 2572, 13, 28782, 28723, 16104, 27729, 12139, 369, 13964, 2711, 767, 3567, 2380, 12742, 13, 28784, 28723, 13046, 4052, 514, 13346, 395, 21869, 304, 25312, 13, 28787, 28723, 21931, 3567, 395, 13107, 4630, 4418, 390, 590, 5097, 13, 28783, 28723, 15102, 1060, 4630, 4418, 778, 8594, 522, 5944, 13, 28774, 28723, 17611, 423, 465, 5166, 5165, 5562, 304, 9811, 2700, 28733, 28713, 18390, 13, 13, 7477, 3567, 1038, 17179, 28747, 13, 28733, 9268, 3768, 2111, 1753, 272, 4372, 13, 28733, 14555, 706, 298, 5191, 652, 1216, 7559, 1059, 17271, 13, 28733, 19500, 16055, 4224, 369, 1736, 298, 16164, 13, 28733, 8610, 23099, 739, 590, 1038, 5191, 497, 442, 4714, 3892, 13, 28733, 5938, 272, 2118, 390, 264, 5168, 5701, 486, 10148, 14508, 272, 4195, 2910, 378, 13, 13, 28738, 8365, 288, 7661, 28747, 13, 28733, 8587, 7276, 4195, 304, 2700, 28733, 28713, 18390, 6266, 13, 28733, 8245, 27240, 9843, 304, 7643, 12758, 13, 28733, 21873, 27240, 16582, 298, 1353, 28733, 9471, 8429, 13, 28733, 17611, 423, 465, 17008, 8520, 1413, 27240, 3842, 13, 28733, 28517, 264, 6057, 2273, 673, 684, 27240, 5537, 13, 28733, 8587, 2967, 8809, 1837, 6266, 354, 27240, 16582, 13, 28733, 8245, 21141, 685, 354, 5551, 28725, 11533, 28725, 304, 9391, 13, 13, 7477, 20400, 16582, 28747, 13, 28733, 7043, 395, 12230, 9254, 1159, 5272, 298, 11576, 13818, 13, 28733, 5938, 3081, 22499, 739, 3653, 27240, 16948, 13, 28733, 7133, 547, 3707, 28733, 1403, 28733, 7691, 24685, 369, 3567, 541, 1372, 13, 28733, 6746, 12284, 298, 8361, 5996, 16582, 13, 28733, 4914, 354, 6399, 11220, 395, 20279, 4224, 13, 13, 11123, 1186, 28779, 19369, 28747, 4666, 3399, 358, 272, 9067, 302, 25888, 708, 28723, 15643, 354, 264, 4986, 2052, 2184, 325, 26830, 28705, 28784, 28733, 28783, 28731, 5716, 28723, 13702, 426, 2079, 456, 9067, 349, 2278, 304, 8598, 298, 272, 5716, 28723, 2479, 28725, 22327, 28705, 28750, 28733, 28770, 1945, 16582, 478, 28742, 584, 11418, 2553, 28723, 5764, 395, 264, 1654, 28733, 11951, 8992, 2996, 369, 6191, 1291, 272, 5716, 298, 1073, 684, 652, 4681, 4788, 302, 25888, 708, 568, 13, 13, 5139, 1314, 298, 9087, 264, 5315, 1249, 28725, 21885, 10294, 28723, 1992, 19571, 390, 513, 368, 28742, 267, 2461, 264, 1353, 19729, 8387, 28725, 459, 22119, 264, 23347, 28723, 1263, 4630, 27240, 16948, 28725, 938, 3081, 22499, 304, 1221, 14758, 298, 5407, 1220, 2437, 28723, 13, 13, 27332, 12107, 28747, 13, 13, 7489, 28725, 1346, 28742, 28713, 1149, 395, 264, 7526, 302, 25888, 5551, 28723, 6712, 3048, 5551, 460, 5551, 369, 460, 11558, 297, 272, 2624, 28733, 28740, 28734, 1474, 1587, 28725, 690, 2825, 590, 460, 1269, 582, 302, 3968, 1046, 477, 28705, 28734, 298, 28705, 28774, 28723, 6712, 3048, 5551, 460, 2278, 1096, 590, 460, 1307, 297, 2779, 1012, 6563, 302, 813, 6790, 4621, 28725, 477, 24580, 727, 304, 7641, 298, 4900, 1077, 24224, 304, 6966, 28723, 13, 13, 8479, 28725, 1346, 28742, 28713, 22327, 741, 1945, 16582, 478, 28742, 584, 11418, 2553, 28747, 13, 13, 28740, 28723, 11851, 1192, 28747, 6605, 8509, 272, 1633, 1192, 302, 1430, 21656, 297, 264, 25888, 1474, 349, 13040, 28723, 1263, 2757, 28725, 297, 272, 1474, 28705, 28740, 28750, 28723, 28770, 28781, 28725, 272, 21656, 28705, 28740, 349, 297, 272, 19391, 1633, 28725, 28705, 28750, 349, 297, 272, 4413, 1633, 28725, 28705, 28770, 349, 297, 272, 4682, 362, 28713, 1633, 28725, 304, 28705, 28781, 349, 297, 272, 8028, 362, 28713, 1633, 28723, 13, 13, 28750, 28723, 1325, 1790, 1444, 6388, 1308, 304, 1285, 321, 973, 28747, 816, 28742, 584, 2822, 910, 298, 6603, 6388, 1308, 778, 1285, 321, 973, 304, 12465, 3502, 28708, 28723, 1263, 2757, 28725, 28705, 28740, 28748, 28750, 349, 9844, 298, 28705, 28734, 28723, 28782, 28725, 304, 28705, 28734, 28723, 28770, 541, 347, 10483, 390, 28705, 28770, 28748, 28740, 28734, 28723, 13, 13, 28770, 28723, 6712, 3048, 6933, 28747, 816, 28742, 584, 5245, 8833, 28725, 1083, 2107, 288, 28725, 17669, 4089, 28725, 304, 17436, 288, 25888, 5551, 28723, 1263, 2757, 28725, 28705, 28734, 28723, 28782, 648, 28705, 28734, 28723, 28750, 28782, 327, 28705, 28734, 28723, 28787, 28782, 28725, 304, 28705, 28734, 28723, 28782, 28705, 29582, 28705, 28734, 28723, 28750, 28782, 327, 28705, 28750, 28723, 13, 13, 1551, 948, 456, 14300, 28725, 1346, 28742, 28713, 12829, 272, 5716, 298, 1073, 684, 652, 4681, 4788, 302, 25888, 5551, 28723, 19500, 706, 298, 8596, 707, 1353, 28733, 9471, 11846, 970, 590, 506, 1307, 25888, 5551, 442, 19148, 706, 297, 652, 6790, 4621, 28723, 851, 622, 1316, 706, 1038, 12284, 1444, 272, 11576, 5935, 304, 652, 15048, 9021, 28723, 13, 13, 1014, 4372, 349, 28747, 28705, 28734, 28723, 28750, 28782, 327, 28705, 28734, 28723, 28787, 28782, 28725, 304, 28705, 28734, 28723, 28782, 28705, 29582, 28705, 28734, 28723, 28750, 28782, 327, 28705, 28750, 28723, 13, 1551, 948, 456, 14300, 28725, 1346, 28742, 28713, 12829, 272, 5716, 298, 1073, 684, 652, 4681, 4788, 302, 25888, 5551, 28723, 19500, 706, 298, 8596, 707, 1353, 28733, 9471, 11846, 970, 590, 506, 1307, 25888, 5551, 442, 19148, 706, 297, 652, 6790, 4621, 28723, 851, 622, 1316, 706, 1038, 12284, 1444, 272, 11576, 5935, 304, 652, 15048, 9021, 28723], 'total_duration': 106676100200, 'load_duration': 30682600, 'prompt_eval_count': 725, 'prompt_eval_duration': 186557800, 'eval_count': 449, 'eval_duration': 106458105200}
+2025-05-12 10:36:59,084 - modules.llm_handler - DEBUG - Processing response text: 
+First, let's start with a definition of decimal numbers. Decimal numbers are numbers that are expre...
+2025-05-12 10:36:59,101 - werkzeug - INFO - 127.0.0.1 - - [12/May/2025 10:36:59] "POST /api/chat HTTP/1.1" 200 -

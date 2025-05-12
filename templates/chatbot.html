@@ -25,9 +25,20 @@
                         </div>
                     </div>
                 </div>
-                <div class="topic-input">
-                    <label for="topicInput"><i class="fas fa-book"></i> Specify a Topic:</label>
-                    <input id="topicInput" type="text" placeholder="Enter a topic (e.g., Algebra, Chemistry, History)" />
+                <div class="onboarding-form">
+                    <div class="form-group">
+                        <label for="topicInput"><i class="fas fa-book"></i> What topic would you like to learn about?</label>
+                        <input id="topicInput" type="text" placeholder="Enter a topic (e.g., Algebra, Chemical Reactions, World War II)" />
+                    </div>
+                    <div class="form-group">
+                        <label for="gradeLevel"><i class="fas fa-school"></i> What grade/class are you in?</label>
+                        <select id="gradeLevel">
+                            <option value="elementary">Elementary School (Grades 1-5)</option>
+                            <option value="middle">Middle School (Grades 6-8)</option>
+                            <option value="high">High School (Grades 9-12)</option>
+                            <option value="college">College/University</option>
+                        </select>
+                    </div>
                     <button id="setTopicBtn" class="btn primary-btn"><i class="fas fa-play"></i> Start Learning</button>
                 </div>
                 <div class="user-input">

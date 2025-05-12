@@ -1,7 +1,7 @@
 import requests
 import json
 import logging
-from typing import Dict
+from typing import Dict, Optional, Union, List, Any
 import time
 import re
 
@@ -119,13 +119,13 @@ class LLMHandler:
                 result = response.json()
                 logger.debug(f"Ollama raw result: {result}")
                 
-                # Try all possible keys
+                # Extract response text
                 if isinstance(result, dict):
                     text = result.get('response') or result.get('message') or result.get('output') or str(result)
                 else:
                     text = str(result)
                     
-                return self._format_educational_response(text)
+                return self._process_educational_response(text)
 
             except requests.exceptions.RequestException as e:
                 if attempt == self.max_retries:
@@ -137,31 +137,64 @@ class LLMHandler:
                 logger.error(f"LLM generation failed: {str(e)}")
                 return "An error occurred while generating the response. Please try again."
 
-    def _format_educational_response(self, text: str) -> str:
-        """Extract and format the first JSON block from the response, or return full text if not found"""
+    def _process_educational_response(self, text: str) -> str:
+        """Process response for educational content - improved to handle various formats"""
         try:
-            logger.debug(f"Raw response text: {text}")
-            # Remove markdown code block if present
-            text = re.sub(r"^```json|```$", "", text, flags=re.MULTILINE).strip()
+            logger.debug(f"Processing response text: {text[:100]}...")
             
-            # Try to parse as JSON first
+            # Check if the text appears to be teaching instructions
+            instruction_indicators = [
+                "Step 1:", "Step 2:", "Step 3:", "Step 4:",
+                "Remember, the goal is to", 
+                "== this type of response",
+                "teacher should",
+                "should not be seen to student"
+            ]
+            
+            if any(indicator in text for indicator in instruction_indicators):
+                logger.warning("Detected teaching instructions in response that should not be shown to students")
+                
+                # Extract the intended student-facing content if possible
+                # Look for actual content between instruction steps
+                content_parts = []
+                lines = text.split('\n')
+                in_content = False
+                
+                for line in lines:
+                    # Skip obvious instruction lines
+                    if any(line.strip().startswith(i) for i in ["Step ", "Remember,", "=="]):
+                        continue
+                        
+                    # Include lines that seem like actual content
+                    if line.strip() and not any(i in line for i in instruction_indicators):
+                        content_parts.append(line)
+                
+                if content_parts:
+                    return "\n".join(content_parts)
+                else:
+                    # Fallback if we couldn't extract good content
+                    return "I'd be happy to help with that! Could you please ask your question again?"
+            
+            # Try to parse as JSON for structured content
             try:
                 json_obj = json.loads(text)
-                return json.dumps(json_obj)  # Return properly formatted JSON
-            except json.JSONDecodeError:
-                # If direct parsing fails, try to extract JSON using regex
-                json_match = re.search(r'\{.*\}', text, re.DOTALL)
-                if json_match:
-                    try:
-                        json_str = json_match.group()
-                        json_obj = json.loads(json_str)
-                        return json.dumps(json_obj)  # Return properly formatted JSON
-                    except json.JSONDecodeError:
-                        logger.warning("Found JSON-like structure but it's not valid JSON.")
-                        return text
+                
+                # For quiz content, keep the JSON structure
+                if 'question' in json_obj or 'options' in json_obj:
+                    return json.dumps(json_obj)
+                    
+                # For chat responses, extract relevant text fields
+                if 'response' in json_obj:
+                    return json_obj['response']
+                elif 'content' in json_obj:
+                    return json_obj['content']
                 else:
-                    logger.warning("No JSON block found. Returning raw response.")
-                    return text
+                    return json.dumps(json_obj)  # Return properly formatted JSON
+                    
+            except json.JSONDecodeError:
+                # Not JSON, return cleaned text content
+                return text
+                
         except Exception as e:
-            logger.error(f"Response formatting failed: {str(e)}")
+            logger.error(f"Response processing failed: {str(e)}")
             return text
