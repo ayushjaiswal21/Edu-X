@@ -3,9 +3,10 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <title>{{ subject.title() }} Chatbot - Educational AI</title>
     <link rel="stylesheet" href="{{ url_for('static', filename='css/chatbot.css') }}">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" integrity="sha512-9usAa10IRO0HhonpyAIVpjrylPvoDwiPUiKdWk5t3PyolY1cOd4DSE0Ga+ri4AuTroPR5aQvXU9xC6qOPnzFeg==" crossorigin="anonymous" referrerpolicy="no-referrer">
 </head>
 <body>
     <div class="container chatbot-container">
@@ -18,7 +19,7 @@
         </header>
         <main>
             <div class="chat-interface">
-                <div id="chatbox" class="chatbox">
+                <div id="chatbox" class="chatbox" aria-live="polite">
                     <div class="message system">
                         <div class="message-content">
                             <p>{{ initial_message }}</p>
@@ -28,11 +29,11 @@
                 <div class="onboarding-form">
                     <div class="form-group">
                         <label for="topicInput"><i class="fas fa-book"></i> What topic would you like to learn about?</label>
-                        <input id="topicInput" type="text" placeholder="Enter a topic (e.g., Algebra, Chemical Reactions, World War II)" />
+                        <input id="topicInput" type="text" placeholder="Enter a topic (e.g., Algebra, Chemical Reactions, World War II)" aria-required="true" />
                     </div>
                     <div class="form-group">
                         <label for="gradeLevel"><i class="fas fa-school"></i> What grade/class are you in?</label>
-                        <select id="gradeLevel">
+                        <select id="gradeLevel" aria-required="true">
                             <option value="elementary">Elementary School (Grades 1-5)</option>
                             <option value="middle">Middle School (Grades 6-8)</option>
                             <option value="high">High School (Grades 9-12)</option>
@@ -42,25 +43,25 @@
                     <button id="setTopicBtn" class="btn primary-btn"><i class="fas fa-play"></i> Start Learning</button>
                 </div>
                 <div class="user-input">
-                    <textarea id="userMessage" placeholder="Type your answer or ask a question..." disabled></textarea>
+                    <textarea id="userMessage" placeholder="Type your answer or ask a question..." disabled aria-label="Your message"></textarea>
                     <button id="sendBtn" class="btn primary-btn" disabled><i class="fas fa-paper-plane"></i> Send</button>
                 </div>
                 <div class="learning-status">
                     <div class="progress-indicator">
                         <span id="difficultyLevel">Difficulty: Beginner</span>
-                        <div class="progress-bar">
+                        <div class="progress-bar" role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100">
                             <div id="progressFill" class="progress-fill" style="width: 0%"></div>
                         </div>
                     </div>
                     <div class="stats">
-                        <span id="correctAnswers"><i class="fas fa-check"></i> 0</span>
-                        <span id="incorrectAnswers"><i class="fas fa-times"></i> 0</span>
+                        <span id="correctAnswers" aria-label="Correct answers"><i class="fas fa-check"></i> 0</span>
+                        <span id="incorrectAnswers" aria-label="Incorrect answers"><i class="fas fa-times"></i> 0</span>
                     </div>
                 </div>
             </div>
-            <div id="quizContainer" class="quiz-container" style="display: none;">
+            <div id="quizContainer" class="quiz-container" style="display: none;" aria-hidden="true">
                 <h3 id="quizQuestion">Loading question...</h3>
-                <div id="quizOptions" class="quiz-options"></div>
+                <div id="quizOptions" class="quiz-options" role="radiogroup" aria-labelledby="quizQuestion"></div>
                 <button id="submitQuizAnswer" class="btn primary-btn" style="display: none;"><i class="fas fa-check-circle"></i> Submit Answer</button>
             </div>
         </main>
@@ -77,10 +78,10 @@
     </div>
     
     <!-- Progress Modal -->
-    <div id="progressModal" class="modal" style="display: none;">
+    <div id="progressModal" class="modal" style="display: none;" aria-hidden="true" role="dialog" aria-labelledby="progressModalTitle">
         <div class="modal-content">
-            <span class="close-modal">&times;</span>
-            <h2>Your Learning Progress</h2>
+            <span class="close-modal" aria-label="Close">&times;</span>
+            <h2 id="progressModalTitle">Your Learning Progress</h2>
             <div id="progressStats" class="progress-stats">
                 <div class="stat-box">
                     <h3>Topic Mastery</h3>
@@ -96,6 +97,20 @@
                 <div id="learningRecommendations"></div>
             </div>
         </div>
+    </div>
+    
+    <!-- Error notification -->
+    <div id="errorNotification" class="notification error-notification" style="display: none;">
+        <span id="errorMessage">An error occurred.</span>
+        <button id="closeErrorNotification" class="close-notification" aria-label="Close notification">&times;</button>
+    </div>
+    
+    <!-- Loading overlay -->
+    <div id="loadingOverlay" class="loading-overlay" style="display: none;">
+        <div class="loading-spinner">
+            <i class="fas fa-circle-notch fa-spin"></i>
+        </div>
+        <p>Loading...</p>
     </div>
     
     <script src="{{ url_for('static', filename='js/chatbot.js') }}"></script>

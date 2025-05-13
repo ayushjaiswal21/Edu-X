@@ -5,7 +5,7 @@ import logging
 import time
 from datetime import datetime
 from difflib import SequenceMatcher
-from flask import Flask, render_template, request, jsonify, session, redirect, url_for
+from flask import Flask, render_template, request, jsonify, session, redirect, url_for, send_file
 from werkzeug.security import generate_password_hash, check_password_hash
 from werkzeug.exceptions import HTTPException
 import random
@@ -14,7 +14,13 @@ import json
 from modules.summarize import Summarizer
 from markupsafe import escape
 import requests
-
+import cv2
+import numpy as np
+import subprocess
+from PIL import Image
+import pytesseract
+from datetime import timedelta
+from skimage.metrics import structural_similarity as ssim
 llm = LLMHandler()
 
 # Logging setup
@@ -39,9 +45,9 @@ CONFIG = {
         'math': 'wizard-math:7b',
         'science': 'dolphin-mistral:latest',
         'history': 'mistral-openorca:latest',
-        'english': 'mistral:7b-instruct',  # <-- colon, not dash
-        'gk': 'mistral:7b-instruct'        # <-- colon, not dash
-}
+        'english': 'mistral:7b-instruct',
+        'gk': 'mistral:7b-instruct'
+    }
 }
 
 PROMPT_TEMPLATES_DIR = "modules/prompts"
@@ -128,17 +134,46 @@ def init_db():
                     FOREIGN KEY(user_id) REFERENCES users(id)
                 )
             ''')
+            # Add feedback table
+            cursor.execute('''
+                CREATE TABLE IF NOT EXISTS feedback (
+                    id INTEGER PRIMARY KEY AUTOINCREMENT,
+                    user_id INTEGER,
+                    interaction_id INTEGER,
+                    helpful_rating INTEGER,
+                    clarity_rating INTEGER,
+                    engagement_rating INTEGER,
+                    comments TEXT,
+                    timestamp DATETIME DEFAULT CURRENT_TIMESTAMP,
+                    FOREIGN KEY(user_id) REFERENCES users(id),
+                    FOREIGN KEY(interaction_id) REFERENCES interactions(id)
+                )
+            ''')
+            # Add user preferences table
+            cursor.execute('''
+                CREATE TABLE IF NOT EXISTS user_preferences (
+                    id INTEGER PRIMARY KEY AUTOINCREMENT,
+                    user_id INTEGER UNIQUE,
+                    interests TEXT,
+                    learning_style TEXT,
+                    preferred_explanation_style TEXT DEFAULT 'standard',
+                    timestamp DATETIME DEFAULT CURRENT_TIMESTAMP,
+                    FOREIGN KEY(user_id) REFERENCES users(id)
+                )
+            ''')
             conn.commit()
             logger.info(f"Database {db_path} initialized successfully")
     except Exception as e:
         logger.critical(f"Database initialization failed for {db_path}: {str(e)}")
         raise
 init_db()
+
 def init_models():
     """Initialize/check LLM models if needed. Currently a placeholder."""
     # You can add model download/check logic here if needed.
     logger.info("init_models called (no-op placeholder).")
 init_models()
+
 summarizer = Summarizer()
 
 def validate_email(email):
@@ -295,8 +330,6 @@ def dashboard():
         logger.error(f"Dashboard error: {str(e)}")
         return redirect(url_for('login'))
 
-# These are the modified/new route functions to add to app.py
-
 @app.route('/chatbot')
 def chatbot():
     if 'user_id' not in session:
@@ -369,9 +402,15 @@ def handle_chat():
             
             "Use concrete examples and establish connections between concepts. "
             "Tailor your explanations to the student's level while gradually introducing more complex ideas. "
-            "IMPORTANT: Respond directly to the student. Do NOT include teaching instructions or steps "
-            "in your response. Do not label your response with 'Step 1:', etc. Just write a natural, "
-            "conversational response as if you're speaking directly to the student."
+            
+            # Added important guardrails
+            "EXTREMELY IMPORTANT GUIDELINES: "
+            "1. Write all responses directly to the student in first-person conversational tone. "
+            "2. NEVER include meta text like 'Teaching approach:' or 'Step 1:' in your response. "
+            "3. NEVER refer to yourself as a teacher or AI - just respond naturally. "
+            "4. Keep responses brief and focused - no more than 2-3 paragraphs max. "
+            "5. Use simple, clear language appropriate for the student's level. "
+            "6. Do not label steps or include instructions to yourself in the response."
         )
         
         # Get user's interests and learning style if available
@@ -616,13 +655,15 @@ Write directly to the student in a conversational tone. Do NOT include teaching 
             "have you considered", "what might happen if", "how does", "could you share",
             "what's your understanding of", "why might", "what factors", "how can we"
         ])
+        quiz_delay = 5000  # 5 seconds default delay in milliseconds
         
         return jsonify({
             'response': llm_response,
             'stage': chat_stage,
             'has_followup': has_followup,
             'difficulty': difficulty_level,
-            'subject': subject
+            'subject': subject,
+            'quiz_delay': quiz_delay  # Add this parameter
         })
         
     except Exception as e:
@@ -630,6 +671,7 @@ Write directly to the student in a conversational tone. Do NOT include teaching 
         return jsonify({
             'error': f"An error occurred while processing your request: {str(e)}"
         }), 500
+
 
 def clean_teacher_instructions(text):
     """Remove any teaching instructions or step markers from response"""
@@ -648,7 +690,12 @@ def clean_teacher_instructions(text):
         "Teaching instructions:",
         "Teaching note:",
         "(Not for student to see)",
-        "Student level:"
+        "Student level:",
+        "Teacher's thoughts:",
+        "Teaching strategy:",
+        "Pedagogical approach:",
+        "Instructional note:",
+        "This is how I'll respond:"
     ]
     
     # Remove lines that contain instruction markers
@@ -658,7 +705,7 @@ def clean_teacher_instructions(text):
     
     for line in lines:
         # Check if line starts a section to skip
-        if any(line.strip().startswith(marker) for marker in ["Teaching notes:", "Instructor notes:", "NOTE:"]):
+        if any(line.strip().startswith(marker) for marker in ["Teaching notes:", "Instructor notes:", "NOTE:", "TEACHER NOTE:", "# Teaching"]):
             skip_section = True
             continue
         
@@ -670,18 +717,35 @@ def clean_teacher_instructions(text):
         # Skip lines in the skip section or containing instruction markers
         if not skip_section and not any(marker in line for marker in instruction_markers):
             # Filter out lines that start with "Step "
-            if not line.strip().startswith("Step "):
+            if not re.match(r'^\s*Step\s+\d+\s*:.*', line.strip()):
                 cleaned_lines.append(line)
     
     cleaned_text = '\n'.join(cleaned_lines)
     
-    # Remove any remaining instruction blocks with regex if needed
-    import re
-    cleaned_text = re.sub(r'<teacher instructions>.*?</teacher instructions>', '', cleaned_text, flags=re.DOTALL)
-    cleaned_text = re.sub(r'\[Teacher:.*?\]', '', cleaned_text, flags=re.DOTALL)
-    cleaned_text = re.sub(r'\(Teacher note:.*?\)', '', cleaned_text, flags=re.DOTALL)
+    # Additional regex to remove more instruction patterns
+    patterns_to_remove = [
+        r'<teacher instructions>.*?</teacher instructions>',
+        r'\[Teacher:.*?\]',
+        r'\(Teacher note:.*?\)',
+        r'\*\*Teaching notes\*\*:.*?(?=\n\n|\Z)',
+        r'As an educator.*?(?=\n\n|\Z)',  # Remove educator self-references
+        r'My approach.*?(?=\n\n|\Z)',     # Remove approach descriptions
+        r'I\'ll use.*?(?=\n\n|\Z)',       # Remove method descriptions
+        r'I should.*?(?=\n\n|\Z)',        # Remove self-instructions
+    ]
     
+    for pattern in patterns_to_remove:
+        cleaned_text = re.sub(pattern, '', cleaned_text, flags=re.DOTALL)
+    
+    # Remove any leading or trailing whitespace from the final result
+    cleaned_text = cleaned_text.strip()
+    
+    # Ensure text isn't empty after cleaning
+    if not cleaned_text:
+        return "I'm ready to help you learn more about this topic. What would you like to discuss?"
+        
     return cleaned_text
+
 
 @app.route('/api/feedback', methods=['POST'])
 def handle_feedback():
@@ -764,33 +828,51 @@ def rapid_quiz():
                 "LEVEL": "beginner",
                 "USER_QUERY": f"""
 Generate a single multiple choice question for quick assessment.
+Return ONLY valid JSON as follows:
+{{
+  "question": "Write a clear, specific question about {topic} in {subject}",
+  "options": ["option1", "option2", "option3", "option4"],
+  "correct_answer": "exact match of the correct option"
+}}
+
 Requirements:
 - Question must be specifically about {topic} in the context of {subject}
 - Very easy difficulty level
-- Clear, concise question
-- Exactly 4 options with one correct answer
-Format: Return ONLY valid JSON with these exact keys: question, options (array), correct_answer
+- Clear, concise question with exactly 4 options
+- The correct_answer must exactly match one of the options
 
-Example for math/probability:
-{{
-  "question": "What is the probability of getting heads when flipping a fair coin?",
-  "options": ["1/2", "1/4", "1", "0"],
-  "correct_answer": "1/2"
-}}
+DO NOT include any explanations, descriptions or text outside the JSON.
 """
             }
         )
         
+        system_prompt = f"""You are generating educational quiz questions about {subject}.
+Your job is to ONLY return valid JSON in the exact specified format with no additional text.
+Ensure the correct_answer exactly matches one of the option values."""
+        
         response = llm.generate_response(
             prompt=formatted_prompt,
-            system_prompt="You are a subject matter expert in " + subject + ". Generate only valid JSON format quiz questions.",
+            system_prompt=system_prompt,
             model=model
         )
+        
+        # Extract JSON from the response
+        json_match = re.search(r'\{.*\}', response, re.DOTALL)
+        if json_match:
+            response = json_match.group()
         
         try:
             question_data = json.loads(response)
             
-            # Validation and fixes remain the same
+            # Validation checks
+            if not isinstance(question_data, dict):
+                raise ValueError("Response is not a valid JSON object")
+                
+            required_keys = ['question', 'options', 'correct_answer']
+            for key in required_keys:
+                if key not in question_data:
+                    raise ValueError(f"Missing required key: {key}")
+            
             if not isinstance(question_data.get('options'), list):
                 question_data['options'] = [str(x) for x in range(1, 5)]
             
@@ -799,18 +881,20 @@ Example for math/probability:
                     question_data['options'].append(f"Option {len(question_data['options']) + 1}")
                 question_data['options'] = question_data['options'][:4]
             
-            if not question_data.get('correct_answer') in question_data['options']:
+            if question_data.get('correct_answer') not in question_data['options']:
                 question_data['correct_answer'] = question_data['options'][0]
             
             return jsonify({
                 'question': question_data.get('question', f'What is a key concept about {topic} in {subject}?'),
                 'options': question_data['options'],
-                'correct': question_data['correct_answer']
+                'correct': question_data['correct_answer'],
+                'topic': topic,
+                'subject': subject
             })
             
-        except json.JSONDecodeError:
-            logger.error(f"Invalid JSON response: {response}")
-            # Provide a subject-specific fallback question
+        except (json.JSONDecodeError, ValueError) as e:
+            logger.error(f"Invalid JSON response: {response}, Error: {str(e)}")
+            # Provide a better subject-specific fallback question
             fallback_questions = {
                 'math': {
                     'question': f"Which of these best describes {topic} in mathematics?",
@@ -821,13 +905,24 @@ Example for math/probability:
                     'question': f"What is {topic} in science?",
                     'options': ["A scientific concept", "Not scientific", "Unrelated", "None of these"],
                     'correct': "A scientific concept"
+                },
+                'history': {
+                    'question': f"Which best describes {topic} in history?",
+                    'options': ["A historical event", "A fictional story", "Not related to history", "None of these"],
+                    'correct': "A historical event"
+                },
+                'english': {
+                    'question': f"Which best describes {topic} in English?",
+                    'options': ["A language concept", "Not related to English", "A random phrase", "None of these"],
+                    'correct': "A language concept"
                 }
-                # Add more subject-specific fallbacks as needed
             }
             return jsonify(fallback_questions.get(subject, {
                 'question': f"What is {topic}?",
-                'options': ["Option A", "Option B", "Option C", "Option D"],
-                'correct': "Option A"
+                'options': ["A concept in " + subject, "Not related to " + subject, "A random term", "None of these"],
+                'correct': "A concept in " + subject,
+                'topic': topic,
+                'subject': subject
             }))
             
     except Exception as e:
@@ -914,6 +1009,16 @@ def save_rapid_quiz():
     except Exception as e:
         logger.error(f"Error saving rapid quiz result: {str(e)}")
         return jsonify({'status': 'error', 'message': str(e)}), 500
+
+@app.route('/api/heartbeat')
+def heartbeat():
+    """API endpoint to check if the server is running."""
+    return jsonify({
+        'status': 'ok',
+        'timestamp': datetime.now().isoformat(),
+        'server': 'EduChat API',
+        'ollama_available': llm.server_available
+    })
 
 @app.route('/api/generate_test', methods=['POST'])
 def generate_test():
@@ -1173,6 +1278,212 @@ def page_not_found(e):
 @app.errorhandler(500)
 def internal_error(e):
     return render_template('errors/500.html'), 500
+
+class SlideExtractor:
+    def __init__(self, video_url, output_dir="static/slides", interval=5, similarity_threshold=0.9, ocr_confidence=30):
+        self.video_url = video_url
+        self.output_dir = output_dir
+        self.interval = interval
+        self.similarity_threshold = similarity_threshold
+        self.ocr_confidence = ocr_confidence
+        self.video_path = os.path.join(self.output_dir, "temp_video.mp4")
+        self.previous_text = ""
+
+        os.makedirs(self.output_dir, exist_ok=True)
+
+    def download_video(self):
+        """Download the YouTube video using yt-dlp"""
+        try:
+            command = [
+                "yt-dlp",
+                "-f", "best[ext=mp4]",
+                "-o", self.video_path,
+                self.video_url
+            ]
+            result = subprocess.run(command, capture_output=True, text=True)
+
+            if result.returncode == 0:
+                print(f"Video downloaded to: {self.video_path}")
+                return True
+            else:
+                print(f"yt-dlp error:\n{result.stderr}")
+                return False
+        except Exception as e:
+            print(f"Error downloading video: {e}")
+            return False
+
+    def extract_slides(self):
+        """Process the video to extract slides"""
+        if not os.path.exists(self.video_path):
+            if not self.download_video():
+                return False
+
+        cap = cv2.VideoCapture(self.video_path)
+        fps = cap.get(cv2.CAP_PROP_FPS)
+        frame_interval = int(fps * self.interval)
+        total_frames = int(cap.get(cv2.CAP_PROP_FRAME_COUNT))
+        duration = total_frames / fps
+
+        print(f"Video duration: {timedelta(seconds=duration)}")
+        print(f"Processing frames every {self.interval} seconds...")
+
+        prev_frame = None
+        slide_count = 0
+
+        for frame_num in range(0, total_frames, frame_interval):
+            cap.set(cv2.CAP_PROP_POS_FRAMES, frame_num)
+            ret, frame = cap.read()
+
+            if not ret:
+                continue
+
+            current_time = frame_num / fps
+            timestamp = str(timedelta(seconds=current_time)).split(".")[0]
+
+            if prev_frame is None:
+                self._save_slide(frame, timestamp, slide_count)
+                prev_frame = frame
+                slide_count += 1
+                continue
+
+            if self._is_different_slide(prev_frame, frame):
+                self._save_slide(frame, timestamp, slide_count)
+                prev_frame = frame
+                slide_count += 1
+
+        cap.release()
+        print(f"Extracted {slide_count} slides to {self.output_dir}")
+        return True
+
+    def _is_different_slide(self, frame1, frame2):
+        gray1 = cv2.cvtColor(frame1, cv2.COLOR_BGR2GRAY)
+        gray2 = cv2.cvtColor(frame2, cv2.COLOR_BGR2GRAY)
+
+        similarity, _ = ssim(gray1, gray2, full=True)
+        if similarity < self.similarity_threshold:
+            return True
+
+        text1 = self._extract_text(frame1)
+        text2 = self._extract_text(frame2)
+
+        if text1 and text2:
+            words1 = set(text1.split())
+            words2 = set(text2.split())
+            common_words = words1.intersection(words2)
+            diff_ratio = 1 - len(common_words) / max(len(words1), len(words2))
+
+            if diff_ratio > 0.3:
+                return True
+
+        return False
+
+    def _extract_text(self, frame):
+        try:
+            gray = cv2.cvtColor(frame, cv2.COLOR_BGR2GRAY)
+            _, threshold = cv2.threshold(gray, 150, 255, cv2.THRESH_BINARY)
+
+            temp_image_path = os.path.join(self.output_dir, "temp_ocr.png")
+            cv2.imwrite(temp_image_path, threshold)
+
+            text = pytesseract.image_to_string(Image.open(temp_image_path), config='--psm 6')
+            return text.strip()
+        except Exception as e:
+            print(f"OCR error: {e}")
+            return ""
+
+    def _save_slide(self, frame, timestamp, count):
+        filename = f"slide_{count:03d}_{timestamp.replace(':', '-')}.png"
+        path = os.path.join(self.output_dir, filename)
+        rgb_frame = cv2.cvtColor(frame, cv2.COLOR_BGR2RGB)
+        pil_image = Image.fromarray(rgb_frame)
+        pil_image.save(path)
+        print(f"Saved slide: {filename}")
+
+    def convert_slides_to_pdf(self, pdf_name="slides_output.pdf"):
+        """Convert all extracted slides to a single PDF file."""
+        image_files = sorted([
+            os.path.join(self.output_dir, file)
+            for file in os.listdir(self.output_dir)
+            if file.lower().endswith(".png") and file.startswith("slide_")
+        ])
+
+        if not image_files:
+            print("No slide images found to convert.")
+            return
+
+        images = [Image.open(img).convert("RGB") for img in image_files]
+        pdf_path = os.path.join(self.output_dir, pdf_name)
+        images[0].save(pdf_path, save_all=True, append_images=images[1:])
+        print(f"PDF created at: {pdf_path}")
+        return pdf_path
+
+@app.route('/api/extract_slides', methods=['POST'])
+def extract_slides():
+    """API endpoint to extract slides from a YouTube video"""
+    if 'user_id' not in session:
+        return jsonify({'error': 'Not authenticated'}), 401
+
+    try:
+        data = request.get_json()
+        video_url = data.get('video_url')
+        interval = data.get('interval', 5)
+        threshold = data.get('threshold', 0.9)
+
+        if not video_url:
+            return jsonify({'error': 'Video URL is required'}), 400
+
+        # Create output directory for this user
+        user_output_dir = os.path.join('static', 'slides', str(session['user_id']))
+        os.makedirs(user_output_dir, exist_ok=True)
+
+        # Initialize and run the slide extractor
+        extractor = SlideExtractor(
+            video_url=video_url,
+            output_dir=user_output_dir,
+            interval=interval,
+            similarity_threshold=threshold
+        )
+
+        if extractor.extract_slides():
+            return jsonify({
+                'success': True,
+                'message': 'Slides extracted successfully',
+                'output_dir': user_output_dir
+            })
+        else:
+            return jsonify({'error': 'Failed to extract slides'}), 500
+
+    except Exception as e:
+        logger.error(f"Slide extraction error: {str(e)}")
+        return jsonify({'error': str(e)}), 500
+
+@app.route('/api/generate_slides_pdf', methods=['POST'])
+def generate_slides_pdf():
+    """API endpoint to generate a PDF from extracted slides"""
+    if 'user_id' not in session:
+        return jsonify({'error': 'Not authenticated'}), 401
+
+    try:
+        user_output_dir = os.path.join('static', 'slides', str(session['user_id']))
+        
+        if not os.path.exists(user_output_dir):
+            return jsonify({'error': 'No slides found'}), 404
+
+        extractor = SlideExtractor(output_dir=user_output_dir)
+        pdf_path = extractor.convert_slides_to_pdf()
+
+        if pdf_path and os.path.exists(pdf_path):
+            return jsonify({
+                'success': True,
+                'message': 'PDF generated successfully',
+                'pdf_url': url_for('static', filename=f'slides/{session["user_id"]}/slides_output.pdf')
+            })
+        else:
+            return jsonify({'error': 'Failed to generate PDF'}), 500
+
+    except Exception as e:
+        logger.error(f"PDF generation error: {str(e)}")
+        return jsonify({'error': str(e)}), 500
 
 if __name__ == '__main__':
     os.makedirs('templates/auth', exist_ok=True)
