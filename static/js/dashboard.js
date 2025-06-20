@@ -410,8 +410,8 @@ function displayQuestion(index) {
 
 function handleSummarize() {
     const text = document.getElementById('textInput')?.value;
-    const difficulty = document.getElementById('difficulty')?.value;
-    const length = document.getElementById('length')?.value || 3;
+    const difficulty = document.getElementById('difficulty')?.value || 'medium';
+    const length = parseInt(document.getElementById('length')?.value || 3);
     const outputElement = document.getElementById('summaryOutput');
 
     if (!text || !outputElement) {
@@ -419,7 +419,14 @@ function handleSummarize() {
         return;
     }
 
+    if (text.trim() === '') {
+        outputElement.innerText = 'Please enter some text to summarize.';
+        return;
+    }
+
+    // Show loading state
     outputElement.innerText = 'Generating summary...';
+    outputElement.classList.add('loading');
 
     fetch('/api/summarize', {
         method: 'POST',
@@ -428,19 +435,37 @@ function handleSummarize() {
     })
         .then(response => {
             if (!response.ok) {
-                throw new Error(`Network response was not ok: ${response.status}`);
+                return response.json().then(data => {
+                    throw new Error(data.error || `Request failed with status ${response.status}`);
+                });
             }
             return response.json();
         })
         .then(data => {
-            outputElement.innerText = data.summary || 'Error: Could not generate summary.';
+            outputElement.classList.remove('loading');
+            if (data.summary) {
+                outputElement.innerHTML = `<div class="summary-content">${data.summary}</div>`;
+            } else {
+                outputElement.innerHTML = '<div class="error-message">Error: Could not generate summary.</div>';
+            }
         })
         .catch(error => {
             console.error('Error:', error);
-            outputElement.innerText = 'Error processing the text. Please try again later.';
+            outputElement.classList.remove('loading');
+            outputElement.innerHTML = `<div class="error-message">Error: ${error.message || 'Failed to process the text. Please try again later.'}</div>`;
         });
 }
 
+// Make sure the function is accessible globally if needed
+window.handleSummarize = handleSummarize;
+
+// Add event listener for the summarize button when DOM is loaded
+document.addEventListener('DOMContentLoaded', function() {
+    const summarizeBtn = document.getElementById('summarizeBtn');
+    if (summarizeBtn) {
+        summarizeBtn.addEventListener('click', handleSummarize);
+    }
+});
 // Expose required functions to global scope for event handlers
 window.displayQuestion = displayQuestion;
 

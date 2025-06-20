@@ -440,3 +440,238 @@
 2025-05-13 22:16:07,789 - urllib3.connectionpool - DEBUG - Starting new HTTP connection (1): localhost:11434
 2025-05-13 22:18:09,834 - modules.llm_handler - ERROR - LLM API request failed after 2 attempts: HTTPConnectionPool(host='localhost', port=11434): Read timed out. (read timeout=120)
 2025-05-13 22:18:09,873 - werkzeug - INFO - 127.0.0.1 - - [13/May/2025 22:18:09] "POST /api/chat HTTP/1.1" 200 -
+2025-05-14 07:31:14,890 - __main__ - INFO - Database database/user_data.db initialized successfully
+2025-05-14 07:31:14,891 - __main__ - INFO - init_models called (no-op placeholder).
+2025-05-14 07:31:15,017 - werkzeug - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:5000
+ * Running on http://192.168.40.242:5000
+2025-05-14 07:31:15,018 - werkzeug - INFO - [33mPress CTRL+C to quit[0m
+2025-05-14 07:31:15,058 - werkzeug - INFO -  * Restarting with watchdog (windowsapi)
+2025-05-14 07:31:21,219 - __main__ - INFO - Database database/user_data.db initialized successfully
+2025-05-14 07:31:21,220 - __main__ - INFO - init_models called (no-op placeholder).
+2025-05-14 07:31:21,285 - werkzeug - WARNING -  * Debugger is active!
+2025-05-14 07:31:21,292 - werkzeug - INFO -  * Debugger PIN: 108-223-847
+2025-05-14 07:31:26,876 - werkzeug - INFO - 127.0.0.1 - - [14/May/2025 07:31:26] "[32mGET /dashboard HTTP/1.1[0m" 302 -
+2025-05-14 07:31:27,171 - werkzeug - INFO -  * Detected change in 'C:\\Python312\\Lib\\encodings\\unicode_escape.py', reloading
+2025-05-14 07:31:27,175 - werkzeug - INFO - 127.0.0.1 - - [14/May/2025 07:31:27] "GET /login HTTP/1.1" 200 -
+2025-05-14 07:31:27,324 - werkzeug - INFO - 127.0.0.1 - - [14/May/2025 07:31:27] "GET /static/css/auth.css HTTP/1.1" 200 -
+2025-05-14 07:31:27,326 - werkzeug - INFO - 127.0.0.1 - - [14/May/2025 07:31:27] "GET /static/js/auth.js HTTP/1.1" 200 -
+2025-05-14 07:31:27,386 - werkzeug - INFO - 127.0.0.1 - - [14/May/2025 07:31:27] "[33mGET /favicon.ico HTTP/1.1[0m" 404 -
+2025-05-14 07:31:27,887 - werkzeug - INFO -  * Restarting with watchdog (windowsapi)
+2025-05-14 07:31:33,861 - __main__ - INFO - Database database/user_data.db initialized successfully
+2025-05-14 07:31:33,861 - __main__ - INFO - init_models called (no-op placeholder).
+2025-05-14 07:31:33,965 - werkzeug - WARNING -  * Debugger is active!
+2025-05-14 07:31:33,973 - werkzeug - INFO -  * Debugger PIN: 108-223-847
+2025-05-14 07:31:34,238 - __main__ - INFO - User logged in: Kunal
+2025-05-14 07:31:34,241 - werkzeug - INFO - 127.0.0.1 - - [14/May/2025 07:31:34] "POST /login HTTP/1.1" 200 -
+2025-05-14 07:31:34,316 - werkzeug - INFO - 127.0.0.1 - - [14/May/2025 07:31:34] "GET /dashboard HTTP/1.1" 200 -
+2025-05-14 07:31:34,520 - werkzeug - INFO - 127.0.0.1 - - [14/May/2025 07:31:34] "GET /static/css/style.css HTTP/1.1" 200 -
+2025-05-14 07:31:34,521 - werkzeug - INFO - 127.0.0.1 - - [14/May/2025 07:31:34] "GET /static/js/test.js HTTP/1.1" 200 -
+2025-05-14 07:31:34,522 - werkzeug - INFO - 127.0.0.1 - - [14/May/2025 07:31:34] "GET /static/js/dashboard.js HTTP/1.1" 200 -
+2025-05-14 07:31:34,598 - werkzeug - INFO - 127.0.0.1 - - [14/May/2025 07:31:34] "GET /api/get_analytics HTTP/1.1" 200 -
+2025-05-14 07:31:41,893 - __main__ - INFO - User logged in: Kunal
+2025-05-14 07:31:41,896 - werkzeug - INFO - 127.0.0.1 - - [14/May/2025 07:31:41] "POST /login HTTP/1.1" 200 -
+2025-05-14 07:31:41,948 - werkzeug - INFO - 127.0.0.1 - - [14/May/2025 07:31:41] "GET /dashboard HTTP/1.1" 200 -
+2025-05-14 07:31:42,051 - werkzeug - INFO - 127.0.0.1 - - [14/May/2025 07:31:42] "[36mGET /static/css/style.css HTTP/1.1[0m" 304 -
+2025-05-14 07:31:42,053 - werkzeug - INFO - 127.0.0.1 - - [14/May/2025 07:31:42] "[36mGET /static/js/dashboard.js HTTP/1.1[0m" 304 -
+2025-05-14 07:31:42,072 - werkzeug - INFO - 127.0.0.1 - - [14/May/2025 07:31:42] "[36mGET /static/js/test.js HTTP/1.1[0m" 304 -
+2025-05-14 07:31:42,116 - werkzeug - INFO - 127.0.0.1 - - [14/May/2025 07:31:42] "GET /api/get_analytics HTTP/1.1" 200 -
+2025-05-14 07:31:50,559 - werkzeug - INFO - 127.0.0.1 - - [14/May/2025 07:31:50] "GET /youtube-extractor HTTP/1.1" 200 -
+2025-05-14 07:31:50,620 - werkzeug - INFO - 127.0.0.1 - - [14/May/2025 07:31:50] "[36mGET /static/css/style.css HTTP/1.1[0m" 304 -
+2025-05-14 07:31:53,396 - werkzeug - INFO - 127.0.0.1 - - [14/May/2025 07:31:53] "GET /chatbot?subject=science HTTP/1.1" 200 -
+2025-05-14 07:31:53,465 - werkzeug - INFO - 127.0.0.1 - - [14/May/2025 07:31:53] "GET /static/css/chatbot.css HTTP/1.1" 200 -
+2025-05-14 07:31:53,466 - werkzeug - INFO - 127.0.0.1 - - [14/May/2025 07:31:53] "GET /static/js/chatbot.js HTTP/1.1" 200 -
+2025-05-14 07:32:16,836 - werkzeug - INFO - 127.0.0.1 - - [14/May/2025 07:32:16] "GET /chatbot?subject=science HTTP/1.1" 200 -
+2025-05-14 07:32:16,897 - werkzeug - INFO - 127.0.0.1 - - [14/May/2025 07:32:16] "[36mGET /static/css/chatbot.css HTTP/1.1[0m" 304 -
+2025-05-14 07:32:16,900 - werkzeug - INFO - 127.0.0.1 - - [14/May/2025 07:32:16] "[36mGET /static/js/chatbot.js HTTP/1.1[0m" 304 -
+2025-05-14 07:32:19,602 - werkzeug - INFO - 127.0.0.1 - - [14/May/2025 07:32:19] "GET /api/get_analytics HTTP/1.1" 200 -
+2025-05-14 08:03:42,527 - werkzeug - INFO - 127.0.0.1 - - [14/May/2025 08:03:42] "GET /api/get_analytics HTTP/1.1" 200 -
+2025-05-14 08:04:25,033 - werkzeug - INFO - 127.0.0.1 - - [14/May/2025 08:04:25] "GET /api/get_analytics HTTP/1.1" 200 -
+2025-05-14 08:05:03,167 - werkzeug - INFO - 127.0.0.1 - - [14/May/2025 08:05:03] "GET /api/get_analytics HTTP/1.1" 200 -
+2025-05-14 08:06:10,117 - werkzeug - INFO -  * Detected change in 'C:\\Hackathon\\EduX\\Chatbot-2\\app.py', reloading
+2025-05-14 08:06:11,275 - werkzeug - INFO -  * Restarting with watchdog (windowsapi)
+2025-05-14 08:06:15,131 - __main__ - INFO - Database database/user_data.db initialized successfully
+2025-05-14 08:06:15,132 - __main__ - INFO - init_models called (no-op placeholder).
+2025-05-14 08:06:15,194 - werkzeug - WARNING -  * Debugger is active!
+2025-05-14 08:06:15,199 - werkzeug - INFO -  * Debugger PIN: 108-223-847
+2025-05-14 08:10:48,523 - __main__ - INFO - Database database/user_data.db initialized successfully
+2025-05-14 08:10:48,524 - __main__ - INFO - init_models called (no-op placeholder).
+2025-05-14 08:10:48,596 - werkzeug - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:5000
+ * Running on http://192.168.40.242:5000
+2025-05-14 08:10:48,597 - werkzeug - INFO - [33mPress CTRL+C to quit[0m
+2025-05-14 08:10:48,611 - werkzeug - INFO -  * Restarting with watchdog (windowsapi)
+2025-05-14 08:10:52,394 - __main__ - INFO - Database database/user_data.db initialized successfully
+2025-05-14 08:10:52,395 - __main__ - INFO - init_models called (no-op placeholder).
+2025-05-14 08:10:52,451 - werkzeug - WARNING -  * Debugger is active!
+2025-05-14 08:10:52,455 - werkzeug - INFO -  * Debugger PIN: 108-223-847
+2025-05-14 08:10:54,485 - werkzeug - INFO - 192.168.40.242 - - [14/May/2025 08:10:54] "GET / HTTP/1.1" 200 -
+2025-05-14 08:10:54,549 - werkzeug - INFO - 192.168.40.242 - - [14/May/2025 08:10:54] "GET /static/css/style.css HTTP/1.1" 200 -
+2025-05-14 08:10:55,077 - werkzeug - INFO - 192.168.40.242 - - [14/May/2025 08:10:55] "[33mGET /favicon.ico HTTP/1.1[0m" 404 -
+2025-05-14 08:10:57,831 - werkzeug - INFO - 192.168.40.242 - - [14/May/2025 08:10:57] "GET /login HTTP/1.1" 200 -
+2025-05-14 08:10:57,872 - werkzeug - INFO - 192.168.40.242 - - [14/May/2025 08:10:57] "GET /static/css/auth.css HTTP/1.1" 200 -
+2025-05-14 08:10:57,874 - werkzeug - INFO - 192.168.40.242 - - [14/May/2025 08:10:57] "GET /static/js/auth.js HTTP/1.1" 200 -
+2025-05-14 08:11:14,401 - __main__ - ERROR - Login error: Invalid credentials
+2025-05-14 08:11:14,403 - werkzeug - INFO - 192.168.40.242 - - [14/May/2025 08:11:14] "[31m[1mPOST /login HTTP/1.1[0m" 401 -
+2025-05-14 08:11:17,370 - werkzeug - INFO - 192.168.40.242 - - [14/May/2025 08:11:17] "GET /signup HTTP/1.1" 200 -
+2025-05-14 08:11:17,407 - werkzeug - INFO - 192.168.40.242 - - [14/May/2025 08:11:17] "[36mGET /static/css/auth.css HTTP/1.1[0m" 304 -
+2025-05-14 08:11:17,409 - werkzeug - INFO - 192.168.40.242 - - [14/May/2025 08:11:17] "[36mGET /static/js/auth.js HTTP/1.1[0m" 304 -
+2025-05-14 08:12:03,525 - __main__ - INFO - New user registered: arnav
+2025-05-14 08:12:03,527 - werkzeug - INFO - 192.168.40.242 - - [14/May/2025 08:12:03] "POST /signup HTTP/1.1" 200 -
+2025-05-14 08:12:03,582 - werkzeug - INFO - 192.168.40.242 - - [14/May/2025 08:12:03] "GET /dashboard HTTP/1.1" 200 -
+2025-05-14 08:12:03,627 - werkzeug - INFO - 192.168.40.242 - - [14/May/2025 08:12:03] "GET /static/js/dashboard.js HTTP/1.1" 200 -
+2025-05-14 08:12:03,631 - werkzeug - INFO - 192.168.40.242 - - [14/May/2025 08:12:03] "[36mGET /static/css/style.css HTTP/1.1[0m" 304 -
+2025-05-14 08:12:03,633 - werkzeug - INFO - 192.168.40.242 - - [14/May/2025 08:12:03] "GET /static/js/test.js HTTP/1.1" 200 -
+2025-05-14 08:12:04,035 - werkzeug - INFO - 192.168.40.242 - - [14/May/2025 08:12:04] "GET /api/get_analytics HTTP/1.1" 200 -
+2025-05-14 08:13:04,041 - werkzeug - INFO - 192.168.40.242 - - [14/May/2025 08:13:04] "GET /api/get_analytics HTTP/1.1" 200 -
+2025-05-14 08:18:20,659 - __main__ - INFO - Database database/user_data.db initialized successfully
+2025-05-14 08:18:20,659 - __main__ - INFO - init_models called (no-op placeholder).
+2025-05-14 08:18:20,756 - werkzeug - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:5000
+ * Running on http://192.168.40.242:5000
+2025-05-14 08:18:20,757 - werkzeug - INFO - [33mPress CTRL+C to quit[0m
+2025-05-14 08:18:20,772 - werkzeug - INFO -  * Restarting with watchdog (windowsapi)
+2025-05-14 08:18:24,515 - __main__ - INFO - Database database/user_data.db initialized successfully
+2025-05-14 08:18:24,516 - __main__ - INFO - init_models called (no-op placeholder).
+2025-05-14 08:18:24,572 - werkzeug - WARNING -  * Debugger is active!
+2025-05-14 08:18:24,578 - werkzeug - INFO -  * Debugger PIN: 108-223-847
+2025-05-14 08:18:26,950 - werkzeug - INFO - 192.168.40.242 - - [14/May/2025 08:18:26] "GET / HTTP/1.1" 200 -
+2025-05-14 08:18:27,014 - werkzeug - INFO - 192.168.40.242 - - [14/May/2025 08:18:27] "GET /static/css/style.css HTTP/1.1" 200 -
+2025-05-14 08:18:28,791 - werkzeug - INFO - 192.168.40.242 - - [14/May/2025 08:18:28] "GET /login HTTP/1.1" 200 -
+2025-05-14 08:18:28,838 - werkzeug - INFO - 192.168.40.242 - - [14/May/2025 08:18:28] "[36mGET /static/css/auth.css HTTP/1.1[0m" 304 -
+2025-05-14 08:18:28,839 - werkzeug - INFO - 192.168.40.242 - - [14/May/2025 08:18:28] "[36mGET /static/js/auth.js HTTP/1.1[0m" 304 -
+2025-05-14 08:18:33,298 - __main__ - INFO - User logged in: arnav
+2025-05-14 08:18:33,301 - werkzeug - INFO - 192.168.40.242 - - [14/May/2025 08:18:33] "POST /login HTTP/1.1" 200 -
+2025-05-14 08:18:33,352 - werkzeug - INFO - 192.168.40.242 - - [14/May/2025 08:18:33] "GET /dashboard HTTP/1.1" 200 -
+2025-05-14 08:18:33,392 - werkzeug - INFO - 192.168.40.242 - - [14/May/2025 08:18:33] "[36mGET /static/css/style.css HTTP/1.1[0m" 304 -
+2025-05-14 08:18:33,397 - werkzeug - INFO - 192.168.40.242 - - [14/May/2025 08:18:33] "GET /static/js/dashboard.js HTTP/1.1" 200 -
+2025-05-14 08:18:33,399 - werkzeug - INFO - 192.168.40.242 - - [14/May/2025 08:18:33] "[36mGET /static/js/test.js HTTP/1.1[0m" 304 -
+2025-05-14 08:18:33,579 - werkzeug - INFO - 192.168.40.242 - - [14/May/2025 08:18:33] "GET /api/get_analytics HTTP/1.1" 200 -
+2025-05-14 08:18:46,429 - urllib3.connectionpool - DEBUG - Starting new HTTP connection (1): localhost:11434
+2025-05-14 08:19:37,227 - werkzeug - INFO - 192.168.40.242 - - [14/May/2025 08:19:37] "GET /api/get_analytics HTTP/1.1" 200 -
+2025-05-14 10:21:55,112 - app - INFO - Database database/user_data.db initialized successfully
+2025-05-14 10:21:55,113 - app - INFO - init_models called (no-op placeholder).
+2025-05-14 10:21:55,139 - werkzeug - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5000
+2025-05-14 10:21:55,140 - werkzeug - INFO - [33mPress CTRL+C to quit[0m
+2025-05-14 10:22:02,027 - werkzeug - INFO - 127.0.0.1 - - [14/May/2025 10:22:02] "GET / HTTP/1.1" 200 -
+2025-05-14 10:22:02,692 - werkzeug - INFO - 127.0.0.1 - - [14/May/2025 10:22:02] "GET /static/css/style.css HTTP/1.1" 200 -
+2025-05-14 10:22:02,788 - werkzeug - INFO - 127.0.0.1 - - [14/May/2025 10:22:02] "[33mGET /favicon.ico HTTP/1.1[0m" 404 -
+2025-05-14 10:26:43,897 - werkzeug - INFO - 127.0.0.1 - - [14/May/2025 10:26:43] "GET /login HTTP/1.1" 200 -
+2025-05-14 10:26:43,948 - werkzeug - INFO - 127.0.0.1 - - [14/May/2025 10:26:43] "GET /static/css/auth.css HTTP/1.1" 200 -
+2025-05-14 10:26:43,976 - werkzeug - INFO - 127.0.0.1 - - [14/May/2025 10:26:43] "GET /static/js/auth.js HTTP/1.1" 200 -
+2025-05-14 10:26:52,948 - app - ERROR - Login error: unsupported hash type scrypt:32768:8:1
+2025-05-14 10:26:52,949 - werkzeug - INFO - 127.0.0.1 - - [14/May/2025 10:26:52] "[31m[1mPOST /login HTTP/1.1[0m" 401 -
+2025-05-14 10:26:59,836 - werkzeug - INFO - 127.0.0.1 - - [14/May/2025 10:26:59] "GET /signup HTTP/1.1" 200 -
+2025-05-14 10:26:59,872 - werkzeug - INFO - 127.0.0.1 - - [14/May/2025 10:26:59] "[36mGET /static/css/auth.css HTTP/1.1[0m" 304 -
+2025-05-14 10:26:59,873 - werkzeug - INFO - 127.0.0.1 - - [14/May/2025 10:26:59] "[36mGET /static/js/auth.js HTTP/1.1[0m" 304 -
+2025-05-14 10:27:22,799 - app - INFO - New user registered: test2
+2025-05-14 10:27:22,804 - werkzeug - INFO - 127.0.0.1 - - [14/May/2025 10:27:22] "POST /signup HTTP/1.1" 200 -
+2025-05-14 10:27:22,917 - werkzeug - INFO - 127.0.0.1 - - [14/May/2025 10:27:22] "GET /dashboard HTTP/1.1" 200 -
+2025-05-14 10:27:22,951 - werkzeug - INFO - 127.0.0.1 - - [14/May/2025 10:27:22] "[36mGET /static/css/style.css HTTP/1.1[0m" 304 -
+2025-05-14 10:27:22,977 - werkzeug - INFO - 127.0.0.1 - - [14/May/2025 10:27:22] "GET /static/js/dashboard.js HTTP/1.1" 200 -
+2025-05-14 10:27:23,000 - werkzeug - INFO - 127.0.0.1 - - [14/May/2025 10:27:23] "GET /static/js/test.js HTTP/1.1" 200 -
+2025-05-14 10:27:23,016 - werkzeug - INFO - 127.0.0.1 - - [14/May/2025 10:27:23] "GET /api/get_analytics HTTP/1.1" 200 -
+2025-05-14 10:28:23,034 - werkzeug - INFO - 127.0.0.1 - - [14/May/2025 10:28:23] "GET /api/get_analytics HTTP/1.1" 200 -
+2025-05-14 10:28:57,534 - werkzeug - INFO - 127.0.0.1 - - [14/May/2025 10:28:57] "GET /chatbot?subject=math HTTP/1.1" 200 -
+2025-05-14 10:28:57,574 - werkzeug - INFO - 127.0.0.1 - - [14/May/2025 10:28:57] "GET /static/css/chatbot.css HTTP/1.1" 200 -
+2025-05-14 10:28:57,613 - werkzeug - INFO - 127.0.0.1 - - [14/May/2025 10:28:57] "GET /static/js/chatbot.js HTTP/1.1" 200 -
+2025-05-14 10:28:58,819 - werkzeug - INFO - 127.0.0.1 - - [14/May/2025 10:28:58] "GET /api/get_analytics HTTP/1.1" 200 -
+2025-05-14 10:29:04,424 - werkzeug - INFO - 127.0.0.1 - - [14/May/2025 10:29:04] "GET /chatbot?subject=math HTTP/1.1" 200 -
+2025-05-14 10:29:04,466 - werkzeug - INFO - 127.0.0.1 - - [14/May/2025 10:29:04] "[36mGET /static/css/chatbot.css HTTP/1.1[0m" 304 -
+2025-05-14 10:29:04,470 - werkzeug - INFO - 127.0.0.1 - - [14/May/2025 10:29:04] "[36mGET /static/js/chatbot.js HTTP/1.1[0m" 304 -
+2025-05-14 10:29:36,998 - werkzeug - INFO - 127.0.0.1 - - [14/May/2025 10:29:36] "GET /api/get_analytics HTTP/1.1" 200 -
+2025-05-14 10:30:06,555 - werkzeug - INFO - 127.0.0.1 - - [14/May/2025 10:30:06] "GET /login HTTP/1.1" 200 -
+2025-05-14 10:30:06,603 - werkzeug - INFO - 127.0.0.1 - - [14/May/2025 10:30:06] "[36mGET /static/css/auth.css HTTP/1.1[0m" 304 -
+2025-05-14 10:30:06,605 - werkzeug - INFO - 127.0.0.1 - - [14/May/2025 10:30:06] "[36mGET /static/js/auth.js HTTP/1.1[0m" 304 -
+2025-05-14 10:30:14,278 - app - INFO - User logged in: test2
+2025-05-14 10:30:14,281 - werkzeug - INFO - 127.0.0.1 - - [14/May/2025 10:30:14] "POST /login HTTP/1.1" 200 -
+2025-05-14 10:30:14,312 - werkzeug - INFO - 127.0.0.1 - - [14/May/2025 10:30:14] "GET /dashboard HTTP/1.1" 200 -
+2025-05-14 10:30:14,345 - werkzeug - INFO - 127.0.0.1 - - [14/May/2025 10:30:14] "[36mGET /static/css/style.css HTTP/1.1[0m" 304 -
+2025-05-14 10:30:14,351 - werkzeug - INFO - 127.0.0.1 - - [14/May/2025 10:30:14] "[36mGET /static/js/test.js HTTP/1.1[0m" 304 -
+2025-05-14 10:30:14,353 - werkzeug - INFO - 127.0.0.1 - - [14/May/2025 10:30:14] "[36mGET /static/js/dashboard.js HTTP/1.1[0m" 304 -
+2025-05-14 10:30:14,368 - werkzeug - INFO - 127.0.0.1 - - [14/May/2025 10:30:14] "GET /api/get_analytics HTTP/1.1" 200 -
+2025-05-14 10:30:29,090 - werkzeug - INFO - 127.0.0.1 - - [14/May/2025 10:30:29] "GET /chatbot?subject=math HTTP/1.1" 200 -
+2025-05-14 10:30:29,130 - werkzeug - INFO - 127.0.0.1 - - [14/May/2025 10:30:29] "[36mGET /static/css/chatbot.css HTTP/1.1[0m" 304 -
+2025-05-14 10:30:29,139 - werkzeug - INFO - 127.0.0.1 - - [14/May/2025 10:30:29] "[36mGET /static/js/chatbot.js HTTP/1.1[0m" 304 -
+2025-05-14 10:31:14,755 - werkzeug - INFO - 127.0.0.1 - - [14/May/2025 10:31:14] "GET /api/get_analytics HTTP/1.1" 200 -
+2025-05-14 10:31:18,484 - werkzeug - INFO - 127.0.0.1 - - [14/May/2025 10:31:18] "GET /youtube-extractor HTTP/1.1" 200 -
+2025-05-14 10:31:18,517 - werkzeug - INFO - 127.0.0.1 - - [14/May/2025 10:31:18] "[36mGET /static/css/style.css HTTP/1.1[0m" 304 -
+2025-05-14 10:31:52,534 - werkzeug - INFO - 127.0.0.1 - - [14/May/2025 10:31:52] "GET /api/get_analytics HTTP/1.1" 200 -
+2025-05-14 10:33:14,400 - werkzeug - INFO - 127.0.0.1 - - [14/May/2025 10:33:14] "GET /api/get_analytics HTTP/1.1" 200 -
+2025-05-14 10:33:55,663 - werkzeug - INFO - 127.0.0.1 - - [14/May/2025 10:33:55] "GET /youtube-extractor HTTP/1.1" 200 -
+2025-05-14 10:33:55,703 - werkzeug - INFO - 127.0.0.1 - - [14/May/2025 10:33:55] "[36mGET /static/css/style.css HTTP/1.1[0m" 304 -
+2025-05-14 10:40:07,663 - werkzeug - INFO - 127.0.0.1 - - [14/May/2025 10:40:07] "GET /api/get_analytics HTTP/1.1" 200 -
+2025-05-14 11:01:31,081 - werkzeug - INFO - 127.0.0.1 - - [14/May/2025 11:01:31] "GET /api/get_analytics HTTP/1.1" 200 -
+2025-05-14 11:02:12,641 - werkzeug - INFO - 127.0.0.1 - - [14/May/2025 11:02:12] "GET /api/get_analytics HTTP/1.1" 200 -
+2025-05-14 11:03:12,657 - werkzeug - INFO - 127.0.0.1 - - [14/May/2025 11:03:12] "GET /api/get_analytics HTTP/1.1" 200 -
+2025-05-14 11:04:12,644 - werkzeug - INFO - 127.0.0.1 - - [14/May/2025 11:04:12] "GET /api/get_analytics HTTP/1.1" 200 -
+2025-05-14 11:05:12,641 - werkzeug - INFO - 127.0.0.1 - - [14/May/2025 11:05:12] "GET /api/get_analytics HTTP/1.1" 200 -
+2025-05-14 11:06:12,646 - werkzeug - INFO - 127.0.0.1 - - [14/May/2025 11:06:12] "GET /api/get_analytics HTTP/1.1" 200 -
+2025-05-14 11:07:12,649 - werkzeug - INFO - 127.0.0.1 - - [14/May/2025 11:07:12] "GET /api/get_analytics HTTP/1.1" 200 -
+2025-05-14 11:08:12,637 - werkzeug - INFO - 127.0.0.1 - - [14/May/2025 11:08:12] "GET /api/get_analytics HTTP/1.1" 200 -
+2025-05-14 11:09:12,649 - werkzeug - INFO - 127.0.0.1 - - [14/May/2025 11:09:12] "GET /api/get_analytics HTTP/1.1" 200 -
+2025-05-14 11:10:12,651 - werkzeug - INFO - 127.0.0.1 - - [14/May/2025 11:10:12] "GET /api/get_analytics HTTP/1.1" 200 -
+2025-05-14 11:11:12,643 - werkzeug - INFO - 127.0.0.1 - - [14/May/2025 11:11:12] "GET /api/get_analytics HTTP/1.1" 200 -
+2025-05-14 11:12:12,660 - werkzeug - INFO - 127.0.0.1 - - [14/May/2025 11:12:12] "GET /api/get_analytics HTTP/1.1" 200 -
+2025-05-14 11:12:35,191 - werkzeug - INFO - 127.0.0.1 - - [14/May/2025 11:12:35] "GET /youtube-extractor HTTP/1.1" 200 -
+2025-05-14 11:12:35,234 - werkzeug - INFO - 127.0.0.1 - - [14/May/2025 11:12:35] "[36mGET /static/css/style.css HTTP/1.1[0m" 304 -
+2025-05-14 11:12:37,805 - werkzeug - INFO - 127.0.0.1 - - [14/May/2025 11:12:37] "GET /dashboard HTTP/1.1" 200 -
+2025-05-14 11:12:37,844 - werkzeug - INFO - 127.0.0.1 - - [14/May/2025 11:12:37] "[36mGET /static/css/style.css HTTP/1.1[0m" 304 -
+2025-05-14 11:12:37,851 - werkzeug - INFO - 127.0.0.1 - - [14/May/2025 11:12:37] "[36mGET /static/js/dashboard.js HTTP/1.1[0m" 304 -
+2025-05-14 11:12:37,853 - werkzeug - INFO - 127.0.0.1 - - [14/May/2025 11:12:37] "[36mGET /static/js/test.js HTTP/1.1[0m" 304 -
+2025-05-14 11:12:37,873 - werkzeug - INFO - 127.0.0.1 - - [14/May/2025 11:12:37] "GET /api/get_analytics HTTP/1.1" 200 -
+2025-05-14 11:12:41,129 - werkzeug - INFO - 127.0.0.1 - - [14/May/2025 11:12:41] "GET /youtube-extractor HTTP/1.1" 200 -
+2025-05-14 11:12:41,171 - werkzeug - INFO - 127.0.0.1 - - [14/May/2025 11:12:41] "[36mGET /static/css/style.css HTTP/1.1[0m" 304 -
+2025-05-14 11:13:46,807 - werkzeug - INFO - 127.0.0.1 - - [14/May/2025 11:13:46] "GET /dashboard HTTP/1.1" 200 -
+2025-05-14 11:13:46,851 - werkzeug - INFO - 127.0.0.1 - - [14/May/2025 11:13:46] "[36mGET /static/css/style.css HTTP/1.1[0m" 304 -
+2025-05-14 11:13:46,855 - werkzeug - INFO - 127.0.0.1 - - [14/May/2025 11:13:46] "[36mGET /static/js/dashboard.js HTTP/1.1[0m" 304 -
+2025-05-14 11:13:46,858 - werkzeug - INFO - 127.0.0.1 - - [14/May/2025 11:13:46] "[36mGET /static/js/test.js HTTP/1.1[0m" 304 -
+2025-05-14 11:13:46,872 - werkzeug - INFO - 127.0.0.1 - - [14/May/2025 11:13:46] "GET /api/get_analytics HTTP/1.1" 200 -
+2025-05-14 11:14:46,888 - werkzeug - INFO - 127.0.0.1 - - [14/May/2025 11:14:46] "GET /api/get_analytics HTTP/1.1" 200 -
+2025-05-14 11:15:46,891 - werkzeug - INFO - 127.0.0.1 - - [14/May/2025 11:15:46] "GET /api/get_analytics HTTP/1.1" 200 -
+2025-05-14 11:16:46,891 - werkzeug - INFO - 127.0.0.1 - - [14/May/2025 11:16:46] "GET /api/get_analytics HTTP/1.1" 200 -
+2025-05-14 11:17:46,888 - werkzeug - INFO - 127.0.0.1 - - [14/May/2025 11:17:46] "GET /api/get_analytics HTTP/1.1" 200 -
+2025-05-14 11:18:46,893 - werkzeug - INFO - 127.0.0.1 - - [14/May/2025 11:18:46] "GET /api/get_analytics HTTP/1.1" 200 -
+2025-05-14 11:19:46,887 - werkzeug - INFO - 127.0.0.1 - - [14/May/2025 11:19:46] "GET /api/get_analytics HTTP/1.1" 200 -
+2025-05-14 11:20:46,895 - werkzeug - INFO - 127.0.0.1 - - [14/May/2025 11:20:46] "GET /api/get_analytics HTTP/1.1" 200 -
+2025-05-14 11:21:46,884 - werkzeug - INFO - 127.0.0.1 - - [14/May/2025 11:21:46] "GET /api/get_analytics HTTP/1.1" 200 -
+2025-05-14 11:22:46,891 - werkzeug - INFO - 127.0.0.1 - - [14/May/2025 11:22:46] "GET /api/get_analytics HTTP/1.1" 200 -
+2025-05-14 11:23:46,876 - werkzeug - INFO - 127.0.0.1 - - [14/May/2025 11:23:46] "GET /api/get_analytics HTTP/1.1" 200 -
+2025-05-14 11:24:46,879 - werkzeug - INFO - 127.0.0.1 - - [14/May/2025 11:24:46] "GET /api/get_analytics HTTP/1.1" 200 -
+2025-05-14 11:25:46,890 - werkzeug - INFO - 127.0.0.1 - - [14/May/2025 11:25:46] "GET /api/get_analytics HTTP/1.1" 200 -
+2025-05-14 11:26:46,888 - werkzeug - INFO - 127.0.0.1 - - [14/May/2025 11:26:46] "GET /api/get_analytics HTTP/1.1" 200 -
+2025-05-14 11:27:46,898 - werkzeug - INFO - 127.0.0.1 - - [14/May/2025 11:27:46] "GET /api/get_analytics HTTP/1.1" 200 -
+2025-05-14 11:28:46,877 - werkzeug - INFO - 127.0.0.1 - - [14/May/2025 11:28:46] "GET /api/get_analytics HTTP/1.1" 200 -
+2025-05-14 11:29:46,886 - werkzeug - INFO - 127.0.0.1 - - [14/May/2025 11:29:46] "GET /api/get_analytics HTTP/1.1" 200 -
+2025-05-14 11:30:46,903 - werkzeug - INFO - 127.0.0.1 - - [14/May/2025 11:30:46] "GET /api/get_analytics HTTP/1.1" 200 -
+2025-05-14 11:31:46,885 - werkzeug - INFO - 127.0.0.1 - - [14/May/2025 11:31:46] "GET /api/get_analytics HTTP/1.1" 200 -
+2025-05-14 11:32:46,882 - werkzeug - INFO - 127.0.0.1 - - [14/May/2025 11:32:46] "GET /api/get_analytics HTTP/1.1" 200 -
+2025-05-14 11:33:46,908 - werkzeug - INFO - 127.0.0.1 - - [14/May/2025 11:33:46] "GET /api/get_analytics HTTP/1.1" 200 -
+2025-05-14 11:34:46,885 - werkzeug - INFO - 127.0.0.1 - - [14/May/2025 11:34:46] "GET /api/get_analytics HTTP/1.1" 200 -
+2025-05-14 11:35:46,905 - werkzeug - INFO - 127.0.0.1 - - [14/May/2025 11:35:46] "GET /api/get_analytics HTTP/1.1" 200 -
+2025-05-14 11:36:46,888 - werkzeug - INFO - 127.0.0.1 - - [14/May/2025 11:36:46] "GET /api/get_analytics HTTP/1.1" 200 -
+2025-05-14 11:37:46,898 - werkzeug - INFO - 127.0.0.1 - - [14/May/2025 11:37:46] "GET /api/get_analytics HTTP/1.1" 200 -
+2025-05-14 11:38:46,887 - werkzeug - INFO - 127.0.0.1 - - [14/May/2025 11:38:46] "GET /api/get_analytics HTTP/1.1" 200 -
+2025-05-14 11:42:30,670 - werkzeug - INFO - 127.0.0.1 - - [14/May/2025 11:42:30] "GET /api/get_analytics HTTP/1.1" 200 -
+2025-05-14 11:43:46,711 - werkzeug - INFO - 127.0.0.1 - - [14/May/2025 11:43:46] "GET /api/get_analytics HTTP/1.1" 200 -
+2025-05-14 11:44:46,727 - werkzeug - INFO - 127.0.0.1 - - [14/May/2025 11:44:46] "GET /api/get_analytics HTTP/1.1" 200 -
+2025-05-14 11:45:46,717 - werkzeug - INFO - 127.0.0.1 - - [14/May/2025 11:45:46] "GET /api/get_analytics HTTP/1.1" 200 -
+2025-05-14 11:46:46,723 - werkzeug - INFO - 127.0.0.1 - - [14/May/2025 11:46:46] "GET /api/get_analytics HTTP/1.1" 200 -
+2025-05-14 11:47:46,731 - werkzeug - INFO - 127.0.0.1 - - [14/May/2025 11:47:46] "GET /api/get_analytics HTTP/1.1" 200 -
+2025-05-14 11:48:46,711 - werkzeug - INFO - 127.0.0.1 - - [14/May/2025 11:48:46] "GET /api/get_analytics HTTP/1.1" 200 -
+2025-05-14 11:49:46,718 - werkzeug - INFO - 127.0.0.1 - - [14/May/2025 11:49:46] "GET /api/get_analytics HTTP/1.1" 200 -
+2025-05-14 11:50:46,713 - werkzeug - INFO - 127.0.0.1 - - [14/May/2025 11:50:46] "GET /api/get_analytics HTTP/1.1" 200 -
+2025-05-14 11:51:46,717 - werkzeug - INFO - 127.0.0.1 - - [14/May/2025 11:51:46] "GET /api/get_analytics HTTP/1.1" 200 -
+2025-05-14 11:52:46,713 - werkzeug - INFO - 127.0.0.1 - - [14/May/2025 11:52:46] "GET /api/get_analytics HTTP/1.1" 200 -
+2025-05-14 11:53:46,718 - werkzeug - INFO - 127.0.0.1 - - [14/May/2025 11:53:46] "GET /api/get_analytics HTTP/1.1" 200 -
+2025-05-14 11:54:46,741 - werkzeug - INFO - 127.0.0.1 - - [14/May/2025 11:54:46] "GET /api/get_analytics HTTP/1.1" 200 -
+2025-05-14 11:55:46,724 - werkzeug - INFO - 127.0.0.1 - - [14/May/2025 11:55:46] "GET /api/get_analytics HTTP/1.1" 200 -
+2025-05-14 11:56:46,724 - werkzeug - INFO - 127.0.0.1 - - [14/May/2025 11:56:46] "GET /api/get_analytics HTTP/1.1" 200 -
+2025-05-14 11:57:46,724 - werkzeug - INFO - 127.0.0.1 - - [14/May/2025 11:57:46] "GET /api/get_analytics HTTP/1.1" 200 -
+2025-05-14 11:58:46,717 - werkzeug - INFO - 127.0.0.1 - - [14/May/2025 11:58:46] "GET /api/get_analytics HTTP/1.1" 200 -
+2025-05-14 11:59:46,710 - werkzeug - INFO - 127.0.0.1 - - [14/May/2025 11:59:46] "GET /api/get_analytics HTTP/1.1" 200 -
+2025-05-14 12:00:46,714 - werkzeug - INFO - 127.0.0.1 - - [14/May/2025 12:00:46] "GET /api/get_analytics HTTP/1.1" 200 -
